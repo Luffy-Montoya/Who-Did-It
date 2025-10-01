@@ -2,7 +2,7 @@ export const characters = [
 
     {
         name: "Bill",
-        image: "/public/images/characters/Bill.png",
+        image: "/images/characters/Bill.png",
         head: "glasses",
         hair: "gray",
         skin: "light",
@@ -16,7 +16,7 @@ export const characters = [
 
     {
         name: "Brodie",
-        image: "/public/images/characters/Brodie.png",
+        image: "/images/characters/Brodie.png",
         head: "hat",
         hair: "black",
         skin: "dark",
@@ -30,7 +30,7 @@ export const characters = [
 
     {
         name: "Chloe",
-        image: "/public/images/characters/Chloe.png",
+        image: "/images/characters/Chloe.png",
         head: "none",
         hair: "blonde",
         skin: "light",
@@ -44,7 +44,7 @@ export const characters = [
 
     {
         name: "Elaine",
-        image: "/public/images/characters/Elaine.png",
+        image: "/images/characters/Elaine.png",
         head: "glasses",
         hair: "gray",
         skin: "dark",
@@ -58,7 +58,7 @@ export const characters = [
 
     {
         name: "Emily",
-        image: "/public/images/characters/Emily.png",
+        image: "/images/characters/Emily.png",
         head: "none",
         hair: "blonde",
         skin: "light",
@@ -72,7 +72,7 @@ export const characters = [
 
     {
         name: "Erika",
-        image: "/public/images/characters/Erika.png",
+        image: "/images/characters/Erika.png",
         head: "none",
         hair: "brown",
         skin: "light",
@@ -86,7 +86,7 @@ export const characters = [
 
     {
         name: "Jada",
-        image: "/public/images/characters/Jada.png",
+        image: "/images/characters/Jada.png",
         head: "none",
         hair: "brown",
         skin: "dark",
@@ -100,7 +100,7 @@ export const characters = [
 
     {
         name: "Jakob",
-        image: "/public/images/characters/Jakob.png",
+        image: "/images/characters/Jakob.png",
         head: "none",
         hair: "brown",
         skin: "light",
@@ -114,7 +114,7 @@ export const characters = [
 
     {
         name: "Jazzy",
-        image: "/public/images/characters/Jazzy.png",
+        image: "/images/characters/Jazzy.png",
         head: "none",
         hair: "black",
         skin: "dark",
@@ -128,7 +128,7 @@ export const characters = [
 
     {
         name: "Jerry",
-        image: "/public/images/characters/Jerry.png",
+        image: "/images/characters/Jerry.png",
         head: "glasses",
         hair: "black",
         skin: "dark",
@@ -142,7 +142,7 @@ export const characters = [
 
     {
         name: "Jessica",
-        image: "/public/images/characters/Jessica.png",
+        image: "/images/characters/Jessica.png",
         head: "none",
         hair: "brown",
         skin: "dark",
@@ -156,7 +156,7 @@ export const characters = [
 
     {
         name: "Korbyn",
-        image: "/public/images/characters/Korbyn.png",
+        image: "/images/characters/Korbyn.png",
         head: "none",
         hair: "orange",
         skin: "light",
@@ -170,7 +170,7 @@ export const characters = [
 
     {
         name: "Lauren",
-        image: "/public/images/characters/Lauren.png",
+        image: "/images/characters/Lauren.png",
         head: "hat",
         hair: "brown",
         skin: "dark",
@@ -184,7 +184,7 @@ export const characters = [
 
     {
         name: "Lyle",
-        image: "/public/images/characters/Lyle.png",
+        image: "/images/characters/Lyle.png",
         head: "none",
         hair: "brown",
         skin: "light",
@@ -198,7 +198,7 @@ export const characters = [
 
     {
         name: "Mia",
-        image: "/public/images/characters/Mia.png",
+        image: "/images/characters/Mia.png",
         head: "bow/headband",
         hair: "black",
         skin: "light",
@@ -212,7 +212,7 @@ export const characters = [
 
     {
         name: "Michelle",
-        image: "/public/images/characters/Michelle.png",
+        image: "/images/characters/Michelle.png",
         head: "glasses",
         hair: "gray",
         skin: "light",
@@ -226,7 +226,7 @@ export const characters = [
 
     {
         name: "Mike",
-        image: "/public/images/characters/Mike.png",
+        image: "/images/characters/Mike.png",
         head: "hat",
         hair: "black",
         skin: "dark",
@@ -240,7 +240,7 @@ export const characters = [
 
     {
         name: "Roberta",
-        image: "/public/images/characters/Roberta.png",
+        image: "/images/characters/Roberta.png",
         head: "glasses",
         hair: "brown",
         skin: "light",
@@ -254,7 +254,7 @@ export const characters = [
 
     {
         name: "Rosie",
-        image: "/public/images/characters/Rosie.png",
+        image: "/images/characters/Rosie.png",
         head: "hat",
         hair: "gray",
         skin: "dark",
@@ -268,7 +268,7 @@ export const characters = [
 
     {
         name: "Scottie",
-        image: "/public/images/characters/Scottie.png",
+        image: "/images/characters/Scottie.png",
         head: "none",
         hair: "brown",
         skin: "light",
@@ -282,7 +282,7 @@ export const characters = [
 
     {
         name: "Susan",
-        image: "/public/images/characters/Susan.png",
+        image: "/images/characters/Susan.png",
         head: ["glasses", "bow/headband"],
         hair: "orange",
         skin: "light",
@@ -296,7 +296,7 @@ export const characters = [
 
     {
         name: "Derrick",
-        image: "/public/images/characters/Derrick.png",
+        image: "/images/characters/Derrick.png",
         head: "none",
         hair: "black",
         skin: "dark",
@@ -310,7 +310,7 @@ export const characters = [
 
     {
         name: "Terry",
-        image: "/public/images/characters/Terry.png",
+        image: "/images/characters/Terry.png",
         head: "hat",
         hair: "brown",
         skin: "light",
@@ -324,7 +324,7 @@ export const characters = [
 
     {
         name: "Warren",
-        image: "/public/images/characters/Warren.png",
+        image: "/images/characters/Warren.png",
         head: "none",
         hair: "gray",
         skin: "light",
@@ -335,5 +335,6 @@ export const characters = [
         shoes: "black",
         accessories: "none"
     },
+
 
 ]
