@@ -1,7 +1,7 @@
 body{
     margin: 0;
     background: rgb(220, 220, 220);
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-self: center;
     font-family: sans-serif;
@@ -39,4 +39,5 @@ h1 {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 1fr);
 }
+
 
