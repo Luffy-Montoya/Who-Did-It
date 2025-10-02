@@ -18,6 +18,7 @@ html, body{
 img {
     width: auto;
     height: auto;
+    object-fit: contain;
 }
 
 h1 {
@@ -42,6 +43,7 @@ h1 {
     display: flex;
 
 }
+
 
 
 
