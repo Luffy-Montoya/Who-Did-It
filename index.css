@@ -1,7 +1,7 @@
 body{
     margin: 0;
     background: rgb(220, 220, 220);
-    width: 300px;
+    width: 200px;
     display: flex;
     justify-items: center;
     justify-self: center;
@@ -33,6 +33,7 @@ h1 {
     display: flex;
 
 }
+
 
 
 
