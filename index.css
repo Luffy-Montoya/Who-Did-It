@@ -72,6 +72,7 @@ img {
     object-fit: contain;
     transition: all 1s;
     margin: 0;
+    filter: drop-shadow(1px 2px 2px rgb(50,50,50,0.5));
 }
 
 img:active {
@@ -96,6 +97,7 @@ h1 {
 .categories {
     display: flex;
 }
+
 
 
 
