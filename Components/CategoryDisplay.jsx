@@ -6,13 +6,13 @@ export default function CategoryDisplay() {
     const { setCategories } = React.useContext(LayoutContext)
 
     const setCategory = (name) => {
-    setCategories((prev) =>
-      Object.keys(prev).reduce((acc, key) => {
-        acc[key] = key === name
-        return acc
-      }, {})
-    )
-  }
+      setCategories((prev) =>
+        Object.keys(prev).reduce((acc, key) => {
+          acc[key] = key === name
+          return acc
+        }, {})
+      )
+    }
     
     return(
             <div className="category-display">

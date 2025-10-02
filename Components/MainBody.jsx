@@ -12,7 +12,7 @@ export default function MainBody() {
     }, [])
     
     const characterMap = shuffled.map((character, index) => (
-        <img className={big && "big"} src={character.image} key={index}></img>
+        <img className="characters" src={character.image} key={index}></img>
     ))
 
     
