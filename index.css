@@ -3,7 +3,8 @@
 body {
     margin: 0 auto;
     background: rgb(220, 220, 220);
-    width: 500px;
+    width: 100vw;
+    max-width: 500px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -95,4 +96,5 @@ h1 {
 .categories {
     display: flex;
 }
+
 
