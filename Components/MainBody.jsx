@@ -15,8 +15,9 @@ export default function MainBody() {
     ))
 
     return (
-        <div className="MainBody">
+        <div className="main-body">
             {characterMap}
         </div>
     )
+
 }
