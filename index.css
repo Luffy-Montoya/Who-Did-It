@@ -66,7 +66,7 @@ body {
 }
 
 img {
-    width: 5.2em;
+    width: 16.666%;
     height: auto;
     object-fit: contain;
     transition: all 1s;
@@ -95,3 +95,4 @@ h1 {
 .categories {
     display: flex;
 }
+
