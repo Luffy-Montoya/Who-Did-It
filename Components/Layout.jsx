@@ -1,9 +1,10 @@
 import React from "react"
 import Header from "./Header"
+import Dash from "./Dash"
 import MainDisplay from "./MainDisplay"
+import CategoryDisplay from "./CategoryDisplay"
 import OptionsDisplay from "./OptionsDisplay"
 import MainBody from "./MainBody"
-import CategoryDisplay from "./CategoryDisplay"
 import Head from "../Options/Head"
 import Hair from "../Options/Hair"
 import GenderSkin from "../Options/GenderSkin"
@@ -46,12 +47,16 @@ export default function Layout() {
             setAskQuestion 
             }}>
             <div className="layout">
-                <Header />
+                <Header>
+                    <ToggleMainDisplay />
+                    <Dash />
+                </Header>
                 <MainDisplay>
-                    {askDisplay && <AskDisplay />}
                     {categoryDisplay && <CategoryDisplay />}
+                    {askDisplay && <AskDisplay />}
                 </MainDisplay>
                 <OptionsDisplay>
+                    {Object.values(categories).every(value => value === false) && <h3>Select a Category</h3>}
                     {categories.head && <Head />}
                     {categories.hair && <Hair />}
                     {categories.genderSkin && <GenderSkin />}
@@ -63,7 +68,6 @@ export default function Layout() {
                 </OptionsDisplay>
                 <MainBody />
             </div>
-            <ToggleMainDisplay />
         </LayoutContext.Provider>
     )
 }

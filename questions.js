@@ -16,8 +16,8 @@ const hair = {
 const genderSkin = {
     man: "Were they a MAN?",
     woman: "Were they a WOMAN?",
-    light: "Were they LIGHT-skinned?",
-    dark: "Were they DARK-skinned?"
+    light: "Did they have LIGHT skin?",
+    dark: "Did they have DARK skin?"
 }
 
 const clothes = {

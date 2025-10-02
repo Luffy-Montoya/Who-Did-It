@@ -334,7 +334,6 @@ export const characters = [
         pants: "gray",
         shoes: "black",
         accessories: "none"
-    },
-
+    }
 
 ]

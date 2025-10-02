@@ -4,14 +4,14 @@ import { LayoutContext } from "../Components/Layout"
 
 export default function Head() {
 
-    const { askQuestion, setAskQuestion } = React.useContext(LayoutContext)
+    const { setAskQuestion } = React.useContext(LayoutContext)
 
     return(
         <div className="options-list">
             <button onClick={() => setAskQuestion(head.any)}>Any</button>
-            <button>Glasses</button>
-            <button>Hat</button>
-            <button>Bow/Band</button>
+            <button onClick={() => setAskQuestion(head.glasses)}>Glasses</button>
+            <button onClick={() => setAskQuestion(head.hat)}>Hat</button>
+            <button onClick={() => setAskQuestion(head.bowBand)}>Bow/Headband</button>
         </div>
     )
 }

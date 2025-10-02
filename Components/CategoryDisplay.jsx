@@ -15,7 +15,7 @@ export default function CategoryDisplay() {
   }
     
     return(
-            <div className="categories">
+            <div className="category-display">
                 <button onClick={() => setCategory("head")}>Head</button>
                 <button onClick={() => setCategory("hair")}>Hair</button>
                 <button onClick={() => setCategory("genderSkin")}>Gender/Skin</button>

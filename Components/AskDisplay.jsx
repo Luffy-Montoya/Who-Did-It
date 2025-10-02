@@ -6,9 +6,8 @@ export default function AskDisplay() {
     const { askQuestion } = React.useContext(LayoutContext)
 
     return(
-        <>
-        <h1>{askQuestion}</h1>
-        <button onClick={() => console.log(askQuestion)}>Question</button>
-        </>
+        <div className={"ask-display"}>
+            {askQuestion}
+        </div>
     )
 }

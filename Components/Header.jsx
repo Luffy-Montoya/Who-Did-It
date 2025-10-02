@@ -1,11 +1,10 @@
 import React from "react"
-import Dash from "./Dash"
 
-export default function Header() {
+export default function Header({ children }) {
     return(
         <div className="header">
             <h1>Who did it?</h1>
-            <Dash />
+            {children}
         </div>
     )
 }

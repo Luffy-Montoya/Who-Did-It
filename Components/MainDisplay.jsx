@@ -20,7 +20,6 @@ export default function MainDisplay({ children }) {
     return (
             
                 <div className="main-display">
-                    <h1>This is the Main Display</h1>
                     { children }
                 </div>
         
