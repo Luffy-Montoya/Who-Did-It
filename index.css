@@ -4,7 +4,7 @@ body {
     margin: 0 auto;
     background: rgb(220, 220, 220);
     max-width: 480px;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     font-family: sans-serif;
@@ -159,4 +159,5 @@ button {
     background: lightgray;
     border: solid black 1px;
 }
+
 
