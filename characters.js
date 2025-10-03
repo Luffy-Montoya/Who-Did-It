@@ -11,7 +11,8 @@ export const characters = [
         shirt: "blue",
         pants: "gray",
         shoes: ["blue", "white"],
-        accessories: "science stuff"
+        accessories: "science stuff",
+        id: 1,
     },
 
     {
@@ -25,7 +26,8 @@ export const characters = [
         shirt: "red",
         pants: "gray",
         shoes: "gray",
-        accessories: ["whistle", "basketball"]
+        accessories: ["whistle", "basketball"],
+        id: 2,
     },
 
     {
@@ -39,7 +41,8 @@ export const characters = [
         shirt: "purple",
         pants: "none",
         shoes: "black",
-        accessories: "writing pad"
+        accessories: "writing pad",
+        id: 3,
     },
 
     {
@@ -53,7 +56,8 @@ export const characters = [
         shirt: "pink",
         pants: "none",
         shoes: "red",
-        accessories: "books"
+        accessories: "books",
+        id: 4,
     },
 
     {
@@ -67,7 +71,8 @@ export const characters = [
         shirt: "blue",
         pants: "blue",
         shoes: ["gray", "white"],
-        accessories: "animals"
+        accessories: "animals",
+        id: 5,
     },
 
     {
@@ -81,7 +86,8 @@ export const characters = [
         shirt: "purple",
         pants: "none",
         shoes: "black",
-        accessories: ["purse", "badge"]
+        accessories: ["purse", "badge"],
+        id: 6,
     },
 
     {
@@ -95,7 +101,8 @@ export const characters = [
         shirt: "green",
         pants: "blue",
         shoes: "brown",
-        accessories: "badge"
+        accessories: "badge",
+        id: 7,
     },
 
     {
@@ -109,7 +116,8 @@ export const characters = [
         shirt: "pink",
         pants: "blue",
         shoes: "black",
-        accessories: "math stuff"
+        accessories: "math stuff",
+        id: 8,
     },
 
     {
@@ -123,7 +131,8 @@ export const characters = [
         shirt: "purple",
         pants: "black",
         shoes: "black",
-        accessories: "microphone"
+        accessories: "microphone",
+        id: 9,
     },
 
     {
@@ -137,7 +146,8 @@ export const characters = [
         shirt: "purple",
         pants: "blue",
         shoes: "brown",
-        accessories: "none"
+        accessories: "none",
+        id: 10,
     },
 
     {
@@ -151,7 +161,8 @@ export const characters = [
         shirt: "blue",
         pants: "blue",
         shoes: "gray",
-        accessories: "whistle"
+        accessories: "whistle",
+        id: 11,
     },
 
     {
@@ -165,7 +176,8 @@ export const characters = [
         shirt: "pink",
         pants: "blue",
         shoes: "brown",
-        accessories: ["purse", "badge"]
+        accessories: ["purse", "badge"],
+        id: 12,
     },
 
     {
@@ -179,7 +191,8 @@ export const characters = [
         shirt: "blue",
         pants: "blue",
         shoes: "gray",
-        accessories: "clipboard"
+        accessories: "clipboard",
+        id: 13,
     },
 
     {
@@ -193,7 +206,8 @@ export const characters = [
         shirt: "blue",
         pants: "brown",
         shoes: "brown",
-        accessories: "none"
+        accessories: "none",
+        id: 14,
     },
 
     {
@@ -207,7 +221,8 @@ export const characters = [
         shirt: "pink",
         pants: "red",
         shoes: "",
-        accessories: ""
+        accessories: "",
+        id: 15,
     },
 
     {
@@ -221,7 +236,8 @@ export const characters = [
         shirt: "red",
         pants: "gray",
         shoes: "black",
-        accessories: "none"
+        accessories: "none",
+        id: 16,
     },
 
     {
@@ -235,7 +251,8 @@ export const characters = [
         shirt: "blue",
         pants: "black",
         shoes: "black",
-        accessories: "badge"
+        accessories: "badge",
+        id: 17,
     },
 
     {
@@ -249,7 +266,8 @@ export const characters = [
         shirt: "purple",
         pants: "none",
         shoes: "purple",
-        accessories: "none"
+        accessories: "none",
+        id: 18,
     },
 
     {
@@ -263,7 +281,8 @@ export const characters = [
         shirt: "green",
         pants: "gray",
         shoes: "black",
-        accessories: "none"
+        accessories: "none",
+        id: 19,
     },
 
     {
@@ -277,7 +296,8 @@ export const characters = [
         shirt: "pink",
         pants: "none",
         shoes: "blue",
-        accessories: "books"
+        accessories: "books",
+        id: 20,
     },
 
     {
@@ -291,7 +311,8 @@ export const characters = [
         shirt: "green",
         pants: "green",
         shoes: "red",
-        accessories: "mask"
+        accessories: "mask",
+        id: 21,
     },
 
     {
@@ -305,7 +326,8 @@ export const characters = [
         shirt: "white",
         pants: "gray",
         shoes: "black",
-        accessories: "computer"
+        accessories: "computer",
+        id: 22,
     },
 
     {
@@ -319,7 +341,8 @@ export const characters = [
         shirt: "blue",
         pants: "brown",
         shoes: "brown",
-        accessories: "broom"
+        accessories: "broom",
+        id: 23,
     },
 
     {
@@ -333,7 +356,8 @@ export const characters = [
         shirt: "white",
         pants: "gray",
         shoes: "black",
-        accessories: "none"
+        accessories: "none",
+        id: 24,
     }
 
 ]
