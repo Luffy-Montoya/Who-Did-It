@@ -1,7 +1,7 @@
 export const characters = [
 
     {
-        name: "Caesar",
+        name: "Cesar",
         image: "/images/characters/Bill.png",
         head: "glasses",
         hair: "gray",
@@ -271,7 +271,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Julia" : "Rosie"),
+        name: (Math.random() < 0.5 ? "Julia" : "Carla"),
         image: "/images/characters/Rosie.png",
         head: "hat",
         hair: "gray",
