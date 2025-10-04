@@ -1,7 +1,7 @@
 export const characters = [
 
     {
-        name: "Bill",
+        name: "Caesar",
         image: "/images/characters/Bill.png",
         head: "glasses",
         hair: "gray",
@@ -16,7 +16,7 @@ export const characters = [
     },
 
     {
-        name: "Brodie",
+        name: "Codee",
         image: "/images/characters/Brodie.png",
         head: "hat",
         hair: "black",
@@ -31,7 +31,7 @@ export const characters = [
     },
 
     {
-        name: "Chloe",
+        name: "Skye",
         image: "/images/characters/Chloe.png",
         head: "none",
         hair: "blonde",
@@ -46,7 +46,7 @@ export const characters = [
     },
 
     {
-        name: "Elaine",
+        name: "Yaya",
         image: "/images/characters/Elaine.png",
         head: "glasses",
         hair: "gray",
@@ -61,7 +61,7 @@ export const characters = [
     },
 
     {
-        name: "Emily",
+        name: "Kendall",
         image: "/images/characters/Emily.png",
         head: "none",
         hair: "blonde",
@@ -76,7 +76,7 @@ export const characters = [
     },
 
     {
-        name: "Erika",
+        name: "Patience",
         image: "/images/characters/Erika.png",
         head: "none",
         hair: "brown",
@@ -91,7 +91,7 @@ export const characters = [
     },
 
     {
-        name: "Jada",
+        name: "Hope",
         image: "/images/characters/Jada.png",
         head: "none",
         hair: "brown",
@@ -106,7 +106,7 @@ export const characters = [
     },
 
     {
-        name: "Jakob",
+        name: "Andrew",
         image: "/images/characters/Jakob.png",
         head: "none",
         hair: "brown",
@@ -121,7 +121,7 @@ export const characters = [
     },
 
     {
-        name: "Jazzy",
+        name: "Charly",
         image: "/images/characters/Jazzy.png",
         head: "none",
         hair: "black",
@@ -136,7 +136,7 @@ export const characters = [
     },
 
     {
-        name: "Jerry",
+        name: "Zasha",
         image: "/images/characters/Jerry.png",
         head: "glasses",
         hair: "black",
@@ -151,7 +151,7 @@ export const characters = [
     },
 
     {
-        name: "Jessica",
+        name: "Mina",
         image: "/images/characters/Jessica.png",
         head: "none",
         hair: "brown",
@@ -166,7 +166,7 @@ export const characters = [
     },
 
     {
-        name: "Korbyn",
+        name: "Vanessa",
         image: "/images/characters/Korbyn.png",
         head: "none",
         hair: "orange",
@@ -196,7 +196,7 @@ export const characters = [
     },
 
     {
-        name: "Lyle",
+        name: "Gavin",
         image: "/images/characters/Lyle.png",
         head: "none",
         hair: "brown",
@@ -211,7 +211,7 @@ export const characters = [
     },
 
     {
-        name: "Mia",
+        name: "Bri",
         image: "/images/characters/Mia.png",
         head: "bow/headband",
         hair: "black",
@@ -241,7 +241,7 @@ export const characters = [
     },
 
     {
-        name: "Mike",
+        name: "Brandon",
         image: "/images/characters/Mike.png",
         head: "hat",
         hair: "black",
@@ -256,7 +256,7 @@ export const characters = [
     },
 
     {
-        name: "Roberta",
+        name: "Elayna",
         image: "/images/characters/Roberta.png",
         head: "glasses",
         hair: "brown",
@@ -271,7 +271,7 @@ export const characters = [
     },
 
     {
-        name: "Rosie",
+        name: (Math.random() < 0.5 ? "Julia" : "Rosie"),
         image: "/images/characters/Rosie.png",
         head: "hat",
         hair: "gray",
@@ -286,7 +286,7 @@ export const characters = [
     },
 
     {
-        name: "Scottie",
+        name: "Meg",
         image: "/images/characters/Scottie.png",
         head: "none",
         hair: "brown",
@@ -301,7 +301,7 @@ export const characters = [
     },
 
     {
-        name: "Susan",
+        name: "Mackenzie",
         image: "/images/characters/Susan.png",
         head: ["glasses", "bow/headband"],
         hair: "orange",
@@ -316,7 +316,7 @@ export const characters = [
     },
 
     {
-        name: "Derrick",
+        name: "R J",
         image: "/images/characters/Derrick.png",
         head: "none",
         hair: "black",
@@ -331,7 +331,7 @@ export const characters = [
     },
 
     {
-        name: "Terry",
+        name: "Katt",
         image: "/images/characters/Terry.png",
         head: "hat",
         hair: "brown",
@@ -346,7 +346,7 @@ export const characters = [
     },
 
     {
-        name: "Warren",
+        name: "Dale",
         image: "/images/characters/Warren.png",
         head: "none",
         hair: "gray",
