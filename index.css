@@ -129,6 +129,7 @@ h1 {
 button {
     display: flex;
     align-items: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .options-list {
@@ -160,4 +161,5 @@ button {
     background: lightgray;
     border: solid black 1px;
 }
+
 
