@@ -1,13 +1,16 @@
 import React from "react"
-import coinImg from "../src/images/coin.png"
+import { LayoutContext } from "../Components/Layout"
 
 function cost(cost){
-        return (
-        <>
-            <img className="coin" src={coinImg}/>
-            <span className="cost">{cost}</span>
-        </>    
-        )
-    }
+
+const { coin } = React.useContext(LayoutContext)
+
+    return (
+    <>
+        {coin}
+        <span className="cost">{cost}</span>
+    </>    
+    )
+}
 
 export { cost }

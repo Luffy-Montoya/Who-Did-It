@@ -5,9 +5,9 @@ body {
     background: rgb(220, 220, 220);
     max-width: 480px;
     height: 100dvh;
-    display: flex;
     justify-content: center;
     font-family: sans-serif;
+    display: flex;
 }
 
 .layout {
@@ -82,7 +82,7 @@ body {
 }
 
 .character-container.active {
-    width: 0;
+    width: 2px;
     transform: translateY(75%);
     transition-delay: .8s;
     transition-duration: 1s;
@@ -161,5 +161,4 @@ button {
     background: lightgray;
     border: solid black 1px;
 }
-
 

@@ -5,8 +5,7 @@ import { cost } from "../Functions/cost"
 
 export default function Shoes() {
 
-    const { setAskQuestion } = React.useContext(LayoutContext)
-    const coin = <img className="coin" src="../images/coin.png"/>
+    const { setAskQuestion, } = React.useContext(LayoutContext)
 
     return(
         <div className="options-list">

@@ -1,7 +1,9 @@
+const randomVar = Math.random()
+
 export const characters = [
 
     {
-        name: "Cesar",
+        name: (randomVar < 0.33333 ? "Cesar" : (randomVar < 0.66666 ? "Pablo" : "Steve")),
         image: "/images/characters/Bill.png",
         head: "glasses",
         hair: "gray",
@@ -16,7 +18,7 @@ export const characters = [
     },
 
     {
-        name: "Codee",
+        name: (randomVar < 0.33333 ? "Codee" : (randomVar < 0.66666 ? "Kyle" : "Senyon")),
         image: "/images/characters/Brodie.png",
         head: "hat",
         hair: "black",
@@ -31,7 +33,7 @@ export const characters = [
     },
 
     {
-        name: "Skye",
+        name: (Math.random() < 0.5 ? "Skye" : "Audra"),
         image: "/images/characters/Chloe.png",
         head: "none",
         hair: "blonde",
@@ -76,7 +78,7 @@ export const characters = [
     },
 
     {
-        name: "Patience",
+        name: (Math.random() < 0.5 ? "Patience" : "Katie"),
         image: "/images/characters/Erika.png",
         head: "none",
         hair: "brown",
@@ -106,7 +108,7 @@ export const characters = [
     },
 
     {
-        name: "Andrew",
+        name: (Math.random() < 0.5 ? "Andrew" : "Lester"),
         image: "/images/characters/Jakob.png",
         head: "none",
         hair: "brown",
@@ -121,7 +123,7 @@ export const characters = [
     },
 
     {
-        name: "Charly",
+        name: (Math.random() < 0.5 ? "Charly" : "Sophia"),
         image: "/images/characters/Jazzy.png",
         head: "none",
         hair: "black",
@@ -151,7 +153,7 @@ export const characters = [
     },
 
     {
-        name: "Mina",
+        name: (Math.random() < 0.5 ? "Mina" : "Athena"),
         image: "/images/characters/Jessica.png",
         head: "none",
         hair: "brown",
@@ -196,7 +198,7 @@ export const characters = [
     },
 
     {
-        name: "Gavin",
+        name: (Math.random() < 0.5 ? "Gavin" : "Sam"),
         image: "/images/characters/Lyle.png",
         head: "none",
         hair: "brown",
@@ -211,7 +213,7 @@ export const characters = [
     },
 
     {
-        name: "Bri",
+        name: (Math.random() < 0.5 ? "Bri" : "Madelyn"),
         image: "/images/characters/Mia.png",
         head: "bow/headband",
         hair: "black",
@@ -226,7 +228,7 @@ export const characters = [
     },
 
     {
-        name: "Michelle",
+        name: (Math.random() < 0.5 ? "Michelle" : "Madi"),
         image: "/images/characters/Michelle.png",
         head: "glasses",
         hair: "gray",
@@ -241,7 +243,7 @@ export const characters = [
     },
 
     {
-        name: "Brandon",
+        name: (Math.random() < 0.5 ? "Brandon" : "Angel"),
         image: "/images/characters/Mike.png",
         head: "hat",
         hair: "black",
@@ -271,7 +273,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Julia" : "Carla"),
+        name: (Math.random() < 0.5 ? "Carla" : "Thia"),
         image: "/images/characters/Rosie.png",
         head: "hat",
         hair: "gray",
@@ -301,7 +303,7 @@ export const characters = [
     },
 
     {
-        name: "Mackenzie",
+        name: (Math.random() < 0.5 ? "Mackenzie" : "Julia"),
         image: "/images/characters/Susan.png",
         head: ["glasses", "bow/headband"],
         hair: "orange",
@@ -316,7 +318,7 @@ export const characters = [
     },
 
     {
-        name: "R J",
+        name: (randomVar < 0.4 ? "R J" : (randomVar < 0.8 ? "Justin" : "Nate")),
         image: "/images/characters/Derrick.png",
         head: "none",
         hair: "black",
@@ -331,7 +333,7 @@ export const characters = [
     },
 
     {
-        name: "Katt",
+        name: (Math.random() < 0.5 ? "Katt" : "Gareth"),
         image: "/images/characters/Terry.png",
         head: "hat",
         hair: "brown",
@@ -346,7 +348,7 @@ export const characters = [
     },
 
     {
-        name: "Dale",
+        name: (Math.random() < 0.5 ? "Dale" : "D'Angelo"),
         image: "/images/characters/Warren.png",
         head: "none",
         hair: "gray",

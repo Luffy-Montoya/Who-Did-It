@@ -34,6 +34,7 @@ export default function Layout() {
         shoes: false,
         accessories: false,
     })
+    const coin = <img className="coin" src="../images/coin.png"/>
 
     return (
         <LayoutContext.Provider value={{ 
@@ -44,7 +45,8 @@ export default function Layout() {
             askDisplay,
             setAskDisplay,
             askQuestion,
-            setAskQuestion 
+            setAskQuestion,
+            coin 
             }}>
             <div className="layout">
                 <Header>
