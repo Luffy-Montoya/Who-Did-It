@@ -41,14 +41,15 @@ export default function MainBody() {
 
 
     React.useEffect(() => {
-        if (!secondArranged.current && charactersLeft.length < 16 && charactersLeft.length > 9) {
+        if (!secondArranged.current && charactersLeft.length < 16 && charactersLeft.length > 8) {
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 5))
                 setRow2(charactersLeft.slice(5, 10))
                 setRow3(charactersLeft.slice(10))
                 setRow4([])
                 secondArranged.current = true
-            },1100)
+                console.log(row1, row2, row3, row4)
+            },1000)
         }
 
         if (!thirdArranged.current && charactersLeft.length < 9 && charactersLeft.length > 6) {
@@ -56,39 +57,36 @@ export default function MainBody() {
                 setRow1(charactersLeft.slice(0, 4))
                 setRow2(charactersLeft.slice(4))
                 setRow3([])
-                setRow4([])
                 thirdArranged.current = true
-            },1100)
+                console.log(row1, row2, row3, row4)
+            },1000)
         }
 
         if (!fourthArranged.current && charactersLeft.length < 7 && charactersLeft.length > 4) {
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 3))
                 setRow2(charactersLeft.slice(3))
-                setRow3([])
-                setRow4([])
                 fourthArranged.current = true
-            },1100)
+                console.log(row1, row2, row3, row4)
+            },1000)
         }
 
         if (!fifthArranged.current && charactersLeft.length < 5 && charactersLeft.length > 2) {
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 2))
                 setRow2(charactersLeft.slice(2))
-                setRow3([])
-                setRow4([])
                 fifthArranged.current = true
-            },1100)
+                console.log(row1, row2, row3, row4)
+            },1000)
         }
 
         if (!sixthArranged.current && charactersLeft.length < 3 && charactersLeft.length > 1) {
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 3))
                 setRow2(charactersLeft.slice(3))
-                setRow3([])
-                setRow4([])
                 sixthArranged.current = true
-            },1100)
+                console.log(row1, row2, row3, row4)
+            },1000)
         }
 
     }, [charactersLeft])
@@ -103,16 +101,17 @@ export default function MainBody() {
             setRow3(prev => prev.filter(obj => obj.name !== charName))
             setRow4(prev => prev.filter(obj => obj.name !== charName))
             
-        }, 1000)
+        }, 900)
     }
 
     function getCharacterSize(len) {
         if (len > 15 && len < 25) return "char-size-1"
-        if (len > 9 && len <= 15) return "char-size-2"
-        if (len > 5 && len <= 9) return "char-size-3"
-        if (len > 2 && len <= 5) return "char-size-4"
-        if (len === 2) return "char-size-5"
-        if (len === 1) return "char-size-6"
+        if (len > 8 && len <= 15) return "char-size-2"
+        if (len > 6 && len <= 8) return "char-size-3"
+        if (len > 4 && len <= 6) return "char-size-4"
+        if (len > 2 && len <= 4) return "char-size-5"
+        if (len === 2) return "char-size-6"
+        if (len === 1) return "char-size-7"
         return "default"
     }
 
@@ -120,11 +119,12 @@ export default function MainBody() {
 
     function getContainerSize(len) {
         if (len > 15 && len < 25) return "cont-size-1"
-        if (len > 9 && len <= 15) return "cont-size-2"
-        if (len > 5 && len <= 9) return "cont-size-3"
-        if (len > 2 && len <= 5) return "cont-size-4"
-        if (len === 2) return "cont-size-5"
-        if (len === 1) return "cont-size-6"
+        if (len > 8 && len <= 15) return "cont-size-2"
+        if (len > 6 && len <= 8) return "cont-size-3"
+        if (len > 4 && len <= 6) return "cont-size-4"
+        if (len > 2 && len <= 4) return "cont-size-5"
+        if (len === 2) return "cont-size-6"
+        if (len === 1) return "cont-size-7"
         return "default"
     }
 
@@ -146,7 +146,7 @@ export default function MainBody() {
     }
 
     return (
-        <>
+    
         <div className="main-body">          
                 <div className={`image-container ${row1.length < 1 ? "empty" : ""} ${containerSize}`}>
                     {rowMap(row1, 0)}              
@@ -161,7 +161,6 @@ export default function MainBody() {
                     {rowMap(row4, 18)}                 
                 </div>
         </div>
-        </>
+       
     )
-
 }

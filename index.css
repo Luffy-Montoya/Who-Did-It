@@ -3,7 +3,7 @@
 body {
     margin: 0 auto;
     background: rgb(220, 220, 220);
-    max-width: 480px;
+    width: 480px;
     height: 100dvh;
     justify-content: center;
     font-family: sans-serif;
@@ -12,7 +12,8 @@ body {
 
 .layout {
     height: 100%;
-    width: 100%;
+    width: 100vw;
+    max-width: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,6 +68,7 @@ body {
     object-fit: contain;
     justify-content: center;
     transition: .7s;
+    border: 1px solid rgb(100,0,0,0.6)
 }
 
 .characters {
@@ -83,7 +85,7 @@ body {
     width: 0px;
     height: 100%;
     font-size: 0;
-    transition-delay: .6s;
+    transition-delay: .3s;
    
 }
 
@@ -95,7 +97,7 @@ body {
 
 .character-container.active > .character-name {
     opacity: 0%;
-    transition: .8s;
+    transition: .7s;
 }
 
 .character-name{
@@ -113,8 +115,9 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    transition: 1s;
+    transition: 0s;
     font-size: 15px;
+    border: 1px solid rgb(0,0,0,0.6)
 }
 
 .image-container.empty {
@@ -122,7 +125,7 @@ body {
     opacity: 0;
     padding: 0;
     border: 0;
-    transition: 1s;
+    transition: .1s;
 }
 
 h1 {
@@ -172,7 +175,7 @@ button {
 }
 
 .char-size-1{
-    width: 16.666%;
+    width: 16%;
 }
 
 .cont-size-1{
@@ -182,55 +185,68 @@ button {
 .char-size-2{
     width: 19.5%;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 
 .cont-size-2{
     height: 25dvh;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 .char-size-3{
     width: 24.5%;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 
 .cont-size-3{
     height: 38dvh;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 .char-size-4{
     width: 32.5%;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 
 .cont-size-4{
     height: 38dvh;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 .char-size-5{
-    width: 49%;
+    width: 32.5%;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 
 .cont-size-5{
-    height: 75dvh;
+    height: 38dvh;
     transition-duration: 1s;
-    transition-delay: 2.2s;
+    transition-delay: 1.2s;
 }
 
 .char-size-6{
-    width: 80%;
+    width: 48%;
     transition-duration: 1s;
+    transition-delay: 1.2s;
 }
 
 .cont-size-6{
     height: 75dvh;
     transition-duration: 1s;
+    transition-delay: 1.2s;
+}
 
+.char-size-7{
+    width: 70%;
+    transition-duration: 1s;
+    transition-delay: 1.2s;
+}
+
+.cont-size-7{
+    height: 75dvh;
+    transition-duration: 1s;
+    transition-delay: 1.2s;
 }
