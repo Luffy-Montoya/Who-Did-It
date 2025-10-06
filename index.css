@@ -61,17 +61,16 @@ body {
 }
 
 .character-container {
-    width: 16%;
     height: 100%;
     display: flex;
     flex-direction: column;
     object-fit: contain;
     justify-content: center;
-    transition: .5s;
+    transition: .7s;
 }
 
 .characters {
-    transition: all 1s;
+    transition: 1s;
     width: 100%;
     margin: 0;
     filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25));
@@ -109,7 +108,6 @@ body {
 
 .image-container {
     width: 100%;
-    height: 19dvh;
     max-height: 600px;
     display: flex;
     flex-wrap: wrap;
@@ -126,13 +124,6 @@ body {
     padding: 0;
     border: 0;
     transition: 1s;
-}
-
-.space{
-    transition: all 1s;
-    max-height: 600px;
-    width: 0%;
-    margin: 0;
 }
 
 h1 {
@@ -181,3 +172,65 @@ button {
     border: solid black 1px;
 }
 
+.char-size-1{
+    width: 16.666%;
+}
+
+.cont-size-1{
+    height: 19dvh;
+}
+
+.char-size-2{
+    width: 19.5%;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+
+.cont-size-2{
+    height: 25dvh;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+.char-size-3{
+    width: 24.5%;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+
+.cont-size-3{
+    height: 38dvh;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+.char-size-4{
+    width: 32.5%;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+
+.cont-size-4{
+    height: 38dvh;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+.char-size-5{
+    width: 49%;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+
+.cont-size-5{
+    height: 75dvh;
+    transition-duration: 1s;
+    transition-delay: 2.2s;
+}
+
+.char-size-6{
+    width: 80%;
+    transition-duration: 1s;
+}
+
+.cont-size-6{
+    height: 75dvh;
+    transition-duration: 1s;
+}
