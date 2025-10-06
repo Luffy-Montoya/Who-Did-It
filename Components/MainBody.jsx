@@ -5,80 +5,88 @@ import { shuffleCharacters } from "../Functions/shuffleCharacters"
 export default function MainBody() {
 
     const [shuffled, setShuffled] = React.useState([])
-    const [active, setActive] = React.useState({
-        1: false,
-        2: false,
-        3: false,
-        4: false,
-        5: false,
-        6: false,
-        7: false,
-        8: false,
-        9: false,
-        10: false,
-        11: false,
-        12: false,
-        13: false,
-        14: false,
-        15: false,
-        16: false,
-        17: false,
-        18: false,
-        19: false,
-        20: false,
-        21: false,
-        22: false,
-        23: false,
-        24: false,
-    })
+    const [charactersLeft, setCharactersLeft] = React.useState([])
+    const [firstArrange, setFirstArrange] = React.useState([])
+    const [isFirstArrange, setisFirstArrange] = React.useState(false)
+    const [row1, setRow1] = React.useState([])
+    const [row2, setRow2] = React.useState([])
+    const [row3, setRow3] = React.useState([])
+    const [row4, setRow4] = React.useState([])
+        
+    const [active, setActive] = React.useState({})
 
     React.useEffect(() => {
-        setShuffled(shuffleCharacters(characters))
+        const shuffledChars = shuffleCharacters(characters)
+        setShuffled(shuffledChars)
+        setCharactersLeft(shuffledChars)
     }, [])
 
-    const selectCharacter = (id) => {
-        setActive(prev => ({...prev, [id]: true}))
-        console.log(active[id])
+    const arranged = React.useRef(false);
+
+    React.useEffect(() => {
+    if (!arranged.current && charactersLeft.length > 0) {
+        setRow1(charactersLeft.slice(0, 6));
+        setRow2(charactersLeft.slice(6, 12));
+        setRow3(charactersLeft.slice(12, 18));
+        setRow4(charactersLeft.slice(18));
+        arranged.current = true; // ✅ lock it so it won’t run again
     }
-    
-    const characterMap = shuffled.map((character, index) => (
+    }, [charactersLeft]);
+
+
+        // if (charactersLeft.length < 16 ) {
+
+        // setRow1(charactersLeft.slice(0, Math.ceil(charactersLeft.length / 3)))
+        // setRow2(charactersLeft.slice(Math.ceil(charactersLeft.length / 3), Math.ceil(charactersLeft.length / 1.5)))
+        // setRow3(charactersLeft.slice(Math.ceil(charactersLeft.length / 1.5)))
+        // }
+   
+
+    const selectCharacter = (charName) => {
+        setActive(prev => ({...prev, [charName]: true}))
+        setTimeout(() => {
+            setRow1(prev => prev.filter(obj => obj.name !== charName))
+            setRow2(prev => prev.filter(obj => obj.name !== charName))
+            setRow3(prev => prev.filter(obj => obj.name !== charName))
+            setRow4(prev => prev.filter(obj => obj.name !== charName))
+            console.log(row1, row2, row3, row4,)
+            console.log(active)
+        }, 1000)
+        console.log(charactersLeft)
+    }
+
+    function rowMap(row, addIndex) {
+
+        //the addIndex parameter is used to separate the similar indexes created across the rows//
+        
+        return (
+            row.map((character) => (
         <div 
-            className={`character-container ${active[index] ? "active" : ""}`}
-            onClick={() => selectCharacter(index)}
-            key={index}
+            className={`character-container ${active[character.name] ? "active" : ""}`}
+            onClick={() => selectCharacter(character.name)}
+            key={character.name}
         >
             <img className="characters" src={character.image}></img>
             <p className="character-name">{character.name}</p>
         </div>
-    
-    ))
-
-    
-
-    // const containerRef = React.useRef(null);
-
-    // React.useEffect(() => {
-    //     if (!containerRef.current) return;
-
-    //     const container = containerRef.current;
-    //     const count = characters.length;
-
-    //     // pick columns based on closest square layout
-    //     const cols = Math.ceil(Math.sqrt(count)) + 1;
-    //     const rows = Math.ceil(count / cols);
-
-    //     container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-    //     container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-    // }, [characters.length]); 
-
+        )))
+    }
 
     return (
-        // <div className="main-body" ref={containerRef}>
-        <div className="main-body">
-            {/* <button onClick={() => setBig(!big)}>Big</button> */}
-            <div className="image-container">
-                {characterMap}
-            </div>
+        
+        <div className="main-body">          
+                <div className={`image-container ${row1.length < 1 ? "empty" : ""}`}>
+                    {rowMap(row1, 0)}              
+                </div>                
+                <div className={`image-container ${row2.length < 1 ? "empty" : ""}`}>
+                    {rowMap(row2, 6)}                
+                </div>  
+                <div className={`image-container ${row3.length < 1 ? "empty" : ""}`}>
+                    {rowMap(row3, 12)}            
+                </div>
+                <div className={`image-container ${row4.length < 1 ? "empty" : ""}`}>
+                    {rowMap(row4, 18)}                 
+                </div>
         </div>
     )
 }
