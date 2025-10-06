@@ -161,8 +161,7 @@ export default function MainBody() {
                     {rowMap(row4, 18)}                 
                 </div>
         </div>
-        <button onClick = {() => console.log(charactersLeft)}>Left</button>
-        <button onClick = {() => console.log(row1.concat(row2, row3, row4))}>Concat</button>
         </>
     )
+
 }
