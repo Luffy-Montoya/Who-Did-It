@@ -1,10 +1,11 @@
 const randomVar = Math.random()
+import { images64 } from "./images64"
 
 export const characters = [
 
     {
         name: (randomVar < 0.33333 ? "Cesar" : (randomVar < 0.66666 ? "Pablo" : "Steve")),
-        image: "/images/characters/Bill.png",
+        image: images64.Bill,
         head: "glasses",
         hair: "gray",
         skin: "light",
@@ -19,7 +20,7 @@ export const characters = [
 
     {
         name: (randomVar < 0.33333 ? "Codee" : (randomVar < 0.66666 ? "Kyle" : "Senyon")),
-        image: "/images/characters/Brodie.png",
+        image: images64.Brodie,
         head: "hat",
         hair: "black",
         skin: "dark",
@@ -34,7 +35,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Skye" : "Audra"),
-        image: "/images/characters/Chloe.png",
+        image: images64.Chloe,
         head: "none",
         hair: "blonde",
         skin: "light",
@@ -49,7 +50,7 @@ export const characters = [
 
     {
         name: "Yaya",
-        image: "/images/characters/Elaine.png",
+        image: images64.Elaine,
         head: "glasses",
         hair: "gray",
         skin: "dark",
@@ -64,7 +65,7 @@ export const characters = [
 
     {
         name: "Kendall",
-        image: "/images/characters/Emily.png",
+        image: images64.Emily,
         head: "none",
         hair: "blonde",
         skin: "light",
@@ -79,7 +80,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Patience" : "Katie"),
-        image: "/images/characters/Erika.png",
+        image: images64.Erika,
         head: "none",
         hair: "brown",
         skin: "light",
@@ -94,7 +95,7 @@ export const characters = [
 
     {
         name: "Hope",
-        image: "/images/characters/Jada.png",
+        image: images64.Jada,
         head: "none",
         hair: "brown",
         skin: "dark",
@@ -109,7 +110,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Andrew" : "Lester"),
-        image: "/images/characters/Jakob.png",
+        image: images64.Jakob,
         head: "none",
         hair: "brown",
         skin: "light",
@@ -124,7 +125,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Charly" : "Sophia"),
-        image: "/images/characters/Jazzy.png",
+        image: images64.Jazzy,
         head: "none",
         hair: "black",
         skin: "dark",
@@ -139,7 +140,7 @@ export const characters = [
 
     {
         name: "Zasha",
-        image: "/images/characters/Jerry.png",
+        image: images64.Jerry,
         head: "glasses",
         hair: "black",
         skin: "dark",
@@ -154,7 +155,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Mina" : "Athena"),
-        image: "/images/characters/Jessica.png",
+        image: images64.Jessica,
         head: "none",
         hair: "brown",
         skin: "dark",
@@ -169,7 +170,7 @@ export const characters = [
 
     {
         name: "Vanessa",
-        image: "/images/characters/Korbyn.png",
+        image: images64.Korbyn,
         head: "none",
         hair: "orange",
         skin: "light",
@@ -184,7 +185,7 @@ export const characters = [
 
     {
         name: "Lauren",
-        image: "/images/characters/Lauren.png",
+        image: images64.Lauren,
         head: "hat",
         hair: "brown",
         skin: "dark",
@@ -199,7 +200,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Gavin" : "Sam"),
-        image: "/images/characters/Lyle.png",
+        image: images64.Lyle,
         head: "none",
         hair: "brown",
         skin: "light",
@@ -214,7 +215,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Bri" : "Madelyn"),
-        image: "/images/characters/Mia.png",
+        image: images64.Mia,
         head: "bow/headband",
         hair: "black",
         skin: "light",
@@ -229,7 +230,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Michelle" : "Madi"),
-        image: "/images/characters/Michelle.png",
+        image: images64.Michelle,
         head: "glasses",
         hair: "gray",
         skin: "light",
@@ -244,7 +245,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Brandon" : "Angel"),
-        image: "/images/characters/Mike.png",
+        image: images64.Mike,
         head: "hat",
         hair: "black",
         skin: "dark",
@@ -259,7 +260,7 @@ export const characters = [
 
     {
         name: "Elayna",
-        image: "/images/characters/Roberta.png",
+        image: images64.Roberta,
         head: "glasses",
         hair: "brown",
         skin: "light",
@@ -274,7 +275,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Carla" : "Thia"),
-        image: "/images/characters/Rosie.png",
+        image: images64.Rosie,
         head: "hat",
         hair: "gray",
         skin: "dark",
@@ -289,7 +290,7 @@ export const characters = [
 
     {
         name: "Meg",
-        image: "/images/characters/Scottie.png",
+        image: images64.Scottie,
         head: "none",
         hair: "brown",
         skin: "light",
@@ -304,7 +305,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Mackenzie" : "Julia"),
-        image: "/images/characters/Susan.png",
+        image: images64.Susan,
         head: ["glasses", "bow/headband"],
         hair: "orange",
         skin: "light",
@@ -319,7 +320,7 @@ export const characters = [
 
     {
         name: (randomVar < 0.4 ? "R J" : (randomVar < 0.8 ? "Justin" : "Nate")),
-        image: "/images/characters/Derrick.png",
+        image: images64.Derrick,
         head: "none",
         hair: "black",
         skin: "dark",
@@ -334,7 +335,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Katt" : "Gareth"),
-        image: "/images/characters/Terry.png",
+        image: images64.Terry,
         head: "hat",
         hair: "brown",
         skin: "light",
@@ -349,7 +350,7 @@ export const characters = [
 
     {
         name: (Math.random() < 0.5 ? "Dale" : "D'Angelo"),
-        image: "/images/characters/Warren.png",
+        image: images64.Warren,
         head: "none",
         hair: "gray",
         skin: "light",
