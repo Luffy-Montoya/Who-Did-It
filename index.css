@@ -3,7 +3,6 @@ body {
     background: rgb(220, 220, 220);
     width: 480px;
     height: 100dvh;
-    justify-content: center;
     font-family: sans-serif;
     display: flex;
     overflow: hidden;
@@ -258,4 +257,5 @@ button {
     height: 75dvh;
     transition-duration: 1s;
     transition-delay: 1.2s;
+
 }
