@@ -333,7 +333,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Katt" : "Gareth"),
+        name: (Math.random() < 0.5 ? "Kat" : "Gareth"),
         image: images64.Terry,
         head: "hat",
         hair: "brown",
@@ -361,5 +361,6 @@ export const characters = [
         accessories: "none",
         id: 24,
     }
+
 
 ]
