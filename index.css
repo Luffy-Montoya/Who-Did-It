@@ -114,7 +114,6 @@ body {
     justify-content: center;
     align-content: center;
     transition: 1s;
-    overflow: hidden;
     font-size: 15px;
 }
 
@@ -233,4 +232,5 @@ button {
 .cont-size-6{
     height: 75dvh;
     transition-duration: 1s;
+
 }
