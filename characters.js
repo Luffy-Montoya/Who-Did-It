@@ -1,10 +1,9 @@
-const randomVar = Math.random()
 import { images64 } from "./images64"
 
 export const characters = [
 
     {
-        name: (randomVar < 0.33333 ? "Cesar" : (randomVar < 0.66666 ? "Pablo" : "Steve")),
+        name: (Math.random() < 1/3 ? "Cesar" : (Math.random() < 0.5 ? "Pablo" : "Steve")),
         image: images64.Bill,
         head: "glasses",
         hair: "gray",
@@ -19,7 +18,7 @@ export const characters = [
     },
 
     {
-        name: (randomVar < 0.33333 ? "Codee" : (randomVar < 0.66666 ? "Kyle" : "Senyon")),
+        name: (Math.random() < 1/3 ? "Codee" : (Math.random() < 0.5 ? "Kyle" : "Senyon")),
         image: images64.Brodie,
         head: "hat",
         hair: "black",
@@ -319,7 +318,7 @@ export const characters = [
     },
 
     {
-        name: (randomVar < 0.4 ? "R J" : (randomVar < 0.8 ? "Justin" : "Nate")),
+        name: (Math.random() < 1/3 ? "R J" : (Math.random() < 0.5 ? "Justin" : "Nate")),
         image: images64.Derrick,
         head: "none",
         hair: "black",
