@@ -18,30 +18,35 @@ export default function MainBody() {
     React.useEffect(() => {
         const shuffledChars = shuffleCharacters(characters)
         setShuffled(shuffledChars)
-        setCharactersLeft(shuffledChars)
     }, [])
 
-    const arranged = React.useRef(false);
+    const firstArranged = React.useRef(false)
+    const secondArranged = React.useRef(false)
 
     React.useEffect(() => {
-    if (!arranged.current && charactersLeft.length > 0) {
-        setRow1(charactersLeft.slice(0, 6));
-        setRow2(charactersLeft.slice(6, 12));
-        setRow3(charactersLeft.slice(12, 18));
-        setRow4(charactersLeft.slice(18));
-        arranged.current = true; // ✅ lock it so it won’t run again
+    if (!firstArranged.current && shuffled.length > 15) {
+        setRow1(shuffled.slice(0, 6))
+        setRow2(shuffled.slice(6, 12))
+        setRow3(shuffled.slice(12, 18))
+        setRow4(shuffled.slice(18))
+        firstArranged.current = true
     }
-    }, [charactersLeft]);
+    }, [shuffled])
 
+    React.useEffect(() => {
+    if (!secondArranged.current && charactersLeft.length < 17 && charactersLeft.length > 9) {
+        setRow1(charactersLeft.slice(0, Math.floor(charactersLeft.length / 3)))
+        setRow2(charactersLeft.slice(Math.floor(charactersLeft.length / 3), Math.floor(charactersLeft.length / 1.5)))
+        setRow3(charactersLeft.slice(Math.floor(charactersLeft.length / 1.5)))
+        setRow4([])
+        secondArranged.current = true
+    }
 
-        // if (charactersLeft.length < 16 ) {
+    setCharactersLeft(row1.concat(row2, row3, row4))
+    console.log(charactersLeft)
 
-        // setRow1(charactersLeft.slice(0, Math.ceil(charactersLeft.length / 3)))
-        // setRow2(charactersLeft.slice(Math.ceil(charactersLeft.length / 3), Math.ceil(charactersLeft.length / 1.5)))
-        // setRow3(charactersLeft.slice(Math.ceil(charactersLeft.length / 1.5)))
-        // }
+    }, [row1, row2, row3, row4])
    
-
     const selectCharacter = (charName) => {
         setActive(prev => ({...prev, [charName]: true}))
         setTimeout(() => {
@@ -49,15 +54,10 @@ export default function MainBody() {
             setRow2(prev => prev.filter(obj => obj.name !== charName))
             setRow3(prev => prev.filter(obj => obj.name !== charName))
             setRow4(prev => prev.filter(obj => obj.name !== charName))
-            console.log(row1, row2, row3, row4,)
-            console.log(active)
         }, 1000)
-        console.log(charactersLeft)
     }
 
-    function rowMap(row, addIndex) {
-
-        //the addIndex parameter is used to separate the similar indexes created across the rows//
+    function rowMap(row) {
         
         return (
             row.map((character) => (
