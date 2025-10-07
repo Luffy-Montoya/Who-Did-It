@@ -12,10 +12,15 @@ export default function MainBody() {
     const [row3, setRow3] = React.useState([])
     const [row4, setRow4] = React.useState([])
     const [active, setActive] = React.useState({})
+    const [isVisible, setIsVisible ] = React.useState(false)
+    const [isEightSet, setIsEightSet] = React.useState(false)
+    const [isSixSet, setIsSixSet] = React.useState(false)
+    const [isFourSet, setIsFourSet] = React.useState(false)
 
     React.useEffect(() => {
         const shuffledChars = shuffleCharacters(characters)
         setShuffled(shuffledChars)
+        loadCharacters()
     }, [])
 
     const firstArranged = React.useRef(false)
@@ -42,50 +47,90 @@ export default function MainBody() {
 
     React.useEffect(() => {
         if (!secondArranged.current && charactersLeft.length < 16 && charactersLeft.length > 8) {
+            setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 5))
                 setRow2(charactersLeft.slice(5, 10))
                 setRow3(charactersLeft.slice(10))
                 setRow4([])
+                setIsVisible(true)
                 secondArranged.current = true
-                console.log(row1, row2, row3, row4)
             },1000)
         }
 
-        if (!thirdArranged.current && charactersLeft.length < 9 && charactersLeft.length > 6) {
+        if (
+            !thirdArranged.current && 
+            charactersLeft.length < 9 && 
+            charactersLeft.length > 6 &&
+            isEightSet === false &&
+            (
+                (row1.length != 4 && row2.length != 4) ||
+                (row1.length != 4 && row3.length != 4) ||
+                (row2.length != 4 && row3.length != 4)
+            )
+        ){
+            setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 4))
                 setRow2(charactersLeft.slice(4))
                 setRow3([])
+                setIsVisible(true)
                 thirdArranged.current = true
-                console.log(row1, row2, row3, row4)
             },1000)
-        }
+        } else if (charactersLeft.length < 9 && charactersLeft.length > 6){
+            setIsEightSet(true)
+        } 
 
-        if (!fourthArranged.current && charactersLeft.length < 7 && charactersLeft.length > 4) {
+        if (
+            !fourthArranged.current && 
+            charactersLeft.length < 7 && 
+            charactersLeft.length > 4 && 
+            row1.length != 3 && 
+            row2.length != 3 &&
+            isSixSet === false
+        ){
+            setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 3))
                 setRow2(charactersLeft.slice(3))
+                setIsVisible(true)
                 fourthArranged.current = true
-                console.log(row1, row2, row3, row4)
             },1000)
-        }
+        } else if (charactersLeft.length < 7 && charactersLeft.length > 4){
+            setIsSixSet(true)
+        } 
 
-        if (!fifthArranged.current && charactersLeft.length < 5 && charactersLeft.length > 2) {
+        if (
+            !fifthArranged.current && 
+            charactersLeft.length < 5 && 
+            charactersLeft.length > 2 && 
+            row1.length != 2 && 
+            row2.length != 2 &&
+            isFourSet === false
+        ){
+            setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 2))
                 setRow2(charactersLeft.slice(2))
+                setIsVisible(true)
                 fifthArranged.current = true
-                console.log(row1, row2, row3, row4)
             },1000)
-        }
+        } else if (charactersLeft.length < 5 && charactersLeft.length > 2){
+            setIsFourSet(true)
+        } 
 
-        if (!sixthArranged.current && charactersLeft.length < 3 && charactersLeft.length > 1) {
+        if (
+            !sixthArranged.current && 
+            charactersLeft.length < 3 && 
+            charactersLeft.length > 1 &&
+            row1.length === 1
+        ){
+            setIsVisible(false)
             setTimeout(() => {
-                setRow1(charactersLeft.slice(0, 3))
-                setRow2(charactersLeft.slice(3))
+                setRow1(charactersLeft)
+                setRow2([])
+                setIsVisible(true)
                 sixthArranged.current = true
-                console.log(row1, row2, row3, row4)
             },1000)
         }
 
@@ -134,20 +179,26 @@ export default function MainBody() {
         
         return (
             row.map((character) => (
-        <div 
-            className={`character-container ${active[character.name] ? "active" : ""} ${characterSize}`}
-            onClick={() => selectCharacter(character.name)}
-            key={character.name}
-        >
-            <img className="characters" src={character.image}></img>
-            <p className="character-name">{character.name}</p>
-        </div>
+            <div 
+                className={`character-container ${active[character.name] ? "active" : ""} ${characterSize}`}
+                onClick={() => selectCharacter(character.name)}
+                key={character.name}
+            >
+                <img className="characters" src={character.image}></img>
+                <p className="character-name">{character.name}</p>
+            </div>
         )))
+    }
+
+    function loadCharacters(){
+        if (!isVisible) {
+            setIsVisible(true)
+        }
     }
 
     return (
     
-        <div className="main-body">          
+        <div className={`main-body ${isVisible ? "visible" : "invisible"}`}>          
                 <div className={`image-container ${row1.length < 1 ? "empty" : ""} ${containerSize}`}>
                     {rowMap(row1, 0)}              
                 </div>                

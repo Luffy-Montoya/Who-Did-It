@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: lightblue;
+    background: rgb(180,180,180);
     box-sizing: border-box;
     overflow: hidden;
     
@@ -56,6 +56,7 @@ body {
 .main-body {
     height: 77%;
     width: 100%;
+    opacity: 0%;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -79,7 +80,18 @@ body {
     filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25));
     align-self: center;
     object-fit: contain;
-    
+}
+
+.visible {
+    opacity: 100%;
+    transition-delay: .2s;
+    transition-duration: .4s;
+}
+
+.invisible {
+    opacity: 0%;
+    transition-delay: .2s;
+    transition-duration: .4s;
 }
 
 .character-container.active {
@@ -117,7 +129,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    transition: 0s;
     font-size: 15px;
 }
 
@@ -126,7 +137,7 @@ body {
     opacity: 0;
     padding: 0;
     border: 0;
-    transition: .1s;
+    transition: .7s;
 }
 
 h1 {
