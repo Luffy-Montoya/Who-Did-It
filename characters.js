@@ -3,7 +3,7 @@ import { images64 } from "./images64"
 export const characters = [
 
     {
-        name: (Math.random() < 1/3 ? "Cesar" : (Math.random() < 0.5 ? "Pablo" : "Steve")),
+        name: (Math.random() < 1/4 ? "Cesar" : Math.random() < 1/3 ? "Pablo" : Math.random() ? "Steve" : "Jaime"),
         image: images64.Bill,
         head: "glasses",
         hair: "gray",
@@ -18,7 +18,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 1/3 ? "Codee" : (Math.random() < 0.5 ? "Kyle" : "Senyon")),
+        name: (Math.random() < 1/3 ? "Codee" : Math.random() < 0.5 ? "Kyle" : "Senyon"),
         image: images64.Brodie,
         head: "hat",
         hair: "black",
@@ -48,7 +48,7 @@ export const characters = [
     },
 
     {
-        name: "Yaya",
+        name: (Math.random() < 0.5 ? "Yaya" : "Jodee"),
         image: images64.Elaine,
         head: "glasses",
         hair: "gray",
@@ -108,7 +108,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Andrew" : "Lester"),
+        name: (Math.random() < 1/3 ? "Andrew" : Math.random() < 0.5 ? "Lester" : "Cooper"),
         image: images64.Jakob,
         head: "none",
         hair: "brown",
@@ -198,7 +198,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Gavin" : "Sam"),
+        name: (Math.random() < 1/3 ? "Rony" : Math.random() < 0.5 ? "Gavin" : "Sam"),
         image: images64.Lyle,
         head: "none",
         hair: "brown",
@@ -288,7 +288,7 @@ export const characters = [
     },
 
     {
-        name: "Meg",
+        name: (Math.random() < 0.5 ? "Nadya" :"Meg"),
         image: images64.Scottie,
         head: "none",
         hair: "brown",
@@ -318,7 +318,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 1/3 ? "R J" : (Math.random() < 0.5 ? "Justin" : "Nate")),
+        name: (Math.random() < 1/3 ? "R J" : Math.random() < 0.5 ? "Justin" : "Nate"),
         image: images64.Derrick,
         head: "none",
         hair: "black",
@@ -348,7 +348,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Dale" : "D'Angelo"),
+        name: (Math.random() < 1/3 ? "Mark" : Math.random() < 0.5 ? "Dale" : "D'Angelo"),
         image: images64.Warren,
         head: "none",
         hair: "gray",
@@ -361,6 +361,5 @@ export const characters = [
         accessories: "none",
         id: 24,
     }
-
 
 ]
