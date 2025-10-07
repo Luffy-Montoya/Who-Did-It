@@ -3,7 +3,7 @@ import { images64 } from "./images64"
 export const characters = [
 
     {
-        name: (Math.random() < 1/4 ? "Cesar" : Math.random() < 1/3 ? "Pablo" : Math.random() ? "Steve" : "Jaime"),
+        name: (Math.random() < 1/4 ? "Cesar" : Math.random() < 1/3 ? "Pablo" : Math.random() < 0.5 ? "Steve" : "Jaime"),
         image: images64.Bill,
         head: "glasses",
         hair: "gray",
@@ -363,3 +363,4 @@ export const characters = [
     }
 
 ]
+
