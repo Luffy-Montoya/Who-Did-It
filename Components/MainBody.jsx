@@ -13,6 +13,7 @@ export default function MainBody() {
     const [row4, setRow4] = React.useState([])
     const [active, setActive] = React.useState({})
     const [isVisible, setIsVisible ] = React.useState(false)
+    const [isFifteenSet, setIsFifteenSet] = React.useState(false)
     const [isEightSet, setIsEightSet] = React.useState(false)
     const [isSixSet, setIsSixSet] = React.useState(false)
     const [isFourSet, setIsFourSet] = React.useState(false)
@@ -44,9 +45,26 @@ export default function MainBody() {
         setCharactersLeft([...row1, ...row2, ...row3, ...row4])
     }, [row1, row2, row3, row4])
 
+    React.useEffect(() => {
+        console.log(row1)
+        console.log(row2)
+        console.log(row3)
+        console.log(row4)
+    }, [row1, row2, row3, row4])
+
 
     React.useEffect(() => {
-        if (!secondArranged.current && charactersLeft.length < 16 && charactersLeft.length > 8) {
+        if (
+            !secondArranged.current && 
+            charactersLeft.length < 16 && 
+            charactersLeft.length > 8 &&
+            (
+                (row1.length != 5 && row2.length != 5 && row3.length != 5) ||
+                (row1.length != 5 && row2.length != 5 && row4.length != 5) ||
+                (row1.length != 5 && row3.length != 5 && row4.length != 5) ||
+                (row2.length != 5 && row3.length != 5 && row4.length != 5)
+            )
+        ) {
             setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 5))
@@ -55,50 +73,80 @@ export default function MainBody() {
                 setRow4([])
                 setIsVisible(true)
                 secondArranged.current = true
-            },1000)
+                console.log("rows for 15 set")
+            }, 1000)
+        } else if (
+            !secondArranged.current && 
+            charactersLeft.length < 16 && 
+            charactersLeft.length > 8 &&
+            (
+                (row1.length === 5 && row2.length === 5 && row3.length === 5) ||
+                (row1.length === 5 && row2.length === 5 && row4.length === 5) ||
+                (row1.length === 5 && row3.length === 5 && row4.length === 5) ||
+                (row2.length === 5 && row3.length === 5 && row4.length === 5)
+            )
+        ) {
+            secondArranged.current = true
         }
 
         if (
             !thirdArranged.current && 
             charactersLeft.length < 9 && 
             charactersLeft.length > 6 &&
-            isEightSet === false &&
             (
                 (row1.length != 4 && row2.length != 4) ||
                 (row1.length != 4 && row3.length != 4) ||
                 (row2.length != 4 && row3.length != 4)
             )
-        ){
+        ) {
             setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 4))
                 setRow2(charactersLeft.slice(4))
                 setRow3([])
+                setRow4([])
                 setIsVisible(true)
                 thirdArranged.current = true
+                console.log("rows for 8 set")
             },1000)
-        } else if (charactersLeft.length < 9 && charactersLeft.length > 6){
-            setIsEightSet(true)
-        } 
+        } else if (
+            !thirdArranged.current && 
+            charactersLeft.length < 9 && 
+            charactersLeft.length > 6 &&
+            (
+                (row1.length === 4 && row2.length === 4) ||
+                (row1.length === 4 && row3.length === 4) ||
+                (row2.length === 4 && row3.length === 4)
+            )
+        ) {
+            thirdArranged.current = true
+        }
 
         if (
             !fourthArranged.current && 
             charactersLeft.length < 7 && 
             charactersLeft.length > 4 && 
             row1.length != 3 && 
-            row2.length != 3 &&
-            isSixSet === false
-        ){
+            row2.length != 3
+        ) {
             setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 3))
                 setRow2(charactersLeft.slice(3))
+                setRow3([])
                 setIsVisible(true)
                 fourthArranged.current = true
-            },1000)
-        } else if (charactersLeft.length < 7 && charactersLeft.length > 4){
-            setIsSixSet(true)
-        } 
+                console.log("rows for 6 set")
+            }, 1000)
+        } else if (
+            !fourthArranged.current && 
+            charactersLeft.length < 7 && 
+            charactersLeft.length > 4 && 
+            row1.length === 3 && 
+            row2.length === 3
+        ) {
+            fourthArranged.current = true
+        }
 
         if (
             !fifthArranged.current && 
@@ -107,16 +155,15 @@ export default function MainBody() {
             row1.length != 2 && 
             row2.length != 2 &&
             isFourSet === false
-        ){
+        ) {
             setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft.slice(0, 2))
                 setRow2(charactersLeft.slice(2))
                 setIsVisible(true)
                 fifthArranged.current = true
-            },1000)
-        } else if (charactersLeft.length < 5 && charactersLeft.length > 2){
-            setIsFourSet(true)
+                console.log("rows for 4 set")
+            }, 1000)
         } 
 
         if (
@@ -124,14 +171,15 @@ export default function MainBody() {
             charactersLeft.length < 3 && 
             charactersLeft.length > 1 &&
             row1.length === 1
-        ){
+        ) {
             setIsVisible(false)
             setTimeout(() => {
                 setRow1(charactersLeft)
                 setRow2([])
                 setIsVisible(true)
                 sixthArranged.current = true
-            },1000)
+                console.log("rows for 2 set")
+            }, 1000)
         }
 
     }, [charactersLeft])
