@@ -123,6 +123,8 @@ body {
     opacity: 0%;
     transition-delay: .1s;
     transition-duration: 1s;
+    transform: translateZ(0);
+    will-change: transform, opacity;
 }
 
 .character-container.active > .character-name {
