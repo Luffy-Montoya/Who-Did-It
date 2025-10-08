@@ -33,12 +33,12 @@ const clothes = {
 }
 
 const shirt = {
-    red: <>"Are they wearing a {option("Red")}?"</>,
-    blue: <>"Are they wearing a {option("Blue")}?"</>,
-    green: <>"Are they wearing a {option("Green")}?"</>,
-    purple: <>"Are they wearing a {option("Purple")}?"</>,
-    pink: <>"Are they wearing a {option("Pink")}?"</>,
-    white: <>"Are they wearing a {option("White")}?"</>
+    red: <>"Are they wearing a {option("Red Shirt")}?"</>,
+    blue: <>"Are they wearing a {option("Blue Shirt")}?"</>,
+    green: <>"Are they wearing a {option("Green Shirt")}?"</>,
+    purple: <>"Are they wearing a {option("Purple Shirt")}?"</>,
+    pink: <>"Are they wearing a {option("Pink Shirt")}?"</>,
+    white: <>"Are they wearing a {option("White Shirt")}?"</>
 }
 
 const pants = {
