@@ -39,31 +39,17 @@ export default function Layout() {
     const [row3, setRow3] = React.useState([])
     const [row4, setRow4] = React.useState([])
     const [active, setActive] = React.useState({})
+    const [price, setPrice] = React.useState(0)
 
     return (
         <LayoutContext.Provider value={{ 
-            categories, 
-            setCategories,
-            categoryDisplay,
-            setCategoryDisplay,
-            askDisplay,
-            setAskDisplay,
-            askQuestion,
-            setAskQuestion,
-            charactersLeft,
-            setCharactersLeft,
-            row1,
-            setRow1,
-            row2,
-            setRow2,
-            row3,
-            setRow3,
-            row4,
-            setRow4,
-            active,
-            setActive
+            categories, setCategories, categoryDisplay, setCategoryDisplay,
+            askDisplay, setAskDisplay, askQuestion, setAskQuestion,
+            charactersLeft, setCharactersLeft, row1, setRow1,
+            row2, setRow2, row3, setRow3, row4, setRow4,
+            active, setActive, price, setPrice
+        }}>
 
-            }}>
             <div className="layout">
                 <Header>
                     <ToggleMainDisplay />
@@ -86,6 +72,7 @@ export default function Layout() {
                 </OptionsDisplay>
                 <MainBody />
             </div>
+            
         </LayoutContext.Provider>
     )
 }

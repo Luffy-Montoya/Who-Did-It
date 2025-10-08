@@ -1,19 +1,24 @@
 import React from "react"
 import { clothes } from "../questions"
 import { LayoutContext } from "../Components/Layout"
+import { toggleQuestion } from "../Functions/toggleQuestion"
 
 export default function Clothes() {
 
-    const { setAskQuestion } = React.useContext(LayoutContext)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
+    
+        function setQuestion(question, category, key){
+            toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
+        }
 
     return(
         <div className="options-list">
-            <button onClick={() => setAskQuestion(clothes.jacket)}>Jacket</button>
-            <button onClick={() => setAskQuestion(clothes.suit)}>Suit</button>
-            <button onClick={() => setAskQuestion(clothes.tie)}>Tie</button>
-            <button onClick={() => setAskQuestion(clothes.apron)}>Apron</button>
-            <button onClick={() => setAskQuestion(clothes.skirt)}>Skirt</button>
-            <button onClick={() => setAskQuestion(clothes.pants)}>Pants</button>
+            <button onClick={() => setQuestion([clothes.jacket, "clothes", "jacket"])}>Jacket</button>
+            <button onClick={() => setQuestion([clothes.suit, "clothes", "suit"])}>Suit</button>
+            <button onClick={() => setQuestion([clothes.tie, "clothes", "tie"])}>Tie</button>
+            <button onClick={() => setQuestion([clothes.apron, "clothes", "apron"])}>Apron</button>
+            <button onClick={() => setQuestion([clothes.skirt, "clothes", "skirt"])}>Skirt</button>
+            <button onClick={() => setQuestion([clothes.pants, "clothes", "pants"])}>Pants</button>
         </div>
     )
 }
