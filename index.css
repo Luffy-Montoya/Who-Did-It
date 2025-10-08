@@ -79,7 +79,7 @@ body {
     transition: 1s;
     width: 100%;
     margin: 0;
-    filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25));
     align-self: center;
     object-fit: contain;
     z-index: 1;
@@ -123,6 +123,7 @@ body {
     margin: 0;
     font-family: Kristen ITC;
     font-weight: bold;
+    font-size: .8rem;
 }
 
 .image-container {
@@ -271,5 +272,4 @@ button {
     height: 75dvh;
     transition-duration: 1s;
     transition-delay: 1.2s;
-
 }
