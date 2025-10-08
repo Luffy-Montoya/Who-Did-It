@@ -110,6 +110,8 @@ body {
     width: 0px;
     height: 100%;
     font-size: 0;
+    transition-delay: 0;
+    transition-duration: 1.3s;
     
    
 }
