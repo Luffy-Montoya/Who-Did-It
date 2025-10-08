@@ -50,13 +50,13 @@ const pants = {
 }
 
 const shoes = {
-    black: "Are they wearing BLACK shoes?",
-    white: "Are they wearing WHITE shoes?",
-    gray: "Are they wearing GRAY shoes?",
-    brown: "Are they wearing BROWN shoes?",
-    blue: "Are they wearing BLUE shoes?",
-    red: "Are they wearing RED shoes?",
-    purple: "Are they wearing PURPLE shoes?"
+    black: "Do they have BLACK shoes?",
+    white: "Do they have WHITE shoes?",
+    gray: "Do they have GRAY shoes?",
+    brown: "Do they have BROWN shoes?",
+    blue: "Do they have BLUE shoes?",
+    red: "Do they have RED shoes?",
+    purple: "Do they have PURPLE shoes?"
 }
 
 const acc = {
