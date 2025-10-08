@@ -7,6 +7,11 @@ body {
     display: flex;
     overflow: hidden;
 }
+.deleted {
+    display: none !important;
+    height: 500px;
+    width: 5px;
+}
 
 .layout {
     height: 100%;
@@ -85,6 +90,13 @@ body {
     z-index: 1;
 }
 
+.character-name{
+    text-align: center;
+    margin: 0;
+    font-family: Kristen ITC;
+    font-weight: bold;
+}
+
 .visible {
     opacity: 100%;
     transition-delay: .2s;
@@ -101,28 +113,24 @@ body {
     width: 0px;
     height: 100%;
     font-size: 0;
-    transition-delay: .3s;
-    transition-duration: .6s;
+    transition-delay: .5s;
+    transition-duration: 1.5s;
    
 }
 
 .character-container.active > .characters {
-    transform: translateY(-10%);
+    transform: translateY(-30%);
     opacity: 0%;
-    transition: .5s;
+    transition-delay: .1s;
+    transition-duration: 1s;
 }
 
 .character-container.active > .character-name {
     opacity: 0%;
     font-size: .8rem;
-    transition: .7s;
-}
-
-.character-name{
-    text-align: center;
-    margin: 0;
-    font-family: Kristen ITC;
-    font-weight: bold;
+    letter-spacing: -2px;
+    transition-delay: .4s;
+    transition-duration: 1s;
 }
 
 .image-container {
@@ -140,7 +148,7 @@ body {
     opacity: 0;
     padding: 0;
     border: 0;
-    transition: .7s;
+    transition: 1.2s;
 }
 
 h1 {

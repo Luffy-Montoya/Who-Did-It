@@ -35,6 +35,6 @@ export function selectCharacter(category, key, charactersLeft, setRow1, setRow2,
             const value = obj[category]
             return Array.isArray(value) ? !value.includes(key) : value !== key
         }))
-        }, 900)
+        }, 2000)
     console.log(key)
 }
