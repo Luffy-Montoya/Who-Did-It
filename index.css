@@ -201,7 +201,7 @@ button {
 }
 
 .char-size-1 > .characters {
-    filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-1{
@@ -216,7 +216,7 @@ button {
 }
 
 .char-size-2 > .characters {
-    filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-2{
@@ -232,7 +232,7 @@ button {
 }
 
 .char-size-3 > .characters {
-    filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-3{
@@ -248,7 +248,7 @@ button {
 }
 
 .char-size-4 > .characters {
-    filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-4{
@@ -264,7 +264,7 @@ button {
 }
 
 .char-size-5 > .characters {
-    filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-5{
@@ -281,7 +281,7 @@ button {
 }
 
 .char-size-6 > .characters {
-    filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-6{
@@ -298,7 +298,7 @@ button {
 }
 
 .char-size-7 > .characters {
-    filter: drop-shadow(0px 9px 1px rgb(0,0,0,0.25));
+    filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-7{
