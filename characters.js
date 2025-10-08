@@ -221,7 +221,7 @@ export const characters = [
         gender: "female",
         clothes: ["apron", "pants"],
         shirt: "pink",
-        pants: "red",
+        pants: "magenta",
         shoes: "purple",
         accessories: "animals",
         id: 15,
