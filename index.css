@@ -202,7 +202,7 @@ button {
 }
 
 .cont-size-1{
-    height: 19dvh;
+    height: 24%;
 }
 
 .char-size-2{
@@ -213,7 +213,7 @@ button {
 }
 
 .cont-size-2{
-    height: 25dvh;
+    height: 32%;
     transition-duration: 1s;
     transition-delay: 1.2s;
 }
@@ -225,7 +225,7 @@ button {
 }
 
 .cont-size-3{
-    height: 38dvh;
+    height: 49%;
     transition-duration: 1s;
     transition-delay: 1.2s;
 }
@@ -237,7 +237,7 @@ button {
 }
 
 .cont-size-4{
-    height: 38dvh;
+    height: 49%;
     transition-duration: 1s;
     transition-delay: 1.2s;
 }
@@ -249,7 +249,7 @@ button {
 }
 
 .cont-size-5{
-    height: 38dvh;
+    height: 49%;
     transition-duration: 1s;
     transition-delay: 1.2s;
 }
@@ -262,7 +262,7 @@ button {
 }
 
 .cont-size-6{
-    height: 75dvh;
+    height: 95%;
     transition-duration: 1s;
     transition-delay: 1.2s;
 }
@@ -275,14 +275,7 @@ button {
 }
 
 .cont-size-7{
-    height: 75dvh;
+    height: 95%;
     transition-duration: 1s;
     transition-delay: 1.2s;
-}
-
-@supports (-webkit-touch-callout: none) {
-  .characters {
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
 }
