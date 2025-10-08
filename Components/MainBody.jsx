@@ -267,7 +267,7 @@ export default function MainBody() {
                     </div>                
                     <div className={`image-container 
                       ${row2.length < 1 ? "empty" : ""} 
-                      ${sixthArranged.current === true && row4.length < 1 ? "deleted" : ""}
+                      ${sixthArranged.current === true && row2.length < 1 ? "deleted" : ""}
                       ${containerSize}`}>
                         {rowMap(row2, 6)}                
                     </div>  
@@ -288,4 +288,5 @@ export default function MainBody() {
             </div>
 
     )
+
 }
