@@ -119,7 +119,6 @@ body {
 
 .character-container.active > .characters {
     transform: translateY(-15%);
-    opacity: 0%;
     transition-delay: .3s;
     transition-duration: 1s;
 }
