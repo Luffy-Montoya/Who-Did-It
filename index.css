@@ -88,9 +88,6 @@ body {
     align-self: center;
     object-fit: contain;
     z-index: 1;
-    transition: 1s;
-    transform: translateZ(0);
-    will-change: transform, opacity;
 }
 
 .character-name{
