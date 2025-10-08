@@ -81,7 +81,6 @@ body {
 }
 
 .characters {
-    transition: 1s;
     width: 100%;
     margin: 0;
     filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25));
@@ -113,16 +112,16 @@ body {
     width: 0px;
     height: 100%;
     font-size: 0;
-    transition-delay: .5s;
-    transition-duration: 1.5s;
+    transition-delay: 1s;
+    transition-duration: 1s;
    
 }
 
 .character-container.active > .characters {
-    transform: translateY(-30%);
+    transform: translateY(-15%);
     opacity: 0%;
     transition-delay: .1s;
-    transition-duration: 1s;
+    transition-duration: .9s;
 }
 
 .character-container.active > .character-name {
