@@ -120,8 +120,8 @@ body {
 .character-container.active > .characters {
     transform: translateY(-15%);
     opacity: 0%;
-    transition-delay: 0s;
-    transition-duration: 3s;
+    transition-delay: .3s;
+    transition-duration: 1s;
 }
 
 .character-container.active > .character-name {
