@@ -127,7 +127,7 @@ body {
 
 .character-container.active > .character-name {
     opacity: 0%;
-    font-size: .8rem;
+    letter-spacing: 6px;
     transition-delay: .4s;
     transition-duration: 1s;
 }
