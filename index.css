@@ -127,6 +127,8 @@ body {
     opacity: 0%;
     font-size: .8rem;
     letter-spacing: -2px;
+    transition-delay: .3s;
+    transition-duration: 1s;
     
 }
 
