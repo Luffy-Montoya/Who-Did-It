@@ -180,7 +180,7 @@ export default function MainBody() {
 
       // === 2 layout === (2)
       if (!sixthArranged.current && len < 3 && len >= 1) {
-        if (rowsMatch(2)) {
+        if (rowsMatch(2) || rowsMatch(1)) {
           console.log("2 skipped — already aligned");
           sixthArranged.current = true;
         } else {
