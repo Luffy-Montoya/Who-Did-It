@@ -123,6 +123,7 @@ body {
     opacity: 0%;
     transition-delay: .1s;
     transition-duration: 1s;
+    transition: 1s;
     transform: translateZ(0);
     will-change: transform, opacity;
 }
@@ -281,4 +282,5 @@ button {
     height: 75dvh;
     transition-duration: 1s;
     transition-delay: 1.2s;
+
 }
