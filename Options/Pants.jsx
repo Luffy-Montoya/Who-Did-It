@@ -17,7 +17,6 @@ export default function Pants() {
             <button onClick={() => setQuestion([pants.blue, "pants", "blue"])}>Blue</button>
             <button onClick={() => setQuestion([pants.gray, "pants", "gray"])}>Gray</button>
             <button onClick={() => setQuestion([pants.black, "pants", "black"])}>Black</button>
-            <button onClick={() => setQuestion([pants.red, "pants", "red"])}>Red</button>
             <button onClick={() => setQuestion([pants.brown, "pants", "brown"])}>Brown</button>
             <button onClick={() => setQuestion([pants.green, "pants", "green"])}>Green</button>
             <button onClick={() => setQuestion([pants.magenta, "pants", "magenta"])}>Magenta</button>

@@ -23,7 +23,7 @@ export default function AskDisplay() {
     return(
         <div className="ask-display">
             <button onClick={() => showCategories()}>Categories</button>
-            {askQuestion[0]}
+            <div className="question">{askQuestion[0]}</div>
             <button onClick={() => selectCharacter(...parameters)}>Ask!</button>
         </div>
     )

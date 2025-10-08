@@ -1,3 +1,7 @@
+/* *{
+    outline: 1px solid red;
+} */
+
 body {
     margin: 0 auto;
     background: rgb(220, 220, 220);
@@ -36,9 +40,11 @@ body {
 
 .main-display {
     height: 8%;
-    width: auto;
+    width: 100%;
+    padding: .5em;
+    display: flex;
     background: lightgreen;
-    align-content: center;
+    justify-content: space-between;
 }
 
 .options-display{
@@ -49,14 +55,25 @@ body {
 
 .category-display {
     width: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: .5em;
 
 }
 
+.category-display > button {
+    width: 7em;
+    justify-content: center;
+}
+
 .ask-display {
-    width: auto;
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 1em;
 }
 
@@ -156,6 +173,11 @@ h1 {
 
 .categories {
     display: flex;
+}
+
+.option {
+    display: inline !important;
+    font-weight: bold;
 }
 
 button {
