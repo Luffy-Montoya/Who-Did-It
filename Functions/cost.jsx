@@ -1,13 +1,12 @@
 import React from "react"
-import { LayoutContext } from "../Components/Layout"
+import { coin } from "../images64.js"
+
 
 function cost(cost){
 
-const { coin } = React.useContext(LayoutContext)
-
     return (
     <>
-        {coin}
+        <img className="coin" src={coin}/>
         <span className="cost">{cost}</span>
     </>    
     )

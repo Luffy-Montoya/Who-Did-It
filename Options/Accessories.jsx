@@ -21,7 +21,6 @@ export default function Accessories() {
             <button onClick={() => setAskQuestion(acc.mask)}>Mask</button>
             <button onClick={() => setAskQuestion(acc.basketball)}>Basketball</button>
             <button onClick={() => setAskQuestion(acc.computer)}>Computer</button>
-            <button onClick={() => setAskQuestion(acc.microphone)}>Microphone</button>
             <button onClick={() => setAskQuestion(acc.pad)}>Writing Pad</button>
             <button onClick={() => setAskQuestion(acc.science)}>Science Stuff</button>
         </div>

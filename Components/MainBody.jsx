@@ -1,22 +1,27 @@
 import React from "react"
 import { characters } from "../characters"
 import { shuffleCharacters } from "../Functions/shuffleCharacters"
+import { selectCharacter } from "../Functions/selectCharacter"
+import { LayoutContext } from "./Layout"
 
 export default function MainBody() {
 
     const [shuffled, setShuffled] = React.useState([])
-    const [charactersLeft, setCharactersLeft] = React.useState([])
-    const [charCount, setCharCount] = React.useState(24)
-    const [row1, setRow1] = React.useState([])
-    const [row2, setRow2] = React.useState([])
-    const [row3, setRow3] = React.useState([])
-    const [row4, setRow4] = React.useState([])
-    const [active, setActive] = React.useState({})
     const [isVisible, setIsVisible ] = React.useState(false)
-    const [isFifteenSet, setIsFifteenSet] = React.useState(false)
-    const [isEightSet, setIsEightSet] = React.useState(false)
-    const [isSixSet, setIsSixSet] = React.useState(false)
-    const [isFourSet, setIsFourSet] = React.useState(false)
+
+    const{ charactersLeft,
+            setCharactersLeft,
+            row1,
+            setRow1,
+            row2,
+            setRow2,
+            row3,
+            setRow3,
+            row4,
+            setRow4,
+            active,
+            setActive 
+        } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
         const shuffledChars = shuffleCharacters(characters)
@@ -54,148 +59,137 @@ export default function MainBody() {
 
 
     React.useEffect(() => {
-        if (
-            !secondArranged.current && 
-            charactersLeft.length < 16 && 
-            charactersLeft.length > 8 &&
-            (
-                (row1.length != 5 && row2.length != 5 && row3.length != 5) ||
-                (row1.length != 5 && row2.length != 5 && row4.length != 5) ||
-                (row1.length != 5 && row3.length != 5 && row4.length != 5) ||
-                (row2.length != 5 && row3.length != 5 && row4.length != 5)
-            )
-        ) {
-            setIsVisible(false)
-            setTimeout(() => {
-                setRow1(charactersLeft.slice(0, 5))
-                setRow2(charactersLeft.slice(5, 10))
-                setRow3(charactersLeft.slice(10))
-                setRow4([])
-                setIsVisible(true)
-                secondArranged.current = true
-                console.log("rows for 15 set")
-            }, 1000)
-        } else if (
-            !secondArranged.current && 
-            charactersLeft.length < 16 && 
-            charactersLeft.length > 8 &&
-            (
-                (row1.length === 5 && row2.length === 5 && row3.length === 5) ||
-                (row1.length === 5 && row2.length === 5 && row4.length === 5) ||
-                (row1.length === 5 && row3.length === 5 && row4.length === 5) ||
-                (row2.length === 5 && row3.length === 5 && row4.length === 5)
-            )
-        ) {
-            secondArranged.current = true
-        }
+  const len = charactersLeft.length;
 
-        if (
-            !thirdArranged.current && 
-            charactersLeft.length < 9 && 
-            charactersLeft.length > 6 &&
-            (
-                (row1.length != 4 && row2.length != 4) ||
-                (row1.length != 4 && row3.length != 4) ||
-                (row2.length != 4 && row3.length != 4)
-            )
-        ) {
-            setIsVisible(false)
-            setTimeout(() => {
-                setRow1(charactersLeft.slice(0, 4))
-                setRow2(charactersLeft.slice(4))
-                setRow3([])
-                setRow4([])
-                setIsVisible(true)
-                thirdArranged.current = true
-                console.log("rows for 8 set")
-            },1000)
-        } else if (
-            !thirdArranged.current && 
-            charactersLeft.length < 9 && 
-            charactersLeft.length > 6 &&
-            (
-                (row1.length === 4 && row2.length === 4) ||
-                (row1.length === 4 && row3.length === 4) ||
-                (row2.length === 4 && row3.length === 4)
-            )
-        ) {
-            thirdArranged.current = true
-        }
+  // Helper to check if a rearrangement is already in the desired shape
+  const rowsMatch = (...lengths) => {
+    const actual = [row1.length, row2.length, row3.length, row4.length].filter(l => l > 0);
+    const target = lengths.filter(l => l > 0);
+    return JSON.stringify(actual) === JSON.stringify(target);
+  };
 
-        if (
-            !fourthArranged.current && 
-            charactersLeft.length < 7 && 
-            charactersLeft.length > 4 && 
-            row1.length != 3 && 
-            row2.length != 3
-        ) {
-            setIsVisible(false)
-            setTimeout(() => {
-                setRow1(charactersLeft.slice(0, 3))
-                setRow2(charactersLeft.slice(3))
-                setRow3([])
-                setIsVisible(true)
-                fourthArranged.current = true
-                console.log("rows for 6 set")
-            }, 1000)
-        } else if (
-            !fourthArranged.current && 
-            charactersLeft.length < 7 && 
-            charactersLeft.length > 4 && 
-            row1.length === 3 && 
-            row2.length === 3
-        ) {
-            fourthArranged.current = true
-        }
-
-        if (
-            !fifthArranged.current && 
-            charactersLeft.length < 5 && 
-            charactersLeft.length > 2 && 
-            row1.length != 2 && 
-            row2.length != 2 &&
-            isFourSet === false
-        ) {
-            setIsVisible(false)
-            setTimeout(() => {
-                setRow1(charactersLeft.slice(0, 2))
-                setRow2(charactersLeft.slice(2))
-                setIsVisible(true)
-                fifthArranged.current = true
-                console.log("rows for 4 set")
-            }, 1000)
-        } 
-
-        if (
-            !sixthArranged.current && 
-            charactersLeft.length < 3 && 
-            charactersLeft.length > 1 &&
-            row1.length === 1
-        ) {
-            setIsVisible(false)
-            setTimeout(() => {
-                setRow1(charactersLeft)
-                setRow2([])
-                setIsVisible(true)
-                sixthArranged.current = true
-                console.log("rows for 2 set")
-            }, 1000)
-        }
-
-    }, [charactersLeft])
-   
-    const selectCharacter = (charName) => {
-        setActive(prev => ({...prev, [charName]: true}))
-        setCharCount(charCount - 1)
-
-        setTimeout(() => {
-            setRow1(prev => prev.filter(obj => obj.name !== charName))
-            setRow2(prev => prev.filter(obj => obj.name !== charName))
-            setRow3(prev => prev.filter(obj => obj.name !== charName))
-            setRow4(prev => prev.filter(obj => obj.name !== charName))
-            
-        }, 900)
+  // === 15 layout === (5 / 5 / 5)
+  if (!secondArranged.current && len < 16 && len >= 9) {
+    if (
+        rowsMatch(5, 5, 5) || 
+        rowsMatch(4, 5, 5) || 
+        rowsMatch(5, 4, 5) || 
+        rowsMatch(5, 5, 4) || 
+        rowsMatch(4, 4, 5) ||
+        rowsMatch(4, 5, 4) ||
+        rowsMatch(5, 4, 4) ||
+        rowsMatch(4, 4, 4) ||
+        rowsMatch(3, 4, 4) ||
+        rowsMatch(4, 3, 4) ||
+        rowsMatch(4, 4, 3) ||
+        rowsMatch(3, 3, 4) ||
+        rowsMatch(3, 4, 3) ||
+        rowsMatch(4, 3, 3) ||
+        rowsMatch(3, 3, 3)   
+) {
+      console.log("15 skipped — already aligned");
+      secondArranged.current = true;
+    } else {
+      setIsVisible(false);
+      setTimeout(() => {
+        setRow1(charactersLeft.slice(0, (Math.ceil(charactersLeft.length * 1/3))));
+        setRow2(charactersLeft.slice((Math.ceil(charactersLeft.length * 1/3)), (Math.ceil(charactersLeft.length * 2/3))));
+        setRow3(charactersLeft.slice((Math.ceil(charactersLeft.length * 2/3))));
+        setRow4([]);
+        setIsVisible(true);
+        secondArranged.current = true;
+        console.log("rows for 15 set");
+      }, 500);
     }
+  }
+
+  // === 8 layout === (4 / 4)
+  if (!thirdArranged.current && len < 9 && len >= 7) {
+    if (
+        rowsMatch(4, 4) ||
+        rowsMatch(3, 4) ||
+        rowsMatch(4, 3)
+    ) {
+      console.log("8 skipped — already aligned");
+      thirdArranged.current = true;
+    } else {
+      setIsVisible(false);
+      setTimeout(() => {
+        setRow1(charactersLeft.slice(0, 4));
+        setRow2(charactersLeft.slice(4));
+        setRow3([]);
+        setRow4([]);
+        setIsVisible(true);
+        thirdArranged.current = true;
+        console.log("rows for 8 set");
+      }, 500);
+    }
+  }
+
+  // === 6 layout === (3 / 3)
+  if (!fourthArranged.current && len < 7 && len >= 5) {
+    if (
+        rowsMatch(3, 3) ||
+        rowsMatch(2, 3) ||
+        rowsMatch(3, 2)
+    ) {
+      console.log("6 skipped — already aligned");
+      fourthArranged.current = true;
+    } else {
+      setIsVisible(false);
+      setTimeout(() => {
+        setRow1(charactersLeft.slice(0, 3));
+        setRow2(charactersLeft.slice(3));
+        setRow3([]);
+        setRow4([]);
+        setIsVisible(true);
+        fourthArranged.current = true;
+        console.log("rows for 6 set");
+      }, 500);
+    }
+  }
+
+  // === 4 layout === (2 / 2)
+  if (!fifthArranged.current && len < 5 && len >= 3) {
+    if (rowsMatch(2, 2) ||
+        rowsMatch(1, 2) ||
+        rowsMatch(2, 1)
+) {
+      console.log("4 skipped — already aligned");
+      fifthArranged.current = true;
+    } else {
+      setIsVisible(false);
+      setTimeout(() => {
+        setRow1(charactersLeft.slice(0, 2));
+        setRow2(charactersLeft.slice(2));
+        setRow3([]);
+        setRow4([]);
+        setIsVisible(true);
+        fifthArranged.current = true;
+        console.log("rows for 4 set");
+      }, 500);
+    }
+  }
+
+  // === 2 layout === (2)
+  if (!sixthArranged.current && len < 3 && len >= 1) {
+    if (rowsMatch(2)) {
+      console.log("2 skipped — already aligned");
+      sixthArranged.current = true;
+    } else {
+      setIsVisible(false);
+      setTimeout(() => {
+        setRow1(charactersLeft.slice(0));
+        setRow2([]);
+        setRow3([]);
+        setRow4([]);
+        setIsVisible(true);
+        sixthArranged.current = true;
+        console.log("rows for 2 set");
+      }, 500);
+    }
+  }
+}, [charactersLeft]);
 
     function getCharacterSize(len) {
         if (len > 15 && len < 25) return "char-size-1"
@@ -223,13 +217,25 @@ export default function MainBody() {
 
     const containerSize = getContainerSize(charactersLeft.length)
 
+    function removeCharacter(charName) {
+
+    setActive(prev => ({ ...prev, [charName]: true }))
+    setTimeout(() => {
+        setRow1(prev => prev.filter(obj => obj.name !== charName))
+        setRow2(prev => prev.filter(obj => obj.name !== charName))
+        setRow3(prev => prev.filter(obj => obj.name !== charName))
+        setRow4(prev => prev.filter(obj => obj.name !== charName))
+    }, 900)
+}
+
+
     function rowMap(row) {
         
         return (
             row.map((character) => (
             <div 
                 className={`character-container ${active[character.name] ? "active" : ""} ${characterSize}`}
-                onClick={() => selectCharacter(character.name)}
+                onClick={() => removeCharacter(character.name)}
                 key={character.name}
             >
                 <img className="characters" src={character.image}></img>
@@ -245,21 +251,21 @@ export default function MainBody() {
     }
 
     return (
-    
-        <div className={`main-body ${isVisible ? "visible" : "invisible"}`}>          
-                <div className={`image-container ${row1.length < 1 ? "empty" : ""} ${containerSize}`}>
-                    {rowMap(row1, 0)}              
-                </div>                
-                <div className={`image-container ${row2.length < 1 ? "empty" : ""} ${containerSize}`}>
-                    {rowMap(row2, 6)}                
-                </div>  
-                <div className={`image-container ${row3.length < 1 ? "empty" : ""} ${containerSize}`}>
-                    {rowMap(row3, 12)}            
-                </div>
-                <div className={`image-container ${row4.length < 1 ? "empty" : ""} ${containerSize}`}>
-                    {rowMap(row4, 18)}                 
-                </div>
-        </div>
-       
+
+            <div className={`main-body ${isVisible ? "visible" : "invisible"}`}>          
+                    <div className={`image-container ${row1.length < 1 ? "empty" : ""} ${containerSize}`}>
+                        {rowMap(row1, 0)}              
+                    </div>                
+                    <div className={`image-container ${row2.length < 1 ? "empty" : ""} ${containerSize}`}>
+                        {rowMap(row2, 6)}                
+                    </div>  
+                    <div className={`image-container ${row3.length < 1 ? "empty" : ""} ${containerSize}`}>
+                        {rowMap(row3, 12)}            
+                    </div>
+                    <div className={`image-container ${row4.length < 1 ? "empty" : ""} ${containerSize}`}>
+                        {rowMap(row4, 18)}                 
+                    </div>
+            </div>
+
     )
 }

@@ -51,6 +51,8 @@ body {
 
 .ask-display {
     width: auto;
+    display: flex;
+    gap: 1em;
 }
 
 .main-body {

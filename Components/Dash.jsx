@@ -1,11 +1,9 @@
 import React from "react"
-import { LayoutContext } from "../Components/Layout"
+import { coin } from "../images64.js"
 
 export default function Dash() {
 
-    const { coin } = React.useContext(LayoutContext)
-
     return(
-        <h3>{coin}15</h3>
+        <h3><img className="coin" src={coin} />15</h3>
     )
 }
