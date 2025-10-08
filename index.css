@@ -279,3 +279,10 @@ button {
     transition-duration: 1s;
     transition-delay: 1.2s;
 }
+
+@supports (-webkit-touch-callout: none) {
+  .characters {
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
