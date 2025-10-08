@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: lightgray;
+    background: whitesmoke;
     box-sizing: border-box;
     overflow: hidden;
     
@@ -67,7 +67,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    background: lightgray;
+    background: whitesmoke;;
 }
 
 .character-container {
@@ -84,7 +84,6 @@ body {
     transition: 1s;
     width: 100%;
     margin: 0;
-    filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25));
     align-self: center;
     object-fit: contain;
     z-index: 1;
@@ -180,6 +179,7 @@ button {
     color: rgb(0,0,0);
     opacity: 75%;
     font-size: .7rem;
+    font-weight: bold;
 }
 
 .options-list > button {
@@ -200,6 +200,10 @@ button {
     font-size: .8rem;
 }
 
+.char-size-1 > .characters {
+    filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25));
+}
+
 .cont-size-1{
     height: 19dvh;
 }
@@ -212,6 +216,10 @@ button {
     transition-delay: 1.2s;
 }
 
+.char-size-2 > .characters {
+    filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25));
+}
+
 .cont-size-2{
     height: 25dvh;
     transition-duration: 1s;
@@ -220,9 +228,12 @@ button {
 .char-size-3{
     width: 24.5%;
     font-size: 1.2rem;
-    filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25));
     transition-duration: 1s;
     transition-delay: 1.2s;
+}
+
+.char-size-3 > .characters {
+    filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-3{
@@ -233,9 +244,12 @@ button {
 .char-size-4{
     width: 32.5%;
     font-size: 1.4rem;
-    filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25));
     transition-duration: 1s;
     transition-delay: 1.2s;
+}
+
+.char-size-4 > .characters {
+    filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-4{
@@ -246,9 +260,12 @@ button {
 .char-size-5{
     width: 32.5%;
     font-size: 1.4rem;
-    filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25));
     transition-duration: 1s;
     transition-delay: 1.2s;
+}
+
+.char-size-6 > .characters {
+    filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-5{
@@ -260,9 +277,12 @@ button {
 .char-size-6{
     width: 48%;
     font-size: 1.6rem;
-    filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25));
     transition-duration: 1s;
     transition-delay: 1.2s;
+}
+
+.char-size-6 > .characters {
+    filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-6{
@@ -274,9 +294,12 @@ button {
 .char-size-7{
     width: 70%;
     font-size: 1.8rem;
-    filter: drop-shadow(0px 9px 1px rgb(0,0,0,0.25));
     transition-duration: 1s;
     transition-delay: 1.2s;
+}
+
+.char-size-7 > .characters {
+    filter: drop-shadow(0px 9px 1px rgb(0,0,0,0.25));
 }
 
 .cont-size-7{
