@@ -396,8 +396,4 @@ button {
     transition-delay: 1.2s;
 }
 
-@media (max-width: 480px) {
-  .options-slider {
-    width: 200%; /* prevent mobile from stretching viewport */
-  }
-}
+
