@@ -69,6 +69,8 @@ html, body {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
+    overscroll-behavior-x: contain; /* prevents bouncing issues */
+    touch-action: pan-x;
 }
 
 .options-scroll::-webkit-scrollbar {
