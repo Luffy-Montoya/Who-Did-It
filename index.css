@@ -1,28 +1,28 @@
 html {
     margin: 0;
     padding: 0;
-    height: 100dvw;
-    width: 100dvw;
+    height: 100%;
+    width: 100%;
 }
 
 body {
     margin: 0 auto;
     background: rgb(220, 220, 220);
-    max-width: 480px;
-    width: 100dvw;
+    width: 480px;
     height: 100dvh;
     font-family: sans-serif;
-    justify-content: center;
     display: flex;
     overflow: hidden;
 }
 .deleted {
     display: none !important;
+    height: 500px;
+    width: 5px;
 }
 
 .layout {
     height: 100%;
-    width: 100%;
+    width: 100dvw;
     margin: 0;
     max-width: 480px;
     display: flex;
@@ -80,7 +80,7 @@ body {
 
 .options-slider {
   display: flex;
-  width: 200%;
+  width: 250%;
   transition: transform 0.5s ease;
   height: 100%;
 }
@@ -91,7 +91,7 @@ body {
   padding-left: 3%;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  gap: 12%;
 }
 
 .move-left {
