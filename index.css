@@ -8,16 +8,15 @@ html {
 body {
     margin: 0 auto;
     background: rgb(220, 220, 220);
-    width: 480px;
+    max-width: 480px;
     height: 100dvh;
     font-family: sans-serif;
+    justify-content: center;
     display: flex;
     overflow: hidden;
 }
 .deleted {
     display: none !important;
-    height: 500px;
-    width: 5px;
 }
 
 .layout {
