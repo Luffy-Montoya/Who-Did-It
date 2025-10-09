@@ -1,39 +1,25 @@
-html {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-}
-
-body {
-    margin: 0;
     background: rgb(220, 220, 220);
-    max-width: 480px;
-    width: 100%;
-    height: 100dvh;
-    font-family: sans-serif;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
+    align-items: flex-start;
     overflow: hidden;
-}
-.deleted {
-    display: none !important;
-    height: 500px;
-    width: 5px;
 }
 
 .layout {
-     width: 100%;
+    width: 100%;
     max-width: 480px;
-    height: 100%;
+    height: 100dvh;
     background: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     overflow: hidden;
-    
 }
 
 .header {
@@ -53,40 +39,44 @@ body {
 }
 
 .options-display {
-  background: yellow;
-  width: 100%;
-  height: 8%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: yellow;
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .options-list {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* previously space-between */
-  gap: 1em;
-  flex-wrap: wrap; /* allows buttons to wrap on small screens */
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* narrower to leave room for arrows */
+    height: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 12%; 
-  z-index: 2;
-  background: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    height: 100%;
+    background: none;
+    z-index: 2;
+    position: relative;
 }
 
 .options-slider {
   display: flex;
-  width: 250%;
-  transition: transform 0.5s ease;
+  width: 300%;
   height: 100%;
+  transition: transform 0.5s ease;
+  transform: translateX(0);
+  box-sizing: border-box;
 }
 
 .options {
@@ -230,6 +220,10 @@ body {
     padding: 0;
     border: 0;
     transition: 1.2s;
+}
+
+.deleted {
+    display: none !important;
 }
 
 h1 {
@@ -400,4 +394,10 @@ button {
     height: 75dvh;
     transition-duration: 1s;
     transition-delay: 1.2s;
+}
+
+@media (max-width: 480px) {
+  .options-slider {
+    width: 200%; /* prevent mobile from stretching viewport */
+  }
 }
