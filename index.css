@@ -6,12 +6,15 @@ html {
 }
 
 body {
-    margin: 0 auto;
+    margin: 0;
     background: rgb(220, 220, 220);
-    width: 480px;
+    max-width: 480px;
+    width: 100%;
     height: 100dvh;
     font-family: sans-serif;
     display: flex;
+    align-items: flex-start;
+    justify-content: center;
     overflow: hidden;
 }
 .deleted {
@@ -21,14 +24,13 @@ body {
 }
 
 .layout {
-    height: 100%;
-    width: 100dvw;
-    margin: 0;
+     width: 100%;
     max-width: 480px;
+    height: 100%;
+    background: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: whitesmoke;
     box-sizing: border-box;
     overflow: hidden;
     
