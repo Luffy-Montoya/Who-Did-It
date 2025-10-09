@@ -4,15 +4,16 @@ import { LayoutContext } from "../Components/Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
 
 export default function Accessories() {
+     
+    const scrollRef = React.useRef();
 
-    const scrollContainer = document.querySelector('.options-scroll');
-    const leftArrow = document.querySelector('.scroll-arrow.left');
-    const rightArrow = document.querySelector('.scroll-arrow.right');
+    function scrollLeft() {
+    scrollRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+  }
 
-    if (scrollContainer && leftArrow && rightArrow) {
-        leftArrow.onclick = () => scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
-        rightArrow.onclick = () => scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    }
+  function scrollRight() {
+    scrollRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+  }
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
@@ -22,9 +23,9 @@ export default function Accessories() {
 
     return(
         <div className="options-display">
-            <button className="scroll-arrow left">‹</button>
+            <button className="scroll-arrow left" onClick={scrollLeft}>‹</button>
 
-            <div className="options-scroll">
+            <div className="options-scroll" ref={scrollRef}>
                 <div className="options-list">
                     <button onClick={() => setQuestion([acc.any, "accessories", "none"])}>Any</button>
                     <button onClick={() => setQuestion([acc.whistle, "accessories", "whistle"])}>Whistle</button>
@@ -43,7 +44,7 @@ export default function Accessories() {
                 </div>
             </div>
 
-            <button className="scroll-arrow right">›</button>
+            <button className="scroll-arrow right" onClick={scrollRight}>›</button>
         </div>
     )
 }

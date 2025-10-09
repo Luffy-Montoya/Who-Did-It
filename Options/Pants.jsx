@@ -5,14 +5,15 @@ import { toggleQuestion } from "../Functions/toggleQuestion"
 
 export default function Pants() {
 
-    const scrollContainer = document.querySelector('.options-scroll');
-    const leftArrow = document.querySelector('.scroll-arrow.left');
-    const rightArrow = document.querySelector('.scroll-arrow.right');
-
-    if (scrollContainer && leftArrow && rightArrow) {
-        leftArrow.onclick = () => scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
-        rightArrow.onclick = () => scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    }
+    const scrollRef = React.useRef();
+    
+        function scrollLeft() {
+        scrollRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+      }
+    
+      function scrollRight() {
+        scrollRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      }
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
@@ -22,9 +23,9 @@ export default function Pants() {
 
     return(
         <div className="options-display">
-            <button className="scroll-arrow left">‹</button>
+            <button className="scroll-arrow left" onClick={scrollLeft}>‹</button>
 
-            <div className="options-scroll">
+            <div className="options-scroll" ref={scrollRef}>
                 <div className="options-list">
                     <button onClick={() => setQuestion([pants.any, "pants", "none"])}>Any</button>
                     <button onClick={() => setQuestion([pants.blue, "pants", "blue"])}>Blue</button>
@@ -36,7 +37,7 @@ export default function Pants() {
                 </div>
             </div>
 
-            <button className="scroll-arrow right">›</button>
+            <button className="scroll-arrow right" onClick={scrollRight}>›</button>
         </div>
     )
 }
