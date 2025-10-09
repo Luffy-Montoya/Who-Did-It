@@ -16,9 +16,9 @@ export default function Accessories() {
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
-        function setQuestion(question, category, key){
-            toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
-        }
+    function setQuestion(question, category, key){
+        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
+    }
 
     return(
         <div className="options-display">

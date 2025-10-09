@@ -1,38 +1,42 @@
 import React from "react"
 import { pants } from "../questions"
 import { LayoutContext } from "../Components/Layout"
-import { optionsFunctions } from "../Functions/optionsFunctions"
+import { toggleQuestion } from "../Functions/toggleQuestion"
 
 export default function Pants() {
 
-    const { set1, leftVisible, rightVisible } = React.useContext(LayoutContext)
+    const scrollContainer = document.querySelector('.options-scroll');
+    const leftArrow = document.querySelector('.scroll-arrow.left');
+    const rightArrow = document.querySelector('.scroll-arrow.right');
 
-    const { setQuestion, leftArrow, rightArrow } = optionsFunctions()
+    if (scrollContainer && leftArrow && rightArrow) {
+        leftArrow.onclick = () => scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        rightArrow.onclick = () => scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
+    
+    function setQuestion(question, category, key){
+        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
+    }
 
     return(
-        <div className="options-list">
-            <div className={`button-container ${leftVisible ? "visible" : "invisible"}`}>
-                <button className="scroll-left" onClick={() => leftArrow()}>{"<"}</button>
-            </div>
+        <div className="options-display">
+            <button className="scroll-arrow left">‹</button>
 
-            <div className={`options-slider ${!set1 ? "move-left" : ""}`}>
-                <div className="options option-set1">
+            <div className="options-scroll">
+                <div className="options-list">
                     <button onClick={() => setQuestion([pants.any, "pants", "none"])}>Any</button>
                     <button onClick={() => setQuestion([pants.blue, "pants", "blue"])}>Blue</button>
                     <button onClick={() => setQuestion([pants.gray, "pants", "gray"])}>Gray</button>
                     <button onClick={() => setQuestion([pants.black, "pants", "black"])}>Black</button>
-                </div>
-
-                <div className="options option-set2">
                     <button onClick={() => setQuestion([pants.brown, "pants", "brown"])}>Brown</button>
                     <button onClick={() => setQuestion([pants.green, "pants", "green"])}>Green</button>
                     <button onClick={() => setQuestion([pants.magenta, "pants", "magenta"])}>Magenta</button>
                 </div>
             </div>
 
-            <div className={`button-container ${rightVisible ? "visible" : "invisible"}`}>
-                <button className="scroll-right" onClick={() => rightArrow()}>{">"}</button>
-            </div>
+            <button className="scroll-arrow right">›</button>
         </div>
     )
 }
