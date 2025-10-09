@@ -43,40 +43,40 @@ html, body {
     width: 100%;
     height: 8%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
+    justify-content: space-between;
     box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 0.25em;
 }
 
 .options-list {
+    flex: 1 1 auto;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90%; /* narrower to leave room for arrows */
-    height: 100%;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 }
 
 .button-container {
+    flex: 0 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5%;
+    width: 2.5em; /* fixed size so they're always visible */
     height: 100%;
-    background: none;
     z-index: 2;
-    position: relative;
 }
 
 .options-slider {
-  display: flex;
-  width: 300%;
-  height: 100%;
-  transition: transform 0.5s ease;
-  transform: translateX(0);
-  box-sizing: border-box;
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    box-sizing: border-box;
 }
 
 .options {
