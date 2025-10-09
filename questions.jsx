@@ -3,7 +3,7 @@ const option = (option) => {return <span className="option">{option}</span>}
 
 const head = {
     any: <>"Do they have {option("Anything")} on their head?"</>,
-    glasses: <>"Do they wear {option("Glasses")}?"</>,
+    glasses: <>"Are they wearing {option("Glasses")}?"</>,
     hat: <>"Are they wearing a {option("Hat")}?"</>,
     bowBand: <>"Are they wearing a {option("Bow")} or {option("Headband")}?"</>
 }
@@ -68,14 +68,14 @@ const acc = {
     clipboard: <>"Are they holding a {option("Clipboard")}?"</>,
     purse: <>"Do they have a {option("Purse")}?"</>,
     badge: <>"Are they wearing a {option("Badge")}?"</>,
-    math: <>"Are they carrying a bunch of {option("Math Stuff")}?"</>,
-    broom: <>"Does he have a {option("Broom")}?"</>,
+    math: <>"Are they holding some {option("Math Stuff")}?"</>,
+    broom: <>"Do they have a {option("Broom")}?"</>,
     animals: <>"Are they holding any {option("Animals")}?"</>,
     mask: <>"Do they have a {option("Mask")}?"</>,
     basketball: <>"Do they have a {option("Basketball")}?"</>,
     computer: <>"Are they carrying a {option("Computer")}?"</>,
     pad: <>"Are they carrying a {option("Writing Pad")}?"</>,
-    science: <>"Are they holding a bunch of {option("Science Stuff")}?"</>
+    science: <>"Are they holding some {option("Science Stuff")}?"</>
 }
 
 export {
