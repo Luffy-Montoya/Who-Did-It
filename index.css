@@ -74,7 +74,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
+    padding-left: .25em;
+    padding-right: .25em;
+    gap: .25em;
 }
 
 .main-body {
