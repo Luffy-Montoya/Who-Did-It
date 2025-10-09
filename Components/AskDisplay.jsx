@@ -7,12 +7,13 @@ export default function AskDisplay() {
     const { 
         askQuestion, charactersLeft, setRow1, 
         setRow2, setRow3, setRow4, setActive, 
-        setCategoryDisplay, setAskDisplay,
+        setAskDisplay, setCategoryDisplay
     } = React.useContext(LayoutContext)
 
     const parameters = [
         askQuestion[1], askQuestion[2], charactersLeft, 
-        setRow1, setRow2, setRow3, setRow4, setActive
+        setRow1, setRow2, setRow3, setRow4, setActive,
+        setAskDisplay, setCategoryDisplay
     ]
 
     function showCategories(){

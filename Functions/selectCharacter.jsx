@@ -1,14 +1,18 @@
 import React from "react"
 
-export function selectCharacter(category, key, charactersLeft, setRow1, setRow2, setRow3, setRow4, setActive) {
+export function selectCharacter(category, key, charactersLeft, setRow1, setRow2, setRow3, setRow4, setActive, setAskDisplay, setCategoryDisplay) {
 
     const filtered = charactersLeft.filter(character => {
     const value = character[category]
+
     if (Array.isArray(value)) {
         return value.includes(key)
     }
     return value === key
     })
+
+    setAskDisplay(false)
+    setCategoryDisplay(true)
 
     const namesToActivate = filtered.map(character => character.name)
     const newActiveState = namesToActivate.reduce((acc, name) => {

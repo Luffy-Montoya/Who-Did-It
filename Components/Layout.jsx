@@ -40,6 +40,10 @@ export default function Layout() {
     const [row4, setRow4] = React.useState([])
     const [active, setActive] = React.useState({})
     const [price, setPrice] = React.useState(0)
+    const [set1, setSet1] = React.useState(true)
+    const [set2, setSet2] = React.useState(false)
+    const [leftVisible, setLeftVisible] = React.useState(false)
+    const [rightVisible, setRightVisible] = React.useState(true) 
 
     return (
         <LayoutContext.Provider value={{ 
@@ -47,7 +51,9 @@ export default function Layout() {
             askDisplay, setAskDisplay, askQuestion, setAskQuestion,
             charactersLeft, setCharactersLeft, row1, setRow1,
             row2, setRow2, row3, setRow3, row4, setRow4,
-            active, setActive, price, setPrice
+            active, setActive, price, setPrice,
+            set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
+            rightVisible, setRightVisible
         }}>
 
             <div className="layout">
