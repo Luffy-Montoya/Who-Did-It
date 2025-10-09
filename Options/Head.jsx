@@ -29,7 +29,7 @@ export default function Head() {
                 <button onClick={() => setQuestion([head.any, "head", "none"])}>Any</button>
                 <button onClick={() => setQuestion([head.glasses, "head", "glasses"])}>Glasses</button>
                 <button onClick={() => setQuestion([head.hat, "head", "hat"])}>Hat</button>
-                <button onClick={() => setQuestion([head.bowBand, "head", "bow/headband"])}>Bow/Headband</button>
+                <button onClick={() => setQuestion([head.bowBand, "head", "bow/headband"])}>Bow / Band</button>
             </div>
         </div>
 

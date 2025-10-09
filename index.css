@@ -1,3 +1,7 @@
+/* *{
+  outline: 1px solid red;
+} */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -43,12 +47,22 @@ html, body {
 /* =========================
    OPTIONS BAR (FLAWLESS)
    ========================= */
+
+.options-bar {
+  position: relative;   /* this gives you a positioning context for arrows */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: green;
+}
+
 .options-display {
   position: relative;
-  background: yellow;
   width: 100%;
   height: 52px; /* 🔒 fixed visual height — consistent across devices */
   flex-shrink: 0; /* prevents flex parent from shrinking it */
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,16 +72,15 @@ html, body {
 
 /* Scrollable area */
 .options-scroll {
-  flex: 1 1 auto;
-  display: flex;
+  background: yellow;
+  display: block;                 /* ⬅ was flex */
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   overscroll-behavior-x: contain;
-  touch-action: pan-x; /* ✅ enables horizontal swiping */
-  min-height: 100%; /* ensures contents never get clipped vertically */
+  touch-action: pan-x;
 }
 
 .options-scroll::-webkit-scrollbar {
@@ -76,17 +89,20 @@ html, body {
 
 /* List of buttons */
 .options-list {
-  display: flex;
-  flex: none;
+  display: inline-flex;           /* ⬅ inline-flex sizes to content */
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.5em;
-  padding: 0 0.75em;
-  box-sizing: border-box;
-  min-width: 100%;
+  gap: 0.69em;
+  padding: 0 .69em;              /* now both left & right padding will SHOW */
+  box-sizing: content-box;        /* ⬅ key: padding adds to width instead of being absorbed */
+  width: auto;                    /* ⬅ override your width:100% */
+  min-width: max-content;
 }
 
 .options-list > button {
   flex: none;
+  height: 2em;
+  width: 6.65em;
   white-space: nowrap;
   border-radius: 2em;
   padding: 0.25em 0.75em;
@@ -95,6 +111,7 @@ html, body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
+  justify-content: center;
 }
 
 .options-list > button:active {
@@ -104,19 +121,17 @@ html, body {
 
 /* Arrows */
 .scroll-arrow {
-  position: absolute;
+  display: flex;
+  flex: 0 0 auto; 
   top: 50%;
-  transform: translateY(-50%);
-  width: 2em;
-  height: 2em;
+  width: 1.85em;
+  height: 52px;
   border: none;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
+  background: lightblue;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 5;
-  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -124,11 +139,6 @@ html, body {
 .scroll-arrow.left { left: 0.25em; }
 .scroll-arrow.right { right: 0.25em; }
 
-@media (min-width: 600px) {
-  .scroll-arrow {
-    display: flex;
-  }
-}
 /* ========================= */
 
 .category-display {
