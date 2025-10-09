@@ -65,10 +65,12 @@ body {
 .options-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* previously space-between */
+  gap: 1em;
+  flex-wrap: wrap; /* allows buttons to wrap on small screens */
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .button-container {
