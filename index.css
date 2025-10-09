@@ -80,7 +80,7 @@ body {
 
 .options-slider {
   display: flex;
-  width: 250%;
+  width: 200%;
   transition: transform 0.5s ease;
   height: 100%;
 }
