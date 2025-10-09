@@ -1,6 +1,9 @@
-/* *{
-    outline: 1px solid red;
-} */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
 
 body {
     margin: 0 auto;
@@ -49,7 +52,7 @@ body {
 
 .options-display {
   background: yellow;
-  width: 110%;
+  width: 100%;
   height: 8%;
   overflow: hidden;
   display: flex;
