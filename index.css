@@ -327,17 +327,17 @@ button {
 
   .char-size-1 { font-size: .9rem; }
   
-  .char-size-2 { font-size: 1.1rem; }
+  .char-size-2 { font-size: 1rem; }
 
-  .char-size-3 { font-size: 1.4rem; }
+  .char-size-3 { font-size: 1.2rem; }
   
-  .char-size-4 { font-size: 1.6rem; }
+  .char-size-4 { font-size: 1.4rem; }
   
-  .char-size-5 { font-size: 1.6rem; }
+  .char-size-5 { font-size: 1.4rem; }
   
-  .char-size-6 { font-size: 2rem; }
+  .char-size-6 { font-size: 1.8rem; }
   
-  .char-size-7 { font-size: 2.75rem; }
+  .char-size-7 { font-size: 2.1rem; }
   
 
 }
