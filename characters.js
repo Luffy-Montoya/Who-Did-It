@@ -318,7 +318,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 1/3 ? "R J" : Math.random() < 0.5 ? "Justin" : "Nate"),
+        name: (Math.random() < 1/3 ? "RJ" : Math.random() < 0.5 ? "Justin" : "Nate"),
         image: images64.Derrick,
         head: "none",
         hair: "black",
