@@ -319,3 +319,20 @@ button {
 .char-size-7 > .characters { filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-7 { height: 75dvh; transition: 1s 1.2s; }
 
+@media (max-width: 500px){
+  .char-size-1 { font-size: .9em; }
+  
+  .char-size-2 { font-size: 1.1rem; }
+
+  .char-size-3 { font-size: 1.4em; }
+  
+  .char-size-4 { font-size: 1.6rem; }
+  
+  .char-size-5 { font-size: 1.6rem; }
+  
+  .char-size-6 { font-size: 2rem; }
+  
+  .char-size-7 { font-size: 2.75rem; }
+  
+
+}
