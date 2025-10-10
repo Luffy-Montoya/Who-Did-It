@@ -182,8 +182,6 @@ html, body {
   flex-direction: column;
   object-fit: contain;
   justify-content: center;
-  font-family: Kristen ITC;
-  font-weight: bold;
 }
 
 .characters {
@@ -198,8 +196,9 @@ html, body {
 .character-name {
   text-align: center;
   margin: 0;
-  font-family: Kristen ITC;
-  font-weight: bold;
+  font-family: "Chilanka", sans-serif;
+  font-weight: 700;
+  padding-top: .2em
 }
 
 .visible {
@@ -255,6 +254,8 @@ html, body {
 
 .deleted {
   display: none !important;
+  width: 0 !important; 
+  height: 0 !important;
 }
 
 h1 {
@@ -291,30 +292,31 @@ button {
 }
 
 /* Character sizing */
-.char-size-1 { width: 16%; font-size: .8rem; }
+.char-size-1 { width: 16%; font-size: 1.1em; }
 .char-size-1 > .characters { filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25)); }
 .cont-size-1 { height: 19dvh; }
 
-.char-size-2 { width: 19.5%; font-size: 1rem; transition: 1s 1.2s; }
+.char-size-2 { width: 19.5%; font-size: 1.3rem; transition: 1s 1.2s; }
 .char-size-2 > .characters { filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-2 { height: 25dvh; transition: 1s 1.2s; }
 
-.char-size-3 { width: 24.5%; font-size: 1.2rem; transition: 1s 1.2s; }
+.char-size-3 { width: 24.5%; font-size: 1.5rem; transition: 1s 1.2s; }
 .char-size-3 > .characters { filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-3 { height: 38dvh; transition: 1s 1.2s; }
 
-.char-size-4 { width: 32.5%; font-size: 1.4rem; transition: 1s 1.2s; }
+.char-size-4 { width: 32.5%; font-size: 1.8rem; transition: 1s 1.2s; }
 .char-size-4 > .characters { filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-4 { height: 38dvh; transition: 1s 1.2s; }
 
-.char-size-5 { width: 32.5%; font-size: 1.4rem; transition: 1s 1.2s; }
+.char-size-5 { width: 32.5%; font-size: 1.8rem; transition: 1s 1.2s; }
 .char-size-5 > .characters { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-5 { height: 38dvh; transition: 1s 1.2s; }
 
-.char-size-6 { width: 48%; font-size: 1.6rem; transition: 1s 1.2s; }
+.char-size-6 { width: 48%; font-size: 2.3rem; transition: 1s 1.2s; }
 .char-size-6 > .characters { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-6 { height: 75dvh; transition: 1s 1.2s; }
 
-.char-size-7 { width: 70%; font-size: 1.8rem; transition: 1s 1.2s; }
+.char-size-7 { width: 70%; font-size: 3rem; transition: 1s 1.2s; }
 .char-size-7 > .characters { filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-7 { height: 75dvh; transition: 1s 1.2s; }
+
