@@ -322,7 +322,7 @@ button {
 @media (max-width: 800px){
 
   .character-name {
-    letter-spacing: -.05rem;
+    letter-spacing: -.025rem;
   }
 
   .char-size-1 { font-size: .9rem; }
