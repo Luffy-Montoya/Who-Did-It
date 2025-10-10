@@ -303,7 +303,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Mackenzie" : "Julia"),
+        name: (Math.random() < 0.5 ? "Mack" : "Julia"),
         image: images64.Susan,
         head: ["glasses", "bow/headband"],
         hair: "orange",
