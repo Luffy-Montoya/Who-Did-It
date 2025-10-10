@@ -190,7 +190,7 @@ html, body {
   margin: 0;
   align-self: center;
   object-fit: contain;
-  z-index: 1;
+  z-index: -1;
 }
 
 .character-name {
@@ -198,7 +198,8 @@ html, body {
   margin: 0;
   font-family: "Chilanka", sans-serif;
   font-weight: bold;
-  padding-top: .2em
+  padding-top: .2em;
+  z-index: -2;
 }
 
 .visible {
