@@ -93,7 +93,7 @@ html, body {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0.69em;
-  padding: 0 .69em;              /* now both left & right padding will SHOW */
+  padding: 0 0 0 .69em;              /* now both left & right padding will SHOW */
   box-sizing: content-box;        /* ⬅ key: padding adds to width instead of being absorbed */
   width: auto;                    /* ⬅ override your width:100% */
   min-width: max-content;
@@ -102,7 +102,7 @@ html, body {
 .options-list > button {
   flex: none;
   height: 2em;
-  width: 8.08%;
+  width: 6.65em;
   white-space: nowrap;
   border-radius: 2em;
   padding: 0.25em 0.75em;
@@ -112,6 +112,10 @@ html, body {
   cursor: pointer;
   transition: all 0.2s ease;
   justify-content: center;
+}
+
+.ghost-div {
+  width: 0;
 }
 
 .options-list > button:active {

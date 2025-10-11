@@ -8,20 +8,28 @@ export default function Accessories() {
     const scrollRef = React.useRef();
 
     function scrollLeft() {
-  if (!scrollRef.current) return;
   const el = scrollRef.current;
-  const scrollAmount = 399;
-  const newPosition = Math.max(el.scrollLeft - scrollAmount, 0);
-  el.scrollTo({ left: newPosition, behavior: 'smooth' });
+  if (!el) return;
+
+  const firstButton = el.querySelector('button');
+  const buttonWidth = firstButton ? firstButton.offsetWidth : 100;
+  const step = buttonWidth * 4.48;
+
+  const newLeft = Math.max(el.scrollLeft - step, 0);
+  el.scrollTo({ left: newLeft, behavior: 'smooth' });
 }
 
 function scrollRight() {
-  if (!scrollRef.current) return;
   const el = scrollRef.current;
-  const scrollAmount = 399;
+  if (!el) return;
+
+  const firstButton = el.querySelector('button');
+  const buttonWidth = firstButton ? firstButton.offsetWidth : 100;
+  const step = buttonWidth * 4.48;
+
   const maxScroll = el.scrollWidth - el.clientWidth;
-  const newPosition = Math.min(el.scrollLeft + scrollAmount, maxScroll);
-  el.scrollTo({ left: newPosition, behavior: 'smooth' });
+  const newLeft = Math.min(el.scrollLeft + step, maxScroll);
+  el.scrollTo({ left: newLeft, behavior: 'smooth' });
 }
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
@@ -49,7 +57,8 @@ function scrollRight() {
                         <button onClick={() => setQuestion([acc.pad, "accessories", "writing pad"])}>Note Pad</button>  
                         <button onClick={() => setQuestion([acc.purse, "accessories", "purse"])}>Purse</button>
                         <button onClick={() => setQuestion([acc.science, "accessories", "science stuff"])}>Science</button>
-                        <button onClick={() => setQuestion([acc.whistle, "accessories", "whistle"])}>Whistle</button>                                    
+                        <button onClick={() => setQuestion([acc.whistle, "accessories", "whistle"])}>Whistle</button>
+                        <div class="ghost-div"></div>                                    
                     </div>
                 </div>
             </div>
