@@ -93,7 +93,6 @@ html, body {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0.69em;
-  padding-left: .69em;              /* now both left & right padding will SHOW */
   box-sizing: content-box;        /* ⬅ key: padding adds to width instead of being absorbed */
   width: auto;                    /* ⬅ override your width:100% */
   min-width: max-content;
@@ -121,8 +120,6 @@ html, body {
 @media (max-width: 500px){
   .options-list {
     gap: 0.38em;
-    padding-left: .38em;
-
   }
 }
 

@@ -58,6 +58,7 @@ export default function Accessories() {
             <div className="options-display">
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
+                        <div class="ghost-div"></div>  
                         <button onClick={() => setQuestion([acc.any, "accessories", "none"])}>Any</button>
                         <button onClick={() => setQuestion([acc.animals, "accessories", "animals"])}>Animals</button>
                         <button onClick={() => setQuestion([acc.badge, "accessories", "badge"])}>Badge</button>
