@@ -168,7 +168,7 @@ export const characters = [
     },
 
     {
-        name: "Vanessa",
+        name: (Math.random() < 0.5 ? "Vanessa" : "Brittany"),
         image: images64.Korbyn,
         head: "none",
         hair: "orange",
