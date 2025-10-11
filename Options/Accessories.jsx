@@ -8,12 +8,21 @@ export default function Accessories() {
     const scrollRef = React.useRef();
 
     function scrollLeft() {
-    scrollRef.current.scrollBy({ left: -399, behavior: 'smooth' });
-  }
+  if (!scrollRef.current) return;
+  const el = scrollRef.current;
+  const scrollAmount = 399;
+  const newPosition = Math.max(el.scrollLeft - scrollAmount, 0);
+  el.scrollTo({ left: newPosition, behavior: 'smooth' });
+}
 
-  function scrollRight() {
-    scrollRef.current.scrollBy({ left: 399, behavior: 'smooth' });
-  }
+function scrollRight() {
+  if (!scrollRef.current) return;
+  const el = scrollRef.current;
+  const scrollAmount = 399;
+  const maxScroll = el.scrollWidth - el.clientWidth;
+  const newPosition = Math.min(el.scrollLeft + scrollAmount, maxScroll);
+  el.scrollTo({ left: newPosition, behavior: 'smooth' });
+}
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
