@@ -120,8 +120,8 @@ html, body {
 
 @media (max-width: 500px){
   .options-list {
-    gap: 0.45em;
-    padding-left: .45em;
+    gap: 0.4em;
+    padding-left: .4em;
 
   }
 }
