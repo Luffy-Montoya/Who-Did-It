@@ -213,7 +213,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Bri" : "Madelyn"),
+        name: (Math.random() < 1/3 ? "Bri" : Math.random() < 0.5 ? "Madelyn" : "Shanice"),
         image: images64.Mia,
         head: "bow/headband",
         hair: "black",
@@ -333,7 +333,7 @@ export const characters = [
     },
 
     {
-        name: (Math.random() < 0.5 ? "Kat" : "Gareth"),
+        name: (Math.random() < 1/3 ? "Kat" : Math.random() < 0.5 ? "Gareth" : "Jesse"),
         image: images64.Terry,
         head: "hat",
         hair: "brown",
