@@ -101,6 +101,7 @@ html, body {
   min-width: max-content;
   vertical-align: top;
   margin: 0;
+  margin-left: -2px;
   padding-left: 0;
 }
 
@@ -144,7 +145,7 @@ html, body {
   display: flex;
   flex: 0 0 auto; 
   top: 50%;
-  width: 1.85em;
+  width: 1.92em;
   height: 52px;
   border: none;
   background: lightblue;
