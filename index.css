@@ -81,6 +81,10 @@ html, body {
   scrollbar-width: none;
   overscroll-behavior-x: contain;
   touch-action: pan-x;
+  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: -1px;
 }
 
 .options-scroll::-webkit-scrollbar {
@@ -96,6 +100,10 @@ html, body {
   box-sizing: content-box;        /* ⬅ key: padding adds to width instead of being absorbed */
   width: auto;                    /* ⬅ override your width:100% */
   min-width: max-content;
+  vertical-align: top;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .options-list > button {
@@ -133,7 +141,7 @@ html, body {
   display: flex;
   flex: 0 0 auto; 
   top: 50%;
-  width: 1.85em;
+  width: 1.9em;
   height: 52px;
   border: none;
   background: lightblue;
