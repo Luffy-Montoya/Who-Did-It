@@ -107,7 +107,7 @@ html, body {
 
 .options-list > button {
   flex: none;
-  height: 2.75em;
+  height: 2.5em;
   width: 6.65em;
   white-space: nowrap;
   border-radius: 2em;
