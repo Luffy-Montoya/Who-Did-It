@@ -30,7 +30,7 @@ export default function Accessories() {
         const maxScroll = el.scrollWidth - el.clientWidth;
         const newLeft = Math.min(el.scrollLeft + step, maxScroll);
 
-        el.scrollTo({ left: newLeft - 1, behavior: 'smooth' });
+        el.scrollTo({ left: newLeft, behavior: 'smooth' });
     }
 
     function scrollLeft() {
