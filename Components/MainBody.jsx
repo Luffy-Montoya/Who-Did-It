@@ -93,10 +93,10 @@ export default function MainBody() {
             setIsVisible(false);
           }, 200)
           setTimeout(() => {
-            setRow1(charactersLeft.slice(0, (Math.ceil(charactersLeft.length * 1/3))));
-            setRow2(charactersLeft.slice((Math.ceil(charactersLeft.length * 1/3)), (Math.ceil(charactersLeft.length * 2/3))));
-            setRow3(charactersLeft.slice((Math.ceil(charactersLeft.length * 2/3))));
-            setRow4([]);
+            setRow2(charactersLeft.slice(0, (Math.ceil(charactersLeft.length * 1/3))));
+            setRow3(charactersLeft.slice((Math.ceil(charactersLeft.length * 1/3)), (Math.ceil(charactersLeft.length * 2/3))));
+            setRow4(charactersLeft.slice((Math.ceil(charactersLeft.length * 2/3))));
+            setRow1([]);
             setIsVisible(true);
             secondArranged.current = true;
             console.log("rows for 15 set");
@@ -118,10 +118,10 @@ export default function MainBody() {
             setIsVisible(false);
           }, 200)
           setTimeout(() => {
-            setRow1(charactersLeft.slice(0, 4));
-            setRow2(charactersLeft.slice(4));
-            setRow3([]);
-            setRow4([]);
+            setRow3(charactersLeft.slice(0, 4));
+            setRow4(charactersLeft.slice(4));
+            setRow1([]);
+            setRow2([]);
             setIsVisible(true);
             thirdArranged.current = true;
             console.log("rows for 8 set");
@@ -143,10 +143,10 @@ export default function MainBody() {
             setIsVisible(false);
           }, 200)
           setTimeout(() => {
-            setRow1(charactersLeft.slice(0, 3));
-            setRow2(charactersLeft.slice(3));
-            setRow3([]);
-            setRow4([]);
+            setRow3(charactersLeft.slice(0, 3));
+            setRow4(charactersLeft.slice(3));
+            setRow1([]);
+            setRow2([]);
             setIsVisible(true);
             fourthArranged.current = true;
             console.log("rows for 6 set");
@@ -167,10 +167,10 @@ export default function MainBody() {
             setIsVisible(false);
           }, 200)
           setTimeout(() => {
-            setRow1(charactersLeft.slice(0, 2));
-            setRow2(charactersLeft.slice(2));
-            setRow3([]);
-            setRow4([]);
+            setRow3(charactersLeft.slice(0, 2));
+            setRow4(charactersLeft.slice(2));
+            setRow1([]);
+            setRow2([]);
             setIsVisible(true);
             fifthArranged.current = true;
             console.log("rows for 4 set");
@@ -188,10 +188,10 @@ export default function MainBody() {
             setIsVisible(false);
           }, 200)
           setTimeout(() => {
-            setRow1(charactersLeft.slice(0));
+            setRow4(charactersLeft.slice(0));
+            setRow1([]);
             setRow2([]);
             setRow3([]);
-            setRow4([]);
             setIsVisible(true);
             sixthArranged.current = true;
             console.log("rows for 2 set");
@@ -275,25 +275,29 @@ export default function MainBody() {
     return (
 
             <div className={`main-body ${isVisible ? "visible" : "invisible"}`}>          
-                    <div className={`image-container ${row1.length < 1 ? "empty" : ""} ${containerSize}`}>
+                    <div className={`image-container 
+                      ${row1.length < 1 ? "empty" : ""}
+                      ${firstArranged.current === true && row1.length < 1 ? "deleted" : ""} 
+                      ${containerSize}`}>
                         {rowMap(row1, 0)}              
                     </div>                
                     <div className={`image-container 
                       ${row2.length < 1 ? "empty" : ""} 
-                      ${sixthArranged.current === true && row2.length < 1 ? "deleted" : ""}
+                      ${secondArranged.current === true && row2.length < 1 ? "deleted" : ""}
                       ${containerSize}`}>
                         {rowMap(row2, 6)}                
                     </div>  
                     <div className={`image-container 
                       ${row3.length < 1 ? "empty" : ""}
-                      ${secondArranged.current === true && row3.length < 1 ? "deleted" : ""} 
+                      ${sixthArranged.current === true && row3.length < 1 ? "deleted" : ""}
+                      ${charactersLeft.length === 7 || charactersLeft.length === 8 ? "centralize" : ""} 
                       ${containerSize}`}>
                         {rowMap(row3, 12)}            
                     </div>
                     <div className={
                       `image-container 
-                      ${row4.length < 1 ? "empty" : ""} 
-                      ${firstArranged.current === true && row4.length < 1 ? "deleted" : ""}
+                      ${row4.length < 1 ? "empty" : ""}
+                      ${charactersLeft.length === 7 || charactersLeft.length === 8 ? "centralize" : ""}  
                       ${containerSize}`}
                       >
                         {rowMap(row4, 18)}                 
