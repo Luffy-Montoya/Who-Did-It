@@ -79,7 +79,7 @@ export default function Accessories() {
                             <div>Science</div>
                             <div className="price">{cost(calcPrice(askMinResults.acc.science))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.whistle, "accessories", "watch", calcPrice(askMinResults.acc.watch)])}>
+                        <button onClick={() => setQuestion([acc.watch, "accessories", "watch", calcPrice(askMinResults.acc.watch)])}>
                             <div>Watch</div>
                             <div className="price">{cost(calcPrice(askMinResults.acc.watch))}</div>
                         </button>
