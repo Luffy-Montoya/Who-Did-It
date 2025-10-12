@@ -12,7 +12,7 @@ export default function GenderSkin() {
         
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, charactersLeft } = React.useContext(LayoutContext)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice } = React.useContext(LayoutContext)
     
     function setQuestion(question, category, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
@@ -25,21 +25,21 @@ export default function GenderSkin() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div>  
-                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.man, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.man)])}>
                             <div>Man</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.man, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.man))}</div>
                         </button>
-                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.woman, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.woman)])}>
                             <div>Woman</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.woman, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.woman))}</div>
                         </button>
-                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light)])}>
                             <div>Light Skin</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.light, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.light))}</div>
                         </button>
-                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark)])}>
                             <div>Dark Skin</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.dark, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.dark))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

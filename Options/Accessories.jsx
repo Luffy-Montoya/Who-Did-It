@@ -12,7 +12,7 @@ export default function Accessories() {
 
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, charactersLeft} = React.useContext(LayoutContext)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
     function setQuestion(question, category, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
@@ -27,65 +27,65 @@ export default function Accessories() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div>  
-                        <button onClick={() => setQuestion([acc.any, "accessories", "none", calcPrice(askMinResults.acc.any, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.any, "accessories", "none", calcPrice(askMinResults.acc.any)])}>
                             <div>Any</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.any, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.any))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.animals, "accessories", "animals", calcPrice(askMinResults.acc.animals, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.animals, "accessories", "animals", calcPrice(askMinResults.acc.animals)])}>
                             <div>Animals</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.animals, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.animals))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.badge, "accessories", "badge", calcPrice(askMinResults.acc.badge, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.badge, "accessories", "badge", calcPrice(askMinResults.acc.badge)])}>
                             <div>Badge</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.badge, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.badge))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.basketball, "accessories", "basketball", calcPrice(askMinResults.acc.basketball, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.basketball, "accessories", "basketball", calcPrice(askMinResults.acc.basketball)])}>
                             <div>Basketball</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.basketball, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.basketball))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.books, "accessories", "books", calcPrice(askMinResults.acc.books, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.books, "accessories", "books", calcPrice(askMinResults.acc.books)])}>
                             <div>Books</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.books, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.books))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.broom, "accessories", "broom", calcPrice(askMinResults.acc.broom, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.broom, "accessories", "broom", calcPrice(askMinResults.acc.broom)])}>
                             <div>Broom</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.broom, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.broom))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.clipboard, "accessories", "clipboard", calcPrice(askMinResults.acc.clipboard, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.clipboard, "accessories", "clipboard", calcPrice(askMinResults.acc.clipboard)])}>
                             <div>Clipboard</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.clipboard, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.clipboard))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.computer, "accessories", "computer", calcPrice(askMinResults.acc.computer, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.computer, "accessories", "computer", calcPrice(askMinResults.acc.computer)])}>
                             <div>Computer</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.computer, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.computer))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.mask, "accessories", "mask", calcPrice(askMinResults.acc.mask, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.mask, "accessories", "mask", calcPrice(askMinResults.acc.mask)])}>
                             <div>Mask</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.mask, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.mask))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.math, "accessories", "math stuff", calcPrice(askMinResults.acc.math, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.math, "accessories", "math stuff", calcPrice(askMinResults.acc.math)])}>
                             <div>Math</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.math, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.math))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.pad, "accessories", "writing pad", calcPrice(askMinResults.acc.notepad, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.pad, "accessories", "writing pad", calcPrice(askMinResults.acc.notepad)])}>
                             <div>Notepad</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.notepad, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.notepad))}</div>
                         </button>  
-                        <button onClick={() => setQuestion([acc.purse, "accessories", "purse", calcPrice(askMinResults.acc.purse, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.purse, "accessories", "purse", calcPrice(askMinResults.acc.purse)])}>
                             <div>Purse</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.purse, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.purse))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.science, "accessories", "science stuff", calcPrice(askMinResults.acc.science, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.science, "accessories", "science stuff", calcPrice(askMinResults.acc.science)])}>
                             <div>Science</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.science, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.science))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.watch, "accessories", "watch", calcPrice(askMinResults.acc.watch, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.watch, "accessories", "watch", calcPrice(askMinResults.acc.watch)])}>
                             <div>Watch</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.watch, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.watch))}</div>
                         </button>
-                        <button onClick={() => setQuestion([acc.whistle, "accessories", "whistle", calcPrice(askMinResults.acc.whistle, charactersLeft.length)])}>
+                        <button onClick={() => setQuestion([acc.whistle, "accessories", "whistle", calcPrice(askMinResults.acc.whistle)])}>
                             <div>Whistle</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.whistle, charactersLeft.length))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.whistle))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

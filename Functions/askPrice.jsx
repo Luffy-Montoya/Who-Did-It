@@ -81,19 +81,12 @@ export const askMinResults = {
     }
 }
 
-export function calcPrice(elimsAt24, remaining) {
-  // 1) Scale guaranteed eliminations to the current board size
-  const eff = Math.round(elimsAt24 * remaining / 24);
+export function calcPrice(option) {
 
-  // 2) Piecewise-linear price: gentle ramp for small/medium, steeper for big sweeps
-  const base = 3;        // flat cost to ask anything
-  const a = 1.25;        // per-elim cost (fair for careful/balanced play)
-  const b = 0.75;        // extra per-elim once we pass the “big sweep” threshold
-  const t = 6;           // threshold where “big sweep” surcharge kicks in
+    const base = 5                  // universal “ask” fee
+    const rate = 1.3                  // per guaranteed elimination
+    const exponent = 1.08             // adds curvature for big sweeps
+    const price = Math.round(base + Math.pow(option * rate, exponent))
+    return price
 
-  const surcharge = Math.max(0, eff - t);
-  const raw = base + a * eff + b * surcharge;
-
-  // 3) Round & floor
-  return Math.max(4, Math.round(raw)); // minimum 4 to avoid near-free spam
 }
