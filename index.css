@@ -125,7 +125,7 @@ html, body {
 .price {
   display: flex;
   gap: 0.2em;
-  margin-right: 0.4em;
+  margin-right: 0.5em;
   margin-top: -.25em;
   align-items: center;
 }
