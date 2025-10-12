@@ -22,7 +22,7 @@ export function selectCharacter(
     console.log(culprit["gender"] === "male")
 
     
-    if (culprit[category] !== key){
+    if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
     
     const namesToActivate = filtered.map(character => character.name)
     const newActiveState = namesToActivate.reduce((acc, name) => {
