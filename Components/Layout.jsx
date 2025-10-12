@@ -15,6 +15,7 @@ import Shoes from "../Options/Shoes"
 import Accessories from "../Options/Accessories"
 import AskDisplay from "./AskDisplay"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
+import { askMinResults } from "../Functions/askPrice"
 
 export const LayoutContext = React.createContext()
 
@@ -44,7 +45,7 @@ export default function Layout() {
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
-    const [wallet, setWallet] = React.useState(50)
+    const [wallet, setWallet] = React.useState(75)
     const [culprit, setCulprit] = React.useState({})
     
     React.useEffect(() => {

@@ -4,6 +4,7 @@ import { LayoutContext } from "../Components/Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
 import { useScrollFunctions } from "../Functions/ScrollFunctions"
 import { cost } from "../Functions/cost"
+import { askMinResults, calcPrice } from "../Functions/askPrice"
 
 export default function GenderSkin() {
 
@@ -24,10 +25,22 @@ export default function GenderSkin() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div>  
-                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male", 13])}><div>Man</div><div className="price">{cost(13)}</div></button>
-                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female", 13])}><div>Woman</div><div className="price">{cost(13)}</div></button>
-                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light", 17])}><div>Light Skin</div><div className="price">{cost(17)}</div></button>
-                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark", 17])}><div>Dark Skin</div><div className="price">{cost(17)}</div></button>
+                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.man)])}>
+                            <div>Man</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.man))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.woman)])}>
+                            <div>Woman</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.woman))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light)])}>
+                            <div>Light Skin</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.light))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark)])}>
+                            <div>Dark Skin</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.dark))}</div>
+                        </button>
                         <div className="ghost-div"></div>                                    
                     </div>
                 </div>

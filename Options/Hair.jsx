@@ -4,6 +4,7 @@ import { LayoutContext } from "../Components/Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
 import { useScrollFunctions } from "../Functions/ScrollFunctions"
 import { cost } from "../Functions/cost"
+import { askMinResults, calcPrice } from "../Functions/askPrice"
 
 export default function Hair() {
 
@@ -24,11 +25,26 @@ export default function Hair() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div> 
-                        <button onClick={() => setQuestion([hair.black, "hair", "black", 10])}><div>Black</div><div className="price">{cost(10)}</div></button>
-                        <button onClick={() => setQuestion([hair.brown, "hair", "brown", 13])}><div>Brown</div><div className="price">{cost(13)}</div></button>
-                        <button onClick={() => setQuestion([hair.blonde, "hair", "blonde", 3])}><div>Blonde</div><div className="price">{cost(3)}</div></button>
-                        <button onClick={() => setQuestion([hair.orange, "hair", "orange", 3])}><div>Orange</div><div className="price">{cost(3)}</div></button>
-                        <button onClick={() => setQuestion([hair.gray, "hair", "gray", 7])}><div>Gray</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([hair.black, "hair", "black", calcPrice(askMinResults.hair.black)])}>
+                            <div>Black</div>
+                            <div className="price">{cost(calcPrice(askMinResults.hair.black))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([hair.blonde, "hair", "blonde", calcPrice(askMinResults.hair.blonde)])}>
+                            <div>Blonde</div>
+                            <div className="price">{cost(calcPrice(askMinResults.hair.blonde))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([hair.brown, "hair", "brown", calcPrice(askMinResults.hair.brown)])}>
+                            <div>Brown</div>
+                            <div className="price">{cost(calcPrice(askMinResults.hair.brown))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([hair.gray, "hair", "gray", calcPrice(askMinResults.hair.gray)])}>
+                            <div>Gray</div>
+                            <div className="price">{cost(calcPrice(askMinResults.hair.gray))}</div>
+                        </button>
+                        <button onClick={() => setQuestion([hair.orange, "hair", "orange", calcPrice(askMinResults.hair.orange)])}>
+                            <div>Orange</div>
+                            <div className="price">{cost(calcPrice(askMinResults.hair.orange))}</div>
+                        </button>
                         <div className="ghost-div"></div>                                    
                     </div>
                 </div>

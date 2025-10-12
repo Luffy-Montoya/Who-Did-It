@@ -74,7 +74,8 @@ const acc = {
     mask: <>"Do they have a {option("Mask")}?"</>,
     basketball: <>"Do they have a {option("Basketball")}?"</>,
     computer: <>"Are they carrying a {option("Computer")}?"</>,
-    pad: <>"Are they carrying a {option("Writing Pad")}?"</>,
+    pad: <>"Are they carrying a {option("Notepad")}?"</>,
+    watch: <>"Are they wearing a {option("Watch")}?"</>,
     science: <>"Are they holding some {option("Science Stuff")}?"</>
 }
 
