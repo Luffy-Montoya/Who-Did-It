@@ -12,7 +12,7 @@ export default function Pants() {
     
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, charactersLeft} = React.useContext(LayoutContext)
     
     function setQuestion(question, category, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
@@ -25,33 +25,33 @@ export default function Pants() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div>  
-                        <button onClick={() => setQuestion([pants.any, "pants", "none", calcPrice(askMinResults.pants.any)])}>
+                        <button onClick={() => setQuestion([pants.any, "pants", "none", calcPrice(askMinResults.pants.any, charactersLeft.length)])}>
                             <div>Any</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.any))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.any, charactersLeft.length))}</div>
                         </button>
-                        <button onClick={() => setQuestion([pants.black, "pants", "black", calcPrice(askMinResults.pants.black)])}>
+                        <button onClick={() => setQuestion([pants.black, "pants", "black", calcPrice(askMinResults.pants.black, charactersLeft.length)])}>
                             <div>Black</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.black))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.black, charactersLeft.length))}</div>
                         </button>
-                        <button onClick={() => setQuestion([pants.blue, "pants", "blue", calcPrice(askMinResults.pants.blue)])}>
+                        <button onClick={() => setQuestion([pants.blue, "pants", "blue", calcPrice(askMinResults.pants.blue, charactersLeft.length)])}>
                             <div>Blue</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.blue))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.blue, charactersLeft.length))}</div>
                         </button>
-                        <button onClick={() => setQuestion([pants.brown, "pants", "brown", calcPrice(askMinResults.pants.brown)])}>
+                        <button onClick={() => setQuestion([pants.brown, "pants", "brown", calcPrice(askMinResults.pants.brown, charactersLeft.length)])}>
                             <div>Brown</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.brown))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.brown, charactersLeft.length))}</div>
                         </button>
-                        <button onClick={() => setQuestion([pants.gray, "pants", "gray", calcPrice(askMinResults.pants.gray)])}>
+                        <button onClick={() => setQuestion([pants.gray, "pants", "gray", calcPrice(askMinResults.pants.gray, charactersLeft.length)])}>
                             <div>Gray</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.gray))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.gray, charactersLeft.length))}</div>
                         </button>
-                        <button onClick={() => setQuestion([pants.green, "pants", "green", calcPrice(askMinResults.pants.green)])}>
+                        <button onClick={() => setQuestion([pants.green, "pants", "green", calcPrice(askMinResults.pants.green, charactersLeft.length)])}>
                             <div>Green</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.green))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.green, charactersLeft.length))}</div>
                         </button>
-                        <button onClick={() => setQuestion([pants.magenta, "pants", "magenta", calcPrice(askMinResults.pants.magenta)])}>
+                        <button onClick={() => setQuestion([pants.magenta, "pants", "magenta", calcPrice(askMinResults.pants.magenta, charactersLeft.length)])}>
                             <div>Magenta</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.magenta))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.magenta, charactersLeft.length))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>
