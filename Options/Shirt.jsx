@@ -2,17 +2,14 @@ import React from "react"
 import { shirt } from "../questions"
 import { LayoutContext } from "../Components/Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
+import { useScrollFunctions } from "../Functions/ScrollFunctions"
+import { cost } from "../Functions/cost"
 
 export default function Shirt() {
 
-    const scrollContainer = document.querySelector('.options-scroll');
-    const leftArrow = document.querySelector('.scroll-arrow.left');
-    const rightArrow = document.querySelector('.scroll-arrow.right');
-
-    if (scrollContainer && leftArrow && rightArrow) {
-        leftArrow.onclick = () => scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
-        rightArrow.onclick = () => scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    }
+    const scrollRef = React.useRef();
+    
+    const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
@@ -21,21 +18,23 @@ export default function Shirt() {
     }
 
     return(
-        <div className="options-display">
-            <button className="scroll-arrow left">‹</button>
-
-            <div className="options-scroll">
-                <div className="options-list">
-                    <button onClick={() => setQuestion([shirt.red, "shirt", "red"])}>Red</button>
-                    <button onClick={() => setQuestion([shirt.blue, "shirt", "blue"])}>Blue</button>
-                    <button onClick={() => setQuestion([shirt.green, "shirt", "green"])}>Green</button>
-                    <button onClick={() => setQuestion([shirt.purple, "shirt", "purple"])}>Purple</button>
-                    <button onClick={() => setQuestion([shirt.pink, "shirt", "pink"])}>Pink</button>
-                    <button onClick={() => setQuestion([shirt.white, "shirt", "white"])}>White</button>
+        <div className="options-bar">
+            <button className="scroll-arrow left" onClick={scrollLeft}>‹</button>
+            <div className="options-display">
+                <div className="options-scroll" ref={scrollRef}>
+                    <div className="options-list">
+                        <div class="ghost-div"></div> 
+                        <button onClick={() => setQuestion([shirt.red, "shirt", "red"])}>Red</button>
+                        <button onClick={() => setQuestion([shirt.blue, "shirt", "blue"])}>Blue</button>
+                        <button onClick={() => setQuestion([shirt.green, "shirt", "green"])}>Green</button>
+                        <button onClick={() => setQuestion([shirt.purple, "shirt", "purple"])}>Purple</button>
+                        <button onClick={() => setQuestion([shirt.pink, "shirt", "pink"])}>Pink</button>
+                        <button onClick={() => setQuestion([shirt.white, "shirt", "white"])}>White</button>
+                        <div class="ghost-div"></div>                                    
+                    </div>
                 </div>
             </div>
-
-            <button className="scroll-arrow right">›</button>
+            <button className="scroll-arrow right" onClick={scrollRight}>›</button>
         </div>
     )
 }
