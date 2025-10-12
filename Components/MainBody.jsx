@@ -19,12 +19,14 @@ export default function MainBody() {
             row4,
             setRow4,
             active,
-            setActive 
+            setActive,
+            setCulprit 
         } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
         const shuffledChars = shuffleCharacters(characters)
         setShuffled(shuffledChars)
+        setCulprit(shuffledChars[Math.floor(Math.random() * 24)])
         loadCharacters()
     }, [])
 

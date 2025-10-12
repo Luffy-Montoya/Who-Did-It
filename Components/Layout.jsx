@@ -45,6 +45,7 @@ export default function Layout() {
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
     const [wallet, setWallet] = React.useState(75)
+    const [culprit, setCulprit] = React.useState({})
     
     React.useEffect(() => {
         console.log(price)
@@ -58,7 +59,7 @@ export default function Layout() {
             row2, setRow2, row3, setRow3, row4, setRow4,
             active, setActive, price, setPrice,
             set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
-            rightVisible, setRightVisible, wallet, setWallet
+            rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit
         }}>
 
             <div className="layout">
