@@ -24,11 +24,11 @@ export default function Clothes() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div class="ghost-div"></div>  
-                        <button onClick={() => setQuestion([clothes.jacket, "clothes", "jacket"])}><div>Jacket</div><div className="price">{cost(7)}</div></button>
-                        <button onClick={() => setQuestion([clothes.suit, "clothes", "suit"])}><div>Suit</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([clothes.jacket, "clothes", "jacket"])}><div>Jacket</div><div className="price">{cost(9)}</div></button>
+                        <button onClick={() => setQuestion([clothes.suit, "clothes", "suit"])}><div>Suit</div><div className="price">{cost(3)}</div></button>
                         <button onClick={() => setQuestion([clothes.tie, "clothes", "tie"])}><div>Tie</div><div className="price">{cost(7)}</div></button>
-                        <button onClick={() => setQuestion([clothes.apron, "clothes", "apron"])}><div>Apron</div><div className="price">{cost(7)}</div></button>
-                        <button onClick={() => setQuestion([clothes.skirt, "clothes", "skirt"])}><div>Skirt</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([clothes.apron, "clothes", "apron"])}><div>Apron</div><div className="price">{cost(5)}</div></button>
+                        <button onClick={() => setQuestion([clothes.skirt, "clothes", "skirt"])}><div>Skirt</div><div className="price">{cost(9)}</div></button>
                         <button onClick={() => setQuestion([clothes.pants, "clothes", "pants"])}><div>Pants</div><div className="price">{cost(7)}</div></button>
                         <div class="ghost-div"></div>                                    
                     </div>

@@ -26,9 +26,9 @@ export default function Accessories() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div class="ghost-div"></div>  
-                        <button onClick={() => setQuestion([acc.any, "accessories", "none"])}><div>Any</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([acc.any, "accessories", "none"])}><div>Any</div><div className="price">{cost(9)}</div></button>
                         <button onClick={() => setQuestion([acc.animals, "accessories", "animals"])}><div>Animals</div><div className="price">{cost(3)}</div></button>
-                        <button onClick={() => setQuestion([acc.badge, "accessories", "badge"])}><div>Badge</div><div className="price">{cost(5)}</div></button>
+                        <button onClick={() => setQuestion([acc.badge, "accessories", "badge"])}><div>Badge</div><div className="price">{cost(6)}</div></button>
                         <button onClick={() => setQuestion([acc.basketball, "accessories", "basketball"])}><div>Basketball</div><div className="price">{cost(2)}</div></button>
                         <button onClick={() => setQuestion([acc.books, "accessories", "books"])}><div>Books</div><div className="price">{cost(3)}</div></button>
                         <button onClick={() => setQuestion([acc.broom, "accessories", "broom"])}><div>Broom</div><div className="price">{cost(2)}</div></button>
