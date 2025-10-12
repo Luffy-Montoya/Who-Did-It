@@ -253,7 +253,7 @@ export const characters = [
         shirt: "blue",
         pants: "black",
         shoes: "black",
-        accessories: "badge",
+        accessories: ["badge", "watch"],
         id: 17,
     },
 
