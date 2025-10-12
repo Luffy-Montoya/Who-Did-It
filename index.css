@@ -147,6 +147,10 @@ h1 {
   width: 6em;
 }
 
+h1:active {
+  color: black;
+}
+
 .wallet {
   display: flex;
   align-items: center;
