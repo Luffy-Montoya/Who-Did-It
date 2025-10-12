@@ -57,7 +57,6 @@ export function selectCharacter(
         const namesToActivate = charactersLeft
         .filter(character => {
         const value = character[category]
-        // ✅ now target characters that DO NOT match
         return Array.isArray(value) ? !value.includes(key) : value !== key
         })
         .map(character => character.name)
