@@ -24,13 +24,13 @@ export default function Pants() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div class="ghost-div"></div>  
-                        <button onClick={() => setQuestion([pants.any, "pants", "none"])}>Any</button>
-                        <button onClick={() => setQuestion([pants.blue, "pants", "blue"])}>Blue</button>
-                        <button onClick={() => setQuestion([pants.gray, "pants", "gray"])}>Gray</button>
-                        <button onClick={() => setQuestion([pants.black, "pants", "black"])}>Black</button>
-                        <button onClick={() => setQuestion([pants.brown, "pants", "brown"])}>Brown</button>
-                        <button onClick={() => setQuestion([pants.green, "pants", "green"])}>Green</button>
-                        <button onClick={() => setQuestion([pants.magenta, "pants", "magenta"])}>Magenta</button>
+                        <button onClick={() => setQuestion([pants.any, "pants", "none"])}><div>Any</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([pants.blue, "pants", "blue"])}><div>Blue</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([pants.gray, "pants", "gray"])}><div>Gray</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([pants.black, "pants", "black"])}><div>Black</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([pants.brown, "pants", "brown"])}><div>Brown</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([pants.green, "pants", "green"])}><div>Green</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([pants.magenta, "pants", "magenta"])}><div>Magenta</div><div className="price">{cost(7)}</div></button>
                         <div class="ghost-div"></div>                                    
                     </div>
                 </div>

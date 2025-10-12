@@ -24,13 +24,13 @@ export default function Shoes() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div class="ghost-div"></div> 
-                        <button onClick={() => setQuestion([shoes.black, "shoes", "black"])}>Black</button>
-                        <button onClick={() => setQuestion([shoes.white, "shoes", "white"])}>White</button>
-                        <button onClick={() => setQuestion([shoes.gray, "shoes", "gray"])}>Gray</button>
-                        <button onClick={() => setQuestion([shoes.brown, "shoes", "brown"])}>Brown</button>
-                        <button onClick={() => setQuestion([shoes.blue, "shoes", "blue"])}>Blue</button>
-                        <button onClick={() => setQuestion([shoes.red, "shoes", "red"])}>Red</button>
-                        <button onClick={() => setQuestion([shoes.purple, "shoes", "purple"])}>Purple</button>
+                        <button onClick={() => setQuestion([shoes.black, "shoes", "black"])}><div>Black</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([shoes.white, "shoes", "white"])}><div>White</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([shoes.gray, "shoes", "gray"])}><div>Gray</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([shoes.brown, "shoes", "brown"])}><div>Brown</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([shoes.blue, "shoes", "blue"])}><div>Blue</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([shoes.red, "shoes", "red"])}><div>Red</div><div className="price">{cost(7)}</div></button>
+                        <button onClick={() => setQuestion([shoes.purple, "shoes", "purple"])}><div>Purple</div><div className="price">{cost(7)}</div></button>
                         <div class="ghost-div"></div>                                    
                     </div>
                 </div>
