@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "./Header"
 import Dash from "./Dash"
 import MainDisplay from "./MainDisplay"
@@ -43,7 +43,12 @@ export default function Layout() {
     const [set1, setSet1] = React.useState(true)
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
-    const [rightVisible, setRightVisible] = React.useState(true) 
+    const [rightVisible, setRightVisible] = React.useState(true)
+    const [wallet, setWallet] = React.useState(50)
+    
+    React.useEffect(() => {
+        console.log(price)
+    }, [price])
 
     return (
         <LayoutContext.Provider value={{ 
@@ -53,7 +58,7 @@ export default function Layout() {
             row2, setRow2, row3, setRow3, row4, setRow4,
             active, setActive, price, setPrice,
             set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
-            rightVisible, setRightVisible
+            rightVisible, setRightVisible, wallet, setWallet
         }}>
 
             <div className="layout">

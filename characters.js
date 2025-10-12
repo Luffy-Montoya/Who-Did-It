@@ -96,7 +96,7 @@ export const characters = [
         name: "Hope",
         image: images64.Jada,
         head: "none",
-        hair: "brown",
+        hair: ["black", "brown"],
         skin: "dark",
         gender: "female",
         clothes: ["jacket", "pants"],

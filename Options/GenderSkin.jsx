@@ -23,12 +23,12 @@ export default function GenderSkin() {
             <div className="options-display">
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
-                        <div class="ghost-div"></div>  
-                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male"])}><div>Man</div><div className="price">{cost(13)}</div></button>
-                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female"])}><div>Woman</div><div className="price">{cost(13)}</div></button>
-                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light"])}><div>Light Skin</div><div className="price">{cost(17)}</div></button>
-                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark"])}><div>Dark Skin</div><div className="price">{cost(17)}</div></button>
-                        <div class="ghost-div"></div>                                    
+                        <div className="ghost-div"></div>  
+                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male", 13])}><div>Man</div><div className="price">{cost(13)}</div></button>
+                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female", 13])}><div>Woman</div><div className="price">{cost(13)}</div></button>
+                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light", 17])}><div>Light Skin</div><div className="price">{cost(17)}</div></button>
+                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark", 17])}><div>Dark Skin</div><div className="price">{cost(17)}</div></button>
+                        <div className="ghost-div"></div>                                    
                     </div>
                 </div>
             </div>

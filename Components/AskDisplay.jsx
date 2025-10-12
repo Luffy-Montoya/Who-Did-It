@@ -5,15 +5,15 @@ import { selectCharacter } from "../Functions/selectCharacter"
 export default function AskDisplay() {
 
     const { 
-        askQuestion, charactersLeft, setRow1, 
+        askQuestion, setPrice, charactersLeft, setRow1, 
         setRow2, setRow3, setRow4, setActive, 
-        setAskDisplay, setCategoryDisplay
+        setAskDisplay, setCategoryDisplay, setWallet
     } = React.useContext(LayoutContext)
 
     const parameters = [
-        askQuestion[1], askQuestion[2], charactersLeft, 
+        askQuestion[1], askQuestion[2], askQuestion[3], setPrice, charactersLeft, 
         setRow1, setRow2, setRow3, setRow4, setActive,
-        setAskDisplay, setCategoryDisplay
+        setAskDisplay, setCategoryDisplay, setWallet
     ]
 
     function showCategories(){

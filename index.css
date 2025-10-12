@@ -143,6 +143,18 @@ html, body {
   font-weight: bold;
 }
 
+.wallet {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.coin-dash {
+  height: .8em;
+  margin-right: .2em;
+}
+
 .ghost-div {
   width: 0;
   height: 0;
