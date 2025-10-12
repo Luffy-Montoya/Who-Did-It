@@ -2,47 +2,13 @@ import React from "react"
 import { acc } from "../questions"
 import { LayoutContext } from "../Components/Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
+import { useScrollFunctions } from "../Functions/ScrollFunctions"
 
 export default function Accessories() {
      
     const scrollRef = React.useRef();
 
-    function getButtonMetrics(el) {
-        const buttons = el.querySelectorAll('button');
-        if (buttons.length < 2) return { buttonWidth: 0, gap: 0 };
-
-        const buttonWidth = buttons[0].offsetWidth;
-        const rect1 = buttons[0].getBoundingClientRect();
-        const rect2 = buttons[1].getBoundingClientRect();
-
-        // Gap = distance between right edge of first button and left edge of second
-        const gap = rect2.left - rect1.right;
-
-        return { buttonWidth, gap };
-    }
-
-    function scrollRight() {
-        const el = scrollRef.current;
-        if (!el) return;
-
-        const { buttonWidth, gap } = getButtonMetrics(el);
-        const step = (buttonWidth + gap) * 4; // always 4 visible buttons worth
-        const maxScroll = el.scrollWidth - el.clientWidth;
-        const newLeft = Math.min(el.scrollLeft + step, maxScroll);
-
-        el.scrollTo({ left: newLeft + 1, behavior: 'smooth' });
-    }
-
-    function scrollLeft() {
-        const el = scrollRef.current;
-        if (!el) return;
-
-        const { buttonWidth, gap } = getButtonMetrics(el);
-        const step = (buttonWidth + gap) * 4;
-        const newLeft = Math.max(el.scrollLeft - step, 0);
-
-        el.scrollTo({ left: newLeft, behavior: 'smooth' });
-    }
+    const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
     const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice} = React.useContext(LayoutContext)
     
