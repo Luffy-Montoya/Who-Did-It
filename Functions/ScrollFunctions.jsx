@@ -22,7 +22,7 @@ export function useScrollFunctions(scrollRef) {
     const maxScroll = el.scrollWidth - el.clientWidth
     const newLeft = Math.min(el.scrollLeft + step, maxScroll)
 
-    el.scrollTo({ left: newLeft, behavior: "smooth" })
+    el.scrollTo({ left: newLeft + 1, behavior: "smooth" })
   }
 
   function scrollLeft() {
