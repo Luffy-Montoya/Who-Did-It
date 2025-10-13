@@ -8,7 +8,7 @@ export default function AskDisplay() {
 
     const { 
         askQuestion, price, setPrice, charactersLeft, setRow1, 
-        setRow2, setRow3, setRow4, setActive, 
+        setRow2, setRow3, setRow4, setActive, setAskOption, 
         setAskDisplay, setCategoryDisplay, setWallet, culprit
     } = React.useContext(LayoutContext)
 
@@ -21,6 +21,7 @@ export default function AskDisplay() {
     function showCategories(){
         setAskDisplay(false)
         setCategoryDisplay(true)
+        setAskOption("")
         console.log(askQuestion[1])
         console.log(askQuestion[2])
         console.log(askQuestion[3])
