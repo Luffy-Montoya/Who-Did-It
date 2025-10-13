@@ -306,7 +306,9 @@ h1:active {
   margin: 0;
   font-family: "Chilanka", sans-serif;
   font-weight: bold;
-  padding-top: .2em
+  padding-top: .2em;
+  will-change: font-size, transform;
+  transform: translateZ(0);
 }
 
 .visible {
