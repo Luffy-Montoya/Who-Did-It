@@ -2,7 +2,7 @@
 const option = (option) => {return <span className="option">{option}</span>}
 
 const head = {
-    any: <>"Do they have {option("Anything")} on their head?"</>,
+    any: <>"Do they have {option("Nothing")} on their head?"</>,
     glasses: <>"Are they wearing {option("Glasses")}?"</>,
     hat: <>"Are they wearing a {option("Hat")}?"</>,
     bowBand: <>"Are they wearing a {option("Bow")} or {option("Headband")}?"</>
@@ -42,7 +42,7 @@ const shirt = {
 }
 
 const pants = {
-    any: <>"Are they wearing {option("Any")} pants at all?"</>,
+    any: <>"Are they {option("NOT")} wearing {option("Pants")}?"</>,
     blue: <>"Are they wearing {option("Blue Pants")}?"</>,
     gray: <>"Are they wearing {option("Gray Pants")}?"</>,
     black: <>"Are they wearing {option("Black Pants")}?"</>,

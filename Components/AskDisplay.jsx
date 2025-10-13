@@ -7,24 +7,23 @@ import { coin } from "../images64"
 export default function AskDisplay() {
 
     const { 
-        askQuestion, price, setPrice, charactersLeft, setRow1, 
+        askQuestion, setAskQuestion, setPrice, charactersLeft, setRow1, 
         setRow2, setRow3, setRow4, setActive, setAskOption, 
-        setAskDisplay, setCategoryDisplay, setWallet, culprit
+        setAskDisplay, setCategoryDisplay, setWallet, culprit, setSizeChanging
     } = React.useContext(LayoutContext)
 
     const parameters = [
         askQuestion[1], askQuestion[2], askQuestion[3], setPrice, charactersLeft, 
-        setRow1, setRow2, setRow3, setRow4, setActive,
-        setAskDisplay, setCategoryDisplay, setWallet, culprit
+        setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
+        setAskDisplay, setCategoryDisplay, setWallet, culprit, 
+        setSizeChanging, setAskOption
     ]
 
     function showCategories(){
         setAskDisplay(false)
         setCategoryDisplay(true)
         setAskOption("")
-        console.log(askQuestion[1])
-        console.log(askQuestion[2])
-        console.log(askQuestion[3])
+        setAskQuestion([])
     }
 
     return(

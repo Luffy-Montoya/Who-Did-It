@@ -18,6 +18,7 @@ import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
 
 export const LayoutContext = React.createContext()
 
+
 export default function Layout() {
 
     const [askDisplay, setAskDisplay] = React.useState(false)
@@ -38,10 +39,7 @@ export default function Layout() {
     const [rightVisible, setRightVisible] = React.useState(true)
     const [wallet, setWallet] = React.useState(100)
     const [culprit, setCulprit] = React.useState({})
-    
-    React.useEffect(() => {
-        console.log(price)
-    }, [price])
+    const [sizeChanging, setSizeChanging] = React.useState(false)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -49,7 +47,7 @@ export default function Layout() {
             askDisplay, setAskDisplay, askQuestion, setAskQuestion,
             charactersLeft, setCharactersLeft, row1, setRow1,
             row2, setRow2, row3, setRow3, row4, setRow4,
-            active, setActive, price, setPrice,
+            active, setActive, price, setPrice, sizeChanging, setSizeChanging,
             set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
             askOption, setAskOption

@@ -29,7 +29,7 @@ export default function Pants() {
                             className={askOption === "none" ? "category-selected" : ""}
                             onClick={() => setQuestion([pants.any, "pants", "none", calcPrice(askMinResults.pants.any)])}
                         >
-                            <div>Any</div>
+                            <div>None</div>
                             <div className="price">{cost(calcPrice(askMinResults.pants.any))}</div>
                         </button>
                         <button 

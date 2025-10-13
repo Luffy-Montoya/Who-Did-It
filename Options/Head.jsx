@@ -29,7 +29,7 @@ export default function Head() {
                             className={askOption === "none" ? "category-selected" : ""}
                             onClick={() => setQuestion([head.any, "head", "none", calcPrice(askMinResults.head.any)])}
                         >
-                            <div>Any</div>
+                            <div>Nothing</div>
                             <div className="price">{cost(calcPrice(askMinResults.head.any))}</div>
                         </button>
                         <button 

@@ -287,6 +287,8 @@ h1:active {
   flex-direction: column;
   object-fit: contain;
   justify-content: center;
+  transition-duration: 1s;
+  transition-delay: 0;
 }
 
 .characters {
@@ -348,6 +350,7 @@ h1:active {
   justify-content: center;
   align-content: center;
   font-size: 15px;
+  transition: 1s;
 }
 
 .centralize {
@@ -417,6 +420,39 @@ button {
 .char-size-7 { width: 70%; font-size: 3rem; transition: 1s 1.2s; }
 .char-size-7 > .characters { filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25)); transition: 1s 1.2s; }
 .cont-size-7 { height: 75dvh; transition: 1s 1.2s; }
+
+.char-size-1-post { width: 16%; font-size: 1.1em; }
+.char-size-1-post > .characters { filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25)); }
+.cont-size-1-post { height: 19dvh; }
+
+.char-size-2-post { width: 19.5%; font-size: 1.3rem; }
+.char-size-2-post > .characters { filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25)); }
+.cont-size-2-post { height: 25dvh; }
+
+.char-size-3-post { width: 24.5%; font-size: 1.5rem; }
+.char-size-3-post > .characters { filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25)); }
+.cont-size-3-post { height: 38dvh; }
+
+.char-size-4-post { width: 32.5%; font-size: 1.8rem; }
+.char-size-4-post > .characters { filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25)); }
+.cont-size-4-post { height: 38dvh; }
+
+.char-size-5-post { width: 32.5%; font-size: 1.8rem; }
+.char-size-5-post > .characters { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)); }
+.cont-size-5-post { height: 38dvh; }
+
+.char-size-6-post { width: 48%; font-size: 2.3rem; }
+.char-size-6-post > .characters { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)); }
+.cont-size-6-post { height: 75dvh; }
+
+.char-size-7-post { width: 70%; font-size: 3rem; }
+.char-size-7-post > .characters { filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25)); }
+.cont-size-7-post { height: 75dvh; }
+
+.not-included {
+  opacity: 40% !important;
+  transition: 0 1s !important;
+}
 
 @media (max-width: 500px){
 
