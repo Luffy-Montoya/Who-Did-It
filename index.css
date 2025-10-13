@@ -332,13 +332,13 @@ h1:active {
 .character-container.active > .characters {
   transform: translateY(-20%);
   opacity: 0%;
-  transition-delay: .1s;
+  transition-delay: .4s;
   transition-duration: 1s;
 }
 
 .character-container.active > .character-name {
   opacity: 0%;
-  transition-delay: .4s;
+  transition-delay: .65s;
   transition-duration: 1s;
 }
 
