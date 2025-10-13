@@ -94,7 +94,7 @@ html, body {
 
 .ask-button{
   display: block;
-  padding-top: .6em;
+  padding-top: .3em;
 }
 
 .ask-coin {
@@ -106,7 +106,7 @@ html, body {
   color: rgb(100, 100, 100);
   font-size: .8rem;
   margin-right: .3em;
-  margin-top: -.15em;
+  
 }
 
 /* =========================
