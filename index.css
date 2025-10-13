@@ -246,6 +246,7 @@ h1:active {
   width: 4.5em;
   border-radius: 1.5em;
   border: 1px solid black;
+  background-color: whitesmoke;
 }
 
 .ask-button{
@@ -254,15 +255,14 @@ h1:active {
 }
 
 .ask-coin {
-  height: .8em;
-  margin-right: .15em;
+  height: .7em;
+  margin-right: .5em;
 }
 
 .ask-button-price {
   color: rgb(100, 100, 100);
   font-size: .8rem;
   margin-right: .35em;
-  margin-top: .1em;
 }
 
 .main-body {
