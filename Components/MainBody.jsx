@@ -87,10 +87,12 @@ export default function MainBody() {
     ) {
           console.log("15 skipped — already aligned");
           secondArranged.current = true;
-          setSizeChanging(true)
+          setTimeout(() => {
+            setSizeChanging(true)
+          }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 5000)
+          }, 4000)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -116,10 +118,12 @@ export default function MainBody() {
         ) {
           console.log("8 skipped — already aligned");
           thirdArranged.current = true;
-          setSizeChanging(true)
+          setTimeout(() => {
+            setSizeChanging(true)
+          }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 5000)
+          }, 4000)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -145,10 +149,12 @@ export default function MainBody() {
         ) {
           console.log("6 skipped — already aligned");
           fourthArranged.current = true;
-          setSizeChanging(true)
+          setTimeout(() => {
+            setSizeChanging(true)
+          }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 5000)
+          }, 4000)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -173,10 +179,12 @@ export default function MainBody() {
     ) {
           console.log("4 skipped — already aligned");
           fifthArranged.current = true;
-          setSizeChanging(true)
+          setTimeout(() => {
+            setSizeChanging(true)
+          }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 5000)
+          }, 4000)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -198,10 +206,12 @@ export default function MainBody() {
         if (rowsMatch(2) || rowsMatch(1)) {
           console.log("2 skipped — already aligned");
           sixthArranged.current = true;
-          setSizeChanging(true)
+          setTimeout(() => {
+            setSizeChanging(true)
+          }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 5000)
+          }, 4000)
         } else {
           setTimeout(() => {
             setIsVisible(false);

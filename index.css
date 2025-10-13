@@ -287,7 +287,7 @@ h1:active {
   flex-direction: column;
   object-fit: contain;
   justify-content: center;
-  transition-duration: 1s;
+  transition-duration: .5s;
   transition-delay: 0;
 }
 
@@ -451,7 +451,7 @@ button {
 
 .not-included {
   opacity: 30% !important;
-  transition: 0 1s !important;
+  transition: 0 .5s !important;
 }
 
 @media (max-width: 500px){

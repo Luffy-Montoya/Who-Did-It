@@ -21,10 +21,12 @@ export function selectCharacter(
     setAskQuestion("")
     setAskOption("")
     setWallet(prev => prev - price)
-    setSizeChanging(true)
+    setTimeout(() => {
+        setSizeChanging(true)
+    }, 500)
     setTimeout(() => {
         setSizeChanging(false)
-    }, 5000)
+    }, 4000)
     
     if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
     
