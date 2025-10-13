@@ -224,7 +224,7 @@ h1:active {
 }
 
 .category-selected {
-  background: lightgray !important
+  background: rgb(230,230,230) !important
 }
 
 .ask-display {
@@ -232,9 +232,37 @@ h1:active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: .5em;
-  padding-right: .5em;
+  padding-left: .65em;
+  padding-right: .65em;
   gap: .25em;
+}
+
+.go-back {
+  justify-content: center;
+}
+
+.ask-button, .go-back {
+  height: 4em;
+  width: 4.5em;
+  border-radius: 1.5em;
+  border: 1px solid black;
+}
+
+.ask-button{
+  display: block;
+  padding-top: .6em;
+}
+
+.ask-coin {
+  height: .8em;
+  margin-right: .15em;
+}
+
+.ask-button-price {
+  color: rgb(100, 100, 100);
+  font-size: .8rem;
+  margin-right: .35em;
+  margin-top: .1em;
 }
 
 .main-body {

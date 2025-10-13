@@ -1,11 +1,13 @@
 import React from "react"
 import { LayoutContext } from "./Layout"
 import { selectCharacter } from "../Functions/selectCharacter"
+import { coin } from "../images64"
+
 
 export default function AskDisplay() {
 
     const { 
-        askQuestion, setPrice, charactersLeft, setRow1, 
+        askQuestion, price, setPrice, charactersLeft, setRow1, 
         setRow2, setRow3, setRow4, setActive, 
         setAskDisplay, setCategoryDisplay, setWallet, culprit
     } = React.useContext(LayoutContext)
@@ -19,13 +21,22 @@ export default function AskDisplay() {
     function showCategories(){
         setAskDisplay(false)
         setCategoryDisplay(true)
-}
+        console.log(askQuestion[1])
+        console.log(askQuestion[2])
+        console.log(askQuestion[3])
+    }
 
     return(
         <div className="ask-display">
-            <button onClick={() => showCategories()}>Categories</button>
+            <button className="go-back" onClick={() => showCategories()}>Back</button>
             <div className="question">{askQuestion[0]}</div>
-            <button onClick={() => selectCharacter(...parameters)}>Ask!</button>
+            <button className="ask-button" onClick={() => selectCharacter(...parameters)}>
+                <div>Ask!</div>
+                <div className="ask-button-price">
+                    <img className="ask-coin" src={coin}></img>
+                    {askQuestion[3]}
+                </div>
+            </button>
         </div>
     )
 }

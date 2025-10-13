@@ -15,7 +15,6 @@ import Shoes from "../Options/Shoes"
 import Accessories from "../Options/Accessories"
 import AskDisplay from "./AskDisplay"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
-import { askMinResults } from "../Functions/askPrice"
 
 export const LayoutContext = React.createContext()
 
@@ -24,16 +23,7 @@ export default function Layout() {
     const [askDisplay, setAskDisplay] = React.useState(false)
     const [categoryDisplay, setCategoryDisplay] = React.useState(true)
     const [askQuestion, setAskQuestion] = React.useState("")
-    const [categories, setCategories] = React.useState({
-        head: false,
-        hair: false,
-        genderSkin: false,
-        clothes: false,
-        shirt: false,
-        pants: false,
-        shoes: false,
-        accessories: false,
-    })
+    const [optionsBar, setOptionsBar] = React.useState("")
     const [askOption, setAskOption] = React.useState("")
     const [charactersLeft, setCharactersLeft] = React.useState([])
     const [row1, setRow1] = React.useState([])
@@ -55,7 +45,7 @@ export default function Layout() {
 
     return (
         <LayoutContext.Provider value={{ 
-            categories, setCategories, categoryDisplay, setCategoryDisplay,
+            optionsBar, setOptionsBar, categoryDisplay, setCategoryDisplay,
             askDisplay, setAskDisplay, askQuestion, setAskQuestion,
             charactersLeft, setCharactersLeft, row1, setRow1,
             row2, setRow2, row3, setRow3, row4, setRow4,
@@ -75,15 +65,15 @@ export default function Layout() {
                     {askDisplay && <AskDisplay />}
                 </MainDisplay>
                 <OptionsDisplay>
-                    {Object.values(categories).every(value => value === false) && <h3>Select a Category</h3>}
-                    {categories.head && <Head />}
-                    {categories.hair && <Hair />}
-                    {categories.genderSkin && <GenderSkin />}
-                    {categories.clothes && <Clothes />}
-                    {categories.shirt && <Shirt />}
-                    {categories.pants && <Pants />}
-                    {categories.shoes && <Shoes />}
-                    {categories.accessories && <Accessories />}
+                    {(optionsBar === "") && <h3>Select a Category</h3>}
+                    {(optionsBar === "head")&& <Head />}
+                    {(optionsBar === "hair") && <Hair />}
+                    {(optionsBar === "genderSkin") && <GenderSkin />}
+                    {(optionsBar === "clothes") && <Clothes />}
+                    {(optionsBar === "shirt") && <Shirt />}
+                    {(optionsBar === "pants") && <Pants />}
+                    {(optionsBar === "shoes") && <Shoes />}
+                    {(optionsBar === "accessories") && <Accessories />}
                 </OptionsDisplay>
                 <MainBody />
             </div>
