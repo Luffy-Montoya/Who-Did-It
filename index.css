@@ -242,11 +242,12 @@ h1:active {
 }
 
 .ask-button, .go-back {
-  height: 4em;
-  width: 4.5em;
+  height: 3.5em;
+  width: 4em;
   border-radius: 1.5em;
   border: 1px solid black;
   background-color: whitesmoke;
+  font-size: 1rem;
 }
 
 .ask-button{
