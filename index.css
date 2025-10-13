@@ -289,6 +289,8 @@ h1:active {
   justify-content: center;
   transition-duration: 1s;
   transition-delay: 0;
+  will-change: width, transform;
+  transform: translateZ(0);
 }
 
 .characters {
@@ -299,6 +301,8 @@ h1:active {
   object-fit: contain;
   z-index: 1;
   overflow: hidden;
+  will-change: width, filter, transform;
+  transform: translateZ(0);
 }
 
 .character-name {
