@@ -306,8 +306,7 @@ h1:active {
   margin: 0;
   font-family: "Chilanka", sans-serif;
   font-weight: bold;
-  padding-top: .2em;
-  transition: 1s;
+  padding-top: .2em
 }
 
 .visible {
@@ -339,7 +338,8 @@ h1:active {
 
 .character-container.active > .character-name {
   opacity: 0%;
-  transition: 1s;
+  transition-delay: .4s;
+  transition-duration: 1s;
 }
 
 .image-container {
