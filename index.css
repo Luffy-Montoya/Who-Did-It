@@ -264,6 +264,7 @@ h1:active {
   color: rgb(100, 100, 100);
   font-size: .8rem;
   margin-right: .35em;
+  margin-top: -.15em;
 }
 
 .main-body {
