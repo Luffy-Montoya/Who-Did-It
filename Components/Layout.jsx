@@ -34,6 +34,7 @@ export default function Layout() {
         shoes: false,
         accessories: false,
     })
+    const [askOption, setAskOption] = React.useState("")
     const [charactersLeft, setCharactersLeft] = React.useState([])
     const [row1, setRow1] = React.useState([])
     const [row2, setRow2] = React.useState([])
@@ -60,7 +61,8 @@ export default function Layout() {
             row2, setRow2, row3, setRow3, row4, setRow4,
             active, setActive, price, setPrice,
             set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
-            rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit
+            rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
+            askOption, setAskOption
         }}>
 
             <div className="layout">

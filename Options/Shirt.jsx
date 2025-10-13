@@ -12,10 +12,10 @@ export default function Shirt() {
     
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice } = React.useContext(LayoutContext)
-    
-    function setQuestion(question, category, key){
-        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, askOption} = React.useContext(LayoutContext)
+        
+    function setQuestion(question, option, key){
+        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
     }
 
     return(
@@ -25,27 +25,45 @@ export default function Shirt() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div> 
-                        <button onClick={() => setQuestion([shirt.blue, "shirt", "blue", calcPrice(askMinResults.shirt.blue)])}>
+                        <button 
+                            className={askOption === "blue" ? "category-selected" : ""}
+                            onClick={() => setQuestion([shirt.blue, "shirt", "blue", calcPrice(askMinResults.shirt.blue)])}
+                        >
                             <div>Blue</div>
                             <div className="price">{cost(calcPrice(askMinResults.shirt.blue))}</div>
                         </button>
-                        <button onClick={() => setQuestion([shirt.green, "shirt", "green", calcPrice(askMinResults.shirt.green)])}>
+                        <button 
+                            className={askOption === "green" ? "category-selected" : ""}
+                            onClick={() => setQuestion([shirt.green, "shirt", "green", calcPrice(askMinResults.shirt.green)])}
+                        >
                             <div>Green</div>
                             <div className="price">{cost(calcPrice(askMinResults.shirt.green))}</div>
                         </button>
-                        <button onClick={() => setQuestion([shirt.pink, "shirt", "pink", calcPrice(askMinResults.shirt.pink)])}>
+                        <button 
+                            className={askOption === "pink" ? "category-selected" : ""}
+                            onClick={() => setQuestion([shirt.pink, "shirt", "pink", calcPrice(askMinResults.shirt.pink)])}
+                        >
                             <div>Pink</div>
                             <div className="price">{cost(calcPrice(askMinResults.shirt.pink))}</div>
                         </button>
-                        <button onClick={() => setQuestion([shirt.purple, "shirt", "purple", calcPrice(askMinResults.shirt.purple)])}>
+                        <button 
+                            className={askOption === "purple" ? "category-selected" : ""}
+                            onClick={() => setQuestion([shirt.purple, "shirt", "purple", calcPrice(askMinResults.shirt.purple)])}
+                        >
                             <div>Purple</div>
                             <div className="price">{cost(calcPrice(askMinResults.shirt.purple))}</div>
                         </button>
-                        <button onClick={() => setQuestion([shirt.red, "shirt", "red", calcPrice(askMinResults.shirt.red)])}>
+                        <button 
+                            className={askOption === "red" ? "category-selected" : ""}
+                            onClick={() => setQuestion([shirt.red, "shirt", "red", calcPrice(askMinResults.shirt.red)])}
+                        >
                             <div>Red</div>
                             <div className="price">{cost(calcPrice(askMinResults.shirt.red))}</div>
                         </button>
-                        <button onClick={() => setQuestion([shirt.white, "shirt", "white", calcPrice(askMinResults.shirt.white)])}>
+                        <button 
+                            className={askOption === "white" ? "category-selected" : ""}
+                            onClick={() => setQuestion([shirt.white, "shirt", "white", calcPrice(askMinResults.shirt.white)])}
+                        >
                             <div>White</div>
                             <div className="price">{cost(calcPrice(askMinResults.shirt.white))}</div>
                         </button>

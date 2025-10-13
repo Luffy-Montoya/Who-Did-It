@@ -133,7 +133,7 @@ export const characters = [
         shirt: "purple",
         pants: "black",
         shoes: "black",
-        accessories: "microphone",
+        accessories: "none",
         id: 9,
     },
 

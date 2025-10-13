@@ -12,10 +12,10 @@ export default function GenderSkin() {
         
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice } = React.useContext(LayoutContext)
-    
-    function setQuestion(question, category, key){
-        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, question, category, key)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, askOption} = React.useContext(LayoutContext)
+        
+    function setQuestion(question, option, key){
+        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
     }
 
     return(
@@ -25,19 +25,31 @@ export default function GenderSkin() {
                 <div className="options-scroll" ref={scrollRef}>
                     <div className="options-list">
                         <div className="ghost-div"></div>  
-                        <button onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.man)])}>
+                        <button 
+                            className={askOption === "male" ? "category-selected" : ""}
+                            onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.man)])}
+                        >
                             <div>Man</div>
                             <div className="price">{cost(calcPrice(askMinResults.genderSkin.man))}</div>
                         </button>
-                        <button onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.woman)])}>
+                        <button 
+                            className={askOption === "female" ? "category-selected" : ""}
+                            onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.woman)])}
+                        >
                             <div>Woman</div>
                             <div className="price">{cost(calcPrice(askMinResults.genderSkin.woman))}</div>
                         </button>
-                        <button onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light)])}>
+                        <button 
+                            className={askOption === "light" ? "category-selected" : ""}
+                            onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light)])}
+                        >
                             <div>Light Skin</div>
                             <div className="price">{cost(calcPrice(askMinResults.genderSkin.light))}</div>
                         </button>
-                        <button onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark)])}>
+                        <button 
+                            className={askOption === "dark" ? "category-selected" : ""}
+                            onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark)])}
+                        >
                             <div>Dark Skin</div>
                             <div className="price">{cost(calcPrice(askMinResults.genderSkin.dark))}</div>
                         </button>

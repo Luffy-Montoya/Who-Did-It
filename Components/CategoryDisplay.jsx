@@ -3,7 +3,7 @@ import { LayoutContext } from "./Layout"
 
 export default function CategoryDisplay() {
 
-    const { setCategories } = React.useContext(LayoutContext)
+    const { categories, setCategories, setAskOption } = React.useContext(LayoutContext)
 
     const setCategory = (name) => {
       setCategories((prev) =>
@@ -12,18 +12,23 @@ export default function CategoryDisplay() {
           return acc
         }, {})
       )
+      setAskOption("")
+    }
+
+    function selected(category) {
+      return categories[category]
     }
     
     return(
             <div className="category-display">
-                <button onClick={() => setCategory("head")}>Head</button>
-                <button onClick={() => setCategory("hair")}>Hair</button>
-                <button onClick={() => setCategory("genderSkin")}>Gender/Skin</button>
-                <button onClick={() => setCategory("clothes")}>Clothes</button>
-                <button onClick={() => setCategory("shirt")}>Shirt</button>
-                <button onClick={() => setCategory("pants")}>Pants</button>
-                <button onClick={() => setCategory("shoes")}>Shoes</button>
-                <button onClick={() => setCategory("accessories")}>Accessories</button>
+                <button className={selected("head") ? "category-selected" : ""} onClick={() => setCategory("head")}>Head</button>
+                <button className={selected("hair") ? "category-selected" : ""} onClick={() => setCategory("hair")}>Hair</button>
+                <button className={selected("genderSkin") ? "category-selected" : ""} onClick={() => setCategory("genderSkin")}>Gender/Skin</button>
+                <button className={selected("clothes") ? "category-selected" : ""} onClick={() => setCategory("clothes")}>Clothes</button>
+                <button className={selected("shirt") ? "category-selected" : ""} onClick={() => setCategory("shirt")}>Shirt</button>
+                <button className={selected("pants") ? "category-selected" : ""} onClick={() => setCategory("pants")}>Pants</button>
+                <button className={selected("shoes") ? "category-selected" : ""} onClick={() => setCategory("shoes")}>Shoes</button>
+                <button className={selected("accessories") ? "category-selected" : ""} onClick={() => setCategory("accessories")}>Misc.</button>
             </div>    
     )
 }
