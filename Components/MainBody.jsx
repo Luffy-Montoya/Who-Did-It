@@ -92,7 +92,7 @@ export default function MainBody() {
           }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 4000)
+          }, 4500)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -123,7 +123,7 @@ export default function MainBody() {
           }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 4000)
+          }, 4500)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -154,7 +154,7 @@ export default function MainBody() {
           }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 4000)
+          }, 4500)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -184,7 +184,7 @@ export default function MainBody() {
           }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 4000)
+          }, 4500)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -211,7 +211,7 @@ export default function MainBody() {
           }, 500)
           setTimeout(() => {
               setSizeChanging(false)
-          }, 4000)
+          }, 4500)
         } else {
           setTimeout(() => {
             setIsVisible(false);
@@ -283,7 +283,7 @@ export default function MainBody() {
           setRow2(prev => prev.filter(obj => obj.name !== charName))
           setRow3(prev => prev.filter(obj => obj.name !== charName))
           setRow4(prev => prev.filter(obj => obj.name !== charName))
-      }, 2000)
+      }, 2500)
     }
 
 

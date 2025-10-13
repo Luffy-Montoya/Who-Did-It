@@ -26,7 +26,7 @@ export function selectCharacter(
     }, 500)
     setTimeout(() => {
         setSizeChanging(false)
-    }, 4000)
+    }, 4500)
     
     if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
     
@@ -55,7 +55,7 @@ export function selectCharacter(
                 const value = obj[category]
                 return Array.isArray(value) ? !value.includes(key) : value !== key
             }))
-            }, 2000)
+            }, 2500)
 
     } else {
         
@@ -89,7 +89,7 @@ export function selectCharacter(
                 const value = obj[category]
                 return Array.isArray(value) ? value.includes(key) : value === key
             }))
-            }, 2000)
+            }, 2500)
         console.log(key)
     }
 }
