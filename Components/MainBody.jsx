@@ -265,29 +265,6 @@ export default function MainBody() {
 
     const containerSize = getContainerSize(charactersLeft.length)
 
-    function getFontSize(len) {
-      if (sizeChanging) {
-        if (len > 15 && len < 25) return "font-size-1"
-        if (len > 8 && len <= 15) return "font-size-2"
-        if (len > 6 && len <= 8) return "font-size-3"
-        if (len > 4 && len <= 6) return "font-size-4"
-        if (len > 2 && len <= 4) return "font-size-5"
-        if (len === 2) return "font-size-6"
-        if (len === 1) return "font-size-7"
-      } else {
-        if (len > 15 && len < 25) return "font-size-1-post"
-        if (len > 8 && len <= 15) return "font-size-2-post"
-        if (len > 6 && len <= 8) return "font-size-3-post"
-        if (len > 4 && len <= 6) return "font-size-4-post"
-        if (len > 2 && len <= 4) return "font-size-5-post"
-        if (len === 2) return "font-size-6-post"
-        if (len === 1) return "font-size-7-post"
-      }
-        return "default"
-    }
-
-    const fontSize = getFontSize(charactersLeft.length)
-
     function removeCharacter(charName) {
 
     setActive(prev => ({ ...prev, [charName]: true }))
@@ -323,7 +300,7 @@ export default function MainBody() {
                 key={character.name}
             >
                 <img className="characters" src={character.image}></img>
-                <p className={`character-name ${fontSize}`}>{character.name}</p>
+                <p className="character-name">{character.name}</p>
             </div>
         )))
     }
