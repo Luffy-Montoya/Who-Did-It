@@ -6,7 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100dvw;
+  width: 100%;
   background: rgb(220, 220, 220);
   display: flex;
   justify-content: center;
@@ -146,7 +146,7 @@ html, body {
   transition: .25s;
 }
 
-.go-back {
+/* .go-back {
   justify-content: center;
   transition: .25s;
 }
@@ -165,7 +165,7 @@ html, body {
 .ask-button.offscreen {
   margin-right: -5em;
   transition: .25s;
-}
+} */
 
 .ask-button, .go-back {
   height: 3.5em;
