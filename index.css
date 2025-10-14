@@ -131,6 +131,8 @@ h3 {
   color: black;
   margin-top: -.75em;
   transition: .5s;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .question.offscreen {
