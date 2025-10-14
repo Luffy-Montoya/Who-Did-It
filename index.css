@@ -41,8 +41,6 @@ html, body {
 .main-display {
   height: 4.5em;
   width: 100%;
-  padding-top: .25em;
-  padding-bottom: .25em;
   display: flex;
   align-items: center;
   background: rgb(180,180,180);
