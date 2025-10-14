@@ -216,7 +216,7 @@ html, body {
 /* Scrollable area */
 .options-scroll {
   background: lightgray;
-  height: 4em;
+  height: 100%;
   display: block;                 /* ⬅ was flex */
   overflow-x: auto;
   overflow-y: hidden;
