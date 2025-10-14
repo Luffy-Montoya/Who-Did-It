@@ -63,7 +63,7 @@ export const characters = [
     },
 
     {
-        name: "Kendall",
+        name: (Math.random() < 0.5 ? "Kendall" : "D.D."),
         image: images64.Emily,
         head: "none",
         hair: "blonde",

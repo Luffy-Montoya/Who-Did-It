@@ -3,11 +3,13 @@ import { LayoutContext } from "./Layout"
 
 export default function CategoryDisplay() {
 
-    const { optionsBar, setOptionsBar, setAskOption, toCategories } = React.useContext(LayoutContext)
+    const { optionsBar, setOptionsBar, setAskOption, toCategories, setFade, setYesOrNo } = React.useContext(LayoutContext)
 
     const setCategory = (name) => {
       setOptionsBar(name)
       setAskOption("")
+      setFade(false)
+      setYesOrNo("")
     }
     
     return(

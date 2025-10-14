@@ -128,12 +128,19 @@ html, body {
   transition-duration: .25s;
 }
 
+.question.fade {
+  opacity: 0%;
+  transition: .25s
+}
+
 .answer {
   color: black;
+  height: 1em;
   font-size: 2rem;
   margin-bottom: .8em;
-  margin-top: -.25em;
+  margin-top: .25em;
   transition: .25s;
+  z-index: 100
   
 }
 

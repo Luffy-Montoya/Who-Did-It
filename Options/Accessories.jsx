@@ -15,14 +15,15 @@ export default function Accessories() {
 
     const { 
         setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
-        setAskOption, askOption, charactersLeft, asked, setToAsk, setToCategories } = React.useContext(LayoutContext)
+        setAskOption, askOption, charactersLeft, asked, setToAsk, setToCategories, setFade } = React.useContext(LayoutContext)
     
     function setQuestion(question, option, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
+        setFade(false)
+        setToCategories(false)
         setTimeout(() => {
             setToAsk(true)
-            setToCategories(false)
-        }, 10)
+        }, 300)
         console.log("included")
         console.log(asked.includes(["accessories", "none"]))
     }

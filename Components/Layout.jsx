@@ -44,6 +44,8 @@ export default function Layout() {
     const [toCategories, setToCategories] = React.useState(true)
     const [toAsk, setToAsk] = React.useState(false)
     const [questionAsked, setQuestionAsked] = React.useState(false)
+    const [fade, setFade] = React.useState(false)
+    const [yesOrNo, setYesOrNo] = React.useState("")
 
     return (
         <LayoutContext.Provider value={{ 
@@ -55,7 +57,8 @@ export default function Layout() {
             set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
             askOption, setAskOption, asked, setAsked, toAsk, setToAsk, 
-            toCategories, setToCategories, questionAsked, setQuestionAsked
+            toCategories, setToCategories, questionAsked, setQuestionAsked,
+            fade, setFade, yesOrNo, setYesOrNo
         }}>
 
             <div className="layout">

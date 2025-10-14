@@ -2,8 +2,10 @@ import React from "react"
     
 export function toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, questionArray, price) {
     setAskQuestion(questionArray)
-    setAskDisplay(true)
-    setCategoryDisplay(false)
+    setTimeout(() => {
+        setAskDisplay(true)
+        setCategoryDisplay(false)
+    }, 250)
     setPrice(price)
     setAskOption(questionArray[2])
 }

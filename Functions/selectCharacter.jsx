@@ -4,7 +4,8 @@ export function selectCharacter(
     category, key, price, setPrice, charactersLeft, 
     setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
     setAskDisplay, setCategoryDisplay, setWallet, culprit,
-    setSizeChanging, setAskOption, setAsked, setToAsk, setToCategories, setQuestionAsked) {
+    setSizeChanging, setAskOption, setAsked, setToAsk, setToCategories, setQuestionAsked,
+    setOptionsBar, setYesOrNo) {
 
     const filtered = charactersLeft.filter(character => {
     const value = character[category]
@@ -15,13 +16,14 @@ export function selectCharacter(
     return value === key
     })
 
+    setToAsk(false)
+    setOptionsBar("")
     setAsked(prev => ([...prev, [category, key]]))
     setTimeout(() => {
         setAskDisplay(false)
         setCategoryDisplay(true)
     }, 2300)
     setTimeout(() => {
-        setToAsk(false)
         setToCategories(true)
     }, 2400)
     setQuestionAsked(true)
@@ -37,7 +39,8 @@ export function selectCharacter(
     }, 4500)
     
     if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
-    
+        
+        setYesOrNo("No!")
         const namesToActivate = filtered.map(character => character.name)
         const newActiveState = namesToActivate.reduce((acc, name) => {
         acc[name] = true
@@ -66,7 +69,7 @@ export function selectCharacter(
             }, 2500)
 
     } else {
-        
+        setYesOrNo("Yes!")
         const namesToActivate = charactersLeft
         .filter(character => {
         const value = character[category]
