@@ -5,6 +5,7 @@ import { toggleQuestion } from "../Functions/toggleQuestion"
 import { useScrollFunctions } from "../Functions/ScrollFunctions"
 import { cost } from "../Functions/cost"
 import { askMinResults, calcPrice } from "../Functions/askPrice"
+import { allOrNoneHave } from "../Functions/allOrNoneHave"
 
 export default function Head() {
 
@@ -12,7 +13,7 @@ export default function Head() {
             
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, askOption} = React.useContext(LayoutContext)
+    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, askOption, charactersLeft, asked } = React.useContext(LayoutContext)
         
     function setQuestion(question, option, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
@@ -28,6 +29,10 @@ export default function Head() {
                         <button 
                             className={askOption === "none" ? "category-selected" : ""}
                             onClick={() => setQuestion([head.any, "head", "none", calcPrice(askMinResults.head.any)])}
+                            disabled={
+                                allOrNoneHave("head", "none", charactersLeft) || 
+                                asked.some(pair => pair[0] === "head" && pair[1] === "none")
+                            }
                         >
                             <div>Nothing</div>
                             <div className="price">{cost(calcPrice(askMinResults.head.any))}</div>
@@ -35,6 +40,10 @@ export default function Head() {
                         <button 
                             className={askOption === "bow/headband" ? "category-selected" : ""}
                             onClick={() => setQuestion([head.bowBand, "head", "bow/headband", calcPrice(askMinResults.head.bow)])}
+                            disabled={
+                                allOrNoneHave("head", "bow/headband", charactersLeft) || 
+                                asked.some(pair => pair[0] === "head" && pair[1] === "bow/headband")
+                            }
                         >
                             <div>Bow / Band</div>
                             <div className="price">{cost(calcPrice(askMinResults.head.bow))}</div>
@@ -42,6 +51,10 @@ export default function Head() {
                         <button 
                             className={askOption === "glasses" ? "category-selected" : ""}
                             onClick={() => setQuestion([head.glasses, "head", "glasses", calcPrice(askMinResults.head.glasses)])}
+                            disabled={
+                                allOrNoneHave("head", "glasses", charactersLeft) || 
+                                asked.some(pair => pair[0] === "head" && pair[1] === "glasses")
+                            }
                         >
                             <div>Glasses</div>
                             <div className="price">{cost(calcPrice(askMinResults.head.glasses))}</div>
@@ -49,6 +62,10 @@ export default function Head() {
                         <button 
                             className={askOption === "hat" ? "category-selected" : ""}
                             onClick={() => setQuestion([head.hat, "head", "hat", calcPrice(askMinResults.head.hat)])}
+                            disabled={
+                                allOrNoneHave("head", "hat", charactersLeft) || 
+                                asked.some(pair => pair[0] === "head" && pair[1] === "hat")
+                            }
                         >
                             <div>Hat</div>
                             <div className="price">{cost(calcPrice(askMinResults.head.hat))}</div>

@@ -4,7 +4,7 @@ export function selectCharacter(
     category, key, price, setPrice, charactersLeft, 
     setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
     setAskDisplay, setCategoryDisplay, setWallet, culprit,
-    setSizeChanging, setAskOption) {
+    setSizeChanging, setAskOption, setAsked) {
 
     const filtered = charactersLeft.filter(character => {
     const value = character[category]
@@ -15,6 +15,7 @@ export function selectCharacter(
     return value === key
     })
 
+    setAsked(prev => ([...prev, [category, key]]))
     setAskDisplay(false)
     setCategoryDisplay(true)
     setPrice(price)
