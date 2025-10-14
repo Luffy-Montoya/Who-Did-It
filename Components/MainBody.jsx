@@ -12,7 +12,7 @@ export default function MainBody() {
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
       active, setActive, setCulprit, askQuestion, sizeChanging,
-      setSizeChanging 
+      setSizeChanging, setYouWin 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -26,6 +26,12 @@ export default function MainBody() {
         setCulprit(shuffledChars[Math.floor(Math.random() * 24)])
         loadCharacters()
     }, [])
+
+    React.useEffect(() => {
+        if (charactersLeft.length === 1) {
+          setYouWin(true)
+        }
+    }, [charactersLeft])
 
     const firstArranged = React.useRef(false)
     const secondArranged = React.useRef(false)

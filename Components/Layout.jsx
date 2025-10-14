@@ -13,6 +13,7 @@ import Shirt from "../Options/Shirt"
 import Pants from "../Options/Pants"
 import Shoes from "../Options/Shoes"
 import Accessories from "../Options/Accessories"
+import Select from "../Options/Select"
 import AskDisplay from "./AskDisplay"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
 
@@ -46,6 +47,7 @@ export default function Layout() {
     const [questionAsked, setQuestionAsked] = React.useState(false)
     const [fade, setFade] = React.useState(false)
     const [yesOrNo, setYesOrNo] = React.useState("")
+    const [youWin, setYouWin] = React.useState(false)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -58,7 +60,7 @@ export default function Layout() {
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
             askOption, setAskOption, asked, setAsked, toAsk, setToAsk, 
             toCategories, setToCategories, questionAsked, setQuestionAsked,
-            fade, setFade, yesOrNo, setYesOrNo
+            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin
         }}>
 
             <div className="layout">
@@ -71,7 +73,7 @@ export default function Layout() {
                     {askDisplay && <AskDisplay />}
                 </MainDisplay>
                 <OptionsDisplay>
-                    {(optionsBar === "") && <h3>Select a Category</h3>}
+                    {(optionsBar === "") && <Select />}
                     {(optionsBar === "head")&& <Head />}
                     {(optionsBar === "hair") && <Hair />}
                     {(optionsBar === "genderSkin") && <GenderSkin />}

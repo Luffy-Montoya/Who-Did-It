@@ -22,6 +22,10 @@ h3 {
   padding-top:1em;
   }
 
+.select-category {
+  font-size: 1.25rem;
+}
+
 .layout {
   width: 100%;
   max-width: 480px;
