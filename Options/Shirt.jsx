@@ -85,8 +85,8 @@ export default function Shirt() {
                             className={askOption === "white" ? "category-selected" : ""}
                             onClick={() => setQuestion([shirt.white, "shirt", "white", calcPrice(askMinResults.shirt.white)])}
                             disabled={
-                                allOrNoneHave("shirt", "magenta", charactersLeft) || 
-                                asked.some(pair => pair[0] === "shirt" && pair[1] === "magenta")
+                                allOrNoneHave("shirt", "white", charactersLeft) || 
+                                asked.some(pair => pair[0] === "shirt" && pair[1] === "white")
                             }
                         >
                             <div>White</div>
