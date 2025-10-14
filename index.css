@@ -61,7 +61,7 @@ html, body {
 .category-display.offscreen {
   opacity: 0%;
   gap: 5em;
-  transition: .2s;
+  transition: .4s;
 }
 
 .categories-top, .categories-bottom {
