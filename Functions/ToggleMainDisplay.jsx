@@ -3,11 +3,11 @@ import { LayoutContext } from "../Components/Layout"
 
 export default function ToggleMainDisplay(){
 
-const { askDisplay, setAskDisplay, categoryDisplay, setCategoryDisplay } = React.useContext(LayoutContext)
+const { toAsk, toCategories, setToAsk, setToCategories } = React.useContext(LayoutContext)
 
 function toggle(){
-        setAskDisplay(!askDisplay)
-        setCategoryDisplay(!categoryDisplay)
+        setToAsk(!toAsk)
+        setToCategories(!toCategories)
 }
 return (
     <button onClick={() => toggle()}>Toggle</button>

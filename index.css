@@ -28,14 +28,18 @@ html, body {
 }
 
 .header {
-  height: 6%;
+  height: 2.5em;
   display: flex;
   gap: 2vw;
   align-items: center;
+  background: white;
+  width: 100%;
+  justify-content: center;
+  z-index: 10;
 }
 
 .main-display {
-  height: 9%;
+  height: 4.5em;
   width: 100%;
   padding-top: .25em;
   padding-bottom: .25em;
@@ -46,43 +50,121 @@ html, body {
 }
 
 .category-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  gap: .5em;
+  width: 100%;
+  transition: .2s;
+}
+
+.category-display.offscreen {
+  gap: 6em;
+  transition: .2s;
+}
+
+.categories-top, .categories-bottom {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   padding-left: 1em;
   padding-right: 1em;
   gap: .25em
 }
 
-.category-display > button {
+.categories-top > button, .categories-bottom > button {
   width: 24%;
   height: 2em;
   font-size: .8rem;
   justify-content: center;
   border-radius: 2em;
   border: 1px solid black;
-  background: whitesmoke;
+  background: rgb(250,250,250);
   cursor: pointer;
 }
 
 .category-selected {
   box-shadow: 0 1px 2px rgb(0,0,0) !important;
-  background: rgb(250,250,250) !important;
+  background: rgb(255,255,255) !important;
 }
 
 .ask-display {
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: .65em;
   padding-right: .65em;
   gap: .25em;
+  overflow: hidden;
+}
+
+.ask-text-container.offscreen {
+  opacity: 0%;
+  transform: translateY(-75%);
+  transition-delay: 2s;
+  transition-duration: .25s
+}
+
+.ask-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question {
+  color: black;
+  margin-top: -.75em;
+  transition: .5s;
+}
+
+.question.offscreen {
+  opacity: 0%;
+  margin-bottom: 1.5em;
+  transition-delay: .15s;
+  transition-duration: .25s;
+}
+
+.answer {
+  color: black;
+  font-size: 2rem;
+  margin-bottom: .8em;
+  margin-top: -.25em;
+  transition: .25s;
+  
+}
+
+.answer.offscreen {
+  opacity: 0%;
+  font-size: .5rem;
+  margin-top: .5em;
+  margin-bottom: -1.5rem;
+  transition: .25s;
 }
 
 .go-back {
   justify-content: center;
+  transition: .25s;
+}
+
+.go-back.offscreen {
+  margin-left: -5em;
+  transition: .25s;
+}
+
+.ask-button{
+  display: block;
+  padding-top: .3em;
+  transition: .25s;
+}
+
+.ask-button.offscreen {
+  margin-right: -5em;
+  transition: .25s;
 }
 
 .ask-button, .go-back {
@@ -90,14 +172,9 @@ html, body {
   width: 4em;
   border-radius: 1.5em;
   border: 1px solid rgb(120,120,120);
-  background-color: whitesmoke;
+  background-color: rgb(250,250,250);
   font-size: .9rem;
   cursor: pointer;
-}
-
-.ask-button{
-  display: block;
-  padding-top: .3em;
 }
 
 .ask-coin {
@@ -141,7 +218,7 @@ html, body {
 /* Scrollable area */
 .options-scroll {
   background: lightgray;
-  height: 100%;
+  height: 4em;
   display: block;                 /* ⬅ was flex */
   overflow-x: auto;
   overflow-y: hidden;
@@ -182,7 +259,7 @@ html, body {
   border-radius: 2em;
   padding: 0.4em 0.75em 0.2em 0.75em;
   margin: 1em 0;
-  background: white;
+  background: rgb(250,250,250);
   border: 1px solid gray;
   cursor: pointer;
   transition: .1s;

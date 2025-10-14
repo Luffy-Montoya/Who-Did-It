@@ -13,10 +13,16 @@ export default function Shirt() {
     
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
-    const { setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, askOption, charactersLeft, asked } = React.useContext(LayoutContext)
+    const { 
+            setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
+            setAskOption, askOption, charactersLeft, asked, setToAsk, setToCategories } = React.useContext(LayoutContext)
         
     function setQuestion(question, option, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
+        setTimeout(() => {
+            setToAsk(true)
+            setToCategories(false)
+        }, 10)
     }
 
     return(

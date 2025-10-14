@@ -85,7 +85,7 @@ export function calcPrice(option) {
 
     const base = 5                  // universal “ask” fee
     const rate = 1.3                  // per guaranteed elimination
-    const exponent = 1.08             // adds curvature for big sweeps
+    const exponent = 1.09             // adds curvature for big sweeps
     const price = Math.round(base + Math.pow(option * rate, exponent))
     return price
 
