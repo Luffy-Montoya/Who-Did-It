@@ -62,7 +62,7 @@ const shoes = {
 }
 
 const acc = {
-    any: <>"Do they have {option("Any")} accessories at all?"</>,
+    any: <>"Do they {option("NOT")} have any accessories at all?"</>,
     whistle: <>"Are they wearing a {option("Whistle")}?"</>,
     books: <>"Are they carrying {option("Books")}?"</>,
     clipboard: <>"Are they holding a {option("Clipboard")}?"</>,

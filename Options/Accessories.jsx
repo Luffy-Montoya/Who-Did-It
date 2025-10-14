@@ -43,7 +43,7 @@ export default function Accessories() {
                                 asked.some(pair => pair[0] === "accessories" && pair[1] === "none")
                             }
                         >
-                            <div>Any</div>
+                            <div>None</div>
                             <div className="price">{cost(calcPrice(askMinResults.acc.any))}</div>
                         </button>
                         <button 
