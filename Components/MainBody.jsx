@@ -63,14 +63,14 @@ export default function MainBody() {
 
 
     React.useEffect(() => {
-      const len = charactersLeft.length;
+      const len = charactersLeft.length
 
       // Helper to check if a rearrangement is already in the desired shape
       const rowsMatch = (...lengths) => {
-        const actual = [row1.length, row2.length, row3.length, row4.length].filter(l => l > 0);
-        const target = lengths.filter(l => l > 0);
-        return JSON.stringify(actual) === JSON.stringify(target);
-      };
+        const actual = [row1.length, row2.length, row3.length, row4.length].filter(l => l > 0)
+        const target = lengths.filter(l => l > 0)
+        return JSON.stringify(actual) === JSON.stringify(target)
+      }
 
       // === 15 layout === (5 / 5 / 5)
       if (!secondArranged.current && len < 16 && len >= 9) {
@@ -91,8 +91,8 @@ export default function MainBody() {
             rowsMatch(4, 3, 3) ||
             rowsMatch(3, 3, 3)   
     ) {
-          console.log("15 skipped — already aligned");
-          secondArranged.current = true;
+          console.log("15 skipped — already aligned")
+          secondArranged.current = true
           setTimeout(() => {
             setSizeChanging(true)
           }, 500)
@@ -101,17 +101,17 @@ export default function MainBody() {
           }, 4500)
         } else {
           setTimeout(() => {
-            setIsVisible(false);
+            setIsVisible(false)
           }, 200)
           setTimeout(() => {
-            setRow2(charactersLeft.slice(0, (Math.ceil(charactersLeft.length * 1/3))));
-            setRow3(charactersLeft.slice((Math.ceil(charactersLeft.length * 1/3)), (Math.ceil(charactersLeft.length * 2/3))));
-            setRow4(charactersLeft.slice((Math.ceil(charactersLeft.length * 2/3))));
-            setRow1([]);
-            setIsVisible(true);
-            secondArranged.current = true;
-            console.log("rows for 15 set");
-          }, 1200);
+            setRow2(charactersLeft.slice(0, (Math.ceil(charactersLeft.length * 1/3))))
+            setRow3(charactersLeft.slice((Math.ceil(charactersLeft.length * 1/3)), (Math.ceil(charactersLeft.length * 2/3))))
+            setRow4(charactersLeft.slice((Math.ceil(charactersLeft.length * 2/3))))
+            setRow1([])
+            setIsVisible(true)
+            secondArranged.current = true
+            console.log("rows for 15 set")
+          }, 1200)
         }
       }
 
@@ -122,8 +122,8 @@ export default function MainBody() {
             rowsMatch(3, 4) ||
             rowsMatch(4, 3)
         ) {
-          console.log("8 skipped — already aligned");
-          thirdArranged.current = true;
+          console.log("8 skipped — already aligned")
+          thirdArranged.current = true
           setTimeout(() => {
             setSizeChanging(true)
           }, 500)
@@ -132,17 +132,17 @@ export default function MainBody() {
           }, 4500)
         } else {
           setTimeout(() => {
-            setIsVisible(false);
+            setIsVisible(false)
           }, 200)
           setTimeout(() => {
-            setRow3(charactersLeft.slice(0, 4));
-            setRow4(charactersLeft.slice(4));
-            setRow1([]);
-            setRow2([]);
-            setIsVisible(true);
-            thirdArranged.current = true;
-            console.log("rows for 8 set");
-          }, 1200);
+            setRow3(charactersLeft.slice(0, 4))
+            setRow4(charactersLeft.slice(4))
+            setRow1([])
+            setRow2([])
+            setIsVisible(true)
+            thirdArranged.current = true
+            console.log("rows for 8 set")
+          }, 1200)
         }
       }
 
@@ -153,8 +153,8 @@ export default function MainBody() {
             rowsMatch(2, 3) ||
             rowsMatch(3, 2)
         ) {
-          console.log("6 skipped — already aligned");
-          fourthArranged.current = true;
+          console.log("6 skipped — already aligned")
+          fourthArranged.current = true
           setTimeout(() => {
             setSizeChanging(true)
           }, 500)
@@ -163,17 +163,17 @@ export default function MainBody() {
           }, 4500)
         } else {
           setTimeout(() => {
-            setIsVisible(false);
+            setIsVisible(false)
           }, 200)
           setTimeout(() => {
-            setRow3(charactersLeft.slice(0, 3));
-            setRow4(charactersLeft.slice(3));
-            setRow1([]);
-            setRow2([]);
-            setIsVisible(true);
-            fourthArranged.current = true;
-            console.log("rows for 6 set");
-          }, 1200);
+            setRow3(charactersLeft.slice(0, 3))
+            setRow4(charactersLeft.slice(3))
+            setRow1([])
+            setRow2([])
+            setIsVisible(true)
+            fourthArranged.current = true
+            console.log("rows for 6 set")
+          }, 1200)
         }
       }
 
@@ -183,8 +183,8 @@ export default function MainBody() {
             rowsMatch(1, 2) ||
             rowsMatch(2, 1)
     ) {
-          console.log("4 skipped — already aligned");
-          fifthArranged.current = true;
+          console.log("4 skipped — already aligned")
+          fifthArranged.current = true
           setTimeout(() => {
             setSizeChanging(true)
           }, 500)
@@ -193,25 +193,25 @@ export default function MainBody() {
           }, 4500)
         } else {
           setTimeout(() => {
-            setIsVisible(false);
+            setIsVisible(false)
           }, 200)
           setTimeout(() => {
-            setRow3(charactersLeft.slice(0, 2));
-            setRow4(charactersLeft.slice(2));
-            setRow1([]);
-            setRow2([]);
-            setIsVisible(true);
-            fifthArranged.current = true;
-            console.log("rows for 4 set");
-          }, 1200);
+            setRow3(charactersLeft.slice(0, 2))
+            setRow4(charactersLeft.slice(2))
+            setRow1([])
+            setRow2([])
+            setIsVisible(true)
+            fifthArranged.current = true
+            console.log("rows for 4 set")
+          }, 1200)
         }
       }
 
       // === 2 layout === (2)
       if (!sixthArranged.current && len < 3 && len >= 1) {
         if (rowsMatch(2) || rowsMatch(1)) {
-          console.log("2 skipped — already aligned");
-          sixthArranged.current = true;
+          console.log("2 skipped — already aligned")
+          sixthArranged.current = true
           setTimeout(() => {
             setSizeChanging(true)
           }, 500)
@@ -220,20 +220,20 @@ export default function MainBody() {
           }, 4500)
         } else {
           setTimeout(() => {
-            setIsVisible(false);
+            setIsVisible(false)
           }, 200)
           setTimeout(() => {
-            setRow4(charactersLeft.slice(0));
-            setRow1([]);
-            setRow2([]);
-            setRow3([]);
-            setIsVisible(true);
-            sixthArranged.current = true;
-            console.log("rows for 2 set");
-          }, 1200);
+            setRow4(charactersLeft.slice(0))
+            setRow1([])
+            setRow2([])
+            setRow3([])
+            setIsVisible(true)
+            sixthArranged.current = true
+            console.log("rows for 2 set")
+          }, 1200)
         }
       }
-    }, [charactersLeft]);
+    }, [charactersLeft])
 
     function getCharacterSize(len) {
       if (sizeChanging) {
@@ -283,15 +283,14 @@ export default function MainBody() {
 
     function removeCharacter(charName) {
 
-    setActive(prev => ({ ...prev, [charName]: true }))
-      setTimeout(() => {
-          setRow1(prev => prev.filter(obj => obj.name !== charName))
-          setRow2(prev => prev.filter(obj => obj.name !== charName))
-          setRow3(prev => prev.filter(obj => obj.name !== charName))
-          setRow4(prev => prev.filter(obj => obj.name !== charName))
-      }, 2500)
+    // setActive(prev => ({ ...prev, [charName]: true }))
+    //   setTimeout(() => {
+    //       setRow1(prev => prev.filter(obj => obj.name !== charName))
+    //       setRow2(prev => prev.filter(obj => obj.name !== charName))
+    //       setRow3(prev => prev.filter(obj => obj.name !== charName))
+    //       setRow4(prev => prev.filter(obj => obj.name !== charName))
+    //   }, 2500)
     }
-
 
     function rowMap(row) {
         

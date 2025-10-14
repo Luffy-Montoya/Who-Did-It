@@ -2,7 +2,7 @@
 const option = (option) => {return <span className="option">{option}</span>}
 
 const head = {
-    any: <>"Do they have {option("Nothing")} on their head?"</>,
+    any: <>"Do they have {option("Nothing")} on their face or head?"</>,
     glasses: <>"Are they wearing {option("Glasses")}?"</>,
     hat: <>"Are they wearing a {option("Hat")}?"</>,
     bowBand: <>"Are they wearing a {option("Bow")} or {option("Headband")}?"</>
@@ -65,18 +65,18 @@ const acc = {
     any: <>"Do they {option("NOT")} have any accessories at all?"</>,
     whistle: <>"Are they wearing a {option("Whistle")}?"</>,
     books: <>"Are they carrying {option("Books")}?"</>,
-    clipboard: <>"Are they holding a {option("Clipboard")}?"</>,
+    clipboard: <>"Do they have a {option("Clipboard")}?"</>,
     purse: <>"Do they have a {option("Purse")}?"</>,
     badge: <>"Are they wearing a {option("Badge")}?"</>,
-    math: <>"Are they holding some {option("Math Stuff")}?"</>,
+    math: <>"Are they holding a bunch of {option("Math Stuff")}?"</>,
     broom: <>"Do they have a {option("Broom")}?"</>,
     animals: <>"Are they holding any {option("Animals")}?"</>,
     mask: <>"Do they have a {option("Mask")}?"</>,
     basketball: <>"Do they have a {option("Basketball")}?"</>,
     computer: <>"Are they carrying a {option("Computer")}?"</>,
-    pad: <>"Are they carrying a {option("Notepad")}?"</>,
+    pad: <>"Do they have a {option("Notepad")}?"</>,
     watch: <>"Are they wearing a {option("Watch")}?"</>,
-    science: <>"Are they holding some {option("Science Stuff")}?"</>
+    science: <>"Do they have a bunch of {option("Science Stuff")}?"</>
 }
 
 export {
