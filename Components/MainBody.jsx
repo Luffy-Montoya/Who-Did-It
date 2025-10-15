@@ -12,8 +12,15 @@ export default function MainBody() {
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
       active, setActive, setCulprit, askQuestion, sizeChanging,
-      setSizeChanging, setYouWin, modalVisible 
+      setSizeChanging, setYouWin, modalVisible, setModalVisible,
+      gameStarted 
     } = React.useContext( LayoutContext )
+
+    React.useEffect(() => {
+      setTimeout(() => {
+        setModalVisible(true)
+      }, 500)
+    }, [])
 
     React.useEffect(() => {
       console.log("sizeChanging...")
@@ -21,12 +28,17 @@ export default function MainBody() {
       console.log("Is modal visibl?", modalVisible)
     }, [sizeChanging])
 
+    const gameStartRef = React.useRef(false)
+
     React.useEffect(() => {
+      if (gameStarted && !gameStartRef.current) {
         const shuffledChars = shuffleCharacters(characters)
         setShuffled(shuffledChars)
         setCulprit(shuffledChars[Math.floor(Math.random() * 24)])
         loadCharacters()
-    }, [])
+        gameStartRef.current = true
+      }
+    }, [gameStarted])
 
     React.useEffect(() => {
         if (charactersLeft.length === 1) {

@@ -50,6 +50,7 @@ export default function Layout() {
     const [yesOrNo, setYesOrNo] = React.useState("")
     const [youWin, setYouWin] = React.useState(false)
     const [modalVisible, setModalVisible] = React.useState(false)
+    const [gameStarted, setGameStarted] = React.useState(false)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -62,7 +63,8 @@ export default function Layout() {
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
             askOption, setAskOption, asked, setAsked, toAsk, setToAsk, 
             toCategories, setToCategories, questionAsked, setQuestionAsked,
-            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, modalVisible, setModalVisible
+            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, 
+            modalVisible, setModalVisible, gameStarted, setGameStarted
         }}>
 
             <div className="layout">
