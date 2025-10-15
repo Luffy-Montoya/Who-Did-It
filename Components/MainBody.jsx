@@ -12,7 +12,7 @@ export default function MainBody() {
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
       active, setActive, setCulprit, askQuestion, sizeChanging,
-      setSizeChanging, setYouWin 
+      setSizeChanging, setYouWin, asked 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {

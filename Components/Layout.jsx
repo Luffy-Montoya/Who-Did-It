@@ -49,7 +49,7 @@ export default function Layout() {
     const [fade, setFade] = React.useState(false)
     const [yesOrNo, setYesOrNo] = React.useState("")
     const [youWin, setYouWin] = React.useState(false)
-    const [modalVisible, setModalVisible] = React.useState(true)
+    const [modalVisible, setModalVisible] = React.useState(false)
 
     return (
         <LayoutContext.Provider value={{ 
