@@ -130,6 +130,13 @@ h3 {
   width: 100%;
   justify-content: center;
   z-index: 15;
+  transition: 1s;
+}
+
+.header.grayed {
+  opacity: 30%;
+  filter: grayscale(100%);
+  transition: .5s;
 }
 
 .main-display {
@@ -140,6 +147,13 @@ h3 {
   background: rgb(180,180,180);
   justify-content: space-between;
   z-index: 10;
+  transition: 1s;
+}
+
+.main-display.grayed {
+  opacity: 30%;
+  filter: grayscale(100%);
+  transition: .5s;
 }
 
 .category-display {
@@ -333,6 +347,13 @@ h3 {
   box-sizing: border-box;
   overflow: hidden;
   z-index: 10;
+  transition: 1s;
+}
+
+.options-display.grayed {
+  opacity: 30%;
+  filter: grayscale(100%);
+  transition: .5s;
 }
 
 /* Scrollable area */

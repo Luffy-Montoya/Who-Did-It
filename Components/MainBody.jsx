@@ -19,7 +19,7 @@ export default function MainBody() {
     React.useEffect(() => {
       setTimeout(() => {
         setModalVisible(true)
-      }, 500)
+      }, 750)
     }, [])
 
     React.useEffect(() => {
