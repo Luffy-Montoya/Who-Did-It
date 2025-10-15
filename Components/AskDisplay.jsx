@@ -12,7 +12,7 @@ export default function AskDisplay() {
         setAskDisplay, setCategoryDisplay, setWallet, culprit, 
         setSizeChanging, setAskOption, setAsked, toAsk,
         setToAsk, setToCategories, setQuestionAsked, toCategories,
-        setOptionsBar, fade, setFade, yesOrNo, setYesOrNo
+        setOptionsBar, fade, setFade, yesOrNo, setYesOrNo, modalVisible
     } = React.useContext(LayoutContext)
 
     const parameters = [
@@ -49,7 +49,7 @@ export default function AskDisplay() {
             <button className={`ask-button ${!toAsk ? "offscreen" : ""}`} onClick={() => selectCharacter(...parameters)}>
                 <div>Ask!</div>
                 <div className="ask-button-price">
-                    <img className="ask-coin" src={coin}></img>
+                    <img className={`ask-coin ${modalVisible ? "grayed" : ""}`} src={coin}></img>
                     {askQuestion[3]}
                 </div>
             </button>

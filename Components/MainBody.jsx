@@ -17,7 +17,8 @@ export default function MainBody() {
 
     React.useEffect(() => {
       console.log("sizeChanging...")
-      console.log(sizeChanging)
+      console.log("Is size changing?", sizeChanging)
+      console.log("Is modal visibl?", modalVisible)
     }, [sizeChanging])
 
     React.useEffect(() => {
@@ -326,6 +327,23 @@ export default function MainBody() {
             setIsVisible(true)
         }
     }
+
+    React.useEffect(() => {
+  // Find all character image elements
+  const imgs = document.querySelectorAll(".characters");
+
+  // Set up observers for each
+  const observers = Array.from(imgs).map(img => {
+    const observer = new MutationObserver(() => {
+      console.log(`${img.alt || img.src} → ${img.className}`);
+    });
+    observer.observe(img, { attributes: true, attributeFilter: ["class"] });
+    return observer;
+  });
+
+  // Cleanup on unmount
+  return () => observers.forEach(obs => obs.disconnect());
+}, [modalVisible]);
 
     return (
 

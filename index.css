@@ -287,6 +287,12 @@ h3 {
 .ask-coin {
   height: .7em;
   margin-right: .05em;
+  transition: 1s;
+}
+
+.ask-coin.grayed {
+  filter: grayscale(100%);
+  transition: .5s;
 }
 
 .ask-button-price {
@@ -387,9 +393,15 @@ h3 {
   align-items: center;
 }
 
-.coin {
+.option-coin {
   height: .6em;
   filter: drop-shadow(0px 0px .5px rgb(0,0,0,1));
+  transition: 1s;
+}
+
+.option-coin.grayed {
+  filter: drop-shadow(0px 0px .5px rgb(0,0,0,1)) grayscale(100%);
+  transition: .5s;
 }
 
 .cost {
@@ -415,9 +427,15 @@ h1:active {
   font-weight: bold;
 }
 
-.coin-dash {
+.dash-coin {
   height: .8em;
   margin-right: .2em;
+  transition: 1s
+}
+
+.dash-coin.grayed {
+  filter: grayscale(100%);
+  transition: .5s;
 }
 
 .ghost-div {
@@ -484,17 +502,13 @@ h1:active {
 }
 
 .characters {
-  transition: 1s;
   width: 100%;
   margin: 0;
   align-self: center;
   object-fit: contain;
   z-index: 1;
   overflow: hidden;
-}
-
-.characters.grayed {
-  filter: grayscale(100%) !important;
+  transition: 1s;
 }
 
 .character-name {
@@ -590,7 +604,7 @@ button {
 
 /* Character sizing */
 .char-size-1 { width: 16%; font-size: 1.1em; }
-.char-size-1 > .characters { filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25)); }
+.char-size-1 > .characters { filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25));}
 .cont-size-1 { height: 19dvh; }
 
 .char-size-2 { width: 19.5%; font-size: 1.3rem; transition: 1s 1.2s; }
@@ -619,30 +633,37 @@ button {
 
 .char-size-1-post { width: 16%; font-size: 1.1em; }
 .char-size-1-post > .characters { filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25)); }
+.char-size-1-post > .characters.grayed { filter: drop-shadow(0px 3px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s}
 .cont-size-1-post { height: 19dvh; }
 
 .char-size-2-post { width: 19.5%; font-size: 1.3rem; }
 .char-size-2-post > .characters { filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25)); }
+.char-size-2-post > .characters.grayed { filter: drop-shadow(0px 4px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s }
 .cont-size-2-post { height: 25dvh; }
 
 .char-size-3-post { width: 24.5%; font-size: 1.5rem; }
 .char-size-3-post > .characters { filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25)); }
+.char-size-3-post > .characters.grayed { filter: drop-shadow(0px 5px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s }
 .cont-size-3-post { height: 38dvh; }
 
 .char-size-4-post { width: 32.5%; font-size: 1.8rem; }
 .char-size-4-post > .characters { filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25)); }
+.char-size-4-post > .characters.grayed { filter: drop-shadow(0px 6px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s }
 .cont-size-4-post { height: 38dvh; }
 
 .char-size-5-post { width: 32.5%; font-size: 1.8rem; }
 .char-size-5-post > .characters { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)); }
+.char-size-5-post > .characters.grayed { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s }
 .cont-size-5-post { height: 38dvh; }
 
 .char-size-6-post { width: 48%; font-size: 2.3rem; }
 .char-size-6-post > .characters { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)); }
+.char-size-6-post > .characters.grayed { filter: drop-shadow(0px 7px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s }
 .cont-size-6-post { height: 75dvh; }
 
 .char-size-7-post { width: 70%; font-size: 3rem; }
 .char-size-7-post > .characters { filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25)); }
+.char-size-7-post > .characters.grayed { filter: drop-shadow(0px 8px 1px rgb(0,0,0,0.25)) grayscale(100%); transition: .5s }
 .cont-size-7-post { height: 75dvh; }
 
 .not-included {
