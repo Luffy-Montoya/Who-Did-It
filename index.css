@@ -205,8 +205,8 @@ h3 {
 .ask-text-container.offscreen {
   opacity: 0%;
   transform: translateY(-75%);
-  transition-delay: 1.85s;
-  transition-duration: .4s
+  transition-delay: 1.9s;
+  transition-duration: .35s
 }
 
 .ask-text-container {
