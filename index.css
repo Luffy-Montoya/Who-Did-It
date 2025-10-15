@@ -22,6 +22,77 @@ h3 {
   padding-top:1em;
   }
 
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  background: rgb(200, 200, 230, .95);
+  width: 15em;
+  height: 25em;
+  padding: 0 1em;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 8em;
+  margin: auto;
+  gap: 1em;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.1);
+  font-size: 1.2rem;
+}
+
+.modal.offscreen {
+  transform: translateY(-150%);
+  transition: .75s;
+  opacity: 50%;
+}
+
+.modal-top-text {
+  display: flex;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.modal-bottom-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.bottom-text-1 {
+  display: flex;
+}
+
+.bottom-text-2 {
+  display: flex;
+}
+
+.modal-button-container {
+  display: flex;
+  margin-top: 1em;
+}
+
+.modal-button-1, .modal-button-2 {
+  font-size: 1.2rem;
+}
+
+.modal-button-1.offscreen, .modal-button-2.offscreen {
+  opacity: 0%;
+  transition: 0.5s;
+}
+
+.modal-button-1 {
+  display: flex;
+}
+
+.modal-button-2 {
+  display: none;
+}
+
+.mod
+
 .select-category {
   font-size: 1.25rem;
 }

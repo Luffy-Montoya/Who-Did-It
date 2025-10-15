@@ -15,6 +15,7 @@ import Shoes from "../Options/Shoes"
 import Accessories from "../Options/Accessories"
 import Select from "../Options/Select"
 import AskDisplay from "./AskDisplay"
+import Modal from "./Modal"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
 
 export const LayoutContext = React.createContext()
@@ -48,6 +49,7 @@ export default function Layout() {
     const [fade, setFade] = React.useState(false)
     const [yesOrNo, setYesOrNo] = React.useState("")
     const [youWin, setYouWin] = React.useState(false)
+    const [modalVisible, setModalVisible] = React.useState(true)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -60,10 +62,11 @@ export default function Layout() {
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
             askOption, setAskOption, asked, setAsked, toAsk, setToAsk, 
             toCategories, setToCategories, questionAsked, setQuestionAsked,
-            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin
+            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, modalVisible, setModalVisible
         }}>
 
             <div className="layout">
+                <Modal/>
                 <Header>
                     <ToggleMainDisplay />
                     <Dash />
