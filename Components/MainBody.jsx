@@ -312,6 +312,7 @@ export default function MainBody() {
                       : ""
                   }
                   ${characterSize}
+                  ${modalVisible ? "grayed" : ""}
                   `}
                 onClick={() => removeCharacter(character.name)}
                 key={character.name}
