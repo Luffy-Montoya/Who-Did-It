@@ -14,32 +14,21 @@ export default function
     }
 
     function allShareKeyValue(charactersLeft, key) {
-     if (!charactersLeft.length) return false;
+  if (!charactersLeft.length) return false;
 
   const firstValue = charactersLeft[0][key];
 
-  // Case 1: all are arrays → check for common overlap
-  if (Array.isArray(firstValue)) {
-    // If *any* character has a non-array value, return false immediately
-    if (charactersLeft.some(c => !Array.isArray(c[key]))) return false;
-
-    let common = new Set(firstValue);
-    for (let i = 1; i < charactersLeft.length; i++) {
-      const nextSet = new Set(charactersLeft[i][key]);
-      common = new Set([...common].filter(v => nextSet.has(v)));
-      if (common.size === 0) return false; // no shared element
+  return charactersLeft.every(c => {
+    const val = c[key];
+    if (Array.isArray(firstValue) && Array.isArray(val)) {
+      // both arrays → must have identical contents (order doesn’t matter)
+      if (firstValue.length !== val.length) return false;
+      return firstValue.every(v => val.includes(v));
     }
-    return true;
+    // otherwise direct comparison
+    return val === firstValue;
+    });
   }
-
-  // Case 2: all are non-arrays → check for equality
-  if (charactersLeft.every(c => !Array.isArray(c[key]))) {
-    return charactersLeft.every(c => c[key] === firstValue);
-  }
-
-  // Case 3: mix of arrays + non-arrays → automatically false
-  return false;
-    }
     
     return(
             <div className={`category-display ${!toCategories ? "offscreen" : ""}`}>
