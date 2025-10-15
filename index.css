@@ -262,7 +262,7 @@ h3 {
 .go-back.offscreen {
   opacity: 0%;
   margin-left: -5em;
-  transition: .25s;
+  transition: .5s;
 }
 
 .ask-button{
@@ -274,7 +274,7 @@ h3 {
 .ask-button.offscreen {
   opacity: 0%;
   margin-right: -5em;
-  transition: .25s;
+  transition: .5s;
 }
 
 .ask-button, .go-back {
