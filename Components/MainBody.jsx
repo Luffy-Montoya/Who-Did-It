@@ -12,7 +12,7 @@ export default function MainBody() {
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
       active, setActive, setCulprit, askQuestion, sizeChanging,
-      setSizeChanging, setYouWin, asked 
+      setSizeChanging, setYouWin, modalVisible 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -297,8 +297,8 @@ export default function MainBody() {
         return (
             row.map((character) => (
             <div 
-                className={
-                  `character-container 
+                className={`
+                  character-container 
                   ${active[character.name] ? "active" : ""}
                   ${
                     askQuestion && 
@@ -310,11 +310,12 @@ export default function MainBody() {
                       ? "not-included"
                       : ""
                   }
-                  ${characterSize}`}
+                  ${characterSize}
+                  `}
                 onClick={() => removeCharacter(character.name)}
                 key={character.name}
             >
-                <img className="characters" src={character.image}></img>
+                <img className={`characters ${modalVisible ? "grayed" : ""}`} src={character.image}></img>
                 <p className="character-name">{character.name}</p>
             </div>
         )))

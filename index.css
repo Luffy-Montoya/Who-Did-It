@@ -493,6 +493,10 @@ h1:active {
   overflow: hidden;
 }
 
+.characters.grayed {
+  filter: grayscale(100%) !important;
+}
+
 .character-name {
   text-align: center;
   margin: 0;
