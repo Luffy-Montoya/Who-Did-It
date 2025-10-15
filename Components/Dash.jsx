@@ -4,9 +4,9 @@ import { LayoutContext } from "./Layout.jsx"
 
 export default function Dash() {
 
-    const { wallet, modalVisible } = React.useContext(LayoutContext)
+    const { wallet, modalVisible, gameStarted } = React.useContext(LayoutContext)
 
     return(
-        <div className="wallet"><img className={`dash-coin ${modalVisible ? "grayed" : ""}`} src={coin} />{wallet}</div>
+        <div className="wallet"><img className={`dash-coin ${modalVisible || !gameStarted ? "grayed" : ""}`} src={coin} />{wallet}</div>
     )
 }
