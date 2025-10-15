@@ -139,6 +139,7 @@ h3 {
   align-items: center;
   background: rgb(180,180,180);
   justify-content: space-between;
+  z-index: 10;
 }
 
 .category-display {
@@ -150,6 +151,7 @@ h3 {
   gap: .5em;
   width: 100%;
   transition: .2s;
+  z-index: 10;
 }
 
 .category-display.offscreen {
@@ -317,6 +319,7 @@ h3 {
   width: 100%;
   height: 100%;
   background: lightgray;
+  z-index: 10;
 }
 
 .options-display {
@@ -329,6 +332,7 @@ h3 {
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
+  z-index: 10;
 }
 
 /* Scrollable area */
@@ -345,11 +349,21 @@ h3 {
   text-align: left;
   padding-left: 0;
   margin-left: 0;
+  z-index: 10;
 }
 
 .options-scroll::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
+
+/* .options-ghost {
+  background: pink;
+  margin-top: -2px;
+  width: 100%;
+  height: 1px;
+  box-shadow: 0 2px 7px black;
+  z-index: 5;
+} */
 
 /* List of buttons */
 .options-list {
