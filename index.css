@@ -39,13 +39,13 @@ h3 {
   bottom: 8em;
   margin: auto;
   gap: 1em;
-  transition: transform 0.65s cubic-bezier(0.68, -0.55, 0.27, 1.1);
+  transition: transform 0.55s cubic-bezier(0.68, -0.55, 0.27, 1.1);
   font-size: 1.2rem;
 }
 
 .modal.offscreen {
   transform: translateY(-150%);
-  transition: 1s;
+  transition: .85s;
   opacity: 50%;
 }
 
