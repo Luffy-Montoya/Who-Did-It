@@ -35,7 +35,6 @@ export default function AskDisplay() {
         setTimeout(() => {
             setToCategories(true)
         }, 300)
-        console.log(toCategories)
         setOptionsBar("")
     }
 

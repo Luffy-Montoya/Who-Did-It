@@ -3,11 +3,27 @@ import { LayoutContext } from "./Layout"
 
 export default function Modal(){
 
-    const { modalVisible, setModalVisible, setGameStarted } = React.useContext(LayoutContext)
+    const { 
+        modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, setGameOver,
+        setIsVisible, wallet, setWallet, setGameResetting
+    } = React.useContext(LayoutContext)
 
-    function startGame(){
+    function startGame() {
         setModalVisible(false)
         setGameStarted(true)
+        setFirstGameStarted(true)
+        setGameOver(false)
+    }
+
+    function nextRound() {
+        setModalVisible(false)
+        setWallet(wallet + 50)
+        setTimeout(() => {
+            setGameResetting(true)
+        }, 500)
+        setTimeout(() => {
+            setGameResetting(false)
+        }, 1000)
     }
 
     return (
@@ -19,7 +35,7 @@ export default function Modal(){
             </div>
             <div className="modal-button-container">
                 <button onClick={() => startGame(false)} className={`modal-button-1 ${modalVisible ? "" : "offscreen"}`}>Ask Away!</button>
-                <button className={`modal-button-2 ${modalVisible ? "" : "offscreen"}`}>Button 2</button>
+                <button onClick={() => nextRound()} className={`modal-button-2 ${modalVisible ? "" : "offscreen"}`}>Next Round</button>
             </div> 
         </div>
     )

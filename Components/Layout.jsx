@@ -34,6 +34,8 @@ export default function Layout() {
     const [row3, setRow3] = React.useState([])
     const [row4, setRow4] = React.useState([])
     const [active, setActive] = React.useState({})
+    const [shuffled, setShuffled] = React.useState([])
+    const [isVisible, setIsVisible ] = React.useState(false)
     const [price, setPrice] = React.useState(0)
     const [set1, setSet1] = React.useState(true)
     const [set2, setSet2] = React.useState(false)
@@ -51,6 +53,10 @@ export default function Layout() {
     const [youWin, setYouWin] = React.useState(false)
     const [modalVisible, setModalVisible] = React.useState(false)
     const [gameStarted, setGameStarted] = React.useState(false)
+    const [firstGameStarted, setFirstGameStarted] = React.useState(false)
+    const [gameOver, setGameOver] = React.useState(false)
+    const [gameResetting, setGameResetting] = React.useState(false)
+    const [winCount, setWinCount] = React.useState(0)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -64,7 +70,10 @@ export default function Layout() {
             askOption, setAskOption, asked, setAsked, toAsk, setToAsk, 
             toCategories, setToCategories, questionAsked, setQuestionAsked,
             fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, 
-            modalVisible, setModalVisible, gameStarted, setGameStarted
+            modalVisible, setModalVisible, gameStarted, setGameStarted,
+            firstGameStarted, setFirstGameStarted, gameOver, setGameOver,
+            shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
+            winCount, setWinCount
         }}>
 
             <div className="layout">

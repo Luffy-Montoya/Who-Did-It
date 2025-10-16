@@ -5,15 +5,14 @@ import { LayoutContext } from "./Layout"
 
 export default function MainBody() {
 
-    const [shuffled, setShuffled] = React.useState([])
-    const [isVisible, setIsVisible ] = React.useState(false)
-
     const{ 
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
       active, setActive, setCulprit, askQuestion, sizeChanging,
       setSizeChanging, setYouWin, modalVisible, setModalVisible,
-      gameStarted 
+      gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
+      shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
+      winCount, setWinCount
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -22,16 +21,10 @@ export default function MainBody() {
       }, 750)
     }, [])
 
-    React.useEffect(() => {
-      console.log("sizeChanging...")
-      console.log("Is size changing?", sizeChanging)
-      console.log("Is modal visibl?", modalVisible)
-    }, [sizeChanging])
-
     const gameStartRef = React.useRef(false)
 
     React.useEffect(() => {
-      if (gameStarted && !gameStartRef.current) {
+      if (firstGameStarted && gameStarted && !gameStartRef.current) {
         const shuffledChars = shuffleCharacters(characters)
         setShuffled(shuffledChars)
         setCulprit(shuffledChars[Math.floor(Math.random() * 24)])
@@ -41,10 +34,21 @@ export default function MainBody() {
     }, [gameStarted])
 
     React.useEffect(() => {
-        if (charactersLeft.length === 1) {
-          setYouWin(true)
-        }
+      if (charactersLeft.length === 1) {
+        setYouWin(true)
+        setGameOver(true)
+        setWinCount(winCount + 1)
+        gameStartRef.current = false
+      }
     }, [charactersLeft])
+
+    React.useEffect(() => {
+      if (gameOver){
+        setTimeout(() => {
+          setModalVisible(true)
+        }, 3250)
+      }
+    }, [gameOver])
 
     const firstArranged = React.useRef(false)
     const secondArranged = React.useRef(false)
@@ -66,6 +70,42 @@ export default function MainBody() {
     React.useEffect(() => {
         setCharactersLeft([...row1, ...row2, ...row3, ...row4])
     }, [row1, row2, row3, row4])
+
+    React.useEffect(() => {
+      if(gameResetting){
+
+        setIsVisible(false)
+        console.log("game resetting: ", gameResetting)
+
+        setTimeout (() => {
+          setRow1([])
+          setRow2([])
+          setRow3([])
+          setRow4([])
+          setCharactersLeft([])
+          setActive({})
+          setYouWin(false)
+          setGameOver(false)
+          setSizeChanging(false)
+          setModalVisible(false)
+          firstArranged.current = false
+          secondArranged.current = false
+          thirdArranged.current = false
+          fourthArranged.current = false
+          fifthArranged.current = false
+          sixthArranged.current = false
+
+          const shuffledChars = shuffleCharacters([...characters])
+          setShuffled(shuffledChars)
+          setCulprit(shuffledChars[Math.floor(Math.random() * shuffledChars.length)])
+          setGameStarted(true)
+        }, 1000)
+
+        setTimeout(() => {
+          setIsVisible(true)
+        }, 2000)
+      }
+    }, [gameResetting])
 
     React.useEffect(() => {
         console.log(row1)
@@ -296,13 +336,13 @@ export default function MainBody() {
 
     function removeCharacter(charName) {
 
-    // setActive(prev => ({ ...prev, [charName]: true }))
-    //   setTimeout(() => {
-    //       setRow1(prev => prev.filter(obj => obj.name !== charName))
-    //       setRow2(prev => prev.filter(obj => obj.name !== charName))
-    //       setRow3(prev => prev.filter(obj => obj.name !== charName))
-    //       setRow4(prev => prev.filter(obj => obj.name !== charName))
-    //   }, 2500)
+    setActive(prev => ({ ...prev, [charName]: true }))
+      setTimeout(() => {
+          setRow1(prev => prev.filter(obj => obj.name !== charName))
+          setRow2(prev => prev.filter(obj => obj.name !== charName))
+          setRow3(prev => prev.filter(obj => obj.name !== charName))
+          setRow4(prev => prev.filter(obj => obj.name !== charName))
+      }, 2500)
     }
 
     function rowMap(row) {
@@ -340,23 +380,6 @@ export default function MainBody() {
             setIsVisible(true)
         }
     }
-
-    React.useEffect(() => {
-  // Find all character image elements
-  const imgs = document.querySelectorAll(".characters");
-
-  // Set up observers for each
-  const observers = Array.from(imgs).map(img => {
-    const observer = new MutationObserver(() => {
-      console.log(`${img.alt || img.src} → ${img.className}`);
-    });
-    observer.observe(img, { attributes: true, attributeFilter: ["class"] });
-    return observer;
-  });
-
-  // Cleanup on unmount
-  return () => observers.forEach(obs => obs.disconnect());
-}, [modalVisible]);
 
     return (
 

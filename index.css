@@ -96,10 +96,12 @@ h3 {
 
 .modal-button-1 {
   display: flex;
+  cursor: pointer;
 }
 
 .modal-button-2 {
-  display: none;
+  display: flex;
+  cursor: pointer;
 }
 
 .mod
@@ -468,6 +470,7 @@ h1:active {
 .dash-coin {
   height: .8em;
   margin-right: .2em;
+  margin-left: 1em;
   transition: 1s
 }
 
