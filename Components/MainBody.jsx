@@ -1,5 +1,5 @@
 import React from "react"
-import { characters } from "../characters"
+import { getCharacters } from "../characters"
 import { shuffleCharacters } from "../Functions/shuffleCharacters"
 import { LayoutContext } from "./Layout"
 
@@ -25,7 +25,7 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (firstGameStarted && gameStarted && !gameStartRef.current) {
-        const shuffledChars = shuffleCharacters(characters)
+        let shuffledChars = shuffleCharacters(getCharacters())
         setShuffled(shuffledChars)
         setCulprit(shuffledChars[Math.floor(Math.random() * 24)])
         loadCharacters()
@@ -95,7 +95,7 @@ export default function MainBody() {
           fifthArranged.current = false
           sixthArranged.current = false
 
-          const shuffledChars = shuffleCharacters([...characters])
+          let shuffledChars = shuffleCharacters(getCharacters())
           setShuffled(shuffledChars)
           setCulprit(shuffledChars[Math.floor(Math.random() * shuffledChars.length)])
           setGameStarted(true)
