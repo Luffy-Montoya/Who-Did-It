@@ -44,7 +44,6 @@ export default function Layout() {
     const [wallet, setWallet] = React.useState(100)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
-    const [asked, setAsked] = React.useState([])
     const [toCategories, setToCategories] = React.useState(true)
     const [toAsk, setToAsk] = React.useState(false)
     const [questionAsked, setQuestionAsked] = React.useState(false)
@@ -67,7 +66,7 @@ export default function Layout() {
             active, setActive, price, setPrice, sizeChanging, setSizeChanging,
             set1, setSet1, set2, setSet2, leftVisible, setLeftVisible,
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
-            askOption, setAskOption, asked, setAsked, toAsk, setToAsk, 
+            askOption, setAskOption, toAsk, setToAsk, 
             toCategories, setToCategories, questionAsked, setQuestionAsked,
             fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, 
             modalVisible, setModalVisible, gameStarted, setGameStarted,

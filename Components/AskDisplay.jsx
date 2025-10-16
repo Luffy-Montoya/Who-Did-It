@@ -10,7 +10,7 @@ export default function AskDisplay() {
         askQuestion, setPrice, charactersLeft, 
         setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
         setAskDisplay, setCategoryDisplay, setWallet, culprit, 
-        setSizeChanging, setAskOption, setAsked, toAsk,
+        setSizeChanging, setAskOption, toAsk,
         setToAsk, setToCategories, setQuestionAsked, toCategories,
         setOptionsBar, fade, setFade, yesOrNo, setYesOrNo, modalVisible
     } = React.useContext(LayoutContext)
@@ -19,7 +19,7 @@ export default function AskDisplay() {
         askQuestion[1], askQuestion[2], askQuestion[3], setPrice, charactersLeft, 
         setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
         setAskDisplay, setCategoryDisplay, setWallet, culprit, 
-        setSizeChanging, setAskOption, setAsked, setToAsk, setToCategories, setQuestionAsked,
+        setSizeChanging, setAskOption, setToAsk, setToCategories, setQuestionAsked,
         setOptionsBar, setYesOrNo
     ]
 
