@@ -37,19 +37,19 @@ export default function GenderSkin() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "male" ? "category-selected" : ""}
-                            onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.man)])}
+                            onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.male)])}
                             disabled={allOrNoneHave("gender", "male", charactersLeft)}
                         >
                             <div>Man</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.man))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.male))}</div>
                         </button>
                         <button 
                             className={askOption === "female" ? "category-selected" : ""}
-                            onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.woman)])}
+                            onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.female)])}
                             disabled={allOrNoneHave("gender", "female", charactersLeft)}
                         >
                             <div>Woman</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.woman))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.female))}</div>
                         </button>
                         <button 
                             className={askOption === "light" ? "category-selected" : ""}

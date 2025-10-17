@@ -5,7 +5,7 @@ export default function Select() {
 
 
 
-    const { youWin, culprit } = React.useContext(LayoutContext)
+    const { youWin, culprit, cannotAfford, charactersLeft } = React.useContext(LayoutContext)
 
     return(
         <div className="options-bar">
@@ -13,7 +13,7 @@ export default function Select() {
             <div className="options-display">
                 <div className="options-scroll">
                     <div className="options-list select-category">
-                        {youWin ? `It was ${culprit.name}! You Win!` : "Select a Category"}                               
+                        {youWin ? `It was ${culprit.name}! You Win!` : cannotAfford && charactersLeft.length > 1 ? "Game Over.  Not enough coins." : "Select a Category"}                               
                     </div>
                 </div>
             </div>

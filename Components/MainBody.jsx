@@ -1,6 +1,9 @@
 import React from "react"
 import { getCharacters } from "../characters"
 import { shuffleCharacters } from "../Functions/shuffleCharacters"
+import { allOptions } from "../Functions/allOptions"
+import { allOrNoneHave } from "../Functions/allOrNoneHave"
+import { calcPrice } from "../Functions/askPrice"
 import { LayoutContext } from "./Layout"
 
 export default function MainBody() {
@@ -12,7 +15,7 @@ export default function MainBody() {
       setSizeChanging, setYouWin, modalVisible, setModalVisible,
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
-      winCount, setWinCount
+      winCount, setWinCount, wallet, setCannotAfford
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -49,6 +52,20 @@ export default function MainBody() {
         }, 3250)
       }
     }, [gameOver])
+
+    function cannotAffordAnyOption(options, wallet, charactersLeft) {
+        return options.every(opt => {
+          const disabled = allOrNoneHave(opt.category, opt.key, charactersLeft)
+          const price = calcPrice(opt.minResults)
+          return disabled || price > wallet
+      })
+    }
+
+    React.useEffect(() => {
+      if (charactersLeft.length > 1 && cannotAffordAnyOption(allOptions, wallet, charactersLeft)){
+          setCannotAfford(true)    
+      }
+    }, [wallet, charactersLeft])
 
     const firstArranged = React.useRef(false)
     const secondArranged = React.useRef(false)
@@ -88,6 +105,7 @@ export default function MainBody() {
           setGameOver(false)
           setSizeChanging(false)
           setModalVisible(false)
+          setCannotAfford(false)
           firstArranged.current = false
           secondArranged.current = false
           thirdArranged.current = false

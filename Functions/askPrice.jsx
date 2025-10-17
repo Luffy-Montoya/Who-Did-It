@@ -3,7 +3,7 @@ import React from "react"
 export const askMinResults = {
 
     head: {
-        any: 12,
+        none: 12,
         bow: 2,
         glasses: 6,
         hat: 5
@@ -18,8 +18,8 @@ export const askMinResults = {
     },
 
     genderSkin: {
-        man: 9,
-        woman: 9,
+        male: 9,
+        female: 9,
         light: 12,
         dark: 12
     },
@@ -43,7 +43,7 @@ export const askMinResults = {
     },
 
     pants: {
-        any: 5,
+        none: 5,
         black: 2,
         blue: 7,
         brown: 2,
@@ -63,7 +63,7 @@ export const askMinResults = {
     },
 
     acc: {
-        any: 6,
+        none: 6,
         animals: 2,
         badge: 4,
         basketball: 1,

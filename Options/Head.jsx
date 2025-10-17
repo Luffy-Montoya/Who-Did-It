@@ -36,16 +36,16 @@ export default function Head() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "none" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.any, "head", "none", calcPrice(askMinResults.head.any)])}
+                            onClick={() => setQuestion([head.none, "head", "none", calcPrice(askMinResults.head.none)])}
                             disabled={allOrNoneHave("head", "none", charactersLeft)}
                         >
                             <div>Nothing</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.any))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.head.none))}</div>
                         </button>
                         <button 
-                            className={askOption === "bow/headband" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.bowBand, "head", "bow/headband", calcPrice(askMinResults.head.bow)])}
-                            disabled={allOrNoneHave("head", "bow/headband", charactersLeft)}
+                            className={askOption === "bow" ? "category-selected" : ""}
+                            onClick={() => setQuestion([head.bowBand, "head", "bow", calcPrice(askMinResults.head.bow)])}
+                            disabled={allOrNoneHave("head", "bow", charactersLeft)}
                         >
                             <div>Bow / Band</div>
                             <div className="price">{cost(calcPrice(askMinResults.head.bow))}</div>

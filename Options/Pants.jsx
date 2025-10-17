@@ -37,11 +37,11 @@ export default function Pants() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "none" ? "category-selected" : ""}
-                            onClick={() => setQuestion([pants.any, "pants", "none", calcPrice(askMinResults.pants.any)])}
+                            onClick={() => setQuestion([pants.none, "pants", "none", calcPrice(askMinResults.pants.none)])}
                             disabled={allOrNoneHave("pants", "none", charactersLeft)}
                         >
                             <div>None</div>
-                            <div className="price">{cost(calcPrice(askMinResults.pants.any))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.pants.none))}</div>
                         </button>
                         <button 
                             className={askOption === "black" ? "category-selected" : ""}

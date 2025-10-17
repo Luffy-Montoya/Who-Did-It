@@ -16,7 +16,7 @@ const baseCharacters = [
     shirt: "blue",
     pants: "gray",
     shoes: ["blue", "white"],
-    accessories: "science stuff",
+    accessories: "science",
     id: 1,
   },
   {
@@ -44,7 +44,7 @@ const baseCharacters = [
     shirt: "purple",
     pants: "none",
     shoes: "black",
-    accessories: "writing pad",
+    accessories: "notepad",
     id: 3,
   },
   {
@@ -114,7 +114,7 @@ const baseCharacters = [
     shirt: "pink",
     pants: "blue",
     shoes: "black",
-    accessories: "math stuff",
+    accessories: "math",
     id: 8,
   },
   {
@@ -204,7 +204,7 @@ const baseCharacters = [
   {
     names: ["Bri", "Madelyn", "Shanice"],
     image: images64.Mia,
-    head: "bow/headband",
+    head: "bow",
     hair: "black",
     skin: "dark",
     gender: "female",
@@ -288,7 +288,7 @@ const baseCharacters = [
   {
     names: ["Mack", "Julia"],
     image: images64.Susan,
-    head: ["glasses", "bow/headband"],
+    head: ["glasses", "bow"],
     hair: "orange",
     skin: "light",
     gender: "female",

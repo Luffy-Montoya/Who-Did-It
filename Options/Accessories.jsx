@@ -35,11 +35,11 @@ export default function Accessories() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "none" ? "category-selected" : ""} 
-                            onClick={() => setQuestion([acc.any, "accessories", "none", calcPrice(askMinResults.acc.any)])}
+                            onClick={() => setQuestion([acc.none, "accessories", "none", calcPrice(askMinResults.acc.none)])}
                             disabled={allOrNoneHave("accessories", "none", charactersLeft)}
                         >
                             <div>None</div>
-                            <div className="price">{cost(calcPrice(askMinResults.acc.any))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.acc.none))}</div>
                         </button>
                         <button 
                             className={askOption === "animals" ? "category-selected" : ""} 
@@ -106,17 +106,17 @@ export default function Accessories() {
                             <div className="price">{cost(calcPrice(askMinResults.acc.mask))}</div>
                         </button>
                         <button 
-                            className={askOption === "math stuff" ? "category-selected" : ""} 
-                            onClick={() => setQuestion([acc.math, "accessories", "math stuff", calcPrice(askMinResults.acc.math)])}
-                            disabled={allOrNoneHave("accessories", "math stuff", charactersLeft)}
+                            className={askOption === "math" ? "category-selected" : ""} 
+                            onClick={() => setQuestion([acc.math, "accessories", "math", calcPrice(askMinResults.acc.math)])}
+                            disabled={allOrNoneHave("accessories", "math", charactersLeft)}
                         >
                             <div>Math</div>
                             <div className="price">{cost(calcPrice(askMinResults.acc.math))}</div>
                         </button>
                         <button 
-                            className={askOption === "writing pad" ? "category-selected" : ""} 
-                            onClick={() => setQuestion([acc.pad, "accessories", "writing pad", calcPrice(askMinResults.acc.notepad)])}
-                            disabled={allOrNoneHave("accessories", "writing pad", charactersLeft)}
+                            className={askOption === "notepad" ? "category-selected" : ""} 
+                            onClick={() => setQuestion([acc.pad, "accessories", "notepad", calcPrice(askMinResults.acc.notepad)])}
+                            disabled={allOrNoneHave("accessories", "notepad", charactersLeft)}
                         >
                             <div>Notepad</div>
                             <div className="price">{cost(calcPrice(askMinResults.acc.notepad))}</div>
@@ -130,9 +130,9 @@ export default function Accessories() {
                             <div className="price">{cost(calcPrice(askMinResults.acc.purse))}</div>
                         </button>
                         <button 
-                            className={askOption === "science stuff" ? "category-selected" : ""} 
-                            onClick={() => setQuestion([acc.science, "accessories", "science stuff", calcPrice(askMinResults.acc.science)])}
-                            disabled={allOrNoneHave("accessories", "science stuff", charactersLeft)}
+                            className={askOption === "science" ? "category-selected" : ""} 
+                            onClick={() => setQuestion([acc.science, "accessories", "science", calcPrice(askMinResults.acc.science)])}
+                            disabled={allOrNoneHave("accessories", "science", charactersLeft)}
                         >
                             <div>Science</div>
                             <div className="price">{cost(calcPrice(askMinResults.acc.science))}</div>
