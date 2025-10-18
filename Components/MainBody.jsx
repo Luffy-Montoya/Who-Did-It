@@ -104,7 +104,7 @@ export default function MainBody() {
     function cannotAffordAnyOption(options, wallet, charactersLeft) {
         return options.every(opt => {
           const disabled = allOrNoneHave(opt.category, opt.key, charactersLeft)
-          const price = calcPrice(opt.minResults)
+          const price = calcPrice(opt.minResults, level)
           return disabled || price > wallet
       })
     }
