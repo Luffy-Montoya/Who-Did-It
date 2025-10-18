@@ -20,7 +20,7 @@ const baseCharacters = [
     id: 1,
   },
   {
-    names: ["Codee", "Kyle", "Senyon"],
+    names: ["Codee", "Kyle", "Jeff", "Roberto"],
     image: images64.Brodie,
     head: "hat",
     hair: "black",
@@ -90,7 +90,7 @@ const baseCharacters = [
     id: 6,
   },
   {
-    names: ["Hope"],
+    names: ["Hope", "Natalie"],
     image: images64.Jada,
     head: "none",
     hair: ["black", "brown"],
@@ -132,7 +132,7 @@ const baseCharacters = [
     id: 9,
   },
   {
-    names: ["Zasha"],
+    names: ["Zasha", "Senyon", "Evan"],
     image: images64.Jerry,
     head: "glasses",
     hair: "black",
@@ -174,7 +174,7 @@ const baseCharacters = [
     id: 12,
   },
   {
-    names: ["Lauren"],
+    names: ["Lauren", "Whitney"],
     image: images64.Lauren,
     head: "hat",
     hair: "brown",
@@ -188,7 +188,7 @@ const baseCharacters = [
     id: 13,
   },
   {
-    names: ["Rony", "Gavin", "Sam"],
+    names: ["Rony", "Gavin", "Sam", "Joe"],
     image: images64.Lyle,
     head: "none",
     hair: "brown",

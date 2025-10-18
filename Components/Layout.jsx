@@ -55,7 +55,7 @@ export default function Layout() {
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
     const [gameOver, setGameOver] = React.useState(false)
     const [gameResetting, setGameResetting] = React.useState(false)
-    const [winCount, setWinCount] = React.useState(0)
+    const [level, setLevel] = React.useState(1)
     const [cannotAfford, setCannotAfford] = React.useState(false)
 
     return (
@@ -73,7 +73,7 @@ export default function Layout() {
             modalVisible, setModalVisible, gameStarted, setGameStarted,
             firstGameStarted, setFirstGameStarted, gameOver, setGameOver,
             shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
-            winCount, setWinCount, cannotAfford, setCannotAfford
+            level, setLevel, cannotAfford, setCannotAfford
         }}>
 
             <div className="layout">

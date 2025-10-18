@@ -1,5 +1,3 @@
-import React from "react"
-
 export const askMinResults = {
 
     head: {
@@ -81,11 +79,11 @@ export const askMinResults = {
     }
 }
 
-export function calcPrice(option) {
+export function calcPrice(option, level) {
 
-    const base = 5                  // universal “ask” fee
-    const rate = 1.3                  // per guaranteed elimination
-    const exponent = 1.09             // adds curvature for big sweeps
+    const base = 4.6 + (level * 0.2)                  // universal “ask” fee
+    const rate = 1.3 + (level * 0.05)                  // per guaranteed elimination
+    const exponent = 1.09 - (level * .005)             // adds curvature for big sweeps
     const price = Math.round(base + Math.pow(option * rate, exponent))
     return price
 

@@ -15,7 +15,7 @@ export default function Head() {
 
     const { 
         setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
-        setAskOption, askOption, charactersLeft, setToAsk, setToCategories, setFade } = React.useContext(LayoutContext)
+        setAskOption, askOption, charactersLeft, setToAsk, setToCategories, setFade, level } = React.useContext(LayoutContext)
     
     function setQuestion(question, option, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
@@ -36,35 +36,35 @@ export default function Head() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "none" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.none, "head", "none", calcPrice(askMinResults.head.none)])}
+                            onClick={() => setQuestion([head.none, "head", "none", calcPrice(askMinResults.head.none, level)])}
                             disabled={allOrNoneHave("head", "none", charactersLeft)}
                         >
                             <div>Nothing</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.none))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.head.none, level))}</div>
                         </button>
                         <button 
                             className={askOption === "bow" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.bowBand, "head", "bow", calcPrice(askMinResults.head.bow)])}
+                            onClick={() => setQuestion([head.bowBand, "head", "bow", calcPrice(askMinResults.head.bow, level)])}
                             disabled={allOrNoneHave("head", "bow", charactersLeft)}
                         >
                             <div>Bow / Band</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.bow))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.head.bow, level))}</div>
                         </button>
                         <button 
                             className={askOption === "glasses" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.glasses, "head", "glasses", calcPrice(askMinResults.head.glasses)])}
+                            onClick={() => setQuestion([head.glasses, "head", "glasses", calcPrice(askMinResults.head.glasses, level)])}
                             disabled={allOrNoneHave("head", "glasses", charactersLeft)}
                         >
                             <div>Glasses</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.glasses))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.head.glasses, level))}</div>
                         </button>
                         <button 
                             className={askOption === "hat" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.hat, "head", "hat", calcPrice(askMinResults.head.hat)])}
+                            onClick={() => setQuestion([head.hat, "head", "hat", calcPrice(askMinResults.head.hat, level)])}
                             disabled={allOrNoneHave("head", "hat", charactersLeft)}
                         >
                             <div>Hat</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.hat))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.head.hat, level))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

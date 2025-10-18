@@ -15,7 +15,7 @@ export default function GenderSkin() {
 
     const { 
         setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
-        setAskOption, askOption, charactersLeft, setToAsk, setToCategories, setFade } = React.useContext(LayoutContext)
+        setAskOption, askOption, charactersLeft, setToAsk, setToCategories, setFade, level } = React.useContext(LayoutContext)
     
     function setQuestion(question, option, key){
         toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
@@ -37,35 +37,35 @@ export default function GenderSkin() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "male" ? "category-selected" : ""}
-                            onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.male)])}
+                            onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.male, level)])}
                             disabled={allOrNoneHave("gender", "male", charactersLeft)}
                         >
                             <div>Man</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.male))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.male, level))}</div>
                         </button>
                         <button 
                             className={askOption === "female" ? "category-selected" : ""}
-                            onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.female)])}
+                            onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.female, level)])}
                             disabled={allOrNoneHave("gender", "female", charactersLeft)}
                         >
                             <div>Woman</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.female))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.female, level))}</div>
                         </button>
                         <button 
                             className={askOption === "light" ? "category-selected" : ""}
-                            onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light)])}
+                            onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light, level)])}
                             disabled={allOrNoneHave("skin", "light", charactersLeft)}
                         >
                             <div>Light Skin</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.light))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.light, level))}</div>
                         </button>
                         <button 
                             className={askOption === "dark" ? "category-selected" : ""}
-                            onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark)])}
+                            onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark, level)])}
                             disabled={allOrNoneHave("skin", "dark", charactersLeft)}
                         >
                             <div>Dark Skin</div>
-                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.dark))}</div>
+                            <div className="price">{cost(calcPrice(askMinResults.genderSkin.dark, level))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

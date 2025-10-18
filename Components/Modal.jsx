@@ -5,7 +5,7 @@ export default function Modal(){
 
     const { 
         modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, setGameOver,
-        setIsVisible, wallet, setWallet, setGameResetting
+        setIsVisible, wallet, setWallet, setGameResetting, level, setLevel
     } = React.useContext(LayoutContext)
 
     function startGame() {
@@ -17,7 +17,8 @@ export default function Modal(){
 
     function nextRound() {
         setModalVisible(false)
-        setWallet(wallet + 50)
+        setWallet(wallet + 45 + (level * 5))
+        setLevel(level + 1)
         setTimeout(() => {
             setGameResetting(true)
         }, 500)

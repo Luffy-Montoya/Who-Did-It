@@ -11,12 +11,61 @@ export default function MainBody() {
     const{ 
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
-      active, setActive, setCulprit, askQuestion, sizeChanging,
+      active, setActive, culprit, setCulprit, askQuestion, sizeChanging,
       setSizeChanging, setYouWin, modalVisible, setModalVisible,
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
-      winCount, setWinCount, wallet, setCannotAfford
+      wallet, setCannotAfford
     } = React.useContext( LayoutContext )
+
+
+    // function getCharactersWithFewMatches(characters, culprit, keysToCompare) {
+    //   return characters.filter(char => {
+    //     let matches = 0
+
+    //     for (const key of keysToCompare) {
+    //       const cVal = char[key]
+    //       const culpritVal = culprit[key]
+
+    //       // If both are arrays
+    //       if (Array.isArray(cVal) && Array.isArray(culpritVal)) {
+    //         const overlap = cVal.some(v => culpritVal.includes(v))
+    //         if (overlap) matches++
+    //       }
+
+    //       // If one is array and one is not
+    //       else if (Array.isArray(cVal)) {
+    //         if (cVal.includes(culpritVal)) matches++
+    //       } else if (Array.isArray(culpritVal)) {
+    //         if (culpritVal.includes(cVal)) matches++
+    //       }
+
+    //       // If both are simple values
+    //       else if (cVal === culpritVal) {
+    //         matches++
+    //       }
+
+    //       // Exit early for efficiency if 2+ already match
+    //       if (matches >= 3) return false
+    //     }
+
+    //     return matches < 3
+    //   })
+    // }
+
+    // const keys = ["head", "hair", "skin", "gender", "clothes", "shirt", "pants", "shoes", "accessories"]
+
+    // const lowMatchCharacters = getCharactersWithFewMatches(charactersLeft, culprit, keys)
+
+    // React.useEffect(() => {
+    //   console.log(lowMatchCharacters.map((char) => char.name))
+    // }, [modalVisible])
+
+
+
+
+
+
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -40,7 +89,6 @@ export default function MainBody() {
       if (charactersLeft.length === 1) {
         setYouWin(true)
         setGameOver(true)
-        setWinCount(winCount + 1)
         gameStartRef.current = false
       }
     }, [charactersLeft])
