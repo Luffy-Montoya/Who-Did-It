@@ -15,7 +15,7 @@ export default function MainBody() {
       setSizeChanging, setYouWin, modalVisible, setModalVisible,
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
-      wallet, setCannotAfford
+      wallet, setCannotAfford, level
     } = React.useContext( LayoutContext )
 
 
