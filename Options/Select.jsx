@@ -13,7 +13,12 @@ export default function Select() {
             <div className="options-display">
                 <div className="options-scroll">
                     <div className="options-list select-category">
-                        {youWin ? `It was ${culprit.name}! You Win!` : cannotAfford && charactersLeft.length > 1 ? "Game Over.  Not enough coins." : "Select a Category"}                               
+                        {
+                        youWin ? 
+                        `It was ${culprit.name}! You Win!` : cannotAfford && charactersLeft.length > 1 ?
+                        "Game Over.  Not enough coins." : charactersLeft.length < 24 ?
+                        `Suspects remaining: ${charactersLeft.length}` : "Select a Category"
+                        }                               
                     </div>
                 </div>
             </div>
