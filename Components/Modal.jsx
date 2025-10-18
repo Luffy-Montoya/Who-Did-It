@@ -17,7 +17,7 @@ export default function Modal(){
 
     function nextRound() {
         setModalVisible(false)
-        setWallet(wallet + 50 + coinsWon)
+        setWallet(wallet + coinsWon)
         setLevel(level + 1)
         setTimeout(() => {
             setGameResetting(true)
@@ -27,7 +27,7 @@ export default function Modal(){
         }, 1000)
     }
 
-    const coinsWon = 50 + (Math.floor((level + 1) / 5) * 10)
+    const coinsWon = 50 + (Math.floor((level + 1) / 3) * 10)
 
     return (
         <div className={`modal ${modalVisible ? "" : "offscreen"}`}>
