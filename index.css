@@ -539,7 +539,7 @@ h1:active {
   flex-direction: column;
   object-fit: contain;
   justify-content: center;
-  transition-duration: .35s !important;
+  transition-duration: opacity .35s !important;
   transition-delay: 0;
 }
 
