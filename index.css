@@ -539,13 +539,13 @@ h1:active {
   flex-direction: column;
   object-fit: contain;
   justify-content: center;
-  transition-duration: .25s !important;
+  transition-duration: .35s !important;
   transition-delay: 0;
 }
 
-.not-included {
+.character-container.not-included {
   opacity: 30% !important;
-  transition-duration: .25s !important;
+  transition-duration: .35s !important;
   transition-delay: 0s !important;
 }
 
