@@ -92,7 +92,7 @@ export default function MainBody() {
         setTimeout(() => {
           setModalVisible(true)
           setWallet(wallet + coinsWon)
-        }, 2500)
+        }, 2750)
       }
     }, [gameOver])
 
