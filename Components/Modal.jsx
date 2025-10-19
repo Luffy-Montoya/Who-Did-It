@@ -35,11 +35,13 @@ export default function Modal(){
             <div className="modal-top-text">{!firstModalGone ? "Someone spilled the beans..." : `It was ${culprit.name}!`}</div>
             <div className="modal-bottom-text-container">
                 <div className="bottom-text-1">{!firstModalGone ? "You wanna know who?" : "Great job."}</div>
-                <div className="bottom-text-2">{!firstModalGone ? "It's gonna cost you." : `Here's ${coinsWon} more coins!`}</div>
+                <div className="bottom-text-2">{!firstModalGone ? "It's gonna cost you." : `+ ${coinsWon} coins!`}</div>
             </div>
             <div className="modal-button-container">
-                <button onClick={() => startGame(false)} className={`modal-button-1 ${modalVisible ? "" : "offscreen"}`}>Ask Away!</button>
-                <button onClick={() => nextRound()} className={`modal-button-2 ${modalVisible ? "" : "offscreen"}`}>Next Round</button>
+                {!firstModalGone ?
+                <button onClick={() => startGame(false)} className="modal-button-1">Ask Away!</button> :
+                <button onClick={() => nextRound()} className="modal-button-2">Next Round</button>
+                }
             </div> 
         </div>
     )
