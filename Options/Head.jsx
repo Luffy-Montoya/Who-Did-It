@@ -24,7 +24,6 @@ export default function Head() {
         setTimeout(() => {
             setToAsk(true)
         }, 300)
-        console.log("included")
     }
 
     return(

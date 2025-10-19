@@ -57,6 +57,9 @@ export default function Layout() {
     const [gameResetting, setGameResetting] = React.useState(false)
     const [level, setLevel] = React.useState(1)
     const [cannotAfford, setCannotAfford] = React.useState(false)
+    const [firstModalGone, setFirstModalGone] = React.useState(false)
+
+    const coinsWon = 50 + (Math.floor((level + 1) / 3) * 10)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -73,7 +76,8 @@ export default function Layout() {
             modalVisible, setModalVisible, gameStarted, setGameStarted,
             firstGameStarted, setFirstGameStarted, gameOver, setGameOver,
             shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
-            level, setLevel, cannotAfford, setCannotAfford
+            level, setLevel, cannotAfford, setCannotAfford, firstModalGone, setFirstModalGone,
+            coinsWon
         }}>
 
             <div className="layout">

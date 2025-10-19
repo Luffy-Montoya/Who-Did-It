@@ -12,10 +12,10 @@ export default function MainBody() {
       charactersLeft, setCharactersLeft, row1, setRow1,
       row2, setRow2, row3, setRow3, row4, setRow4,
       active, setActive, culprit, setCulprit, askQuestion, sizeChanging,
-      setSizeChanging, setYouWin, modalVisible, setModalVisible,
+      setSizeChanging, youWin, setYouWin, modalVisible, setModalVisible,
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
-      wallet, setCannotAfford, level
+      wallet, setCannotAfford, level, setWallet, coinsWon
     } = React.useContext( LayoutContext )
 
 
@@ -61,12 +61,6 @@ export default function MainBody() {
     //   console.log(lowMatchCharacters.map((char) => char.name))
     // }, [modalVisible])
 
-
-
-
-
-
-
     React.useEffect(() => {
       setTimeout(() => {
         setModalVisible(true)
@@ -94,10 +88,11 @@ export default function MainBody() {
     }, [charactersLeft])
 
     React.useEffect(() => {
-      if (gameOver){
+      if (gameOver && youWin){
         setTimeout(() => {
           setModalVisible(true)
-        }, 3250)
+          setWallet(wallet + coinsWon)
+        }, 2500)
       }
     }, [gameOver])
 
@@ -165,11 +160,11 @@ export default function MainBody() {
           setShuffled(shuffledChars)
           setCulprit(shuffledChars[Math.floor(Math.random() * shuffledChars.length)])
           setGameStarted(true)
-        }, 1000)
+        }, 500)
 
         setTimeout(() => {
           setIsVisible(true)
-        }, 2000)
+        }, 1500)
       }
     }, [gameResetting])
 

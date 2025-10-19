@@ -24,8 +24,6 @@ export default function Clothes() {
         setTimeout(() => {
             setToAsk(true)
         }, 300)
-        console.log("included")
-        console.log(asked.includes(["accessories", "none"]))
     }
 
     return(
