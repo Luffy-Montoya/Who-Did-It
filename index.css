@@ -194,6 +194,7 @@ h3 {
   border: 1px solid black;
   background: rgb(250,250,250);
   cursor: pointer;
+  transition: .6s
 }
 
 .categories-top > button:disabled, .categories-bottom > button:disabled {
