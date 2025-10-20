@@ -2,7 +2,7 @@
 const option = (option) => {return <span className="option">{option}</span>}
 
 const head = {
-    any: <>"Do they have {option("Nothing")} on their face or head?"</>,
+    none: <>"Do they have {option("Nothing")} on their face or head?"</>,
     glasses: <>"Are they wearing {option("Glasses")}?"</>,
     hat: <>"Are they wearing a {option("Hat")}?"</>,
     bowBand: <>"Are they wearing a {option("Bow")} or {option("Headband")}?"</>

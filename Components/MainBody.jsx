@@ -17,7 +17,8 @@ export default function MainBody() {
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
-      probeCount, setProbeCount, setYouLose, setHeroBonus, youLose
+      probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
+      setLowWalletBonus 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -43,6 +44,9 @@ export default function MainBody() {
         setGameOver(true)
         setYouWin(true)
         gameStartRef.current = false
+        if (wallet < level) {
+          setLowWalletBonus(true)
+        }
       }
     }, [charactersLeft])
 
@@ -51,6 +55,11 @@ export default function MainBody() {
         setTimeout(() => {
           setModalVisible(true)
           setWallet(wallet + coinsWon)
+          // if (wallet < level && !heroModeOn){
+          //   setTimeout(() => {
+          //     setWallet(wallet + coinsWon + level)
+          //   }, 1000)
+          // }
         }, 2750)
       }
     }, [gameOver])
@@ -114,6 +123,7 @@ export default function MainBody() {
           setCannotAfford(false)
           setHeroBonus(false)
           setHeroModeOn(false)
+          setLowWalletBonus(false)
           firstArranged.current = false
           secondArranged.current = false
           thirdArranged.current = false

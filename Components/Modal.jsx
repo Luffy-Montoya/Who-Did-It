@@ -4,9 +4,9 @@ import { LayoutContext } from "./Layout"
 export default function Modal(){
 
     const { 
-        modalVisible, setModalVisible, setGameStarted, firstGameStarted, setFirstGameStarted, 
+        modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
         setGameOver, setGameResetting, level, setLevel, culprit, firstModalGone, setFirstModalGone,
-        coinsWon
+        coinsWon, lowWalletBonus
     } = React.useContext(LayoutContext)
 
     function startGame() {
@@ -34,8 +34,26 @@ export default function Modal(){
         <div className={`modal ${modalVisible ? "" : "offscreen"}`}>
             <div className="modal-top-text">{!firstModalGone ? "Someone spilled the beans..." : `It was ${culprit.name}!`}</div>
             <div className="modal-bottom-text-container">
-                <div className="bottom-text-1">{!firstModalGone ? "You wanna know who?" : "Great job."}</div>
-                <div className="bottom-text-2">{!firstModalGone ? "It's gonna cost you." : `+ ${coinsWon} coins!`}</div>
+                <div className="bottom-text-1">
+                    {
+                    !firstModalGone 
+                    ? "You wanna know who?" 
+                        : lowWalletBonus
+                            ? `+ ${coinsWon - level} coins!` 
+                            : `+ ${coinsWon} coins!`
+                    }
+
+                </div>
+                <div className="bottom-text-2">
+                    {
+                    !firstModalGone 
+                        ? "It's gonna cost you." 
+                        : lowWalletBonus
+                            ? `+ ${level} low wallet bonus!` 
+                            : ""
+                    }
+
+                </div>
             </div>
             <div className="modal-button-container">
                 {!firstModalGone ?

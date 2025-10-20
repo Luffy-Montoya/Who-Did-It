@@ -56,14 +56,15 @@ export default function Layout() {
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
     const [gameOver, setGameOver] = React.useState(false)
     const [gameResetting, setGameResetting] = React.useState(false)
-    const [level, setLevel] = React.useState(1)
+    const [level, setLevel] = React.useState(50)
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
     const [heroModeOn, setHeroModeOn] = React.useState(false)
     const [probeCount, setProbeCount] = React.useState(0)
     const [heroBonus, setHeroBonus] = React.useState(false)
+    const [lowWalletBonus, setLowWalletBonus] = React.useState(false)
 
-    const coinsWon = 50 + (Math.floor(level / 3) * 5) + (heroBonus ? (25 + (Math.floor(level / 6) * 5)) : 0)
+    const coinsWon = 50 + (Math.floor(level / 3) * 5) + (heroBonus ? (25 + (Math.floor(level / 6) * 5)) : 0) + (lowWalletBonus && !heroBonus ? level : 0)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -81,7 +82,8 @@ export default function Layout() {
             firstGameStarted, setFirstGameStarted, gameOver, setGameOver,
             shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
             level, setLevel, cannotAfford, setCannotAfford, firstModalGone, setFirstModalGone,
-            coinsWon, heroModeOn, setHeroModeOn, probeCount, setProbeCount, setHeroBonus
+            coinsWon, heroModeOn, setHeroModeOn, probeCount, setProbeCount, setHeroBonus,
+            lowWalletBonus, setLowWalletBonus
         }}>
 
             <div className="layout">
