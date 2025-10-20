@@ -63,7 +63,7 @@ export default function Layout() {
     const [probeCount, setProbeCount] = React.useState(0)
     const [heroBonus, setHeroBonus] = React.useState(false)
 
-    const coinsWon = 50 + (Math.floor(level / 5) * 10) + (heroBonus ? (25 + (Math.floor(level / 5) * 5)) : 0)
+    const coinsWon = 50 + (Math.floor(level / 3) * 5) + (heroBonus ? (25 + (Math.floor(level / 3) * 5)) : 0)
 
     return (
         <LayoutContext.Provider value={{ 
