@@ -219,41 +219,68 @@ export default function MainBody() {
       }
     }
 
+    function shuffleArray(array) {
+      return array
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+    }
+
     function heroGuess(charName) {
+      const isCorrect = charName === culprit.name;
+      console.log("hero mode triggered")
 
-      if (charName === culprit.name) {
-        setYouWin(true)
-        setHeroBonus(true)
-        // setTimeout(() => {
-        //   setModalVisible(true)
-        //   setWallet(wallet + coinsWon)
-        // }, 4750)
+      if (isCorrect) {
+        console.log("correct triggered")
+        setTimeout(() => {
+          setYouWin(true);
+          setHeroBonus(true);
+        }, charactersLeft.length * 160)
+        setTimeout(() => {
+          setModalVisible(true);
+          setWallet(wallet + coinsWon);
+        }, (charactersLeft.length * 160) + 2000);
       } else {
-        setYouWin(false)
-        setYouLose(true)
-      }
+        console.log("incorrect triggered")
+        setTimeout(() => {
+          setYouWin(false);
+          setYouLose(true);
+        }, charactersLeft.length * 160)
       
-      setActive(prev => {
-        const newActive = { ...prev }
+      }
 
-        charactersLeft.forEach(c => {
-          if (c.name !== culprit.name) {
-            newActive[c.name] = true
-          }
-        })
+      // Build the disappearance order (exclude the culprit)
+      let disappearOrder = charactersLeft
+        .map(c => c.name)
+        .filter(name => name !== culprit.name);
 
-        newActive[culprit.name] = false
+      // If guess is wrong, make that guessed character the last to disappear
+      if (!isCorrect) {
+        disappearOrder = disappearOrder.filter(name => name !== charName);
+        disappearOrder = shuffleArray(disappearOrder);
+        disappearOrder.push(charName);
+      } else {
+        disappearOrder = shuffleArray(disappearOrder);
+      }
 
-        return newActive
-      })
+      // Animate disappearances one by one (culprit excluded)
+      disappearOrder.forEach((name, i) => {
+        setTimeout(() => {
+          setActive(prev => ({
+            ...prev,
+            [name]: true, // mark as disappearing
+          }));
+        }, i * (3000 / charactersLeft.length));
+      });
 
+      // After the animation finishes, remove everyone except the culprit
       setTimeout(() => {
-        const keepCulprit = obj => obj.name === culprit.name
-        setRow1(prev => prev.filter(keepCulprit))
-        setRow2(prev => prev.filter(keepCulprit))
-        setRow3(prev => prev.filter(keepCulprit))
-        setRow4(prev => prev.filter(keepCulprit))
-      }, 2500)
+        const keepCulprit = obj => obj.name === culprit.name;
+        setRow1(prev => prev.filter(keepCulprit));
+        setRow2(prev => prev.filter(keepCulprit));
+        setRow3(prev => prev.filter(keepCulprit));
+        setRow4(prev => prev.filter(keepCulprit));
+      }, disappearOrder.length * (3000 / charactersLeft.length) + 1000);
     }
 
     function probeAndHero(charName){
