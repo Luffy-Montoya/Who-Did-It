@@ -69,7 +69,7 @@ export default function MainBody() {
           setHeroModeOn(true)
           setCannotAfford(true)    
         }
-      }, 2500)
+      }, 3500)
       
     }, [wallet, charactersLeft])
 
