@@ -5,6 +5,7 @@ import { allOptions } from "../Functions/allOptions"
 import { allOrNoneHave } from "../Functions/allOrNoneHave"
 import { calcPrice } from "../Functions/askPrice"
 import { LayoutContext } from "./Layout"
+import { rearrange } from "../Functions/rearrange"
 
 export default function MainBody() {
 
@@ -15,51 +16,9 @@ export default function MainBody() {
       setSizeChanging, youWin, setYouWin, modalVisible, setModalVisible,
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
-      wallet, setCannotAfford, level, setWallet, coinsWon
+      wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
+      probeCount, setProbeCount, setYouLose, setHeroBonus
     } = React.useContext( LayoutContext )
-
-
-    // function getCharactersWithFewMatches(characters, culprit, keysToCompare) {
-    //   return characters.filter(char => {
-    //     let matches = 0
-
-    //     for (const key of keysToCompare) {
-    //       const cVal = char[key]
-    //       const culpritVal = culprit[key]
-
-    //       // If both are arrays
-    //       if (Array.isArray(cVal) && Array.isArray(culpritVal)) {
-    //         const overlap = cVal.some(v => culpritVal.includes(v))
-    //         if (overlap) matches++
-    //       }
-
-    //       // If one is array and one is not
-    //       else if (Array.isArray(cVal)) {
-    //         if (cVal.includes(culpritVal)) matches++
-    //       } else if (Array.isArray(culpritVal)) {
-    //         if (culpritVal.includes(cVal)) matches++
-    //       }
-
-    //       // If both are simple values
-    //       else if (cVal === culpritVal) {
-    //         matches++
-    //       }
-
-    //       // Exit early for efficiency if 2+ already match
-    //       if (matches >= 3) return false
-    //     }
-
-    //     return matches < 3
-    //   })
-    // }
-
-    // const keys = ["head", "hair", "skin", "gender", "clothes", "shirt", "pants", "shoes", "accessories"]
-
-    // const lowMatchCharacters = getCharactersWithFewMatches(charactersLeft, culprit, keys)
-
-    // React.useEffect(() => {
-    //   console.log(lowMatchCharacters.map((char) => char.name))
-    // }, [modalVisible])
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -81,7 +40,6 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (charactersLeft.length === 1) {
-        setYouWin(true)
         setGameOver(true)
         gameStartRef.current = false
       }
@@ -106,6 +64,7 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (charactersLeft.length > 1 && cannotAffordAnyOption(allOptions, wallet, charactersLeft)){
+          setHeroModeOn(true)
           setCannotAfford(true)    
       }
     }, [wallet, charactersLeft])
@@ -177,176 +136,12 @@ export default function MainBody() {
 
 
     React.useEffect(() => {
-      const len = charactersLeft.length
-
-      // Helper to check if a rearrangement is already in the desired shape
-      const rowsMatch = (...lengths) => {
-        const actual = [row1.length, row2.length, row3.length, row4.length].filter(l => l > 0)
-        const target = lengths.filter(l => l > 0)
-        return JSON.stringify(actual) === JSON.stringify(target)
-      }
-
-      // === 15 layout === (5 / 5 / 5)
-      if (!secondArranged.current && len < 16 && len >= 9) {
-        if (
-            rowsMatch(5, 5, 5) || 
-            rowsMatch(4, 5, 5) || 
-            rowsMatch(5, 4, 5) || 
-            rowsMatch(5, 5, 4) || 
-            rowsMatch(4, 4, 5) ||
-            rowsMatch(4, 5, 4) ||
-            rowsMatch(5, 4, 4) ||
-            rowsMatch(4, 4, 4) ||
-            rowsMatch(3, 4, 4) ||
-            rowsMatch(4, 3, 4) ||
-            rowsMatch(4, 4, 3) ||
-            rowsMatch(3, 3, 4) ||
-            rowsMatch(3, 4, 3) ||
-            rowsMatch(4, 3, 3) ||
-            rowsMatch(3, 3, 3)   
-    ) {
-          console.log("15 skipped — already aligned")
-          secondArranged.current = true
-          setTimeout(() => {
-            setSizeChanging(true)
-          }, 500)
-          setTimeout(() => {
-              setSizeChanging(false)
-          }, 4500)
-        } else {
-          setTimeout(() => {
-            setIsVisible(false)
-          }, 200)
-          setTimeout(() => {
-            setRow2(charactersLeft.slice(0, (Math.ceil(charactersLeft.length * 1/3))))
-            setRow3(charactersLeft.slice((Math.ceil(charactersLeft.length * 1/3)), (Math.ceil(charactersLeft.length * 2/3))))
-            setRow4(charactersLeft.slice((Math.ceil(charactersLeft.length * 2/3))))
-            setRow1([])
-            setIsVisible(true)
-            secondArranged.current = true
-            console.log("rows for 15 set")
-          }, 1200)
-        }
-      }
-
-      // === 8 layout === (4 / 4)
-      if (!thirdArranged.current && len < 9 && len >= 7) {
-        if (
-            rowsMatch(4, 4) ||
-            rowsMatch(3, 4) ||
-            rowsMatch(4, 3)
-        ) {
-          console.log("8 skipped — already aligned")
-          thirdArranged.current = true
-          setTimeout(() => {
-            setSizeChanging(true)
-          }, 500)
-          setTimeout(() => {
-              setSizeChanging(false)
-          }, 4500)
-        } else {
-          setTimeout(() => {
-            setIsVisible(false)
-          }, 200)
-          setTimeout(() => {
-            setRow3(charactersLeft.slice(0, 4))
-            setRow4(charactersLeft.slice(4))
-            setRow1([])
-            setRow2([])
-            setIsVisible(true)
-            thirdArranged.current = true
-            console.log("rows for 8 set")
-          }, 1200)
-        }
-      }
-
-      // === 6 layout === (3 / 3)
-      if (!fourthArranged.current && len < 7 && len >= 5) {
-        if (
-            rowsMatch(3, 3) ||
-            rowsMatch(2, 3) ||
-            rowsMatch(3, 2)
-        ) {
-          console.log("6 skipped — already aligned")
-          fourthArranged.current = true
-          setTimeout(() => {
-            setSizeChanging(true)
-          }, 500)
-          setTimeout(() => {
-              setSizeChanging(false)
-          }, 4500)
-        } else {
-          setTimeout(() => {
-            setIsVisible(false)
-          }, 200)
-          setTimeout(() => {
-            setRow3(charactersLeft.slice(0, 3))
-            setRow4(charactersLeft.slice(3))
-            setRow1([])
-            setRow2([])
-            setIsVisible(true)
-            fourthArranged.current = true
-            console.log("rows for 6 set")
-          }, 1200)
-        }
-      }
-
-      // === 4 layout === (2 / 2)
-      if (!fifthArranged.current && len < 5 && len >= 3) {
-        if (rowsMatch(2, 2) ||
-            rowsMatch(1, 2) ||
-            rowsMatch(2, 1)
-    ) {
-          console.log("4 skipped — already aligned")
-          fifthArranged.current = true
-          setTimeout(() => {
-            setSizeChanging(true)
-          }, 500)
-          setTimeout(() => {
-              setSizeChanging(false)
-          }, 4500)
-        } else {
-          setTimeout(() => {
-            setIsVisible(false)
-          }, 200)
-          setTimeout(() => {
-            setRow3(charactersLeft.slice(0, 2))
-            setRow4(charactersLeft.slice(2))
-            setRow1([])
-            setRow2([])
-            setIsVisible(true)
-            fifthArranged.current = true
-            console.log("rows for 4 set")
-          }, 1200)
-        }
-      }
-
-      // === 2 layout === (2)
-      if (!sixthArranged.current && len < 3 && len >= 1) {
-        if (rowsMatch(2) || rowsMatch(1)) {
-          console.log("2 skipped — already aligned")
-          sixthArranged.current = true
-          setTimeout(() => {
-            setSizeChanging(true)
-          }, 500)
-          setTimeout(() => {
-              setSizeChanging(false)
-          }, 4500)
-        } else {
-          setTimeout(() => {
-            setIsVisible(false)
-          }, 200)
-          setTimeout(() => {
-            setRow4(charactersLeft.slice(0))
-            setRow1([])
-            setRow2([])
-            setRow3([])
-            setIsVisible(true)
-            sixthArranged.current = true
-            console.log("rows for 2 set")
-          }, 1200)
-        }
-      }
+      rearrange({
+        charactersLeft, row1, row2, row3, row4,
+        setRow1, setRow2, setRow3, setRow4,
+        setSizeChanging, setIsVisible,
+        refs: { secondArranged, thirdArranged, fourthArranged, fifthArranged, sixthArranged }
+      })
     }, [charactersLeft])
 
     function getCharacterSize(len) {
@@ -395,15 +190,64 @@ export default function MainBody() {
 
     const containerSize = getContainerSize(charactersLeft.length)
 
-    function removeCharacter(charName) {
+    function probe(charName) {
+      
+      if (probeCount > 0) {
+        if (charName != culprit.name){
+          setActive(prev => ({ ...prev, [charName]: true }))
+          setTimeout(() => {
+              setRow1(prev => prev.filter(obj => obj.name !== charName))
+              setRow2(prev => prev.filter(obj => obj.name !== charName))
+              setRow3(prev => prev.filter(obj => obj.name !== charName))
+              setRow4(prev => prev.filter(obj => obj.name !== charName))
+          }, 2500)
+          setProbeCount(probeCount - 1)
+        } else {
+          heroGuess(charName)
+        }
+      }
+    }
 
-    setActive(prev => ({ ...prev, [charName]: true }))
+    function heroGuess(charName) {
+
+      if (charName === culprit.name) {
+        setYouWin(true)
+        setHeroBonus(true)
+      } else {
+        setYouWin(false)
+        setYouLose(true)
+      }
+      
+      setActive(prev => {
+        const newActive = { ...prev }
+
+        charactersLeft.forEach(c => {
+          if (c.name !== culprit.name) {
+            newActive[c.name] = true
+          }
+        })
+
+        newActive[culprit.name] = false
+
+        return newActive
+      })
+
       setTimeout(() => {
-          setRow1(prev => prev.filter(obj => obj.name !== charName))
-          setRow2(prev => prev.filter(obj => obj.name !== charName))
-          setRow3(prev => prev.filter(obj => obj.name !== charName))
-          setRow4(prev => prev.filter(obj => obj.name !== charName))
+        const keepCulprit = obj => obj.name === culprit.name
+        setRow1(prev => prev.filter(keepCulprit))
+        setRow2(prev => prev.filter(keepCulprit))
+        setRow3(prev => prev.filter(keepCulprit))
+        setRow4(prev => prev.filter(keepCulprit))
       }, 2500)
+    }
+
+    function probeAndHero(charName){
+      if(!heroModeOn){
+        probe(charName)
+      } else {
+        heroGuess(charName)
+        setHeroModeOn(false)
+      }
     }
 
     function rowMap(row) {
@@ -427,7 +271,7 @@ export default function MainBody() {
                   ${characterSize}
                   ${modalVisible ? "grayed" : ""}
                   `}
-                onClick={() => removeCharacter(character.name)}
+                onClick={() => probeAndHero(character.name)}
                 key={character.name}
             >
                 <img className={`characters ${modalVisible ? "grayed" : ""}`} src={character.image}></img>

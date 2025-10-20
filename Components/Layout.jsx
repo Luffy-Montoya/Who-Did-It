@@ -50,6 +50,7 @@ export default function Layout() {
     const [fade, setFade] = React.useState(false)
     const [yesOrNo, setYesOrNo] = React.useState("")
     const [youWin, setYouWin] = React.useState(false)
+    const [youLose, setYouLose] = React.useState(false)
     const [modalVisible, setModalVisible] = React.useState(false)
     const [gameStarted, setGameStarted] = React.useState(false)
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
@@ -58,8 +59,11 @@ export default function Layout() {
     const [level, setLevel] = React.useState(1)
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
+    const [heroModeOn, setHeroModeOn] = React.useState(false)
+    const [probeCount, setProbeCount] = React.useState(0)
+    const [heroBonus, setHeroBonus] = React.useState(false)
 
-    const coinsWon = 50 + (Math.floor((level + 1) / 3) * 10)
+    const coinsWon = 50 + (Math.floor(level / 3) * 10) + (heroBonus ? (25 + (Math.floor(level / 3) * 5)) : 0)
 
     return (
         <LayoutContext.Provider value={{ 
@@ -72,12 +76,12 @@ export default function Layout() {
             rightVisible, setRightVisible, wallet, setWallet, culprit, setCulprit,
             askOption, setAskOption, toAsk, setToAsk, 
             toCategories, setToCategories, questionAsked, setQuestionAsked,
-            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, 
+            fade, setFade, yesOrNo, setYesOrNo, youWin, setYouWin, youLose, setYouLose, 
             modalVisible, setModalVisible, gameStarted, setGameStarted,
             firstGameStarted, setFirstGameStarted, gameOver, setGameOver,
             shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
             level, setLevel, cannotAfford, setCannotAfford, firstModalGone, setFirstModalGone,
-            coinsWon
+            coinsWon, heroModeOn, setHeroModeOn, probeCount, setProbeCount, setHeroBonus
         }}>
 
             <div className="layout">
