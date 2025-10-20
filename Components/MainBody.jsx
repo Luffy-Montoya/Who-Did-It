@@ -39,8 +39,9 @@ export default function MainBody() {
     }, [gameStarted])
 
     React.useEffect(() => {
-      if (charactersLeft.length === 1) {
+      if (charactersLeft.length === 1 && !heroModeOn) {
         setGameOver(true)
+        setYouWin(true)
         gameStartRef.current = false
       }
     }, [charactersLeft])
@@ -63,10 +64,13 @@ export default function MainBody() {
     }
 
     React.useEffect(() => {
-      if (charactersLeft.length > 1 && cannotAffordAnyOption(allOptions, wallet, charactersLeft)){
+      setTimeout(() => {
+        if (charactersLeft.length > 1 && cannotAffordAnyOption(allOptions, wallet, charactersLeft) && !youWin){
           setHeroModeOn(true)
           setCannotAfford(true)    
-      }
+        }
+      }, 3500)
+      
     }, [wallet, charactersLeft])
 
     const firstArranged = React.useRef(false)
@@ -108,6 +112,7 @@ export default function MainBody() {
           setSizeChanging(false)
           setModalVisible(false)
           setCannotAfford(false)
+          setHeroBonus(false)
           firstArranged.current = false
           secondArranged.current = false
           thirdArranged.current = false
