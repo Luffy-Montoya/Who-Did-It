@@ -82,8 +82,8 @@ export const askMinResults = {
 export function calcPrice(option, level) {
 
     const base = 4 + (level * 0.5)                  // universal “ask” fee
-    const rate = 1.29 + (level * 0.1)                  // per guaranteed elimination
-    const exponent = 1.08 - (level * .004)             // adds curvature for big sweeps
+    const rate = 1.19 + (level * 0.2)                  // per guaranteed elimination
+    const exponent = 1.08 - (level * (.0040 * Math.pow(.997, level)))             // adds curvature for big sweeps
     const price = Math.round(base + Math.pow(option * rate, exponent))
     return price
 
