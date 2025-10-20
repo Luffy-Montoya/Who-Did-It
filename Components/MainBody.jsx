@@ -17,7 +17,7 @@ export default function MainBody() {
       gameStarted, setGameStarted, firstGameStarted, gameOver, setGameOver,
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
-      probeCount, setProbeCount, setYouLose, setHeroBonus
+      probeCount, setProbeCount, setYouLose, setHeroBonus, youLose
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -39,7 +39,7 @@ export default function MainBody() {
     }, [gameStarted])
 
     React.useEffect(() => {
-      if (charactersLeft.length === 1 && !heroModeOn) {
+      if (charactersLeft.length === 1 && !heroModeOn && youLose === false) {
         setGameOver(true)
         setYouWin(true)
         gameStartRef.current = false
@@ -219,6 +219,10 @@ export default function MainBody() {
       if (charName === culprit.name) {
         setYouWin(true)
         setHeroBonus(true)
+        setTimeout(() => {
+          setModalVisible(true)
+          setWallet(wallet + coinsWon)
+        }, 4750)
       } else {
         setYouWin(false)
         setYouLose(true)
