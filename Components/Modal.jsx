@@ -6,7 +6,7 @@ export default function Modal(){
     const { 
         modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
         setGameOver, setGameResetting, level, setLevel, culprit, firstModalGone, setFirstModalGone,
-        coinsWon, lowWalletBonus
+        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount
     } = React.useContext(LayoutContext)
 
     function startGame() {
@@ -37,10 +37,12 @@ export default function Modal(){
                 <div className="bottom-text-1">
                     {
                     !firstModalGone 
-                    ? "You wanna know who?" 
-                        : lowWalletBonus
-                            ? `+ ${coinsWon - level} coins!` 
-                            : `+ ${coinsWon} coins!`
+                    ? "You wanna know who?"
+                        : heroBonus
+                        ? `+ ${coinsWon - heroAmount} coins!`
+                            : lowWalletBonus
+                            ? `+ ${coinsWon - lowWalletAmount} coins!` 
+                                : `+ ${coinsWon} coins!`
                     }
 
                 </div>
@@ -48,9 +50,11 @@ export default function Modal(){
                     {
                     !firstModalGone 
                         ? "It's gonna cost you." 
-                        : lowWalletBonus
-                            ? `+ ${level} low wallet bonus!` 
-                            : ""
+                        : heroBonus
+                            ? `+ ${heroAmount} hero bonus!`   
+                            : lowWalletBonus
+                                ? `+ ${lowWalletAmount} low wallet bonus!` 
+                                : ""
                     }
 
                 </div>

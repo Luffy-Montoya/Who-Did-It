@@ -55,11 +55,6 @@ export default function MainBody() {
         setTimeout(() => {
           setModalVisible(true)
           setWallet(wallet + coinsWon)
-          // if (wallet < level && !heroModeOn){
-          //   setTimeout(() => {
-          //     setWallet(wallet + coinsWon + level)
-          //   }, 1000)
-          // }
         }, 2750)
       }
     }, [gameOver])
@@ -229,10 +224,10 @@ export default function MainBody() {
       if (charName === culprit.name) {
         setYouWin(true)
         setHeroBonus(true)
-        setTimeout(() => {
-          setModalVisible(true)
-          setWallet(wallet + coinsWon)
-        }, 4750)
+        // setTimeout(() => {
+        //   setModalVisible(true)
+        //   setWallet(wallet + coinsWon)
+        // }, 4750)
       } else {
         setYouWin(false)
         setYouLose(true)

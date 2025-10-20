@@ -3,12 +3,12 @@ import { LayoutContext } from "./Layout"
 
 export default function Header({ children }) {
 
-    const { culprit, modalVisible, gameStarted } = React.useContext(LayoutContext)
+    const { culprit, modalVisible, gameStarted, coinsWon } = React.useContext(LayoutContext)
 
     return(
         <div className={`header ${modalVisible || !gameStarted ? "grayed" : ""}`}>
-            <h1>{culprit.name}</h1>
-            {children}
+            <h1>{`${culprit.name} ${coinsWon}`}</h1>
+            {children} 
         </div>
     )
 }
