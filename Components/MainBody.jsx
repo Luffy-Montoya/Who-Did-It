@@ -69,7 +69,7 @@ export default function MainBody() {
           setHeroModeOn(true)
           setCannotAfford(true)    
         }
-      }, 4500)
+      }, 2500)
       
     }, [wallet, charactersLeft])
 
@@ -113,6 +113,7 @@ export default function MainBody() {
           setModalVisible(false)
           setCannotAfford(false)
           setHeroBonus(false)
+          setHeroModeOn(false)
           firstArranged.current = false
           secondArranged.current = false
           thirdArranged.current = false
