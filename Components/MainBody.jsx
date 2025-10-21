@@ -44,7 +44,7 @@ export default function MainBody() {
         setGameOver(true)
         setYouWin(true)
         gameStartRef.current = false
-        if (wallet < level) {
+        if (wallet < level * 1.25) {
           setLowWalletBonus(true)
         }
       }

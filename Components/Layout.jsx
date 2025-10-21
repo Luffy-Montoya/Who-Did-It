@@ -69,7 +69,7 @@ export default function Layout() {
     const [noCount, setNoCount] = React.useState(0)
 
     const heroAmount = Math.round((calcCoinsWon(level) / 2) / 5) * 5
-    const lowWalletAmount = Math.ceil(level / 5) * 5
+    const lowWalletAmount = Math.ceil((level * 1.25) / 5) * 5
 
     const coinsWon = (
         calcCoinsWon(level) 
