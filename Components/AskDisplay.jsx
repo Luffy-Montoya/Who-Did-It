@@ -12,7 +12,8 @@ export default function AskDisplay() {
         setAskDisplay, setCategoryDisplay, setWallet, culprit, 
         setSizeChanging, setAskOption, toAsk,
         setToAsk, setToCategories, setQuestionAsked, toCategories,
-        setOptionsBar, fade, setFade, yesOrNo, setYesOrNo, modalVisible
+        setOptionsBar, fade, setFade, yesOrNo, setYesOrNo, modalVisible,
+        setYesCount, setNoCount, yesCount, noCount
     } = React.useContext(LayoutContext)
 
     const parameters = [
@@ -20,7 +21,7 @@ export default function AskDisplay() {
         setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
         setAskDisplay, setCategoryDisplay, setWallet, culprit, 
         setSizeChanging, setAskOption, setToAsk, setToCategories, setQuestionAsked,
-        setOptionsBar, setYesOrNo
+        setOptionsBar, setYesOrNo, setYesCount, setNoCount, yesCount, noCount
     ]
 
     function showCategories(){

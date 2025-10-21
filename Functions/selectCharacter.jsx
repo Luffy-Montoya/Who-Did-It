@@ -5,7 +5,7 @@ export function selectCharacter(
     setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
     setAskDisplay, setCategoryDisplay, setWallet, culprit,
     setSizeChanging, setAskOption, setToAsk, setToCategories, setQuestionAsked,
-    setOptionsBar, setYesOrNo) {
+    setOptionsBar, setYesOrNo, setYesCount, setNoCount, yesCount, noCount) {
 
     const filtered = charactersLeft.filter(character => {
     const value = character[category]
@@ -40,6 +40,7 @@ export function selectCharacter(
     if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
         
         setYesOrNo("No!")
+        setNoCount(noCount + 1)
         const namesToActivate = filtered.map(character => character.name)
         const newActiveState = namesToActivate.reduce((acc, name) => {
         acc[name] = true
@@ -69,6 +70,7 @@ export function selectCharacter(
 
     } else {
         setYesOrNo("Yes!")
+        setYesCount(yesCount + 1)
         const namesToActivate = charactersLeft
         .filter(character => {
         const value = character[category]
