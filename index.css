@@ -147,7 +147,7 @@ h3 {
   height: 75px;
   border-radius: 3em;
   margin-right: 1em;
-  margin-left: 1em;
+  margin-left: 0;
   padding: 0;
   background: url(/images/white-button.png);
   background-repeat: no-repeat;
@@ -201,7 +201,7 @@ h3 {
 }
 
 .name-desc-container {
-  width: 200px;
+  width: 240px;
 }
 
 .select-power {
