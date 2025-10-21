@@ -157,7 +157,7 @@ h3 {
 }
 
 .lucky-button{
-  background: linear-gradient(0deg, rgb(0, 50, 0, .5), rgb(50,200,50, .7), rgb(200,255,200, .6)), url(/images/white-button.png);
+  background: linear-gradient(0deg, rgb(0, 75, 0, .5), rgb(50,200,50, .7), rgb(200,255,200, .6)), url(/images/white-button.png);
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 3px 3px rgb(25,100,25,.5);
