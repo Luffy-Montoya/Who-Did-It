@@ -173,7 +173,7 @@ h3 {
   padding-bottom:1.2em;
   opacity: 90%;
   height: 44px;
-  filter: drop-shadow(0 0 1px rgb(0,0,0,.5))
+  filter: drop-shadow(0 0 1px rgb(0,0,0,.2))
 }
 
 .unlucky-logo {
