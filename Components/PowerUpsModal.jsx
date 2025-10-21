@@ -54,7 +54,7 @@ export default function PowerUpsModal(){
                     <div className="power-button"><img className="power-logo charity-logo" src="" alt="charity"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
-                            Charity 1 
+                            Charity I 
                         </div>
                         <div className="power-select-desc">
                             7% chance to get a free question.
@@ -66,7 +66,7 @@ export default function PowerUpsModal(){
                     <div className="power-button lucky-button"><img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name lucky-name">
-                            Lucky 1 
+                            Lucky I 
                         </div>
                         <div className="power-select-desc">
                             Earn 5 coins for every "Yes" answer.
@@ -78,7 +78,7 @@ export default function PowerUpsModal(){
                     <div className="power-button unlucky-button"><img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
-                            Unlucky 1 
+                            Unlucky I 
                         </div>
                         <div className="power-select-desc">
                             Earn 1 coin for every "No" answer.
@@ -87,7 +87,7 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
             </div>
-            <button>Select Power</button>
+            <button className="select-power">Select Power</button>
         </div>
     )
 }

@@ -125,7 +125,7 @@ h3 {
   right: 0;
   left: 0;
   top: 0;
-  bottom: 8em;
+  bottom: 0;
   margin: auto;
   gap: 1em;
   transition: transform 0.55s cubic-bezier(0.68, -0.55, 0.27, 1.1);
@@ -202,6 +202,15 @@ h3 {
 
 .name-desc-container {
   width: 200px;
+}
+
+.select-power {
+  display: flex;
+  font-size: 1rem;
+  padding: .5rem;
+  border-radius: 1em;
+  border: 1px solid black;
+  justify-content: center;
 }
 
 .layout {
