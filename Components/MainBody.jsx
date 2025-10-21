@@ -235,17 +235,17 @@ export default function MainBody() {
         setTimeout(() => {
           setYouWin(true);
           setHeroBonus(true);
-        }, charactersLeft.length * 160)
+        }, 4700)
         setTimeout(() => {
           setModalVisible(true);
           setWallet(wallet + coinsWon);
-        }, (charactersLeft.length * 160) + 2000);
+        }, 7000);
       } else {
         console.log("incorrect triggered")
         setTimeout(() => {
           setYouWin(false);
           setYouLose(true);
-        }, charactersLeft.length * 160)
+        }, 4700)
       
       }
 
@@ -280,7 +280,7 @@ export default function MainBody() {
         setRow2(prev => prev.filter(keepCulprit));
         setRow3(prev => prev.filter(keepCulprit));
         setRow4(prev => prev.filter(keepCulprit));
-      }, disappearOrder.length * (3000 / charactersLeft.length) + 1000);
+      }, disappearOrder.length * (3000 / charactersLeft.length) + 2000);
     }
 
     function probeAndHero(charName){
