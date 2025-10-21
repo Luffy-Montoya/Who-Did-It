@@ -64,6 +64,7 @@ export default function Layout() {
     const [probeCount, setProbeCount] = React.useState(0)
     const [heroBonus, setHeroBonus] = React.useState(false)
     const [lowWalletBonus, setLowWalletBonus] = React.useState(false)
+    const [powerSelectHidden, setPowerSelectHidden] = React.useState(false)
 
     const heroAmount = Math.round((calcCoinsWon(level) / 2) / 5) * 5
     const lowWalletAmount = Math.ceil(level / 5) * 5
@@ -99,7 +100,7 @@ export default function Layout() {
             shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
             level, setLevel, cannotAfford, setCannotAfford, firstModalGone, setFirstModalGone,
             coinsWon, heroModeOn, setHeroModeOn, probeCount, setProbeCount, heroBonus, setHeroBonus,
-            lowWalletBonus, setLowWalletBonus, heroAmount, lowWalletAmount
+            lowWalletBonus, setLowWalletBonus, heroAmount, lowWalletAmount, powerSelectHidden, setPowerSelectHidden
         }}>
 
             <div className="layout">

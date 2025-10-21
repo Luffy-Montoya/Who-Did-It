@@ -119,8 +119,8 @@ h3 {
   z-index: 30;
   background: rgb(240,240,240);
   color: rgb(0,0,0,.93);
-  width: 350px;
-  height: 600px;
+  width: 27.25em;
+  height: 47em;
   padding: 0 0.5em;
   right: 0;
   left: 0;
@@ -130,13 +130,12 @@ h3 {
   gap: .75em;
   font-size: .8rem;
   font-family: arial;
-  transition: 1s
+  transition: 1s;
 }
 
 .power-select-hidden {
   opacity: 0%;
-  width: 0;
-  height: 0;
+  transform: translateX(125%);
   transition: 1s;
 }
 
@@ -184,22 +183,15 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(25,100,25,.7);
-  border: 1px solid rgb(50,125,50); 
+  border: 1px solid rgb(50,125,50);
+  display: flex;
 }
 
 .lucky-logo {
   padding-bottom:1.2em;
   opacity: 90%;
-  height: 44px;
+  height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.2))
-}
-
-.unlucky-logo {
-  padding: 0;
-  height: 60px;
-  width: 60px;
-  border-radius: 3em;
-  opacity: 65%;
 }
 
 .unlucky-button {
@@ -218,6 +210,14 @@ h3 {
   border: 1px solid rgb(75,75,150); 
 }
 
+.unlucky-logo {
+  padding: 0;
+  height: 4.7em;
+  width: 4.7em;
+  border-radius: 3em;
+  opacity: 65%;
+}
+
 .charity-button{
   background: linear-gradient(0deg, rgb(150, 125, 0, .7), rgb(230,200,0, .8), rgb(255,245,200, .7)), url(/images/white-button.png);
   background-size: cover;
@@ -229,7 +229,7 @@ h3 {
 .charity-logo {
   padding-bottom:1.2em;
   opacity: 60%;
-  height: 44px;
+  height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.2))
 }
 
@@ -246,7 +246,7 @@ h3 {
 .insight-logo {
   padding-bottom:1.3em;
   opacity: 60%;
-  height: 44px;
+  height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.2))
 }
 
@@ -261,7 +261,7 @@ h3 {
 .sweep-logo {
   padding-bottom:1.2em;
   opacity: 70%;
-  height: 44px;
+  height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.5))
 }
 
@@ -277,7 +277,7 @@ h3 {
   padding-bottom:1.2em;
   padding-right: .7em;
   opacity: 70%;
-  height: 44px;
+  height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.5))
 }
 

@@ -4,13 +4,13 @@ import { LayoutContext } from "./Layout"
 export default function PowerUpsModal(){
 
     const { 
-        
+        powerSelectHidden, setPowerSelectHidden
     } = React.useContext(LayoutContext)
 
     
 
     return (
-        <div className={`power-ups-modal`}>
+        <div className={`power-ups-modal ${powerSelectHidden ? "power-select-hidden" : ""}`}>
             <div className="power-ups-title">Choose a Power</div>
             <div className="power-ups-container active-powers">
                 <div className={`user-power`}>
@@ -91,7 +91,7 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
             </div>
-            <button className="select-power">Select Power</button>
+            <button className="select-power" onClick={() => setPowerSelectHidden(true)}>Select Power</button>
         </div>
     )
 }
