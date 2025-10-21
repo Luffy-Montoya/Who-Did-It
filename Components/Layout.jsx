@@ -64,7 +64,7 @@ export default function Layout() {
     const [probeCount, setProbeCount] = React.useState(0)
     const [heroBonus, setHeroBonus] = React.useState(false)
     const [lowWalletBonus, setLowWalletBonus] = React.useState(false)
-    const [powerSelectHidden, setPowerSelectHidden] = React.useState(true)
+    const [powerSelectHidden, setPowerSelectHidden] = React.useState(false)
     const [yesCount, setYesCount] = React.useState(0)
     const [noCount, setNoCount] = React.useState(0)
 
