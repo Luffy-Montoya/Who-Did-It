@@ -4,94 +4,136 @@ import { LayoutContext } from "./Layout"
 export default function PowerUpsModal(){
 
     const { 
-        powerSelectHidden, setPowerSelectHidden
+        powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
+            sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
+            luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower
     } = React.useContext(LayoutContext)
 
-    
+    const roman = ["I", "II", "III", "IV", "V"]
+
+    function addProbe() {
+        setConfirmPower("Add Probe x4")
+    }
+
+     function addSweep() {
+        setConfirmPower("Add Sweep x3")
+    }
+
+     function addInsight() {
+        setConfirmPower("Add Insight x2")
+    }
+
+     function addCharity() {
+        setConfirmPower(`Add Charity ${roman[charityLevel]}`)
+    }
+
+     function addLucky() {
+        setConfirmPower(`Add Lucky ${roman[luckyLevel]}`)
+    }
+
+     function addUnlucky() {
+        setConfirmPower(`Add Unlucky ${roman[unluckyLevel]}`)
+    }
+
 
     return (
         <div className={`power-ups-modal ${powerSelectHidden ? "power-select-hidden" : ""}`}>
             <div className="power-ups-title">Choose a Power</div>
             <div className="power-ups-container active-powers">
                 <div className={`user-power`}>
-                    <div className="power-button probe-button"><img className="power-logo probe-logo" src="images/probe.png" alt="probe"/></div>
+                    <div className="power-button probe-button" onClick={() => addProbe()} disabled={probeCount > 6}>
+                        <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
+                    </div>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
-                            Probe - x4
+                            <div>Probe - x4</div>
+                            <div>{`Supply: ${probeCount}`}</div>
                         </div>
                         <div className="power-select-desc">
                             Select a single suspect to reveal if they are the culprit.
-                            <div>Unavailable if more than 6 in inventory.</div>                            
+                            <div>Unavailable if more than 6 owned.</div>                            
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button sweep-button"><img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/></div>
+                    <div className="power-button sweep-button" onClick={() => addSweep()} disabled={sweepCount > 4}>
+                        <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
+                    </div>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
-                            Sweep - x3
+                            <div>Sweep - x3</div>
+                            <div>{`Supply: ${sweepCount}`}</div>
                         </div>
                         <div className="power-select-desc">
                             Instantly eliminate ~45% of the innocent suspects at random.
-                            <div>Unavailable if more than 4 in inventory.</div>
+                            <div>Unavailable if more than 4 owned.</div>
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button insight-button"><img className="power-logo insight-logo" src="images/insight.png" alt="insight"/></div>
+                    <div className="power-button insight-button" onClick={() => addInsight()} disabled={insightCount > 3}>
+                        <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
+                    </div>
                     <div className="name-desc-container">
                         <div className="power-select-name">
-                            Insight - x2
+                            <div>Insight - x2</div>
+                            <div>{`Supply: ${insightCount}`}</div>
                         </div>
                         <div className="power-select-desc">
                             Select any number of suspects and reveal if the culprit is in that group.
-                            <div>Unavailable if more than 3 in inventory.</div>
+                            <div>Unavailable if more than 3 owned.</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="power-ups-container passive-powers">
                 <div className={`user-power`}>
-                    <div className="power-button charity-button"><img className="power-logo charity-logo" src="images/gift.png" alt="charity"/></div>
+                    <div className="power-button charity-button" onClick={() => addCharity()} disabled={charityLevel === 5}>
+                        <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
+                    </div>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
-                            Charity I 
+                            {`Charity ${roman[charityLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            7% chance to get a free question.
-                            Increases by 7% with every upgrade.  
+                            {`${(charityLevel + 1) * 7}% chance to get a free question.
+                            Increases by 7% with every upgrade.`}  
                             <div>Max 35%.</div>
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button lucky-button"><img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/></div>
+                    <div className="power-button lucky-button" onClick={() => addLucky()} disabled={luckyLevel === 5}>
+                        <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
+                    </div>
                     <div className="name-desc-container">
                         <div className="power-select-name lucky-name">
-                            Lucky I 
+                            {`Lucky ${roman[luckyLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            Earn 4 coins for every "Yes" answer.
-                            Increases by 4 coins with every upgrade.  
-                            <div>Max 20.</div>
+                            {`Earn ${(luckyLevel + 1) * 5} coins for every "Yes" answer.
+                            Increases by 5 with every upgrade.`}  
+                            <div>Max 25.</div>
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button unlucky-button"><img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/></div>
+                    <div className="power-button unlucky-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
+                        <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
+                    </div>
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
-                            Unlucky I 
+                            {`Unlucky ${roman[unluckyLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            Earn 2 coins for every "No" answer.
-                            Increases by 2 coins with every upgrade.  
+                            {`Earn ${(unluckyLevel + 1) * 2} coins for every "No" answer.
+                            Increases by 2 with every upgrade.`}  
                             <div>Max 10.</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button className="select-power" onClick={() => setPowerSelectHidden(true)}>Select Power</button>
+            <button className="select-power" onClick={() => setPowerSelectHidden(true)}>{confirmPower}</button>
         </div>
     )
 }

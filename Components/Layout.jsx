@@ -61,14 +61,20 @@ export default function Layout() {
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
     const [heroModeOn, setHeroModeOn] = React.useState(false)
-    const [probeCount, setProbeCount] = React.useState(0)
     const [heroBonus, setHeroBonus] = React.useState(false)
     const [lowWalletBonus, setLowWalletBonus] = React.useState(false)
     const [powerSelectHidden, setPowerSelectHidden] = React.useState(false)
     const [yesCount, setYesCount] = React.useState(0)
     const [noCount, setNoCount] = React.useState(0)
+    const [probeCount, setProbeCount] = React.useState(0)
+    const [sweepCount, setSweepCount] = React.useState(0)
+    const [insightCount, setInsightCount] = React.useState(0)
+    const [charityLevel, setCharityLevel] = React.useState(0)
+    const [luckyLevel, setLuckyLevel] = React.useState(0)
+    const [unluckyLevel, setUnluckyLevel] = React.useState(0)
+    const [confirmPower, setConfirmPower] = React.useState("Select Power")
 
-    const heroAmount = Math.round((calcCoinsWon(level) / 2) / 5) * 5
+    const heroAmount = Math.ceil((calcCoinsWon(level) / 2) / 5) * 5
     const lowWalletAmount = Math.ceil((level * 1.25) / 5) * 5
 
     const coinsWon = calcCoinsWon(level) 
@@ -98,9 +104,11 @@ export default function Layout() {
             firstGameStarted, setFirstGameStarted, gameOver, setGameOver,
             shuffled, setShuffled, isVisible, setIsVisible, gameResetting, setGameResetting,
             level, setLevel, cannotAfford, setCannotAfford, firstModalGone, setFirstModalGone,
-            coinsWon, heroModeOn, setHeroModeOn, probeCount, setProbeCount, heroBonus, setHeroBonus,
-            lowWalletBonus, setLowWalletBonus, heroAmount, lowWalletAmount, powerSelectHidden, setPowerSelectHidden,
-            yesCount, setYesCount, noCount, setNoCount
+            coinsWon, heroModeOn, setHeroModeOn, heroBonus, setHeroBonus, lowWalletBonus, 
+            setLowWalletBonus, heroAmount, lowWalletAmount, yesCount, setYesCount, noCount, setNoCount,
+            powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
+            sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
+            luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower
         }}>
 
             <div className="layout">

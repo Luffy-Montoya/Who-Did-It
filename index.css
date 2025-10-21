@@ -140,7 +140,7 @@ h3 {
 }
 
 .power-ups-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-family: Georgia, 'Times New Roman', Times, serif
 }
 
@@ -251,7 +251,7 @@ h3 {
 }
 
 .sweep-button{
-  background: linear-gradient(0deg, rgb(175, 100, 0, .7), rgb(255,165,0, .7), rgb(255,220,50, .7)), url(/images/white-button.png);
+  background: linear-gradient(0deg, rgb(175, 75, 0, .7), rgb(255,140,0, .8), rgb(255,220,50, .7)), url(/images/white-button.png);
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,50,0,.7);
@@ -284,6 +284,11 @@ h3 {
 .name-desc-container {
   width: 240px;
   text-wrap: balance;
+}
+
+.power-select-name {
+  display: flex;
+  justify-content: space-between;
 }
 
 .select-power {
