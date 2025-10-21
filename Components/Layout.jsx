@@ -57,7 +57,7 @@ export default function Layout() {
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
     const [gameOver, setGameOver] = React.useState(false)
     const [gameResetting, setGameResetting] = React.useState(false)
-    const [level, setLevel] = React.useState(50)
+    const [level, setLevel] = React.useState(1)
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
     const [heroModeOn, setHeroModeOn] = React.useState(false)

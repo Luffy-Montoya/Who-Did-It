@@ -71,9 +71,9 @@ export default function PowerUpsModal(){
                             Lucky I 
                         </div>
                         <div className="power-select-desc">
-                            Earn 5 coins for every "Yes" answer.
-                            Increases by 5 coins with every upgrade.  
-                            <div>Max 25.</div>
+                            Earn 4 coins for every "Yes" answer.
+                            Increases by 4 coins with every upgrade.  
+                            <div>Max 20.</div>
                         </div>
                     </div>
                 </div>
