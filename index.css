@@ -127,15 +127,20 @@ h3 {
   top: 0;
   bottom: 0;
   margin: auto;
-  gap: 1em;
+  gap: .75em;
   font-size: .8rem;
   font-family: arial;
+}
+
+.power-ups-title {
+  font-size: 1.1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif
 }
 
 .power-ups-container {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: .75em;
 }
 
 .user-power {
@@ -171,7 +176,7 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(25,100,25,.7);
-  border: 1px solid rgb(50,125,50,1); 
+  border: 1px solid rgb(50,125,50); 
 }
 
 .lucky-logo {
@@ -202,7 +207,7 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(50,50,50,.7);
-  border: 1px solid rgb(75,75,150,1); 
+  border: 1px solid rgb(75,75,150); 
 }
 
 .charity-button{
@@ -210,7 +215,7 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,75,15,.7);
-  border: 1px solid rgb(125,100,25,1); 
+  border: 1px solid rgb(175,145,25); 
 }
 
 .charity-logo {
@@ -225,7 +230,7 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(0,25,100,.7);
-  border: 1px solid rgb(0,50,125,1);
+  border: 1px solid rgb(0,50,125);
   display: flex;
   justify-content: center; 
 }
@@ -242,7 +247,7 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,50,0,.7);
-  border: 1px solid rgb(125,75,0,1); 
+  border: 1px solid rgb(125,75,0); 
 }
 
 .sweep-logo {
@@ -257,7 +262,7 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,15,15,.7);
-  border: 1px solid rgb(100,20,20,1);
+  border: 1px solid rgb(100,20,20);
 }
 
 .probe-logo {
@@ -276,7 +281,7 @@ h3 {
 .select-power {
   display: flex;
   font-size: 1rem;
-  padding: .5rem;
+  padding: .25em .7em;
   border-radius: 1em;
   border: 1px solid black;
   justify-content: center;
