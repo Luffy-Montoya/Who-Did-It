@@ -42,7 +42,7 @@ export default function Layout() {
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
-    const [wallet, setWallet] = React.useState(100)
+    const [wallet, setWallet] = React.useState(5)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
     const [toCategories, setToCategories] = React.useState(true)
@@ -57,7 +57,7 @@ export default function Layout() {
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
     const [gameOver, setGameOver] = React.useState(false)
     const [gameResetting, setGameResetting] = React.useState(false)
-    const [level, setLevel] = React.useState(1)
+    const [level, setLevel] = React.useState(50)
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
     const [heroModeOn, setHeroModeOn] = React.useState(false)
@@ -71,11 +71,8 @@ export default function Layout() {
     const heroAmount = Math.round((calcCoinsWon(level) / 2) / 5) * 5
     const lowWalletAmount = Math.ceil((level * 1.25) / 5) * 5
 
-    const coinsWon = (
-        calcCoinsWon(level) 
-        + (lowWalletBonus && !heroBonus ? lowWalletAmount : 0) 
-        + (heroBonus ? heroAmount : 0)
-    )
+    const coinsWon = calcCoinsWon(level) 
+        
 
     function calcCoinsWon(level) {
         const base = 40                      // starting reward

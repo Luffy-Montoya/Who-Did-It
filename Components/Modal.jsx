@@ -5,8 +5,8 @@ export default function Modal(){
 
     const { 
         modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
-        setGameOver, setGameResetting, level, setLevel, culprit, firstModalGone, setFirstModalGone,
-        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount
+        setGameOver, setGameResetting, setLevel, culprit, firstModalGone, setFirstModalGone,
+        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount, setWallet, wallet
     } = React.useContext(LayoutContext)
 
     function startGame() {
@@ -20,15 +20,17 @@ export default function Modal(){
     }
 
     function nextRound() {
+        if (heroBonus) {
+            setWallet(prev => prev + heroAmount)
+        } else if (lowWalletBonus) {
+            setWallet(prev => prev + lowWalletAmount)
+        }
         setModalVisible(false)
-        setLevel(level + 1)
+        setLevel(prev => prev + 1)
         setTimeout(() => {
             setGameResetting(true)
         }, 500)
-        setTimeout(() => {
-            setGameResetting(false)
-        }, 1000)
-    }
+        }
 
     return (
         <div className={`modal ${modalVisible ? "" : "offscreen"}`}>
@@ -39,9 +41,9 @@ export default function Modal(){
                     !firstModalGone 
                     ? "You wanna know who?"
                         : heroBonus
-                        ? `+ ${coinsWon - heroAmount} coins!`
+                        ? `+ ${coinsWon} coins!`
                             : lowWalletBonus
-                            ? `+ ${coinsWon - lowWalletAmount} coins!` 
+                            ? `+ ${coinsWon} coins!` 
                                 : `+ ${coinsWon} coins!`
                     }
 

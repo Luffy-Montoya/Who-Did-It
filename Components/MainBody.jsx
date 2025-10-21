@@ -18,7 +18,7 @@ export default function MainBody() {
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
-      setLowWalletBonus 
+      setLowWalletBonus, setGameResetting 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -26,6 +26,10 @@ export default function MainBody() {
         setModalVisible(true)
       }, 750)
     }, [])
+
+    React.useEffect(() => {
+      console.log("Hero Bonus Activated: ", heroBonus)
+    }, [heroBonus])
 
     const gameStartRef = React.useRef(false)
 
@@ -54,7 +58,7 @@ export default function MainBody() {
       if (gameOver && youWin){
         setTimeout(() => {
           setModalVisible(true)
-          setWallet(wallet + coinsWon)
+          setWallet(prev => prev + coinsWon)
         }, 2750)
       }
     }, [gameOver])
@@ -119,6 +123,7 @@ export default function MainBody() {
           setHeroBonus(false)
           setHeroModeOn(false)
           setLowWalletBonus(false)
+          setGameResetting(false)
           firstArranged.current = false
           secondArranged.current = false
           thirdArranged.current = false
@@ -212,7 +217,7 @@ export default function MainBody() {
               setRow3(prev => prev.filter(obj => obj.name !== charName))
               setRow4(prev => prev.filter(obj => obj.name !== charName))
           }, 2500)
-          setProbeCount(probeCount - 1)
+          setProbeCount(prev => prev - 1)
         } else {
           heroGuess(charName)
         }
@@ -232,13 +237,12 @@ export default function MainBody() {
 
       if (isCorrect) {
         console.log("correct triggered")
+        setHeroBonus(true);
         setTimeout(() => {
           setYouWin(true);
-          setHeroBonus(true);
         }, 4700)
         setTimeout(() => {
           setModalVisible(true);
-          setWallet(wallet + coinsWon);
         }, 7000);
       } else {
         console.log("incorrect triggered")
