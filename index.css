@@ -130,6 +130,7 @@ h3 {
   gap: 1em;
   transition: transform 0.55s cubic-bezier(0.68, -0.55, 0.27, 1.1);
   font-size: .9rem;
+  font-family: sans-serif;
 }
 
 .power-ups-container {
@@ -156,17 +157,21 @@ h3 {
   align-items: center;
 }
 
+.power-logo {
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.power-select-name{
+  font-weight: bold
+}
+
 .lucky-button{
   background: linear-gradient(0deg, rgb(0, 75, 0, .5), rgb(50,200,50, .7), rgb(200,255,200, .6)), url(/images/white-button.png);
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 3px 3px rgb(25,100,25,.5);
   border: 1px solid rgb(50,125,50,1); 
-}
-
-.power-logo {
-  margin: 0 auto;
-  padding: 1em;
 }
 
 .lucky-logo {
@@ -202,6 +207,7 @@ h3 {
 
 .name-desc-container {
   width: 240px;
+  text-wrap: balance;
 }
 
 .select-power {
