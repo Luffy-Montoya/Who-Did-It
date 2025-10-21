@@ -20,7 +20,7 @@ export default function PowerUpsModal(){
                             Probe - x4
                         </div>
                         <div className="power-select-desc">
-                            Select one suspect to reveal if they are the culprit.
+                            Select a single suspect to reveal if they are the culprit.
                             <div>Unavailable if more than 6 in inventory.</div>                            
                         </div>
                     </div>
@@ -32,7 +32,7 @@ export default function PowerUpsModal(){
                             Sweep - x3
                         </div>
                         <div className="power-select-desc">
-                            Instantly eliminate half of the innocent suspects at random.
+                            Instantly eliminate ~45% of the innocent suspects at random.
                             <div>Unavailable if more than 4 in inventory.</div>
                         </div>
                     </div>
@@ -84,8 +84,8 @@ export default function PowerUpsModal(){
                             Unlucky I 
                         </div>
                         <div className="power-select-desc">
-                            Earn 1 coin for every "No" answer.
-                            Increases by 1 coin with every upgrade.  
+                            Earn 2 coins for every "No" answer.
+                            Increases by 2 coins with every upgrade.  
                             <div>Max 5.</div>
                         </div>
                     </div>
