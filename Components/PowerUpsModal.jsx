@@ -86,7 +86,7 @@ export default function PowerUpsModal(){
                         <div className="power-select-desc">
                             Earn 2 coins for every "No" answer.
                             Increases by 2 coins with every upgrade.  
-                            <div>Max 5.</div>
+                            <div>Max 10.</div>
                         </div>
                     </div>
                 </div>

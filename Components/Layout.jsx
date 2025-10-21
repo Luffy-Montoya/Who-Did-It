@@ -57,14 +57,14 @@ export default function Layout() {
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
     const [gameOver, setGameOver] = React.useState(false)
     const [gameResetting, setGameResetting] = React.useState(false)
-    const [level, setLevel] = React.useState(1)
+    const [level, setLevel] = React.useState(50)
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
     const [heroModeOn, setHeroModeOn] = React.useState(false)
     const [probeCount, setProbeCount] = React.useState(0)
     const [heroBonus, setHeroBonus] = React.useState(false)
     const [lowWalletBonus, setLowWalletBonus] = React.useState(false)
-    const [powerSelectHidden, setPowerSelectHidden] = React.useState(false)
+    const [powerSelectHidden, setPowerSelectHidden] = React.useState(true)
     const [yesCount, setYesCount] = React.useState(0)
     const [noCount, setNoCount] = React.useState(0)
 
@@ -79,7 +79,7 @@ export default function Layout() {
 
     function calcCoinsWon(level) {
         const base = 40                      // starting reward
-        const growth = 5 + level * 0.15       // scales with level
+        const growth = 4 + level * 0.1       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
         return rounded
