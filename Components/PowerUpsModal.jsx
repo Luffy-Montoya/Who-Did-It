@@ -13,45 +13,45 @@ export default function PowerUpsModal(){
         <div className={`power-ups-modal`}>
             <div className="power-ups-container active-powers">
                 <div className={`user-power`}>
-                    <div className="power-button"><img className="power-logo probe-logo" src="" alt="probe"/></div>
+                    <div className="power-button probe-button"><img className="power-logo probe-logo" src="images/probe.png" alt="probe"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
                             Probe - x4
                         </div>
                         <div className="power-select-desc">
                             Select one suspect to reveal if they are the culprit.
-                            Unavailable if more than 8 in inventory.                            
+                            Unavailable if more than 6 in inventory.                            
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button"><img className="power-logo sweep-logo" src="" alt="sweep"/></div>
+                    <div className="power-button sweep-button"><img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
                             Sweep - x3
                         </div>
                         <div className="power-select-desc">
                             Instantly eliminate half of the innocent suspects at random.
-                            Unavailable if more than 6 in inventory.
+                            Unavailable if more than 4 in inventory.
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button"><img className="power-logo insight-logo" src="" alt="insight"/></div>
+                    <div className="power-button insight-button"><img className="power-logo insight-logo" src="images/insight.png" alt="insight"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name">
                             Insight - x2
                         </div>
                         <div className="power-select-desc">
                             Select any number of suspects and reveal if the culprit is in that group.
-                            Unavailable if more than 4 in inventory.
+                            Unavailable if more than 3 in inventory.
                         </div>
                     </div>
                 </div>
             </div>
             <div className="power-ups-container passive-powers">
                 <div className={`user-power`}>
-                    <div className="power-button"><img className="power-logo charity-logo" src="" alt="charity"/></div>
+                    <div className="power-button charity-button"><img className="power-logo charity-logo" src="images/gift.png" alt="charity"/></div>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
                             Charity I 

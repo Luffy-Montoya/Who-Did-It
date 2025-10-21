@@ -28,7 +28,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 15;
+  z-index: 30;
   background: rgb(240, 240, 255, .93);
   color: rgb(0,0,0,.93);
   width: 275px;
@@ -116,20 +116,20 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 15;
+  z-index: 30;
   background: rgb(240,240,240);
   color: rgb(0,0,0,.93);
   width: 350px;
   height: 600px;
-  padding: 0 0.1em;
+  padding: 0 0.5em;
   right: 0;
   left: 0;
   top: 0;
   bottom: 0;
   margin: auto;
   gap: 1em;
-  transition: transform 0.55s cubic-bezier(0.68, -0.55, 0.27, 1.1);
-  font-size: .9rem;
+  font-size: .8rem;
+  font-family: arial;
 }
 
 .power-ups-container {
@@ -140,6 +140,7 @@ h3 {
 
 .user-power {
   display: flex;
+  align-items: center;
 }
 
 .power-button {
@@ -202,6 +203,69 @@ h3 {
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(50,50,50,.7);
   border: 1px solid rgb(75,75,150,1); 
+}
+
+.charity-button{
+  background: linear-gradient(0deg, rgb(150, 125, 0, .7), rgb(230,200,0, .8), rgb(255,245,200, .7)), url(/images/white-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 5px rgb(100,75,15,.7);
+  border: 1px solid rgb(125,100,25,1); 
+}
+
+.charity-logo {
+  padding-bottom:1.2em;
+  opacity: 60%;
+  height: 44px;
+  filter: drop-shadow(0 0 1px rgb(0,0,0,.2))
+}
+
+.insight-button{
+  background: linear-gradient(0deg, rgb(0, 25, 100, .6), rgb(25,50,220, .7), rgb(150,200,255, .6)), url(/images/white-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 5px rgb(0,25,100,.7);
+  border: 1px solid rgb(0,50,125,1);
+  display: flex;
+  justify-content: center; 
+}
+
+.insight-logo {
+  padding-bottom:1.3em;
+  opacity: 60%;
+  height: 44px;
+  filter: drop-shadow(0 0 1px rgb(0,0,0,.2))
+}
+
+.sweep-button{
+  background: linear-gradient(0deg, rgb(175, 100, 0, .7), rgb(255,165,0, .7), rgb(255,220,50, .7)), url(/images/white-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 5px rgb(100,50,0,.7);
+  border: 1px solid rgb(125,75,0,1); 
+}
+
+.sweep-logo {
+  padding-bottom:1.2em;
+  opacity: 70%;
+  height: 44px;
+  filter: drop-shadow(0 0 1px rgb(0,0,0,.5))
+}
+
+.probe-button{
+  background: linear-gradient(0deg, rgb(75, 10, 10, .8), rgb(200,25,25, .8), rgb(255,150,150, .6)), url(/images/white-button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 5px rgb(100,15,15,.7);
+  border: 1px solid rgb(100,20,20,1);
+}
+
+.probe-logo {
+  padding-bottom:1.2em;
+  padding-right: .7em;
+  opacity: 70%;
+  height: 44px;
+  filter: drop-shadow(0 0 1px rgb(0,0,0,.5))
 }
 
 .name-desc-container {
