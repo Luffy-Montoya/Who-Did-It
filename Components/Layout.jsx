@@ -17,6 +17,7 @@ import Select from "../Options/Select"
 import AskDisplay from "./AskDisplay"
 import Modal from "./Modal"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
+import PowerUpsModal from "./PowerUpsModal"
 
 export const LayoutContext = React.createContext()
 
@@ -103,6 +104,7 @@ export default function Layout() {
 
             <div className="layout">
                 <Modal/>
+                <PowerUpsModal />
                 <Header>
                     <ToggleMainDisplay />
                     <Dash />

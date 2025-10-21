@@ -110,6 +110,88 @@ h3 {
   font-size: 1.25rem;
 }
 
+.power-ups-modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  background: rgb(240,240,240);
+  color: rgb(0,0,0,.93);
+  width: 350px;
+  height: 600px;
+  padding: 0 0.1em;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 8em;
+  margin: auto;
+  gap: 1em;
+  transition: transform 0.55s cubic-bezier(0.68, -0.55, 0.27, 1.1);
+  font-size: .9rem;
+}
+
+.power-ups-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.user-power {
+  display: flex;
+}
+
+.power-button {
+  width: 75px;
+  height: 75px;
+  border-radius: 3em;
+  margin-right: 1em;
+  margin-left: 1em;
+  padding: 0;
+  background: url(images/white-button.png);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.lucky-button{
+  background: linear-gradient(0deg, rgb(0, 50, 0, .5), rgb(50,200,50, .7), rgb(200,255,200, .6)), url(images/white-button.png);
+  background-size: cover;
+  box-shadow: 0 3px 3px rgb(25,100,25,.5); 
+}
+
+.power-logo {
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.lucky-logo {
+  padding-bottom:1.2em;
+  opacity: 90%;
+  height: 44px;
+  filter: drop-shadow(0 0 1px rgb(0,0,0,.7))
+}
+
+.unlucky-logo {
+  padding: 0;
+  height: 60px;
+  width: 60px;
+  border-radius: 3em;
+  opacity: 65%;
+}
+
+.unlucky-button {
+  overflow: hidden;
+  background: linear-gradient(0deg, rgb(0, 0, 50, .5), rgb(220,220,255, .8), rgb(245,245,255, .6)), url(images/white-button.png);
+  background-size: cover;
+  box-shadow: 0 3px 3px rgb(50,50,50,.5);
+}
+
+.name-desc-container {
+  width: 200px;
+}
+
 .layout {
   width: 100%;
   max-width: 480px;
