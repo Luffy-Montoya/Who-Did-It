@@ -75,7 +75,7 @@ export default function Layout() {
     const [confirmPower, setConfirmPower] = React.useState("Select Power")
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 2) / 5) * 5
-    const lowWalletAmount = Math.ceil((level * 1.25) / 5) * 5
+    const lowWalletAmount = level < 7 ? Math.ceil((level * 1.25) / 5) * 5 : 10
 
     const coinsWon = calcCoinsWon(level) 
         
