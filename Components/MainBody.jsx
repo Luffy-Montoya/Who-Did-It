@@ -18,7 +18,8 @@ export default function MainBody() {
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
-      setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion 
+      setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
+      sweepCount, insightCount 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -73,13 +74,19 @@ export default function MainBody() {
 
     React.useEffect(() => {
       setTimeout(() => {
-        if (charactersLeft.length > 1 && cannotAffordAnyOption(allOptions, wallet, charactersLeft) && !youWin){
+        if (charactersLeft.length > 1 
+          && cannotAffordAnyOption(allOptions, wallet, charactersLeft) 
+          && !youWin
+          && probeCount === 0
+          && sweepCount === 0
+          && insightCount ===0
+        ){
           setHeroModeOn(true)
           setCannotAfford(true)    
         }
       }, 3500)
       
-    }, [wallet, charactersLeft])
+    }, [wallet, charactersLeft, probeCount, sweepCount, insightCount])
 
     const firstArranged = React.useRef(false)
     const secondArranged = React.useRef(false)
