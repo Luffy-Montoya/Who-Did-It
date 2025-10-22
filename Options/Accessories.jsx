@@ -6,6 +6,7 @@ import { useScrollFunctions } from "../Functions/ScrollFunctions"
 import { cost } from "../Functions/cost"
 import { askMinResults, calcPrice } from "../Functions/askPrice"
 import { allOrNoneHave } from "../Functions/allOrNoneHave"
+import AskDisplay from "../Components/AskDisplay"
 
 export default function Accessories() {
      
@@ -16,15 +17,46 @@ export default function Accessories() {
     const { 
         setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
         setAskOption, askOption, charactersLeft, setToAsk, setToCategories,
-        setFade, level } = React.useContext(LayoutContext)
+        setFade, level, wallet, setCantAffordDisplay, setOptionsBar, askDisplay,
+        heroModeOn } = React.useContext(LayoutContext)
     
     function setQuestion(question, option, key){
-        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
-        setFade(false)
-        setToCategories(false)
-        setTimeout(() => {
+        if (wallet >= question[3]){
+            toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
+            setFade(false)
+            setToCategories(false)
+            setTimeout(() => {
+                setToAsk(true)
+            }, 300)
+        } else {
+            setToCategories(false)
             setToAsk(true)
-        }, 300)
+            setFade(false)  
+            setAskDisplay(false)
+            if (!askDisplay && heroModeOn){
+                setOptionsBar("")
+            }
+            setTimeout(() => {
+                setToAsk(false)
+            }, 300)
+            setTimeout(() => {
+                setCantAffordDisplay(true)
+                setCategoryDisplay(false)
+            }, 250)
+            setTimeout(() => {
+                setFade(true)
+                setToAsk(false)
+                setTimeout(() => {
+                    setCantAffordDisplay(false)
+                    setCategoryDisplay(true)
+                    setAskQuestion([])
+                }, 200)
+                setAskOption("")
+                setTimeout(() => {
+                    setToCategories(true)        
+                }, 250)             
+            }, 1500)
+        }
     }
 
     return(

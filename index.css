@@ -525,6 +525,22 @@ h3 {
   transition: .25s;
 }
 
+.cant-afford-display {
+  transition: .15s;
+  margin: 0 auto;
+  font-size: 1.3rem;
+}
+
+.cant-afford-display.offscreen {
+  opacity: 0%;
+  transform: translateY(150%);
+  transition-delay: 5.5s;
+}
+
+.cant-afford-display.fade {
+  opacity: 0;
+}
+
 .go-back {
   justify-content: center;
   transition: .25s;

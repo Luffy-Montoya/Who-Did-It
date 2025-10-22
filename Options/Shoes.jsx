@@ -14,17 +14,49 @@ export default function Shoes() {
     const { scrollLeft, scrollRight } = useScrollFunctions(scrollRef)
 
     const { 
-        setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
-        setAskOption, askOption, charactersLeft, setToAsk, setToCategories, setFade, level } = React.useContext(LayoutContext)
-    
-    function setQuestion(question, option, key){
-        toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
-        setFade(false)
-        setToCategories(false)
-        setTimeout(() => {
-            setToAsk(true)
-        }, 300)
-    }
+            setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
+            setAskOption, askOption, charactersLeft, setToAsk, setToCategories,
+            setFade, level, wallet, setCantAffordDisplay, setOptionsBar, askDisplay,
+            heroModeOn } = React.useContext(LayoutContext)
+        
+        function setQuestion(question, option, key){
+            if (wallet >= question[3]){
+                toggleQuestion(setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, setAskOption, question, option, key)
+                setFade(false)
+                setToCategories(false)
+                setTimeout(() => {
+                    setToAsk(true)
+                }, 300)
+            } else {
+                setToCategories(false)
+                setToAsk(true)
+                setFade(false)
+                setAskDisplay(false)
+                if (!askDisplay && heroModeOn){
+                    setOptionsBar("")
+                }
+                setTimeout(() => {
+                    setToAsk(false)
+                }, 300)
+                setTimeout(() => {
+                    setCantAffordDisplay(true)
+                    setCategoryDisplay(false)
+                }, 250)
+                setTimeout(() => {
+                    setFade(true)
+                    setToAsk(false)
+                    setTimeout(() => {
+                        setCantAffordDisplay(false)
+                        setCategoryDisplay(true)
+                        setAskQuestion([])
+                    }, 200)
+                    setAskOption("")
+                    setTimeout(() => {
+                        setToCategories(true)
+                    }, 250)
+                }, 1500)
+            }
+        }
 
     return(
         <div className="options-bar">

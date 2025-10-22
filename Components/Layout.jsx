@@ -19,6 +19,7 @@ import Modal from "./Modal"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
 import PowerUpsModal from "./PowerUpsModal"
 import InventoryModal from "./InventoryModal"
+import CantAffordDisplay from "./CantAffordDisplay"
 
 export const LayoutContext = React.createContext()
 
@@ -27,6 +28,8 @@ export default function Layout() {
 
     const [askDisplay, setAskDisplay] = React.useState(false)
     const [categoryDisplay, setCategoryDisplay] = React.useState(true)
+    const [cantAffordDisplay, setCantAffordDisplay] = React.useState(false)
+    const [toCantAfford, setToCantAfford] = React.useState(false)
     const [askQuestion, setAskQuestion] = React.useState("")
     const [optionsBar, setOptionsBar] = React.useState("")
     const [askOption, setAskOption] = React.useState("")
@@ -43,7 +46,7 @@ export default function Layout() {
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
-    const [wallet, setWallet] = React.useState(100)
+    const [wallet, setWallet] = React.useState(25)
     const [level, setLevel] = React.useState(1)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
@@ -122,7 +125,8 @@ export default function Layout() {
             selectDisabled, setSelectDisabled, probeEnabled, setProbeEnabled,
             sweepEnabled, setSweepEnabled, insightEnabled, setInsightEnabled, phiArray, setPhiArray,
             probeActivated, setProbeActivated, heroModeActivated, setHeroModeActivated,
-            inventoryHidden, setInventoryHidden, usePower, setUsePower   
+            inventoryHidden, setInventoryHidden, usePower, setUsePower, cantAffordDisplay, 
+            setCantAffordDisplay, toCantAfford, setToCantAfford   
         }}>
 
             <div className="layout">
@@ -136,6 +140,7 @@ export default function Layout() {
                 <MainDisplay>
                     {categoryDisplay && <CategoryDisplay />}
                     {askDisplay && <AskDisplay />}
+                    {cantAffordDisplay && <CantAffordDisplay />}
                 </MainDisplay>
                 <OptionsDisplay>
                     {(optionsBar === "") && <Select />}
