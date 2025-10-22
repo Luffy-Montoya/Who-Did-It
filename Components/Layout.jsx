@@ -44,7 +44,7 @@ export default function Layout() {
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
     const [wallet, setWallet] = React.useState(100)
-    const [level, setLevel] = React.useState(1)
+    const [level, setLevel] = React.useState(31)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
     const [toCategories, setToCategories] = React.useState(true)
@@ -92,7 +92,7 @@ export default function Layout() {
 
     function calcCoinsWon(level) {
         const base = 45                      // starting reward
-        const growth = 5 + level * 0.3       // scales with level
+        const growth = 4 + level * 0.2       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
         return rounded
