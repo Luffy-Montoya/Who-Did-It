@@ -18,7 +18,7 @@ export default function MainBody() {
       shuffled, setShuffled, isVisible, setIsVisible, gameResetting,
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
-      setLowWalletBonus, setGameResetting 
+      setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion 
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -288,10 +288,12 @@ export default function MainBody() {
     }
 
     function probeAndHero(charName){
-      if(!heroModeOn){
-        probe(charName)
-      } else {
+      if(probeEnabled){
+        setPhiArray(charName)
+        setAskQuestion([{}, "name", charName.name, 0])
+      } else if (heroModeOn) {
         heroGuess(charName)
+        console.log(charName)
         setHeroModeOn(false)
       }
     }
@@ -317,7 +319,7 @@ export default function MainBody() {
                   ${characterSize}
                   ${modalVisible ? "grayed" : ""}
                   `}
-                onClick={() => probeAndHero(character.name)}
+                onClick={() => probeAndHero(character)}
                 key={character.name}
             >
                 <img className={`characters ${modalVisible ? "grayed" : ""}`} src={character.image}></img>

@@ -6,7 +6,8 @@ export default function PowerUpsModal(){
     const { 
         powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
-            luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower
+            luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
+            selectDisabled, setSelectDisabled
     } = React.useContext(LayoutContext)
 
     const roman = ["I", "II", "III", "IV", "V"]
@@ -35,15 +36,39 @@ export default function PowerUpsModal(){
         setConfirmPower(`Add Unlucky ${roman[unluckyLevel]}`)
     }
 
+    function addPower() {
+        if (confirmPower != "Select Power") {
+            setPowerSelectHidden(true)
+            if (confirmPower === "Add Probe x4") {
+                setProbeCount(prev => prev + 4)
+            } else if (confirmPower === "Add Sweep x3") {
+                setSweepCount(prev => prev + 3)
+            } else if (confirmPower === "Add Insight x2") {
+                setInsightCount(prev => prev + 2)
+            } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
+                setCharityLevel(prev => prev + 1)
+            } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
+                setLuckyLevel(prev => prev + 1)
+            } else if (confirmPower === `Add Unlucky ${roman[unluckyLevel]}`) {
+                setUnluckyLevel(prev => prev + 1)
+            }
+            setSelectDisabled(true)
+            setTimeout(() => {
+                setSelectDisabled(false)
+                setConfirmPower("Select Power")
+            }, 1000)
+        }
+    }
+
 
     return (
         <div className={`power-ups-modal ${powerSelectHidden ? "power-select-hidden" : ""}`}>
             <div className="power-ups-title">Choose a Power</div>
             <div className="power-ups-container active-powers">
                 <div className={`user-power`}>
-                    <div className="power-button probe-button" onClick={() => addProbe()} disabled={probeCount > 6}>
+                    <button className="power-button probe-button" onClick={() => addProbe()} disabled={probeCount > 6}>
                         <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
-                    </div>
+                    </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
                             <div>Probe - x4</div>
@@ -56,9 +81,9 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button sweep-button" onClick={() => addSweep()} disabled={sweepCount > 4}>
+                    <button className="power-button sweep-button" onClick={() => addSweep()} disabled={sweepCount > 4}>
                         <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
-                    </div>
+                    </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
                             <div>Sweep - x3</div>
@@ -71,9 +96,9 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button insight-button" onClick={() => addInsight()} disabled={insightCount > 3}>
+                    <button className="power-button insight-button" onClick={() => addInsight()} disabled={insightCount > 3}>
                         <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
-                    </div>
+                    </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
                             <div>Insight - x2</div>
@@ -88,9 +113,9 @@ export default function PowerUpsModal(){
             </div>
             <div className="power-ups-container passive-powers">
                 <div className={`user-power`}>
-                    <div className="power-button charity-button" onClick={() => addCharity()} disabled={charityLevel === 5}>
+                    <button className="power-button charity-button" onClick={() => addCharity()} disabled={charityLevel === 5}>
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
-                    </div>
+                    </button>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
                             {`Charity ${roman[charityLevel]}`} 
@@ -103,9 +128,9 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button lucky-button" onClick={() => addLucky()} disabled={luckyLevel === 5}>
+                    <button className="power-button lucky-button" onClick={() => addLucky()} disabled={luckyLevel === 5}>
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
-                    </div>
+                    </button>
                     <div className="name-desc-container">
                         <div className="power-select-name lucky-name">
                             {`Lucky ${roman[luckyLevel]}`} 
@@ -118,9 +143,9 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <div className="power-button unlucky-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
+                    <button className="power-button unlucky-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
-                    </div>
+                    </button>
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
                             {`Unlucky ${roman[unluckyLevel]}`} 
@@ -133,7 +158,7 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
             </div>
-            <button className="select-power" onClick={() => setPowerSelectHidden(true)}>{confirmPower}</button>
+            <button className="select-power" onClick={() => addPower()} disabled={selectDisabled}>{confirmPower}</button>
         </div>
     )
 }

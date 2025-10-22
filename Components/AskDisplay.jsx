@@ -1,6 +1,5 @@
 import React from "react"
 import { LayoutContext } from "./Layout"
-import { selectCharacter } from "../Functions/selectCharacter"
 import { coin } from "../images64"
 
 
@@ -13,16 +12,114 @@ export default function AskDisplay() {
         setSizeChanging, setAskOption, toAsk,
         setToAsk, setToCategories, setQuestionAsked, toCategories,
         setOptionsBar, fade, setFade, yesOrNo, setYesOrNo, modalVisible,
-        setYesCount, setNoCount, yesCount, noCount
+        setYesCount, setNoCount, yesCount, noCount, probeEnabled, setProbeEnabled, insightEnabled,
+        heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
+        setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
+        setHeroModeActivated 
     } = React.useContext(LayoutContext)
 
-    const parameters = [
-        askQuestion[1], askQuestion[2], askQuestion[3], setPrice, charactersLeft, 
-        setRow1, setRow2, setRow3, setRow4, setActive, setAskQuestion,
-        setAskDisplay, setCategoryDisplay, setWallet, culprit, 
-        setSizeChanging, setAskOption, setToAsk, setToCategories, setQuestionAsked,
-        setOptionsBar, setYesOrNo, setYesCount, setNoCount, yesCount, noCount
-    ]
+    const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
+
+    function selectCharacter(category, key, price) {
+
+    const filtered = charactersLeft.filter(character => {
+    const value = character[category]
+
+    if (Array.isArray(value)) {
+        return value.includes(key)
+    }
+    return value === key
+    })
+
+    setToAsk(false)
+    setOptionsBar("")
+    setTimeout(() => {
+        setAskDisplay(false)
+        setCategoryDisplay(true)
+    }, 2300)
+    setTimeout(() => {
+        setToCategories(true)
+    }, 2400)
+    setQuestionAsked(true)
+    setPrice(price)
+    setAskQuestion("")
+    setAskOption("")
+    setWallet(prev => prev - price)
+    setTimeout(() => {
+        setSizeChanging(true)
+    }, 500)
+    setTimeout(() => {
+        setSizeChanging(false)
+    }, 4500)
+    
+    if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
+        
+        setYesOrNo("No!")
+        setNoCount(prev => prev + 1)
+        const namesToActivate = filtered.map(character => character.name)
+        const newActiveState = namesToActivate.reduce((acc, name) => {
+        acc[name] = true
+        return acc
+        }, {})
+
+        setActive(prev => ({ ...prev, ...newActiveState }))
+        
+        setTimeout(() => {
+            setRow1(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? !value.includes(key) : value !== key
+            }))
+            setRow2(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? !value.includes(key) : value !== key
+            }))
+            setRow3(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? !value.includes(key) : value !== key
+            }))
+            setRow4(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? !value.includes(key) : value !== key
+            }))
+            }, 2500)
+
+    } else {
+        setYesOrNo("Yes!")
+        setYesCount(prev => prev + 1)
+        const namesToActivate = charactersLeft
+        .filter(character => {
+        const value = character[category]
+        return Array.isArray(value) ? !value.includes(key) : value !== key
+        })
+        .map(character => character.name)
+
+        const newActiveState = Object.fromEntries(
+            namesToActivate.map(name => [name, true])
+        )
+
+        setActive(prev => ({ ...prev, ...newActiveState }))
+        
+        setTimeout(() => {
+            setRow1(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? value.includes(key) : value === key
+            }))
+            setRow2(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? value.includes(key) : value === key
+            }))
+            setRow3(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? value.includes(key) : value === key
+            }))
+            setRow4(prev => prev.filter(obj => {
+                const value = obj[category]
+                return Array.isArray(value) ? value.includes(key) : value === key
+            }))
+            }, 2500)
+        console.log(key)
+    }
+}
 
     function showCategories(){
         setFade(true)
@@ -37,20 +134,53 @@ export default function AskDisplay() {
             setToCategories(true)
         }, 300)
         setOptionsBar("")
+        setTimeout(() => {
+            if (probeEnabled) {
+            setProbeEnabled(false)
+        }
+        },350)
+    }
+
+    function insight() {
+        console.log("insight ran")
+    }
+
+    function ask(charName){
+        if (probeEnabled){
+            selectCharacter("name", charName.name, 0)
+            setProbeCount(prev => prev - 1)
+            setProbeEnabled(false)
+        } else if (insightEnabled) {
+            insight(charName)
+        } else {
+            selectCharacter(...parameters)
+        }
     }
 
     return(
         <div className="ask-display">
             <button className={`go-back ${!toAsk ? "offscreen" : ""}`} onClick={() => showCategories()}>Back</button>
             <div className={`ask-text-container ${!toAsk ? "offscreen" : ""}`}>
-                <div className={`question ${fade ? "fade" : !toAsk ?  "offscreen" : ""}`}>{askQuestion[0]}</div>
+                <div className={`question ${fade ? "fade" : !toAsk ?  "offscreen" : ""}`}>
+                    {probeEnabled && askQuestion[1] === "name"
+                        ? `"Was it ${askQuestion[2]}?"`
+                        : probeEnabled
+                        ? "Choose a Suspect"
+                        : insightEnabled
+                            ? `"Was it any of these ${phiArray.length}?"`
+                                : askQuestion[0]}
+                </div>
                 <div className={`answer ${fade ? "fade" : !toAsk ?  "" : "offscreen"}`}>{yesOrNo}</div>
             </div>
-            <button className={`ask-button ${!toAsk ? "offscreen" : ""}`} onClick={() => selectCharacter(...parameters)}>
+            <button className={`ask-button ${!toAsk ? "offscreen" : ""}`} onClick={() => ask(phiArray)}>
                 <div>Ask!</div>
                 <div className="ask-button-price">
+                    {!probeEnabled && !insightEnabled ?
+                    <>
                     <img className={`ask-coin ${modalVisible ? "grayed" : ""}`} src={coin}></img>
                     {askQuestion[3]}
+                    </> 
+                    : <div className="ask-ghost"></div>}
                 </div>
             </button>
         </div>

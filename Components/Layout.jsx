@@ -18,6 +18,7 @@ import AskDisplay from "./AskDisplay"
 import Modal from "./Modal"
 import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
 import PowerUpsModal from "./PowerUpsModal"
+import InventoryModal from "./InventoryModal"
 
 export const LayoutContext = React.createContext()
 
@@ -43,6 +44,7 @@ export default function Layout() {
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
     const [wallet, setWallet] = React.useState(100)
+    const [level, setLevel] = React.useState(1)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
     const [toCategories, setToCategories] = React.useState(true)
@@ -57,13 +59,13 @@ export default function Layout() {
     const [firstGameStarted, setFirstGameStarted] = React.useState(false)
     const [gameOver, setGameOver] = React.useState(false)
     const [gameResetting, setGameResetting] = React.useState(false)
-    const [level, setLevel] = React.useState(1)
     const [cannotAfford, setCannotAfford] = React.useState(false)
     const [firstModalGone, setFirstModalGone] = React.useState(false)
     const [heroModeOn, setHeroModeOn] = React.useState(false)
     const [heroBonus, setHeroBonus] = React.useState(false)
     const [lowWalletBonus, setLowWalletBonus] = React.useState(false)
-    const [powerSelectHidden, setPowerSelectHidden] = React.useState(false)
+    const [powerSelectHidden, setPowerSelectHidden] = React.useState(true)
+    const [inventoryHidden, setInventoryHidden] = React.useState(true)
     const [yesCount, setYesCount] = React.useState(0)
     const [noCount, setNoCount] = React.useState(0)
     const [probeCount, setProbeCount] = React.useState(0)
@@ -73,16 +75,24 @@ export default function Layout() {
     const [luckyLevel, setLuckyLevel] = React.useState(0)
     const [unluckyLevel, setUnluckyLevel] = React.useState(0)
     const [confirmPower, setConfirmPower] = React.useState("Select Power")
+    const [usePower, setUsePower] = React.useState("Select Power")
+    const [selectDisabled, setSelectDisabled] = React.useState(false)
+    const [probeEnabled, setProbeEnabled] = React.useState(false)
+    const [sweepEnabled, setSweepEnabled] = React.useState(false)
+    const [insightEnabled, setInsightEnabled] = React.useState(false)
+    const [phiArray, setPhiArray] = React.useState([])
+    const [probeActivated, setProbeActivated] = React.useState(false)
+    const [heroModeActivated, setHeroModeActivated] = React.useState(false)
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 2) / 5) * 5
-    const lowWalletAmount = level < 7 ? Math.ceil((level * 1.25) / 5) * 5 : 10
+    const lowWalletAmount = level > 7 ? Math.ceil((level * 1.25) / 5) * 5 : 10
 
     const coinsWon = calcCoinsWon(level) 
         
 
     function calcCoinsWon(level) {
-        const base = 40                      // starting reward
-        const growth = 4 + level * 0.1       // scales with level
+        const base = 50                      // starting reward
+        const growth = 4 + level * 0.15       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
         return rounded
@@ -108,11 +118,16 @@ export default function Layout() {
             setLowWalletBonus, heroAmount, lowWalletAmount, yesCount, setYesCount, noCount, setNoCount,
             powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
-            luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower
+            luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
+            selectDisabled, setSelectDisabled, probeEnabled, setProbeEnabled,
+            sweepEnabled, setSweepEnabled, insightEnabled, setInsightEnabled, phiArray, setPhiArray,
+            probeActivated, setProbeActivated, heroModeActivated, setHeroModeActivated,
+            inventoryHidden, setInventoryHidden, usePower, setUsePower   
         }}>
 
             <div className="layout">
                 <Modal/>
+                <InventoryModal />
                 <PowerUpsModal />
                 <Header>
                     <ToggleMainDisplay />
