@@ -81,8 +81,8 @@ export const askMinResults = {
 
 export function calcPrice(option, level) {
 
-    const base = 3.5 + (level * 0.5)                  
-    const rate = 1.7 + (level * 0.05)              
+    const base = 3.5 + (level * 0.75)                  
+    const rate = 1.7 + (level * 0.1)              
     const price = Math.round(base + (rate * option))
     return price
 

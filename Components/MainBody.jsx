@@ -48,7 +48,7 @@ export default function MainBody() {
         setGameOver(true)
         setYouWin(true)
         gameStartRef.current = false
-        if (wallet < level * 1.25 || wallet < 20) {
+        if (wallet < level * 1.5 || wallet < 20) {
           setLowWalletBonus(true)
         }
       }
@@ -292,7 +292,7 @@ export default function MainBody() {
         setPhiArray(charName)
         setAskQuestion([{}, "name", charName.name, 0])
       } else if (heroModeOn) {
-        heroGuess(charName)
+        heroGuess(charName.name)
         console.log(charName)
         setHeroModeOn(false)
       }
