@@ -19,7 +19,8 @@ export default function MainBody() {
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
       setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
-      sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled
+      sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled,
+      setCharityEnabled, charityLevel
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -63,6 +64,17 @@ export default function MainBody() {
         }
       }
     }, [charactersLeft]);
+
+    React.useEffect(() => {
+      if (insightEnabled) {
+        console.log("Insight mode ON — resetting insight keys");
+        setCharactersLeft(prev => prev.map(c => ({ ...c, insight: false })));
+        setRow1(prev => prev.map(c => ({ ...c, insight: false })));
+        setRow2(prev => prev.map(c => ({ ...c, insight: false })));
+        setRow3(prev => prev.map(c => ({ ...c, insight: false })));
+        setRow4(prev => prev.map(c => ({ ...c, insight: false })));
+      }
+    }, [insightEnabled]);
 
     React.useEffect(() => {
       if (sweepEnabled) {
@@ -124,8 +136,28 @@ export default function MainBody() {
     }, [shuffled])
 
     React.useEffect(() => {
+      if(!insightEnabled){
         setCharactersLeft([...row1, ...row2, ...row3, ...row4])
+      }
     }, [row1, row2, row3, row4])
+
+    const prevWalletRef = React.useRef(wallet);
+
+    React.useEffect(() => {
+      if (wallet < prevWalletRef.current) {
+        console.log("Wallet decreased!");
+
+        const shouldEnableCharity = (Math.random() * 100) <= charityLevel * 7;
+
+        // Only update if it changed
+        setCharityEnabled(prev => {
+          const next = shouldEnableCharity;
+          return prev === next ? prev : next;
+        });
+      }
+
+      prevWalletRef.current = wallet;
+    }, [wallet, charityLevel]);
 
     React.useEffect(() => {
       if(gameResetting){
@@ -338,7 +370,7 @@ export default function MainBody() {
       const safeCharacters = charactersLeft.filter(c => c.name !== culprit.name);
 
       // Calculate 45% of remaining (rounded)
-      const sweepCount = Math.round((safeCharacters.length + 1) * 0.45);
+      const sweepCount = Math.floor((safeCharacters.length + 1) * 0.5);
 
       // Randomly shuffle and pick unlucky ones
       const shuffled = safeCharacters.sort(() => Math.random() - 0.5);

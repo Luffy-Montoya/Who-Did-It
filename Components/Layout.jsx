@@ -83,6 +83,7 @@ export default function Layout() {
     const [probeEnabled, setProbeEnabled] = React.useState(false)
     const [sweepEnabled, setSweepEnabled] = React.useState(false)
     const [insightEnabled, setInsightEnabled] = React.useState(false)
+    const [charityEnabled, setCharityEnabled] = React.useState(false)
     const [phiArray, setPhiArray] = React.useState([])
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
@@ -95,7 +96,7 @@ export default function Layout() {
 
     function calcCoinsWon(level) {
         const base = 55                      // starting reward
-        const growth = 4 + level * 0.2       // scales with level
+        const growth = 4 + level * 0.3       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
         return rounded
@@ -126,7 +127,7 @@ export default function Layout() {
             sweepEnabled, setSweepEnabled, insightEnabled, setInsightEnabled, phiArray, setPhiArray,
             probeActivated, setProbeActivated, heroModeActivated, setHeroModeActivated,
             inventoryHidden, setInventoryHidden, usePower, setUsePower, cantAffordDisplay, 
-            setCantAffordDisplay, toCantAfford, setToCantAfford   
+            setCantAffordDisplay, toCantAfford, setToCantAfford, charityEnabled, setCharityEnabled   
         }}>
 
             <div className="layout">

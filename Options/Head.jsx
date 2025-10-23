@@ -17,7 +17,7 @@ export default function Head() {
             setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
             setAskOption, askOption, charactersLeft, setToAsk, setToCategories,
             setFade, level, wallet, setCantAffordDisplay, setOptionsBar, askDisplay,
-            heroModeOn } = React.useContext(LayoutContext)
+            heroModeOn, charityEnabled } = React.useContext(LayoutContext)
         
         function setQuestion(question, option, key){
             if (wallet >= question[3]){
@@ -67,35 +67,35 @@ export default function Head() {
                         <div className="ghost-div"></div>  
                         <button 
                             className={askOption === "none" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.none, "head", "none", calcPrice(askMinResults.head.none, level)])}
+                            onClick={() => setQuestion([head.none, "head", "none", calcPrice(askMinResults.head.none, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "none", charactersLeft)}
                         >
                             <div>Nothing</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.none, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.none, level))}</div>
                         </button>
                         <button 
                             className={askOption === "bow" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.bowBand, "head", "bow", calcPrice(askMinResults.head.bow, level)])}
+                            onClick={() => setQuestion([head.bowBand, "head", "bow", calcPrice(askMinResults.head.bow, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "bow", charactersLeft)}
                         >
                             <div>Bow / Band</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.bow, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.bow, level))}</div>
                         </button>
                         <button 
                             className={askOption === "glasses" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.glasses, "head", "glasses", calcPrice(askMinResults.head.glasses, level)])}
+                            onClick={() => setQuestion([head.glasses, "head", "glasses", calcPrice(askMinResults.head.glasses, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "glasses", charactersLeft)}
                         >
                             <div>Glasses</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.glasses, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.glasses, level))}</div>
                         </button>
                         <button 
                             className={askOption === "hat" ? "category-selected" : ""}
-                            onClick={() => setQuestion([head.hat, "head", "hat", calcPrice(askMinResults.head.hat, level)])}
+                            onClick={() => setQuestion([head.hat, "head", "hat", calcPrice(askMinResults.head.hat, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "hat", charactersLeft)}
                         >
                             <div>Hat</div>
-                            <div className="price">{cost(calcPrice(askMinResults.head.hat, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.hat, level))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

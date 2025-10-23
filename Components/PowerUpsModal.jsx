@@ -40,11 +40,11 @@ export default function PowerUpsModal(){
         if (confirmPower != "Select Power") {
             setPowerSelectHidden(true)
             if (confirmPower === "Add Probe x6") {
-                setProbeCount(prev => prev + 6)
+                setProbeCount(prev => prev + 5)
             } else if (confirmPower === "Add Sweep x4") {
-                setSweepCount(prev => prev + 4)
+                setSweepCount(prev => prev + 3)
             } else if (confirmPower === "Add Insight x3") {
-                setInsightCount(prev => prev + 3)
+                setInsightCount(prev => prev + 2)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setCharityLevel(prev => prev + 1)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
@@ -71,7 +71,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
-                            <div>Probe - x6</div>
+                            <div>Probe - x5</div>
                             <div>{`Supply: ${probeCount}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -86,11 +86,11 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
-                            <div>Sweep - x4</div>
+                            <div>Sweep - x3</div>
                             <div>{`Supply: ${sweepCount}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            Instantly eliminate ~45% of the innocent suspects at random.
+                            Instantly eliminate ~50% of the innocent suspects at random.
                             <div>Unavailable if more than 4 owned.</div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
-                            <div>Insight - x3</div>
+                            <div>Insight - x2</div>
                             <div>{`Supply: ${insightCount}`}</div>
                         </div>
                         <div className="power-select-desc">

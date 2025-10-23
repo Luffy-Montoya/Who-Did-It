@@ -17,7 +17,7 @@ export default function Shoes() {
             setAskQuestion, setCategoryDisplay, setAskDisplay, setPrice, 
             setAskOption, askOption, charactersLeft, setToAsk, setToCategories,
             setFade, level, wallet, setCantAffordDisplay, setOptionsBar, askDisplay,
-            heroModeOn } = React.useContext(LayoutContext)
+            heroModeOn, charityEnabled } = React.useContext(LayoutContext)
         
         function setQuestion(question, option, key){
             if (wallet >= question[3]){
@@ -67,59 +67,59 @@ export default function Shoes() {
                         <div className="ghost-div"></div> 
                         <button 
                             className={askOption === "black" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.black, "shoes", "black", calcPrice(askMinResults.shoes.black, level)])}
+                            onClick={() => setQuestion([shoes.black, "shoes", "black", calcPrice(askMinResults.shoes.black, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "black", charactersLeft)}
                         >
                             <div>Black</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.black, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.black, level))}</div>
                         </button>
                         <button 
                             className={askOption === "blue" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.blue, "shoes", "blue", calcPrice(askMinResults.shoes.blue, level)])}
+                            onClick={() => setQuestion([shoes.blue, "shoes", "blue", calcPrice(askMinResults.shoes.blue, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "blue", charactersLeft)}
                         >
                             <div>Blue</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.blue, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.blue, level))}</div>
                         </button>
                         <button 
                             className={askOption === "brown" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.brown, "shoes", "brown", calcPrice(askMinResults.shoes.brown, level)])}
+                            onClick={() => setQuestion([shoes.brown, "shoes", "brown", calcPrice(askMinResults.shoes.brown, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "brown", charactersLeft)}
                         >
                             <div>Brown</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.brown, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.brown, level))}</div>
                         </button>
                         <button 
                             className={askOption === "gray" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.gray, "shoes", "gray", calcPrice(askMinResults.shoes.gray, level)])}
+                            onClick={() => setQuestion([shoes.gray, "shoes", "gray", calcPrice(askMinResults.shoes.gray, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "gray", charactersLeft)}
                         >
                             <div>Gray</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.gray, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.gray, level))}</div>
                         </button>
                         <button 
                             className={askOption === "purple" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.purple, "shoes", "purple", calcPrice(askMinResults.shoes.purple, level)])}
+                            onClick={() => setQuestion([shoes.purple, "shoes", "purple", calcPrice(askMinResults.shoes.purple, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "purple", charactersLeft)}
                         >
                             <div>Purple</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.purple, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.purple, level))}</div>
                         </button>
                         <button 
                             className={askOption === "red" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.red, "shoes", "red", calcPrice(askMinResults.shoes.red, level)])}
+                            onClick={() => setQuestion([shoes.red, "shoes", "red", calcPrice(askMinResults.shoes.red, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "red", charactersLeft)}
                         >
                             <div>Red</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.red, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.red, level))}</div>
                         </button>
                         <button 
                             className={askOption === "white" ? "category-selected" : ""}
-                            onClick={() => setQuestion([shoes.white, "shoes", "white", calcPrice(askMinResults.shoes.white, level)])}
+                            onClick={() => setQuestion([shoes.white, "shoes", "white", calcPrice(askMinResults.shoes.white, level, charityEnabled)])}
                             disabled={allOrNoneHave("shoes", "white", charactersLeft)}
                         >
                             <div>White</div>
-                            <div className="price">{cost(calcPrice(askMinResults.shoes.white, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.shoes.white, level))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

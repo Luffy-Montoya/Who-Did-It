@@ -79,11 +79,11 @@ export const askMinResults = {
     }
 }
 
-export function calcPrice(option, level) {
+export function calcPrice(option, level, charityEnabled) {
 
     const base = 3.5 + (level * 0.75)                  
     const rate = 1.7 + (level * 0.1)              
-    const price = Math.round(base + (rate * option))
+    const price = !charityEnabled ? Math.round(base + (rate * option)) : 0
     return price
 
 }

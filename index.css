@@ -592,6 +592,14 @@ h3 {
   margin-top: -.15em;
 }
 
+.free {
+  color: rgb(210, 155, 12);
+  margin-left: .5em;
+  font-size: .8rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+
 /* =========================
    OPTIONS BAR (FLAWLESS)
    ========================= */

@@ -15,7 +15,7 @@ export default function AskDisplay() {
         setYesCount, setNoCount, yesCount, noCount, probeEnabled, setProbeEnabled, insightEnabled,
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
-        setHeroModeActivated, setInsightEnabled 
+        setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -24,6 +24,7 @@ export default function AskDisplay() {
 
         const filtered = charactersLeft.filter(character => {
         const value = character[category]
+        setCharityEnabled(false)
 
         if (Array.isArray(value)) {
             return value.includes(key)
@@ -31,9 +32,6 @@ export default function AskDisplay() {
         return value === key
         })
 
-        
-        setProbeEnabled(false)
-        setInsightEnabled(false)
         setToAsk(false)
         setOptionsBar("")
         setTimeout(() => {
@@ -59,6 +57,9 @@ export default function AskDisplay() {
             
             setYesOrNo("No!")
             setNoCount(prev => prev + 1)
+            setTimeout(() => {
+                setWallet(prev => prev + (unluckyLevel * 2))
+            }, 1000)
             const namesToActivate = filtered.map(character => character.name)
             const newActiveState = namesToActivate.reduce((acc, name) => {
             acc[name] = true
@@ -89,6 +90,9 @@ export default function AskDisplay() {
         } else {
             setYesOrNo("Yes!")
             setYesCount(prev => prev + 1)
+            setTimeout(() => {
+                setWallet(prev => prev + (luckyLevel * 5))
+            }, 1000)
             const namesToActivate = charactersLeft
             .filter(character => {
             const value = character[category]
@@ -157,7 +161,9 @@ export default function AskDisplay() {
             setInsightEnabled(false)
         } else if (insightEnabled) {
             selectCharacter(...parameters)
-            console.log("parameters: ", ...parameters)
+            setInsightCount(prev => prev - 1)
+            setProbeEnabled(false)
+            setInsightEnabled(false)
         } else {
             selectCharacter(...parameters)
         }
