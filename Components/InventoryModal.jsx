@@ -30,7 +30,7 @@ export default function InventoryModal(){
 
     function activatePower() {
         setPhiArray([])
-        if (usePower != "Select Power"){
+        if (usePower === "Use Probe" || usePower === "Use Insight"){
             setInventoryHidden(true)
             setOptionsBar("")
             setYesOrNo("")
@@ -50,14 +50,18 @@ export default function InventoryModal(){
         
             if (usePower === "Use Probe") {
                 setProbeEnabled(true)
-            } else if (usePower === "Use Sweep") {
-                setSweepEnabled(true)
-                setSweepCount(prev => prev - 1)
             } else if (usePower === "Use Insight") {
                 setInsightEnabled(true)
                 setInsightCount(prev => prev - 1)
             }
-        }     
+        } else if (usePower === "Use Sweep") {
+                setInventoryHidden(true)
+                setSweepEnabled(true)
+                setSweepCount(prev => prev - 1)
+                setTimeout(() => {
+                    setSweepEnabled(false)
+                }, 1000)
+        }   
     }
 
 

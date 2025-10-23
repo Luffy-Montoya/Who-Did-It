@@ -15,7 +15,7 @@ export default function AskDisplay() {
         setYesCount, setNoCount, yesCount, noCount, probeEnabled, setProbeEnabled, insightEnabled,
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
-        setHeroModeActivated 
+        setHeroModeActivated, setInsightEnabled 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -31,6 +31,9 @@ export default function AskDisplay() {
         return value === key
         })
 
+        
+        setProbeEnabled(false)
+        setInsightEnabled(false)
         setToAsk(false)
         setOptionsBar("")
         setTimeout(() => {
@@ -135,8 +138,9 @@ export default function AskDisplay() {
         }, 300)
         setOptionsBar("")
         setTimeout(() => {
-            if (probeEnabled) {
+            if (probeEnabled || insightEnabled) {
             setProbeEnabled(false)
+            setInsightEnabled(false)
         }
         },350)
     }
@@ -150,6 +154,7 @@ export default function AskDisplay() {
             selectCharacter("name", charName.name, 0)
             setProbeCount(prev => prev - 1)
             setProbeEnabled(false)
+            setInsightEnabled(false)
         } else if (insightEnabled) {
             selectCharacter(...parameters)
             console.log("parameters: ", ...parameters)
