@@ -10,7 +10,7 @@ export default function InventoryModal(){
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
             selectDisabled, setSelectDisabled, inventoryHidden, setInventoryHidden, usePower, setUsePower,
             setProbeEnabled, setSweepEnabled, setInsightEnabled, setFade, setToAsk, setToCategories,
-            setAskDisplay, setCategoryDisplay, setOptionsBar
+            setAskDisplay, setCategoryDisplay, setOptionsBar, setYesOrNo
             
     } = React.useContext(LayoutContext)
 
@@ -29,26 +29,33 @@ export default function InventoryModal(){
     }
 
     function activatePower() {
-        setInventoryHidden(true)
-        setOptionsBar("")
-        setTimeout(() => {
-            setAskDisplay(true)
-            setCategoryDisplay(false)
-        }, 250)
-        setFade(false)
-        setToCategories(false)
-        setTimeout(() => {
-            setToAsk(true)
-        }, 300)
-    
-        if (usePower === "Use Probe") {
-            setProbeEnabled(true)
-        } else if (usePower === "Use Sweep") {
-            setSweepEnabled(true)
-            setSweepCount(prev => prev - 1)
-        } else if (usePower === "Use Insight") {
-            setInsightEnabled(true)
-            setInsightCount(prev => prev - 1)
+        if (usePower != "Select Power"){
+            setInventoryHidden(true)
+            setOptionsBar("")
+            setYesOrNo("")
+            setTimeout(() => {
+                setAskDisplay(true)
+                setCategoryDisplay(false)
+            }, 250)
+            setFade(false)
+            setToCategories(false)
+            setTimeout(() => {
+                setToAsk(true)
+            }, 300)
+
+            setTimeout(() => {
+                setUsePower("Select Power")
+            }, 1000)
+        
+            if (usePower === "Use Probe") {
+                setProbeEnabled(true)
+            } else if (usePower === "Use Sweep") {
+                setSweepEnabled(true)
+                setSweepCount(prev => prev - 1)
+            } else if (usePower === "Use Insight") {
+                setInsightEnabled(true)
+                setInsightCount(prev => prev - 1)
+            }
         }     
     }
 

@@ -213,24 +213,6 @@ export default function MainBody() {
 
     const containerSize = getContainerSize(charactersLeft.length)
 
-    function probe(charName) {
-      
-      if (probeCount > 0) {
-        if (charName != culprit.name){
-          setActive(prev => ({ ...prev, [charName]: true }))
-          setTimeout(() => {
-              setRow1(prev => prev.filter(obj => obj.name !== charName))
-              setRow2(prev => prev.filter(obj => obj.name !== charName))
-              setRow3(prev => prev.filter(obj => obj.name !== charName))
-              setRow4(prev => prev.filter(obj => obj.name !== charName))
-          }, 2500)
-          setProbeCount(prev => prev - 1)
-        } else {
-          heroGuess(charName)
-        }
-      }
-    }
-
     function shuffleArray(array) {
       return array
         .map(value => ({ value, sort: Math.random() }))
@@ -247,6 +229,7 @@ export default function MainBody() {
         setHeroBonus(true);
         setTimeout(() => {
           setYouWin(true);
+          setGameOver(true)
         }, 4700)
         setTimeout(() => {
           setModalVisible(true);
@@ -301,7 +284,6 @@ export default function MainBody() {
       } else if (heroModeOn) {
         heroGuess(charName.name)
         console.log(charName)
-        setHeroModeOn(false)
       }
     }
 
