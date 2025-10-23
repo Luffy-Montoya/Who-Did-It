@@ -94,7 +94,7 @@ export default function Layout() {
         
 
     function calcCoinsWon(level) {
-        const base = 45                      // starting reward
+        const base = 55                      // starting reward
         const growth = 4 + level * 0.2       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
