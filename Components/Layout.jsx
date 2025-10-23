@@ -88,7 +88,7 @@ export default function Layout() {
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 2) / 5) * 5
-    const lowWalletAmount = level > 4 ? Math.ceil((level * 1.5) / 5) * 5 : 10
+    const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 4) / 5) * 5
 
     const coinsWon = calcCoinsWon(level) 
         
@@ -158,5 +158,4 @@ export default function Layout() {
             
         </LayoutContext.Provider>
     )
-
 }

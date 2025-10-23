@@ -10,7 +10,7 @@ export default function InventoryModal(){
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
             selectDisabled, setSelectDisabled, inventoryHidden, setInventoryHidden, usePower, setUsePower,
             setProbeEnabled, setSweepEnabled, setInsightEnabled, setFade, setToAsk, setToCategories,
-            setAskDisplay, setCategoryDisplay, setOptionsBar, setYesOrNo
+            setAskDisplay, setCategoryDisplay, setOptionsBar, setYesOrNo, setPhiArray
             
     } = React.useContext(LayoutContext)
 
@@ -29,6 +29,7 @@ export default function InventoryModal(){
     }
 
     function activatePower() {
+        setPhiArray([])
         if (usePower != "Select Power"){
             setInventoryHidden(true)
             setOptionsBar("")

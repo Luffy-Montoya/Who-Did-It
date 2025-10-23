@@ -19,7 +19,7 @@ export default function MainBody() {
       wallet, setCannotAfford, level, setWallet, coinsWon, heroModeOn, setHeroModeOn,
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
       setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
-      sweepCount, insightCount 
+      sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -54,6 +54,22 @@ export default function MainBody() {
         }
       }
     }, [charactersLeft])
+
+    React.useEffect(() => {
+      if (culprit && charactersLeft.length > 0) {
+        const updatedCulprit = charactersLeft.find(c => c.name === culprit.name);
+        if (updatedCulprit && updatedCulprit !== culprit) {
+          setCulprit(updatedCulprit);
+        }
+      }
+    }, [charactersLeft]);
+
+    React.useEffect(() => {
+      if (sweepEnabled) {
+        sweep()
+        setSweepEnabled(false)
+      }
+    }, [sweepEnabled])
 
     React.useEffect(() => {
       if (gameOver && youWin){
@@ -277,44 +293,104 @@ export default function MainBody() {
       }, disappearOrder.length * (3000 / charactersLeft.length) + 2000);
     }
 
-    function probeAndHero(charName){
+    function probeInsightHero(charName) {
       if(probeEnabled){
         setPhiArray(charName)
         setAskQuestion([{}, "name", charName.name, 0])
+
+      } else if (insightEnabled) {
+        setPhiArray(prev => {
+          if (prev.includes(charName.name)) {
+            return prev.filter(n => n !== charName.name);
+          } else {
+            return [...prev, charName.name];
+          }
+        });
+
+        setCharactersLeft(prev =>
+          prev.map(c =>
+            c.name === charName.name ? { ...c, insight: !c.insight } : c
+          )
+        );
+
+        const updateInsight = (row) =>
+          row.map(c =>
+            c.name === charName.name ? { ...c, insight: !c.insight } : c
+          );
+
+        setRow1(prev => updateInsight(prev));
+        setRow2(prev => updateInsight(prev));
+        setRow3(prev => updateInsight(prev));
+        setRow4(prev => updateInsight(prev));
+
+        setAskQuestion([{},"insight", true, 0]);
+
       } else if (heroModeOn) {
-        heroGuess(charName.name)
-        console.log(charName)
+        heroGuess(charName.name);
+        console.log(charName);
       }
+    }
+
+    function sweep() {
+      // Exclude the culprit from elimination
+      const safeCharacters = charactersLeft.filter(c => c.name !== culprit.name);
+
+      // Calculate 45% of remaining (rounded)
+      const sweepCount = Math.round((safeCharacters.length + 1) * 0.45);
+
+      // Randomly shuffle and pick unlucky ones
+      const shuffled = safeCharacters.sort(() => Math.random() - 0.5);
+      const toRemove = shuffled.slice(0, sweepCount).map(c => c.name);
+
+      // Random stagger duration (based on heroGuess pacing)
+      const totalTime = 3000; // total animation window
+      const delayPerChar = totalTime / toRemove.length;
+
+      // Animate removals one by one
+      toRemove.forEach((name, i) => {
+        setTimeout(() => {
+          setActive(prev => ({ ...prev, [name]: true })); // trigger "rise/fade" animation
+        }, i * 250);
+      });
+
+      // Remove them after animations finish
+      setTimeout(() => {
+        const keep = (obj) => !toRemove.includes(obj.name);
+        setRow1(prev => prev.filter(keep));
+        setRow2(prev => prev.filter(keep));
+        setRow3(prev => prev.filter(keep));
+        setRow4(prev => prev.filter(keep));
+      }, totalTime + 2000); // 2s buffer for fade-out to complete
     }
 
     function rowMap(row) {
         
-        return (
-            row.map((character) => (
-            <div 
-                className={`
-                  character-container 
-                  ${active[character.name] ? "active" : ""}
-                  ${
-                    askQuestion && 
-                    (
-                      Array.isArray(character[askQuestion[1]])
-                        ? !character[askQuestion[1]].includes(askQuestion[2])        // array trait (like ["jacket","pants"])
-                        : character[askQuestion[1]] != askQuestion[2]              // exact match for strings
-                    )
-                      ? "not-included"
-                      : ""
-                  }
-                  ${characterSize}
-                  ${modalVisible ? "grayed" : ""}
-                  `}
-                onClick={() => probeAndHero(character)}
-                key={character.name}
-            >
-                <img className={`characters ${modalVisible ? "grayed" : ""}`} src={character.image}></img>
-                <p className="character-name">{character.name}</p>
-            </div>
-        )))
+      return (
+        row.map((character) => (
+        <div 
+          className={`
+            character-container 
+            ${active[character.name] ? "active" : ""}
+            ${
+              askQuestion && 
+              (
+                Array.isArray(character[askQuestion[1]])
+                  ? !character[askQuestion[1]].includes(askQuestion[2])        // array trait (like ["jacket","pants"])
+                  : character[askQuestion[1]] != askQuestion[2]              // exact match for strings
+              )
+                ? "not-included"
+                : ""
+            }
+            ${characterSize}
+            ${modalVisible ? "grayed" : ""}
+            `}
+          onClick={() => probeInsightHero(character)}
+          key={character.name}
+      >
+          <img className={`characters ${modalVisible ? "grayed" : ""}`} src={character.image}></img>
+          <p className="character-name">{character.name}</p>
+        </div>
+      )))
     }
 
     function loadCharacters(){

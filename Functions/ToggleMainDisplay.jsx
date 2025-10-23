@@ -3,15 +3,17 @@ import { LayoutContext } from "../Components/Layout"
 
 export default function ToggleMainDisplay(){
 
-const { modalVisible, setModalVisible, heroBonus, probeCount, inventoryHidden, setInventoryHidden, setPowerSelectHidden, askDisplay, gameOver, youWin } = React.useContext(LayoutContext)
+const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charactersLeft, askQuestion, row1 } = React.useContext(LayoutContext)
 
 function toggle(){
         setModalVisible(!modalVisible)
-        console.log(heroBonus)
-        console.log(probeCount)
-        console.log("Ask Display: ", askDisplay)
-        console.log("Game Over: ", gameOver)
-        console.log("You Win: ", youWin)
+        
+        console.log(charactersLeft)
+        console.log("Ask Question: ", askQuestion)
+        console.log(askQuestion[1])
+        console.log(askQuestion[2])
+        console.log("Updated charactersLeft:", charactersLeft.map(c => `${c.name}:${c.insight}`))
+        console.log("row1 insight:", row1.map(c => `${c.name}:${c.insight}`));
 }
 return (
     <>
