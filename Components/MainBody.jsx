@@ -66,7 +66,9 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (sweepEnabled) {
-        sweep()
+        setTimeout(() => {
+          sweep()
+        }, 650)
         setSweepEnabled(false)
       }
     }, [sweepEnabled])
