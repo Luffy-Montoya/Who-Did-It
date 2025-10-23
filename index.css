@@ -125,13 +125,13 @@ h3 {
   gap: .75em;
   font-size: .8rem;
   font-family: arial;
-  transition: 1s;
+  transition: .5s;
 }
 
 .inventory-hidden {
-  transform: translateX(-135%);
+  transform: translateX(-130%);
   opacity: 30%;
-  transition: 1s;
+  transition: .5s;
 }
 
 .inv-title{
@@ -188,13 +188,13 @@ h3 {
   gap: .75em;
   font-size: .8rem;
   font-family: arial;
-  transition: 1s;
+  transition: .5s;
 }
 
 .power-select-hidden {
   opacity: 30%;
   transform: translateX(125%);
-  transition: 1s;
+  transition: .5s;
 }
 
 .power-ups-title {
