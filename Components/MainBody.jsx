@@ -20,7 +20,7 @@ export default function MainBody() {
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
       setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
       sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled,
-      setCharityEnabled, charityLevel
+      setCharityEnabled, charityLevel, setPowerSelectHidden
     } = React.useContext( LayoutContext )
 
     React.useEffect(() => {
@@ -93,6 +93,12 @@ export default function MainBody() {
         }, 2750)
       }
     }, [gameOver])
+
+    React.useEffect(() => {
+      if (level % 3 === 0){
+        setPowerSelectHidden(false)
+      }
+    }, [level])
 
     function cannotAffordAnyOption(options, wallet, charactersLeft) {
         return options.every(opt => {
