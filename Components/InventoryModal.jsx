@@ -134,7 +134,7 @@ export default function InventoryModal(){
                     <button className="power-button unlucky-button inv-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
-                    <div className="inv-power-name">{luckyLevel > 0 ? `Unlucky ${roman[luckyLevel - 1]}` : ""}</div>
+                    <div className="inv-power-name">{unluckyLevel > 0 ? `Unlucky ${roman[unluckyLevel - 1]}` : ""}</div>
                     <div className="inv-qty">{unluckyLevel > 0 ? `${(unluckyLevel * 2) + (Math.floor(level/10) * unluckyLevel)} coins` : ""}</div>
                 </div>
             </div>

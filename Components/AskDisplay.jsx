@@ -16,7 +16,7 @@ export default function AskDisplay() {
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
         setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
-        setInsightCount 
+        setInsightCount, level 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -60,7 +60,7 @@ export default function AskDisplay() {
             setNoCount(prev => prev + 1)
             if (unluckyLevel > 0){
                 setTimeout(() => {
-                    setWallet(prev => prev + (unluckyLevel * 5) + (Math.floor(level/10) * unluckyLevel))
+                    setWallet(prev => prev + (unluckyLevel * 2) + ((Math.floor(level/10) * unluckyLevel)))
                 }, 1000)
             }
             const namesToActivate = filtered.map(character => character.name)
@@ -95,7 +95,7 @@ export default function AskDisplay() {
             setYesCount(prev => prev + 1)
             if (luckyLevel > 0) {
                 setTimeout(() => {
-                    setWallet(prev => prev + (luckyLevel * 5) + (Math.floor(level/10) * luckyLevel * 2))
+                    setWallet(prev => prev + (luckyLevel * 5) + ((Math.floor(level/10) * luckyLevel * 2)))
                 }, 1000)
             }
             const namesToActivate = charactersLeft
