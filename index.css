@@ -697,6 +697,7 @@ h3 {
 }
 
 .options-list > button:disabled {
+  display: none;
   opacity: 25%;
   transition: .5s;
   cursor: default;
