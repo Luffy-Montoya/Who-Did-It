@@ -118,7 +118,7 @@ export default function Pants() {
                             onClick={() => setQuestion([pants.magenta, "pants", "magenta", calcPrice(askMinResults.pants.magenta, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "magenta", charactersLeft)}
                         >
-                            <div>Magenta</div>
+                            <div>Pink</div>
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.magenta, level))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    

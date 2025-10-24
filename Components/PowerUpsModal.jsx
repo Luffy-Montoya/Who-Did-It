@@ -7,10 +7,16 @@ export default function PowerUpsModal(){
         powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
-            selectDisabled, setSelectDisabled
+            selectDisabled, setSelectDisabled, level
     } = React.useContext(LayoutContext)
 
-    const roman = ["I", "II", "III", "IV", "V"]
+    const roman = [
+        "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+        "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+        "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
+        "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+        "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L"
+    ]
 
     function addProbe() {
         setConfirmPower("Add Probe x4")
@@ -66,47 +72,47 @@ export default function PowerUpsModal(){
             <div className="power-ups-title">Choose a Power</div>
             <div className="power-ups-container active-powers">
                 <div className={`user-power`}>
-                    <button className="power-button probe-button" onClick={() => addProbe()} disabled={probeCount > 6}>
+                    <button className="power-button probe-button" onClick={() => addProbe()}>
                         <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
                             <div>Probe - x4</div>
-                            <div>{`Supply: ${probeCount}`}</div>
+                            <div>{`Qty: ${probeCount}`}</div>
                         </div>
                         <div className="power-select-desc">
                             Select a single suspect to reveal if they are the culprit.
-                            <div>Unavailable if more than 6 owned.</div>                            
+                            <div></div>                            
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button sweep-button" onClick={() => addSweep()} disabled={sweepCount > 4}>
+                    <button className="power-button sweep-button" onClick={() => addSweep()}>
                         <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
                             <div>Sweep - x3</div>
-                            <div>{`Supply: ${sweepCount}`}</div>
+                            <div>{`Qty: ${sweepCount}`}</div>
                         </div>
                         <div className="power-select-desc">
                             Instantly eliminate ~50% of the innocent suspects at random.
-                            <div>Unavailable if more than 4 owned.</div>
+                            <div></div>
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button insight-button" onClick={() => addInsight()} disabled={insightCount > 3}>
+                    <button className="power-button insight-button" onClick={() => addInsight()}>
                         <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
                             <div>Insight - x2</div>
-                            <div>{`Supply: ${insightCount}`}</div>
+                            <div>{`Qty: ${insightCount}`}</div>
                         </div>
                         <div className="power-select-desc">
                             Select any number of suspects and reveal if the culprit is in that group.
-                            <div>Unavailable if more than 3 owned.</div>
+                            <div></div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +134,7 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button lucky-button" onClick={() => addLucky()} disabled={luckyLevel === 5}>
+                    <button className="power-button lucky-button" onClick={() => addLucky()}>
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
                     </button>
                     <div className="name-desc-container">
@@ -136,14 +142,13 @@ export default function PowerUpsModal(){
                             {`Lucky ${roman[luckyLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${(luckyLevel + 1) * 5} coins for every "Yes" answer.
-                            Increases by 5 with every upgrade.`}  
-                            <div>Max 25.</div>
+                            {`Earn ${((luckyLevel + 1) * 5) + (Math.floor(level/10) * (luckyLevel + 1) * 2)} coins for every "Yes" answer.`}  
+                            <div>{`Increases by ${(luckyLevel + 1) * 2} every 10th level`}</div>
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button unlucky-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
+                    <button className="power-button unlucky-button" onClick={() => addUnlucky()}>
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
                     <div className="name-desc-container">
@@ -151,9 +156,8 @@ export default function PowerUpsModal(){
                             {`Unlucky ${roman[unluckyLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${(unluckyLevel + 1) * 2} coins for every "No" answer.
-                            Increases by 2 with every upgrade.`}  
-                            <div>Max 10.</div>
+                            {`Earn ${((unluckyLevel + 1) * 2) + (Math.floor(level/10) * (unluckyLevel + 1))} coins for every "No" answer.`}  
+                            <div>{`Increases by ${(unluckyLevel + 1)} every 10th level`}</div>
                         </div>
                     </div>
                 </div>

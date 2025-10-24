@@ -58,9 +58,11 @@ export default function AskDisplay() {
             
             setYesOrNo("No!")
             setNoCount(prev => prev + 1)
-            setTimeout(() => {
-                setWallet(prev => prev + (unluckyLevel * 2))
-            }, 1000)
+            if (unluckyLevel > 0){
+                setTimeout(() => {
+                    setWallet(prev => prev + (unluckyLevel * 5) + (Math.floor(level/10) * unluckyLevel))
+                }, 1000)
+            }
             const namesToActivate = filtered.map(character => character.name)
             const newActiveState = namesToActivate.reduce((acc, name) => {
             acc[name] = true
@@ -91,9 +93,11 @@ export default function AskDisplay() {
         } else {
             setYesOrNo("Yes!")
             setYesCount(prev => prev + 1)
-            setTimeout(() => {
-                setWallet(prev => prev + (luckyLevel * 5))
-            }, 1000)
+            if (luckyLevel > 0) {
+                setTimeout(() => {
+                    setWallet(prev => prev + (luckyLevel * 5) + (Math.floor(level/10) * luckyLevel * 2))
+                }, 1000)
+            }
             const namesToActivate = charactersLeft
             .filter(character => {
             const value = character[category]
