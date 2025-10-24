@@ -3,7 +3,7 @@ import { LayoutContext } from "../Components/Layout"
 
 export default function ToggleMainDisplay(){
 
-const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charactersLeft, askQuestion, row1 } = React.useContext(LayoutContext)
+const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charactersLeft, askQuestion, row1, insightEnabled, phiArray } = React.useContext(LayoutContext)
 
 function toggle(){
         setModalVisible(!modalVisible)
@@ -14,6 +14,8 @@ function toggle(){
         console.log(askQuestion[2])
         console.log("Updated charactersLeft:", charactersLeft.map(c => `${c.name}:${c.insight}`))
         console.log("row1 insight:", row1.map(c => `${c.name}:${c.insight}`));
+        console.log("insight: ", insightEnabled)
+        console.log("phi: ", phiArray)
 }
 return (
     <>

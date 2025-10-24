@@ -15,7 +15,8 @@ export default function AskDisplay() {
         setYesCount, setNoCount, yesCount, noCount, probeEnabled, setProbeEnabled, insightEnabled,
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
-        setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled 
+        setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
+        setInsightCount 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -153,21 +154,22 @@ export default function AskDisplay() {
         console.log("insight ran")
     }
 
-    function ask(charName){
-        if (probeEnabled){
-            selectCharacter("name", charName.name, 0)
-            setProbeCount(prev => prev - 1)
-            setProbeEnabled(false)
-            setInsightEnabled(false)
+    function ask() {
+        console.log("Asked");
+        if (probeEnabled) {
+            selectCharacter("name", askQuestion[2], 0);
+            setProbeCount(prev => prev - 1);
+            setProbeEnabled(false);
+            setInsightEnabled(false);
         } else if (insightEnabled) {
-            selectCharacter(...parameters)
-            setInsightCount(prev => prev - 1)
-            setProbeEnabled(false)
-            setInsightEnabled(false)
+            selectCharacter(...parameters);
+            setInsightCount(prev => prev - 1);
+            setProbeEnabled(false);
+            setInsightEnabled(false);
         } else {
-            selectCharacter(...parameters)
+            selectCharacter(...parameters);
         }
-    }
+        }
 
     return(
         <div className="ask-display">
@@ -184,7 +186,7 @@ export default function AskDisplay() {
                 </div>
                 <div className={`answer ${fade ? "fade" : !toAsk ?  "" : "offscreen"}`}>{yesOrNo}</div>
             </div>
-            <button className={`ask-button ${!toAsk ? "offscreen" : ""}`} onClick={() => ask(phiArray)}>
+            <button className={`ask-button ${!toAsk ? "offscreen" : ""}`} onClick={() => ask()}>
                 <div>Ask!</div>
                 <div className="ask-button-price">
                     {!probeEnabled && !insightEnabled ?

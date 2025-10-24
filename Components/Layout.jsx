@@ -73,7 +73,7 @@ export default function Layout() {
     const [noCount, setNoCount] = React.useState(0)
     const [probeCount, setProbeCount] = React.useState(0)
     const [sweepCount, setSweepCount] = React.useState(0)
-    const [insightCount, setInsightCount] = React.useState(0)
+    const [insightCount, setInsightCount] = React.useState(5)
     const [charityLevel, setCharityLevel] = React.useState(0)
     const [luckyLevel, setLuckyLevel] = React.useState(0)
     const [unluckyLevel, setUnluckyLevel] = React.useState(0)
