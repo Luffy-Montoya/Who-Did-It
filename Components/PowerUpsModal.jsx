@@ -142,8 +142,8 @@ export default function PowerUpsModal(){
                             {`Lucky ${roman[luckyLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${((luckyLevel + 1) * 5) + (Math.floor(level/10) * (luckyLevel + 1) * 2)} coins for every "Yes" answer.`}  
-                            <div>{`Increases by ${(luckyLevel + 1) * 2} every 10th level`}</div>
+                            {`Earn ${((luckyLevel + 1) * 5) + (Math.floor(level/20) * (luckyLevel + 1) * 2)} coins for every "Yes" answer.`}  
+                            <div>{`Increases by ${(luckyLevel + 1) * 2} every 20th level`}</div>
                         </div>
                     </div>
                 </div>
@@ -156,8 +156,8 @@ export default function PowerUpsModal(){
                             {`Unlucky ${roman[unluckyLevel]}`} 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${((unluckyLevel + 1) * 2) + (Math.floor(level/10) * (unluckyLevel + 1))} coins for every "No" answer.`}  
-                            <div>{`Increases by ${(unluckyLevel + 1)} every 10th level`}</div>
+                            {`Earn ${((unluckyLevel + 1) * 2) + (Math.floor(level/20) * (unluckyLevel + 1))} coins for every "No" answer.`}  
+                            <div>{`Increases by ${(unluckyLevel + 1)} every 20th level`}</div>
                         </div>
                     </div>
                 </div>
