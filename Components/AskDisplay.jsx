@@ -60,7 +60,7 @@ export default function AskDisplay() {
             setNoCount(prev => prev + 1)
             if (unluckyLevel > 0){
                 setTimeout(() => {
-                    setWallet(prev => prev + (unluckyLevel * 2) + ((Math.floor(level/15) * unluckyLevel)))
+                    setWallet(prev => prev + (unluckyLevel * 2) + ((Math.floor(level/10) * unluckyLevel)))
                 }, 1000)
             }
             const namesToActivate = filtered.map(character => character.name)
@@ -95,7 +95,7 @@ export default function AskDisplay() {
             setYesCount(prev => prev + 1)
             if (luckyLevel > 0) {
                 setTimeout(() => {
-                    setWallet(prev => prev + (luckyLevel * 5) + ((Math.floor(level/15) * luckyLevel * 2)))
+                    setWallet(prev => prev + (luckyLevel * 5) + ((Math.floor(level/10) * luckyLevel * 2)))
                 }, 1000)
             }
             const namesToActivate = charactersLeft
