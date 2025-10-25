@@ -48,9 +48,9 @@ export default function PowerUpsModal(){
         if (confirmPower != "Select Power") {
             setPowerSelectHidden(true)
             if (confirmPower === "Add Probe x4") {
-                setProbeCount(prev => prev + 4)
+                setProbeCount(prev => prev + 6)
             } else if (confirmPower === "Add Sweep x3") {
-                setSweepCount(prev => prev + 3)
+                setSweepCount(prev => prev + 4)
             } else if (confirmPower === "Add Insight x2") {
                 setInsightCount(prev => prev + 2)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
@@ -79,7 +79,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
-                            <div>Probe - x4</div>
+                            <div>Probe - x6</div>
                             <div>{`Qty: ${probeCount}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -94,7 +94,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
-                            <div>Sweep - x3</div>
+                            <div>Sweep - x4</div>
                             <div>{`Qty: ${sweepCount}`}</div>
                         </div>
                         <div className="power-select-desc">
