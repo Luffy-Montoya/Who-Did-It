@@ -88,15 +88,15 @@ export default function Layout() {
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
 
-    const heroAmount = Math.ceil((calcCoinsWon(level) / 2) / 5) * 5
-    const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 4) / 5) * 5
+    const heroAmount = Math.ceil((calcCoinsWon(level) / 1.5) / 5) * 5
+    const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 2.5) / 5) * 5
 
     const coinsWon = calcCoinsWon(level) 
         
 
     function calcCoinsWon(level) {
         const base = 50                      // starting reward
-        const growth = 3 + level * 0.3       // scales with level
+        const growth = 4 + level * 0.4       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
         return rounded

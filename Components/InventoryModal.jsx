@@ -23,6 +23,8 @@ export default function InventoryModal(){
         "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L"
     ]
 
+    const chance = [0, 6, 11, 15, 18, 20, 21]
+
     function useProbe() {
         setUsePower("Use Probe")
     }
@@ -121,21 +123,21 @@ export default function InventoryModal(){
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
                     </button>
                     <div className="inv-power-name">{charityLevel > 0 ? `Charity ${roman[charityLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{charityLevel > 0 ? `${charityLevel * 7}%` : ""}</div>
+                    <div className="inv-qty">{charityLevel > 0 ? `${chance[charityLevel]}%` : ""}</div>
                 </div>
                 <div className="inv-power-container">    
                     <button className="power-button lucky-button inv-button" onClick={() => addLucky()} disabled={luckyLevel === 5}>
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
                     </button>
                     <div className="inv-power-name">{luckyLevel > 0 ? `Lucky ${roman[luckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{luckyLevel > 0 ? `${(luckyLevel * 5) + (Math.floor(level/10) * luckyLevel * 2)} coins` : ""}</div>
+                    <div className="inv-qty">{luckyLevel > 0 ? `${(luckyLevel * 5) + (Math.floor(level/15) * luckyLevel * 2)} c` : ""}</div>
                 </div>
                 <div className="inv-power-container">    
                     <button className="power-button unlucky-button inv-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
                     <div className="inv-power-name">{unluckyLevel > 0 ? `Unlucky ${roman[unluckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{unluckyLevel > 0 ? `${(unluckyLevel * 2) + (Math.floor(level/10) * unluckyLevel)} coins` : ""}</div>
+                    <div className="inv-qty">{unluckyLevel > 0 ? `${(unluckyLevel * 2) + (Math.floor(level/15) * unluckyLevel)} c` : ""}</div>
                 </div>
             </div>
             <div className="inv-button-container">

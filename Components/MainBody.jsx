@@ -50,7 +50,7 @@ export default function MainBody() {
         setGameOver(true)
         setYouWin(true)
         gameStartRef.current = false
-        if (wallet < level * 1.5 || wallet < 20) {
+        if (wallet < level * 1.5 + 25) {
           setLowWalletBonus(true)
         }
       }
@@ -383,7 +383,7 @@ export default function MainBody() {
       const toRemove = shuffled.slice(0, sweepCount).map(c => c.name);
 
       // Random stagger duration (based on heroGuess pacing)
-      const totalTime = 3000; // total animation window
+      const totalTime = Math.floor(charactersLeft.length / 2) * 250; // total animation window
       const delayPerChar = totalTime / toRemove.length;
 
       // Animate removals one by one
