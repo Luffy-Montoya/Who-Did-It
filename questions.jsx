@@ -42,13 +42,13 @@ const shirt = {
 }
 
 const pants = {
-    any: <>"Are they {option("NOT")} wearing {option("Pants")}?"</>,
+    none: <>"Are they {option("NOT")} wearing {option("Pants")}?"</>,
     blue: <>"Are they wearing {option("Blue Pants")}?"</>,
     gray: <>"Are they wearing {option("Gray Pants")}?"</>,
     black: <>"Are they wearing {option("Black Pants")}?"</>,
     brown: <>"Are they wearing {option("Brown Pants")}?"</>,
     green: <>"Are they wearing {option("Green Pants")}?"</>,
-    magenta: <>"Are they wearing {option("Magenta Pants")}?"</>
+    magenta: <>"Are they wearing {option("Pink Pants")}?"</>
 }
 
 const shoes = {
@@ -62,7 +62,7 @@ const shoes = {
 }
 
 const acc = {
-    any: <>"Do they {option("NOT")} have any accessories at all?"</>,
+    none: <>"Do they {option("NOT")} have any accessories at all?"</>,
     whistle: <>"Are they wearing a {option("Whistle")}?"</>,
     books: <>"Are they carrying {option("Books")}?"</>,
     clipboard: <>"Do they have a {option("Clipboard")}?"</>,
