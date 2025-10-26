@@ -100,7 +100,7 @@ export default function MainBody() {
     }, [gameOver])
 
     React.useEffect(() => {
-      if (level % 3 === 0){
+      if (level % 4 === 0){
         setPowerSelectHidden(false)
       }
     }, [level])
