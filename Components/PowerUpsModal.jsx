@@ -149,7 +149,7 @@ export default function PowerUpsModal(){
                         </div>
                         <div className="power-select-desc">
                             {`Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`}  
-                            <div>{`Increases by ${(luckyLevel + 1) * 2} every ${luckyRate}th level`}</div>
+                            <div>{`Increases by ${(luckyLevel + 1) * luckyInc} every ${luckyRate}th level`}</div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +164,7 @@ export default function PowerUpsModal(){
                         </div>
                         <div className="power-select-desc">
                             {`Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`}  
-                            <div>{`Increases by ${(unluckyLevel + 1)} every ${unluckyRate}th level`}</div>
+                            <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} every ${unluckyRate}th level`}</div>
                         </div>
                     </div>
                 </div>
