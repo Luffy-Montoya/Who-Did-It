@@ -10,12 +10,12 @@ const insightValue = 12
 
 const charityChance = [0, 10, 15, 20, 25]
 
-const luckyValue = 5
-const luckyInc = 2
-const luckyRate = 15
+const luckyValue = 4
+const luckyInc = 1
+const luckyRate = 10
 
 const unluckyValue = 2
 const unluckyInc = 1
-const unluckyRate = 15
+const unluckyRate = 20
 
 export { probeQty, sweepQty, sweepValue, insightQty, insightValue, charityChance, luckyValue, luckyInc, luckyRate, unluckyValue, unluckyInc, unluckyRate }
