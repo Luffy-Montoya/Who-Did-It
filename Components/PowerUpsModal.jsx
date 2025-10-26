@@ -51,11 +51,11 @@ export default function PowerUpsModal(){
         if (confirmPower != "Select Power") {
             setPowerSelectHidden(true)
             if (confirmPower === `Add Probe x${probeQty}`) {
-                setProbeCount(prev => prev + 6)
+                setProbeCount(prev => prev + probeQty)
             } else if (confirmPower === `Add Sweep x${sweepQty}`) {
-                setSweepCount(prev => prev + 4)
+                setSweepCount(prev => prev + sweepQty)
             } else if (confirmPower === `Add Insight x${insightQty}`) {
-                setInsightCount(prev => prev + 2)
+                setInsightCount(prev => prev + insightQty)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setCharityLevel(prev => prev + 1)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
