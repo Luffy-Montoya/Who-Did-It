@@ -1,5 +1,10 @@
 import React from "react"
 import { LayoutContext } from "./Layout"
+import { 
+        probeQty, sweepQty, sweepValue, insightQty, 
+        charityChance, insightValue, luckyValue, luckyInc, 
+        luckyRate, unluckyValue, unluckyInc, unluckyRate 
+    } from "../Functions/Balance"
 
 export default function PowerUpsModal(){
 
@@ -18,18 +23,16 @@ export default function PowerUpsModal(){
         "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L"
     ]
 
-    const chance = [0, 6, 11, 15, 18, 20, 21]
-
     function addProbe() {
-        setConfirmPower("Add Probe x4")
+        setConfirmPower(`Add Probe x${probeQty}`)
     }
 
      function addSweep() {
-        setConfirmPower("Add Sweep x3")
+        setConfirmPower(`Add Sweep x${sweepQty}`)
     }
 
      function addInsight() {
-        setConfirmPower("Add Insight x2")
+        setConfirmPower(`Add Insight x${insightQty}`)
     }
 
      function addCharity() {
@@ -47,11 +50,11 @@ export default function PowerUpsModal(){
     function addPower() {
         if (confirmPower != "Select Power") {
             setPowerSelectHidden(true)
-            if (confirmPower === "Add Probe x4") {
+            if (confirmPower === `Add Probe x${probeQty}`) {
                 setProbeCount(prev => prev + 6)
-            } else if (confirmPower === "Add Sweep x3") {
+            } else if (confirmPower === `Add Sweep x${sweepQty}`) {
                 setSweepCount(prev => prev + 4)
-            } else if (confirmPower === "Add Insight x2") {
+            } else if (confirmPower === `Add Insight x${insightQty}`) {
                 setInsightCount(prev => prev + 2)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setCharityLevel(prev => prev + 1)
@@ -79,7 +82,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
-                            <div>Probe - x6</div>
+                            <div>{`Probe - x${probeQty}`}</div>
                             <div>{`Qty: ${probeCount}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -94,11 +97,11 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
-                            <div>Sweep - x4</div>
+                            <div>{`Sweep - x${sweepQty}`}</div>
                             <div>{`Qty: ${sweepCount}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            Instantly eliminate ~50% of the innocent suspects at random.
+                            {`Instantly eliminate ~${sweepValue}% of the innocent suspects at random.`}
                             <div></div>
                         </div>
                     </div>
@@ -109,7 +112,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
-                            <div>Insight - x2</div>
+                            <div>{`Insight - x${insightQty}`}</div>
                             <div>{`Qty: ${insightCount}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -121,16 +124,16 @@ export default function PowerUpsModal(){
             </div>
             <div className="power-ups-container passive-powers">
                 <div className={`user-power`}>
-                    <button className="power-button charity-button" onClick={() => addCharity()} disabled={charityLevel === 6}>
+                    <button className="power-button charity-button" onClick={() => addCharity()} disabled={charityLevel === 4}>
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
-                            <div>{`Charity ${charityLevel < 6 ? roman[charityLevel] : roman[5]}`}</div>
-                            <div>{`Current: ${chance[charityLevel]}%`}</div> 
+                            <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[4]}`}</div>
+                            <div>{`Current: ${charityChance[charityLevel]}%`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {charityLevel < 6 ? `${chance[charityLevel + 1]}% chance to get a free question.` : "Maxed."}  
+                            {charityLevel < 4 ? `${charityChance[charityLevel + 1]}% chance to get a free question.` : "Maxed."}  
                             <div></div>
                         </div>
                     </div>
@@ -142,11 +145,11 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name lucky-name">
                             <div>{`Lucky ${roman[luckyLevel]}`}</div>
-                            <div>{`Current: ${((luckyLevel) * 5) + (Math.floor(level/10) * (luckyLevel) * 2)}`}</div> 
+                            <div>{`Current: ${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${((luckyLevel + 1) * 5) + (Math.floor(level/10) * (luckyLevel + 1) * 2)} coins for every "Yes" answer.`}  
-                            <div>{`Increases by ${(luckyLevel + 1) * 2} every 10th level`}</div>
+                            {`Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`}  
+                            <div>{`Increases by ${(luckyLevel + 1) * 2} every ${luckyRate}th level`}</div>
                         </div>
                     </div>
                 </div>
@@ -157,11 +160,11 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
                             <div>{`Unlucky ${roman[unluckyLevel]}`}</div>
-                            <div>{`Current: ${((unluckyLevel) * 2) + (Math.floor(level/10) * (unluckyLevel))}`}</div> 
+                            <div>{`Current: ${(unluckyLevel * unluckyValue) + (Math.floor(level/luckyRate) * (unluckyLevel * unluckyInc))}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${((unluckyLevel + 1) * 2) + (Math.floor(level/10) * (unluckyLevel + 1))} coins for every "No" answer.`}  
-                            <div>{`Increases by ${(unluckyLevel + 1)} every 10th level`}</div>
+                            {`Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`}  
+                            <div>{`Increases by ${(unluckyLevel + 1)} every ${unluckyRate}th level`}</div>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,16 @@
 import React from "react"
 import { LayoutContext } from "./Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
+import { 
+        probeQty, sweepQty, sweepValue, insightQty, 
+        insightValue, charityChance, luckyValue, luckyInc, 
+        luckyRate, unluckyValue, unluckyInc, unluckyRate 
+    } from "../Functions/Balance"
 
 export default function InventoryModal(){
 
     const { 
-        powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
+            powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
             selectDisabled, setSelectDisabled, inventoryHidden, setInventoryHidden, usePower, setUsePower,
@@ -22,8 +27,6 @@ export default function InventoryModal(){
         "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
         "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L"
     ]
-
-    const chance = [0, 6, 11, 15, 18, 20, 21]
 
     function useProbe() {
         setUsePower("Use Probe")
@@ -119,25 +122,25 @@ export default function InventoryModal(){
                     <div className="inv-qty">{`Qty: ${insightCount}`}</div>
                 </div>
                 <div className="inv-power-container">    
-                    <button className="power-button charity-button inv-button" onClick={() => addCharity()} disabled={charityLevel === 5}>
+                    <button className="power-button charity-button inv-button">
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
                     </button>
                     <div className="inv-power-name">{charityLevel > 0 ? `Charity ${roman[charityLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{charityLevel > 0 ? `${chance[charityLevel]}%` : ""}</div>
+                    <div className="inv-qty">{charityLevel > 0 ? `${charityChance[charityLevel]}%` : ""}</div>
                 </div>
                 <div className="inv-power-container">    
-                    <button className="power-button lucky-button inv-button" onClick={() => addLucky()} disabled={luckyLevel === 5}>
+                    <button className="power-button lucky-button inv-button">
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
                     </button>
                     <div className="inv-power-name">{luckyLevel > 0 ? `Lucky ${roman[luckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{luckyLevel > 0 ? `${(luckyLevel * 5) + (Math.floor(level/10) * luckyLevel * 2)} c` : ""}</div>
+                    <div className="inv-qty">{luckyLevel > 0 ? `${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))} c` : ""}</div>
                 </div>
                 <div className="inv-power-container">    
-                    <button className="power-button unlucky-button inv-button" onClick={() => addUnlucky()} disabled={unluckyLevel === 5}>
+                    <button className="power-button unlucky-button inv-button">
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
                     <div className="inv-power-name">{unluckyLevel > 0 ? `Unlucky ${roman[unluckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{unluckyLevel > 0 ? `${(unluckyLevel * 2) + (Math.floor(level/10) * unluckyLevel)} c` : ""}</div>
+                    <div className="inv-qty">{unluckyLevel > 0 ? `${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))} c` : ""}</div>
                 </div>
             </div>
             <div className="inv-button-container">

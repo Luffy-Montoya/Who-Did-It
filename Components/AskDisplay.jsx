@@ -1,6 +1,10 @@
 import React from "react"
 import { LayoutContext } from "./Layout"
 import { coin } from "../images64"
+import { 
+        luckyValue, luckyInc, luckyRate, 
+        unluckyValue, unluckyInc, unluckyRate 
+    } from "../Functions/Balance"
 
 
 export default function AskDisplay() {
@@ -60,7 +64,7 @@ export default function AskDisplay() {
             setNoCount(prev => prev + 1)
             if (unluckyLevel > 0){
                 setTimeout(() => {
-                    setWallet(prev => prev + (unluckyLevel * 2) + ((Math.floor(level/10) * unluckyLevel)))
+                    setWallet(prev => prev + (unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * unluckyLevel * unluckyInc))
                 }, 1000)
             }
             const namesToActivate = filtered.map(character => character.name)
@@ -95,7 +99,7 @@ export default function AskDisplay() {
             setYesCount(prev => prev + 1)
             if (luckyLevel > 0) {
                 setTimeout(() => {
-                    setWallet(prev => prev + (luckyLevel * 5) + ((Math.floor(level/10) * luckyLevel * 2)))
+                    setWallet(prev => prev + (luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc)))
                 }, 1000)
             }
             const namesToActivate = charactersLeft

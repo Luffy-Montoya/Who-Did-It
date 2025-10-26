@@ -6,6 +6,11 @@ import { allOrNoneHave } from "../Functions/allOrNoneHave"
 import { calcPrice } from "../Functions/askPrice"
 import { LayoutContext } from "./Layout"
 import { rearrange } from "../Functions/rearrange"
+import { 
+        charityChance, probeQty, sweepQty, sweepValue, insightQty, 
+        insightValue, luckyValue, luckyInc, 
+        luckyRate, unluckyValue, unluckyInc, unluckyRate 
+    } from "../Functions/Balance"
 
 export default function MainBody() {
 
@@ -153,7 +158,7 @@ export default function MainBody() {
       if (wallet < prevWalletRef.current) {
         console.log("Wallet decreased!");
 
-        const shouldEnableCharity = (Math.random() * 100) <= charityLevel * 7;
+        const shouldEnableCharity = (Math.random() * 100) < charityChance[charityLevel];
 
         // Only update if it changed
         setCharityEnabled(prev => {
