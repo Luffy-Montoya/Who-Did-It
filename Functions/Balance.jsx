@@ -3,7 +3,7 @@
 const probeQty = 4
 
 const sweepQty = 3
-const sweepValue = 40
+const sweepValue = 45
 
 const insightQty = 2
 const insightValue = 12

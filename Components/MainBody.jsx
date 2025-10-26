@@ -381,7 +381,7 @@ export default function MainBody() {
       const safeCharacters = charactersLeft.filter(c => c.name !== culprit.name);
 
       // Calculate 45% of remaining (rounded)
-      const sweepCount = Math.floor((safeCharacters.length + 1) * 0.5);
+      const sweepCount = Math.round((safeCharacters.length + 1) * (100 / sweepValue));
 
       // Randomly shuffle and pick unlucky ones
       const shuffled = safeCharacters.sort(() => Math.random() - 0.5);
