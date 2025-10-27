@@ -3,7 +3,7 @@ import { LayoutContext } from "./Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
 import { 
         probeQty, sweepQty, sweepValue, insightQty, 
-        insightValue, charityChance, luckyValue, luckyInc, 
+        insightValue, luckyValue, luckyInc, 
         luckyRate, unluckyValue, unluckyInc, unluckyRate 
     } from "../Functions/Balance"
 
@@ -126,7 +126,7 @@ export default function InventoryModal(){
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
                     </button>
                     <div className="inv-power-name">{charityLevel > 0 ? `Charity ${roman[charityLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{charityLevel > 0 ? `${charityChance[charityLevel]}%` : ""}</div>
+                    <div className="inv-qty">{charityLevel > 0 ? `%` : ""}</div>
                 </div>
                 <div className="inv-power-container">    
                     <button className="power-button lucky-button inv-button">

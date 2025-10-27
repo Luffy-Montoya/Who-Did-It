@@ -3,10 +3,13 @@ import { LayoutContext } from "../Components/Layout"
 
 export default function ToggleMainDisplay(){
 
-const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charactersLeft, askQuestion, row1, insightEnabled, phiArray } = React.useContext(LayoutContext)
+const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charityValue, charityBase, charityLevel, charityTries} = React.useContext(LayoutContext)
 
 function toggle(){
         setModalVisible(!modalVisible)
+        console.log(charityValue)
+        console.log("level:", charityBase[charityLevel])
+        console.log("tries", charityTries)
 }
 return (
     <>

@@ -2,7 +2,7 @@ import React from "react"
 import { LayoutContext } from "./Layout"
 import { 
         probeQty, sweepQty, sweepValue, insightQty, 
-        charityChance, insightValue, luckyValue, luckyInc, 
+        insightValue, luckyValue, luckyInc, 
         luckyRate, unluckyValue, unluckyInc, unluckyRate 
     } from "../Functions/Balance"
 
@@ -12,7 +12,7 @@ export default function PowerUpsModal(){
         powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
-            selectDisabled, setSelectDisabled, level
+            selectDisabled, setSelectDisabled, level, charityBase
     } = React.useContext(LayoutContext)
 
     const roman = [
@@ -130,11 +130,11 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
                             <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[4]}`}</div>
-                            <div>{`Current: ${charityChance[charityLevel]}%`}</div> 
+                            <div>{`Current: ${charityBase[charityLevel]}%`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {charityLevel < 4 ? `${charityChance[charityLevel + 1]}% chance to get a free question.` : "Maxed."}  
-                            <div></div>
+                            {charityLevel < 4 ? `${charityBase[charityLevel + 1]}% chance to get a free question.` : "Maxed."}  
+                            <div>Increases by 50% after any question.</div>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ export default function AskDisplay() {
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
         setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
-        setInsightCount, level 
+        setInsightCount, level, setAskTrigger, charityEnabled, setCharityTries, charityLevel 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -29,7 +29,6 @@ export default function AskDisplay() {
 
         const filtered = charactersLeft.filter(character => {
         const value = character[category]
-        setCharityEnabled(false)
 
         if (Array.isArray(value)) {
             return value.includes(key)
@@ -164,6 +163,14 @@ export default function AskDisplay() {
 
     function ask() {
         console.log("Asked");
+        if (charityLevel > 0 && !charityEnabled) {
+            setCharityTries(prev => prev + 1)
+        }
+        if (charityEnabled) {
+            setCharityEnabled(false)
+            setCharityTries(0)
+        }
+
         if (probeEnabled) {
             selectCharacter("name", askQuestion[2], 0);
             setProbeCount(prev => prev - 1);

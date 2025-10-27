@@ -7,7 +7,7 @@ import { calcPrice } from "../Functions/askPrice"
 import { LayoutContext } from "./Layout"
 import { rearrange } from "../Functions/rearrange"
 import { 
-        charityChance, probeQty, sweepQty, sweepValue, insightQty, 
+        probeQty, sweepQty, sweepValue, insightQty, 
         insightValue, luckyValue, luckyInc, 
         luckyRate, unluckyValue, unluckyInc, unluckyRate 
     } from "../Functions/Balance"
@@ -25,7 +25,8 @@ export default function MainBody() {
       probeCount, setProbeCount, setYouLose, heroBonus, setHeroBonus, youLose,
       setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
       sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled,
-      setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars
+      setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars,
+      charityValue
     } = React.useContext( LayoutContext )
 
     // Weighted random culprit picker
@@ -197,13 +198,14 @@ export default function MainBody() {
       if (wallet < prevWalletRef.current) {
         console.log("Wallet decreased!");
 
-        const shouldEnableCharity = (Math.random() * 100) < charityChance[charityLevel];
+        const shouldEnableCharity = (Math.random() * 100) < charityValue;
 
         // Only update if it changed
         setCharityEnabled(prev => {
           const next = shouldEnableCharity;
           return prev === next ? prev : next;
         });
+
       }
 
       prevWalletRef.current = wallet;
