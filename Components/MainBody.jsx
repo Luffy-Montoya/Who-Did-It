@@ -266,6 +266,8 @@ export default function MainBody() {
           setRow4(shuffledChars.slice(18));
           setCharactersLeft(shuffledChars);
           setGameStarted(true);
+          console.log("Culprit:", syncedCulprit.name);
+          console.log("Chances:", combined.map(c => `${c.name}:${c.chance}`).join(", "));
         }, 500)
 
         setTimeout(() => {
@@ -444,7 +446,7 @@ export default function MainBody() {
       const safeCharacters = charactersLeft.filter(c => c.name !== culprit.name);
 
       // Calculate 45% of remaining (rounded)
-      const sweepCount = Math.round((safeCharacters.length + 1) * (sweepValue / 100));
+      const sweepCount = Math.floor((safeCharacters.length + 1) * (sweepValue / 100));
 
       // Randomly shuffle and pick unlucky ones
       const shuffled = safeCharacters.sort(() => Math.random() - 0.5);

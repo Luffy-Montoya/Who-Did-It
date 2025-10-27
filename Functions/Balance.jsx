@@ -1,9 +1,9 @@
 
 
-const probeQty = 6
+const probeQty = 7
 
-const sweepQty = 4
-const sweepValue = 45
+const sweepQty = 5
+const sweepValue = 50
 
 const insightQty = 3
 const insightValue = 12
