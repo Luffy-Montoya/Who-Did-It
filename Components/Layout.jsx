@@ -20,6 +20,7 @@ import ToggleMainDisplay from "../Functions/ToggleMainDisplay"
 import PowerUpsModal from "./PowerUpsModal"
 import InventoryModal from "./InventoryModal"
 import CantAffordDisplay from "./CantAffordDisplay"
+import { getCharacters } from "../characters"
 
 export const LayoutContext = React.createContext()
 
@@ -34,6 +35,7 @@ export default function Layout() {
     const [optionsBar, setOptionsBar] = React.useState("")
     const [askOption, setAskOption] = React.useState("")
     const [charactersLeft, setCharactersLeft] = React.useState([])
+    const [importedChars, setImportedChars] = React.useState(getCharacters().map(c => ({ ...c, chance: 1 })))
     const [row1, setRow1] = React.useState([])
     const [row2, setRow2] = React.useState([])
     const [row3, setRow3] = React.useState([])
@@ -46,7 +48,7 @@ export default function Layout() {
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
-    const [wallet, setWallet] = React.useState(150)
+    const [wallet, setWallet] = React.useState(200)
     const [level, setLevel] = React.useState(1)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
@@ -95,7 +97,7 @@ export default function Layout() {
         
 
     function calcCoinsWon(level) {
-        const base = 50                      // starting reward
+        const base = 45                      // starting reward
         const growth = 3 + level * 0.35       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
         const rounded = Math.round(coins / 5) * 5              // multiple of 5
@@ -127,7 +129,8 @@ export default function Layout() {
             sweepEnabled, setSweepEnabled, insightEnabled, setInsightEnabled, phiArray, setPhiArray,
             probeActivated, setProbeActivated, heroModeActivated, setHeroModeActivated,
             inventoryHidden, setInventoryHidden, usePower, setUsePower, cantAffordDisplay, 
-            setCantAffordDisplay, toCantAfford, setToCantAfford, charityEnabled, setCharityEnabled   
+            setCantAffordDisplay, toCantAfford, setToCantAfford, charityEnabled, setCharityEnabled,
+            importedChars, setImportedChars   
         }}>
 
             <div className="layout">

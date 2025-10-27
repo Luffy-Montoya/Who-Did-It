@@ -18,7 +18,8 @@ const baseCharacters = [
     shoes: ["blue", "white"],
     accessories: "science",
     id: 1,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Codee", "Kyle", "Jeff", "Roberto"],
@@ -33,7 +34,8 @@ const baseCharacters = [
     shoes: "gray",
     accessories: ["whistle", "basketball"],
     id: 2,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Skye", "Audra"],
@@ -48,7 +50,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: "notepad",
     id: 3,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Yaya", "Jodee"],
@@ -63,7 +66,8 @@ const baseCharacters = [
     shoes: "red",
     accessories: "books",
     id: 4,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Kendall", "D.D."],
@@ -78,7 +82,8 @@ const baseCharacters = [
     shoes: ["gray", "white"],
     accessories: "animals",
     id: 5,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Patience", "Katie"],
@@ -93,7 +98,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: ["purse", "badge"],
     id: 6,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Hope", "Natalie"],
@@ -108,7 +114,8 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "badge",
     id: 7,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Andrew", "Lester", "Cooper"],
@@ -123,7 +130,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: "math",
     id: 8,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Charly", "Sophia"],
@@ -138,7 +146,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 9,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Zasha", "Senyon", "Evan"],
@@ -153,7 +162,8 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "none",
     id: 10,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Mina", "Athena"],
@@ -168,7 +178,8 @@ const baseCharacters = [
     shoes: "gray",
     accessories: "whistle",
     id: 11,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Vanessa", "Brittany"],
@@ -183,7 +194,8 @@ const baseCharacters = [
     shoes: "brown",
     accessories: ["purse", "badge"],
     id: 12,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Lauren", "Whitney"],
@@ -198,7 +210,8 @@ const baseCharacters = [
     shoes: "gray",
     accessories: "clipboard",
     id: 13,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Rony", "Gavin", "Sam", "Joe"],
@@ -213,7 +226,8 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "none",
     id: 14,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Bri", "Madelyn", "Shanice"],
@@ -228,7 +242,8 @@ const baseCharacters = [
     shoes: "purple",
     accessories: "animals",
     id: 15,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Michelle", "Madi"],
@@ -243,10 +258,11 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 16,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
-    names: ["Brandon", "Angel"],
+    names: ["Brandon", "Angel", "Uriel"],
     image: images64.Mike,
     head: "hat",
     hair: "black",
@@ -258,10 +274,11 @@ const baseCharacters = [
     shoes: "black",
     accessories: ["badge", "watch"],
     id: 17,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
-    names: ["Elayna", "Molly"],
+    names: ["Elayna", "Mollee"],
     image: images64.Roberta,
     head: "glasses",
     hair: "brown",
@@ -273,7 +290,8 @@ const baseCharacters = [
     shoes: "purple",
     accessories: "none",
     id: 18,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Carla", "Thia"],
@@ -288,7 +306,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 19,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Nadya", "Meg"],
@@ -303,7 +322,8 @@ const baseCharacters = [
     shoes: "blue",
     accessories: "books",
     id: 20,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Mack", "Julia"],
@@ -318,7 +338,8 @@ const baseCharacters = [
     shoes: "red",
     accessories: "mask",
     id: 21,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["RJ", "Justin", "Nate"],
@@ -333,7 +354,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: "computer",
     id: 22,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Kat", "Gareth", "Jesse"],
@@ -348,7 +370,8 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "broom",
     id: 23,
-    insight: false
+    insight: false,
+    chance: 1
   },
   {
     names: ["Mark", "Dale", "D'Angelo"],
@@ -363,7 +386,8 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 24,
-    insight: false
+    insight: false,
+    chance: 1
   },
 ];
 

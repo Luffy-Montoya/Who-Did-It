@@ -1,11 +1,11 @@
 
 
-const probeQty = 4
+const probeQty = 6
 
-const sweepQty = 3
+const sweepQty = 4
 const sweepValue = 45
 
-const insightQty = 2
+const insightQty = 3
 const insightValue = 12
 
 const charityChance = [0, 8, 14, 20, 25]

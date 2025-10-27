@@ -160,7 +160,7 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
                             <div>{`Unlucky ${roman[unluckyLevel]}`}</div>
-                            <div>{`Current: ${(unluckyLevel * unluckyValue) + (Math.floor(level/luckyRate) * (unluckyLevel * unluckyInc))}`}</div> 
+                            <div>{`Current: ${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))}`}</div> 
                         </div>
                         <div className="power-select-desc">
                             {`Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`}  

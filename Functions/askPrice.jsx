@@ -87,3 +87,4 @@ export function calcPrice(option, level, charityEnabled) {
     return price
 
 }
+

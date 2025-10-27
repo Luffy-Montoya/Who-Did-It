@@ -7,15 +7,6 @@ const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden,
 
 function toggle(){
         setModalVisible(!modalVisible)
-        
-        console.log(charactersLeft)
-        console.log("Ask Question: ", askQuestion)
-        console.log(askQuestion[1])
-        console.log(askQuestion[2])
-        console.log("Updated charactersLeft:", charactersLeft.map(c => `${c.name}:${c.insight}`))
-        console.log("row1 insight:", row1.map(c => `${c.name}:${c.insight}`));
-        console.log("insight: ", insightEnabled)
-        console.log("phi: ", phiArray)
 }
 return (
     <>
