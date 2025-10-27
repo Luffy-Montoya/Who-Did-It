@@ -1,9 +1,5 @@
 import { images64 } from "./images64";
 
-function randomFrom(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
 const baseCharacters = [
   {
     names: ["Cesar", "Pablo", "Steve", "Jaime"],
@@ -18,8 +14,7 @@ const baseCharacters = [
     shoes: ["blue", "white"],
     accessories: "science",
     id: 1,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Codee", "Kyle", "Jeff", "Roberto"],
@@ -34,8 +29,7 @@ const baseCharacters = [
     shoes: "gray",
     accessories: ["whistle", "basketball"],
     id: 2,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Skye", "Audra"],
@@ -50,8 +44,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: "notepad",
     id: 3,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Yaya", "Jodee"],
@@ -66,8 +59,7 @@ const baseCharacters = [
     shoes: "red",
     accessories: "books",
     id: 4,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Kendall", "D.D."],
@@ -82,8 +74,7 @@ const baseCharacters = [
     shoes: ["gray", "white"],
     accessories: "animals",
     id: 5,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Patience", "Katie"],
@@ -98,8 +89,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: ["purse", "badge"],
     id: 6,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Hope", "Natalie"],
@@ -114,8 +104,7 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "badge",
     id: 7,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Andrew", "Lester", "Cooper"],
@@ -130,8 +119,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: "math",
     id: 8,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Charly", "Sophia"],
@@ -146,8 +134,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 9,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Zasha", "Senyon", "Evan"],
@@ -162,8 +149,7 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "none",
     id: 10,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Mina", "Athena"],
@@ -178,8 +164,7 @@ const baseCharacters = [
     shoes: "gray",
     accessories: "whistle",
     id: 11,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Vanessa", "Brittany"],
@@ -194,8 +179,7 @@ const baseCharacters = [
     shoes: "brown",
     accessories: ["purse", "badge"],
     id: 12,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Lauren", "Whitney"],
@@ -210,8 +194,7 @@ const baseCharacters = [
     shoes: "gray",
     accessories: "clipboard",
     id: 13,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Rony", "Gavin", "Sam", "Joe"],
@@ -226,8 +209,7 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "none",
     id: 14,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Bri", "Madelyn", "Shanice"],
@@ -242,8 +224,7 @@ const baseCharacters = [
     shoes: "purple",
     accessories: "animals",
     id: 15,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Michelle", "Madi"],
@@ -258,8 +239,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 16,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Brandon", "Angel", "Uriel"],
@@ -274,8 +254,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: ["badge", "watch"],
     id: 17,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Elayna", "Mollee"],
@@ -290,8 +269,7 @@ const baseCharacters = [
     shoes: "purple",
     accessories: "none",
     id: 18,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Carla", "Thia"],
@@ -306,8 +284,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 19,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Nadya", "Meg"],
@@ -322,8 +299,7 @@ const baseCharacters = [
     shoes: "blue",
     accessories: "books",
     id: 20,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Mack", "Julia"],
@@ -338,8 +314,7 @@ const baseCharacters = [
     shoes: "red",
     accessories: "mask",
     id: 21,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["RJ", "Justin", "Nate"],
@@ -354,8 +329,7 @@ const baseCharacters = [
     shoes: "black",
     accessories: "computer",
     id: 22,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Kat", "Gareth", "Jesse"],
@@ -370,8 +344,7 @@ const baseCharacters = [
     shoes: "brown",
     accessories: "broom",
     id: 23,
-    insight: false,
-    chance: 1
+    insight: false
   },
   {
     names: ["Mark", "Dale", "D'Angelo"],
@@ -386,10 +359,13 @@ const baseCharacters = [
     shoes: "black",
     accessories: "none",
     id: 24,
-    insight: false,
-    chance: 1
+    insight: false
   },
 ];
+
+function randomFrom(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
 
 export function getCharacters() {
   return baseCharacters.map(c => ({

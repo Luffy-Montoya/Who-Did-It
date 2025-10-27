@@ -28,26 +28,24 @@ export default function MainBody() {
       setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars
     } = React.useContext( LayoutContext )
 
-    // 🎯 Weighted culprit picker
-  function pickWeightedCulprit(chars) {
-    const totalChance = chars.reduce((sum, c) => sum + c.chance, 0);
-    let random = Math.random() * totalChance;
-
-    for (const c of chars) {
-      random -= c.chance;
-      if (random <= 0) return c;
+    // Weighted random culprit picker
+    function pickWeightedCulprit(chars) {
+      const totalChance = chars.reduce((sum, c) => sum + c.chance, 0);
+      let r = Math.random() * totalChance;
+      for (const c of chars) {
+        r -= c.chance;
+        if (r <= 0) return c;
+      }
+      return chars[chars.length - 1];
     }
 
-    return chars[chars.length - 1]; // fallback safety
-  }
-
-  // 🔁 Update everyone's chance after a culprit is chosen
-  function updateChances(chars, chosenId) {
-    return chars.map(c => ({
-      ...c,
-      chance: c.id === chosenId ? 0 : c.chance + 1,
-    }));
-  }
+    // Update all characters' chance values
+    function updateChances(chars, chosenId) {
+      return chars.map(c => ({
+        ...c,
+        chance: c.id === chosenId ? 0 : c.chance + 1,
+      }));
+    }
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -63,24 +61,28 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (firstGameStarted && gameStarted && !gameStartRef.current) {
-        // Use weighted culprit selection
+        // Step 1: pick culprit using weights
         const chosenCulprit = pickWeightedCulprit(importedChars);
         setCulprit(chosenCulprit);
 
-        // Update importedChars weights for next round
-        const updatedChars = updateChances(importedChars, chosenCulprit.id);
-        setImportedChars(updatedChars);
+        // Step 2: update the weights
+        const updatedWeights = updateChances(importedChars, chosenCulprit.id);
+        setImportedChars(updatedWeights);
 
-        // Shuffle and load round visuals
-        const newRoundChars = shuffleCharacters(updatedChars);
-        setShuffled(newRoundChars);
+        // Step 3: rebuild characters fresh for display (names + shuffle)
+        const freshChars = getCharacters();
+        const combined = freshChars.map(fc => {
+          const prev = updatedWeights.find(p => p.id === fc.id);
+          return { ...fc, chance: prev ? prev.chance : 1 };
+        });
 
-        // Split into rows
-        setRow1(newRoundChars.slice(0, 6));
-        setRow2(newRoundChars.slice(6, 12));
-        setRow3(newRoundChars.slice(12, 18));
-        setRow4(newRoundChars.slice(18));
-        setCharactersLeft(newRoundChars);
+        const shuffledChars = shuffleCharacters(combined);
+        setShuffled(shuffledChars);
+        setRow1(shuffledChars.slice(0, 6));
+        setRow2(shuffledChars.slice(6, 12));
+        setRow3(shuffledChars.slice(12, 18));
+        setRow4(shuffledChars.slice(18));
+        setCharactersLeft(shuffledChars);
 
         loadCharacters();
         gameStartRef.current = true;
@@ -236,25 +238,34 @@ export default function MainBody() {
           fifthArranged.current = false
           sixthArranged.current = false
 
-          // ♻️ Weighted culprit logic on reset
-          const chosenCulprit = pickWeightedCulprit(importedChars);
-          setCulprit(chosenCulprit);
+          const chosenByWeight = pickWeightedCulprit(importedChars);
 
-          // Update master weights
-          const updatedChars = updateChances(importedChars, chosenCulprit.id);
-          setImportedChars(updatedChars);
+          // 2️⃣ Update weights for everyone
+          const updatedWeights = updateChances(importedChars, chosenByWeight.id);
+          setImportedChars(updatedWeights);
 
-          // Shuffle for fresh layout
-          const newRoundChars = shuffleCharacters(updatedChars);
-          setShuffled(newRoundChars);
-          setRow1(newRoundChars.slice(0, 6));
-          setRow2(newRoundChars.slice(6, 12));
-          setRow3(newRoundChars.slice(12, 18));
-          setRow4(newRoundChars.slice(18));
-          setCharactersLeft(newRoundChars);
+          // 3️⃣ Get new randomized characters (new names)
+          const freshChars = getCharacters();
+
+          // 4️⃣ Merge weight data into those fresh characters
+          const combined = freshChars.map(fc => {
+            const prev = updatedWeights.find(p => p.id === fc.id);
+            return { ...fc, chance: prev ? prev.chance : 1 };
+          });
+
+          // 5️⃣ Find the new version of the culprit (same id, new name)
+          const syncedCulprit = combined.find(c => c.id === chosenByWeight.id);
+          setCulprit(syncedCulprit);
+
+          // 6️⃣ Shuffle and display
+          const shuffledChars = shuffleCharacters(combined);
+          setShuffled(shuffledChars);
+          setRow1(shuffledChars.slice(0, 6));
+          setRow2(shuffledChars.slice(6, 12));
+          setRow3(shuffledChars.slice(12, 18));
+          setRow4(shuffledChars.slice(18));
+          setCharactersLeft(shuffledChars);
           setGameStarted(true);
-          console.log("Culprit:", chosenCulprit.name);
-          console.log("Chances:", updatedChars.map(c => `${c.name}:${c.chance}`).join(", "));
         }, 500)
 
         setTimeout(() => {
