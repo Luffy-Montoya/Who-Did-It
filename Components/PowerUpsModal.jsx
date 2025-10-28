@@ -109,12 +109,13 @@ export default function PowerUpsModal(){
                         </div>
                     </div>
                 </div>
-                <div className={`user-power`}>
+                <div className={`user-power ${sweepNA ? "not-available" : ""}`}>
                     <button className={`
                             power-button sweep-button
                             ${confirmPower === `Add Sweep x${sweepQty}` ? "glow" : ""}
                             `} 
                         onClick={() => addSweep()}
+                        disabled={sweepNA}
                     >
                         <img 
                             className={`
@@ -137,12 +138,13 @@ export default function PowerUpsModal(){
                         </div>
                     </div>
                 </div>
-                <div className={`user-power`}>
+                <div className={`user-power ${insightNA ? "not-available" : ""}`}>
                     <button className={`
                             power-button insight-button
                             ${confirmPower === `Add Insight x${insightQty}` ? "glow" : ""}
                             `} 
                         onClick={() => addInsight()}
+                        disabled={insightNA}
                     >
                         <img 
                             className={`
@@ -167,12 +169,13 @@ export default function PowerUpsModal(){
                 </div>
             </div>
             <div className="power-ups-container passive-powers">
-                <div className={`user-power`}>
+                <div className={`user-power ${charityNA ? "not-available" : ""}`}>
                     <button className={`
                             power-button charity-button
                             ${confirmPower === `Add Charity ${roman[charityLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addCharity()}
+                        disabled={charityNA}
                     >
                         <img 
                             className={`
@@ -197,12 +200,13 @@ export default function PowerUpsModal(){
                         </div>
                     </div>
                 </div>
-                <div className={`user-power`}>
+                <div className={`user-power ${luckyNA ? "not-available" : ""}`}>
                     <button className={`
                             power-button lucky-button
                             ${confirmPower === `Add Lucky ${roman[luckyLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addLucky()}
+                        disabled={luckyNA}
                     >
                         <img 
                             className={`
@@ -215,7 +219,7 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name lucky-name">
                             <div>{`Lucky ${roman[luckyLevel]}`}</div>
-                            <div>{`Current: ${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`}</div> 
+                            <div>{`Current: ${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`} / {(luckyLevel) * luckyInc}</div> 
                         </div>
                         <div className="power-select-desc">
                             {luckyNA
@@ -226,12 +230,13 @@ export default function PowerUpsModal(){
                         </div>
                     </div>
                 </div>
-                <div className={`user-power`}>
+                <div className={`user-power ${unluckyNA ? "not-available" : ""}`}>
                     <button className={`
                             power-button unlucky-button
                             ${confirmPower === `Add Unlucky ${roman[unluckyLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addUnlucky()}
+                        disabled={unluckyNA}
                     >
                         <img 
                             className={`
@@ -244,7 +249,7 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
                             <div>{`Unlucky ${roman[unluckyLevel]}`}</div>
-                            <div>{`Current: ${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))}`}</div> 
+                            <div>{`Current: ${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))} / ${(unluckyLevel) * unluckyInc}`}</div> 
                         </div>
                         <div className="power-select-desc">
                             {unluckyNA

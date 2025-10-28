@@ -28,6 +28,12 @@ export default function InventoryModal(){
         "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L"
     ]
 
+    const sweepNA = level < 12
+    const insightNA = level < 20
+    const charityNA = level < 16 
+    const luckyNA = level < 8
+    const unluckyNA = level < 8
+
     function useProbe() {
         setUsePower("Use Probe")
     }
@@ -99,7 +105,7 @@ export default function InventoryModal(){
                     <div className="inv-power-name">Probe</div>
                     <div className="inv-qty">{`Qty: ${probeCount}`}</div>
                 </div>
-                <div className="inv-power-container">    
+                <div className={`inv-power-container ${sweepNA ? "not-available" : ""}`}>    
                     <button 
                         className="power-button sweep-button inv-button" 
                         onClick={() => useSweep()} 
@@ -110,7 +116,7 @@ export default function InventoryModal(){
                     <div className="inv-power-name">Sweep</div>
                     <div className="inv-qty">{`Qty: ${sweepCount}`}</div>
                 </div>
-                <div className="inv-power-container">    
+                <div className={`inv-power-container ${insightNA ? "not-available" : ""}`}>    
                     <button 
                         className="power-button insight-button inv-button" 
                         onClick={() => useInsight()} 
@@ -121,21 +127,21 @@ export default function InventoryModal(){
                     <div className="inv-power-name">Insight</div>
                     <div className="inv-qty">{`Qty: ${insightCount}`}</div>
                 </div>
-                <div className="inv-power-container">    
+                <div className={`inv-power-container ${charityNA ? "not-available" : ""}`}>    
                     <button className="power-button charity-button inv-button">
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
                     </button>
                     <div className="inv-power-name">{charityLevel > 0 ? `Charity ${roman[charityLevel - 1]}` : ""}</div>
                     <div className="inv-qty">{charityLevel > 0 ? `%` : ""}</div>
                 </div>
-                <div className="inv-power-container">    
+                <div className={`inv-power-container ${luckyNA ? "not-available" : ""}`}>    
                     <button className="power-button lucky-button inv-button">
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
                     </button>
                     <div className="inv-power-name">{luckyLevel > 0 ? `Lucky ${roman[luckyLevel - 1]}` : ""}</div>
                     <div className="inv-qty">{luckyLevel > 0 ? `${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))} c` : ""}</div>
                 </div>
-                <div className="inv-power-container">    
+                <div className={`inv-power-container ${unluckyNA ? "not-available" : ""}`}>    
                     <button className="power-button unlucky-button inv-button">
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
