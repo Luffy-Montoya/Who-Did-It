@@ -89,17 +89,14 @@ export default function Layout() {
     const [phiArray, setPhiArray] = React.useState([])
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
-    const [charityTries, setCharityTries] = React.useState(0)
+    const [charityCount, setCharityCount] = React.useState(0)
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 1.5) / 5) * 5
     const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 2.5) / 5) * 5
 
     const coinsWon = calcCoinsWon(level)
-    
-    const charityBase = [0, 2, 3, 4, 5, 6, 7, 8]
-    const charityIncrease = 1.5
-    const charityValue = charityBase[charityLevel] * Math.pow(charityIncrease, charityTries) 
-        
+    const charityMin = [0, 10, 8, 6, 4]
+
 
     function calcCoinsWon(level) {
         const base = 45                      // starting reward
@@ -135,7 +132,7 @@ export default function Layout() {
             probeActivated, setProbeActivated, heroModeActivated, setHeroModeActivated,
             inventoryHidden, setInventoryHidden, usePower, setUsePower, cantAffordDisplay, 
             setCantAffordDisplay, toCantAfford, setToCantAfford, charityEnabled, setCharityEnabled,
-            importedChars, setImportedChars, charityValue, charityBase, charityTries, setCharityTries   
+            importedChars, setImportedChars, charityCount, setCharityCount, charityMin   
         }}>
 
             <div className="layout">

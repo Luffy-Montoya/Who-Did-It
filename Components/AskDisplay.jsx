@@ -20,7 +20,7 @@ export default function AskDisplay() {
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
         setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
-        setInsightCount, level, setAskTrigger, charityEnabled, setCharityTries, charityLevel 
+        setInsightCount, level, charityEnabled, setCharityCount, charityLevel 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -157,18 +157,14 @@ export default function AskDisplay() {
         },350)
     }
 
-    function insight() {
-        console.log("insight ran")
-    }
-
     function ask() {
         console.log("Asked");
         if (charityLevel > 0 && !charityEnabled) {
-            setCharityTries(prev => prev + 1)
+            setCharityCount(prev => prev + 1)
         }
         if (charityEnabled) {
             setCharityEnabled(false)
-            setCharityTries(0)
+            setCharityCount(0)
         }
 
         if (probeEnabled) {

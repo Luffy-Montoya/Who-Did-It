@@ -12,7 +12,7 @@ export default function PowerUpsModal(){
         powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
-            selectDisabled, setSelectDisabled, level, charityBase
+            selectDisabled, setSelectDisabled, level, charityMin, setCharityEnabled
     } = React.useContext(LayoutContext)
 
     const roman = [
@@ -58,6 +58,7 @@ export default function PowerUpsModal(){
                 setInsightCount(prev => prev + insightQty)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setCharityLevel(prev => prev + 1)
+                setCharityEnabled(true)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
                 setLuckyLevel(prev => prev + 1)
             } else if (confirmPower === `Add Unlucky ${roman[unluckyLevel]}`) {
@@ -129,12 +130,14 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
-                            <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[4]}`}</div>
-                            <div>{`Current: ${charityBase[charityLevel]}%`}</div> 
+                            <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[3]}`}</div>
+                            <div>{`Current: ${charityMin[charityLevel]}-${charityMin[charityLevel] + 2}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {charityLevel < 4 ? `${charityBase[charityLevel + 1]}% chance to get a free question.` : "Maxed."}  
-                            <div>Increases by 50% after any question.</div>
+                            {charityLevel < 4 
+                            ? `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 2} questions` 
+                            : "Maxed."}  
+                            <div></div>
                         </div>
                     </div>
                 </div>

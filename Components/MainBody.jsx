@@ -26,7 +26,7 @@ export default function MainBody() {
       setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
       sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled,
       setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars,
-      charityValue
+      charityCount, setCharityCount, charityMin
     } = React.useContext( LayoutContext )
 
     // Weighted random culprit picker
@@ -192,25 +192,6 @@ export default function MainBody() {
       }
     }, [row1, row2, row3, row4])
 
-    const prevWalletRef = React.useRef(wallet);
-
-    React.useEffect(() => {
-      if (wallet < prevWalletRef.current) {
-        console.log("Wallet decreased!");
-
-        const shouldEnableCharity = (Math.random() * 100) < charityValue;
-
-        // Only update if it changed
-        setCharityEnabled(prev => {
-          const next = shouldEnableCharity;
-          return prev === next ? prev : next;
-        });
-
-      }
-
-      prevWalletRef.current = wallet;
-    }, [wallet, charityLevel]);
-
     React.useEffect(() => {
       if(gameResetting){
 
@@ -294,6 +275,27 @@ export default function MainBody() {
         refs: { secondArranged, thirdArranged, fourthArranged, fifthArranged, sixthArranged }
       })
     }, [charactersLeft])
+
+    React.useEffect(() => {
+      charityRoll()
+    }, [charityCount])
+
+    function charityRoll() {
+      if (charityCount === charityMin[charityLevel]) {
+        if (Math.random() < 1/3) {
+          setCharityEnabled(true)
+          setCharityCount(0)
+        } 
+      } else if (charityCount === charityMin[charityLevel] + 1) {
+        if (Math.random() < 0.5) {
+          setCharityEnabled(true)
+          setCharityCount(0)
+        }
+      } else if (charityCount === charityMin[charityLevel] + 2) {
+        setCharityEnabled(true)
+        setCharityCount(0)
+      }
+    }
 
     function getCharacterSize(len) {
       if (sizeChanging) {
