@@ -254,7 +254,7 @@ export default function PowerUpsModal(){
                         <div className="power-select-desc">
                             {unluckyNA
                                 ? `Available on Level ${(unluckyLevel * 16) + 8}`
-                                : `Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "Yes" answer.`
+                                : `Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`
                             } 
                             {!unluckyNA && <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} on every ${unluckyRate}th level`}</div>}
                         </div>
