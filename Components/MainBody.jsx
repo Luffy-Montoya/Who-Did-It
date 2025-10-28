@@ -281,19 +281,21 @@ export default function MainBody() {
     }, [charityCount])
 
     function charityRoll() {
-      if (charityCount === charityMin[charityLevel]) {
-        if (Math.random() < 1/3) {
-          setCharityEnabled(true)
-          setCharityCount(0)
-        } 
-      } else if (charityCount === charityMin[charityLevel] + 1) {
-        if (Math.random() < 0.5) {
+      if (charityLevel > 0) {
+        if (charityCount === charityMin[charityLevel]) {
+          if (Math.random() < 1/3) {
+            setCharityEnabled(true)
+            setCharityCount(0)
+          } 
+        } else if (charityCount === charityMin[charityLevel] + 1) {
+          if (Math.random() < 0.5) {
+            setCharityEnabled(true)
+            setCharityCount(0)
+          }
+        } else if (charityCount === charityMin[charityLevel] + 2) {
           setCharityEnabled(true)
           setCharityCount(0)
         }
-      } else if (charityCount === charityMin[charityLevel] + 2) {
-        setCharityEnabled(true)
-        setCharityCount(0)
       }
     }
 

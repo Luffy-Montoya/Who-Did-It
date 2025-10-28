@@ -169,7 +169,7 @@ export default function PowerUpsModal(){
                 </div>
             </div>
             <div className="power-ups-container passive-powers">
-                <div className={`user-power ${charityNA ? "not-available" : ""}`}>
+                <div className={`user-power ${charityNA && charityLevel < 4 ? "not-available" : ""}`}>
                     <button className={`
                             power-button charity-button
                             ${confirmPower === `Add Charity ${roman[charityLevel]}` ? "glow" : ""}
