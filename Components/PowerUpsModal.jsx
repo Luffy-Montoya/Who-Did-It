@@ -72,14 +72,31 @@ export default function PowerUpsModal(){
         }
     }
 
+    const sweepNA = level < 12
+    const insightNA = level < 20
+    const charityNA = level < (charityLevel * 16) + 16 || charityLevel === 4
+    const luckyNA = level < (luckyLevel * 16) + 8
+    const unluckyNA = level < (unluckyLevel * 16) + 8
 
     return (
         <div className={`power-ups-modal ${powerSelectHidden ? "power-select-hidden" : ""}`}>
             <div className="power-ups-title">Choose a Power</div>
             <div className="power-ups-container active-powers">
                 <div className={`user-power`}>
-                    <button className="power-button probe-button" onClick={() => addProbe()}>
-                        <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
+                    <button 
+                        className={`
+                            power-button probe-button
+                            ${confirmPower === `Add Probe x${probeQty}` ? "glow" : ""}
+                            `} 
+                        onClick={() => addProbe()}
+                    >
+                        <img 
+                            className={`
+                                power-logo probe-logo
+                                ${confirmPower === `Add Probe x${probeQty}` ? "glow" : ""}
+                                `} 
+                            src="images/probe.png" alt="probe"
+                        />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
@@ -93,8 +110,19 @@ export default function PowerUpsModal(){
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button sweep-button" onClick={() => addSweep()}>
-                        <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
+                    <button className={`
+                            power-button sweep-button
+                            ${confirmPower === `Add Sweep x${sweepQty}` ? "glow" : ""}
+                            `} 
+                        onClick={() => addSweep()}
+                    >
+                        <img 
+                            className={`
+                                power-logo sweep-logo
+                                ${confirmPower === `Add Sweep x${sweepQty}` ? "glow" : ""}
+                                `} 
+                            src="images/broom.png" alt="sweep"
+                        />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
@@ -102,14 +130,27 @@ export default function PowerUpsModal(){
                             <div>{`Qty: ${sweepCount}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            {`Instantly eliminate ~${sweepValue}% of the innocent suspects at random.`}
+                            {sweepNA
+                                ? "Available on Level 12."
+                                : `Instantly eliminate ~${sweepValue}% of the innocent suspects at random.`}
                             <div></div>
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button insight-button" onClick={() => addInsight()}>
-                        <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
+                    <button className={`
+                            power-button insight-button
+                            ${confirmPower === `Add Insight x${insightQty}` ? "glow" : ""}
+                            `} 
+                        onClick={() => addInsight()}
+                    >
+                        <img 
+                            className={`
+                                power-logo insight-logo
+                                ${confirmPower === `Add Insight x${insightQty}` ? "glow" : ""}
+                                `}  
+                            src="images/insight.png" alt="insight"
+                        />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
@@ -117,7 +158,9 @@ export default function PowerUpsModal(){
                             <div>{`Qty: ${insightCount}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            Select any number of suspects and reveal if the culprit is in that group.
+                            {insightNA
+                                ? "Available on Level 20."
+                                : "Select any number of suspects and reveal if the culprit is in that group."}
                             <div></div>
                         </div>
                     </div>
@@ -125,25 +168,49 @@ export default function PowerUpsModal(){
             </div>
             <div className="power-ups-container passive-powers">
                 <div className={`user-power`}>
-                    <button className="power-button charity-button" onClick={() => addCharity()} disabled={charityLevel === 4}>
-                        <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
+                    <button className={`
+                            power-button charity-button
+                            ${confirmPower === `Add Charity ${roman[charityLevel]}` ? "glow" : ""}
+                            `} 
+                        onClick={() => addCharity()}
+                    >
+                        <img 
+                            className={`
+                                power-logo charity-logo
+                                ${confirmPower === `Add Charity ${roman[charityLevel]}` ? "glow" : ""}
+                                `}  
+                                src="images/gift.png" alt="charity"
+                        />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
                             <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[3]}`}</div>
-                            <div>{`Current: ${charityMin[charityLevel]}-${charityMin[charityLevel] + 2}`}</div> 
+                            <div>{`Current: ${charityMin[charityLevel]}-${charityLevel > 0 ? charityMin[charityLevel] + 2 : 0}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {charityLevel < 4 
-                            ? `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 2} questions` 
-                            : "Maxed."}  
-                            <div></div>
+                            {charityNA && charityLevel < 4
+                                ? `Available on Level ${(charityLevel + 1) * 16}`
+                                : charityLevel < 4 
+                                ? `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 2} questions` 
+                                : "Maxed."
+                            }  
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button lucky-button" onClick={() => addLucky()}>
-                        <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
+                    <button className={`
+                            power-button lucky-button
+                            ${confirmPower === `Add Lucky ${roman[luckyLevel]}` ? "glow" : ""}
+                            `} 
+                        onClick={() => addLucky()}
+                    >
+                        <img 
+                            className={`
+                                power-logo lucky-logo
+                                ${confirmPower === `Add Lucky ${roman[luckyLevel]}` ? "glow" : ""}
+                                `} 
+                            src="images/clover.png" alt="lucky"
+                        />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name lucky-name">
@@ -151,14 +218,28 @@ export default function PowerUpsModal(){
                             <div>{`Current: ${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`}  
-                            <div>{`Increases by ${(luckyLevel + 1) * luckyInc} every ${luckyRate}th level`}</div>
+                            {luckyNA
+                                ? `Available on Level ${(luckyLevel * 16) + 8}`
+                                : `Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`
+                            } 
+                            {!luckyNA && <div>{`Increases by ${(luckyLevel + 1) * luckyInc} on every ${luckyRate}th level`}</div>}
                         </div>
                     </div>
                 </div>
                 <div className={`user-power`}>
-                    <button className="power-button unlucky-button" onClick={() => addUnlucky()}>
-                        <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
+                    <button className={`
+                            power-button unlucky-button
+                            ${confirmPower === `Add Unlucky ${roman[unluckyLevel]}` ? "glow" : ""}
+                            `} 
+                        onClick={() => addUnlucky()}
+                    >
+                        <img 
+                            className={`
+                                power-logo unlucky-logo
+                                ${confirmPower === `Add Unlucky ${roman[unluckyLevel]}` ? "glow" : ""}
+                                `} 
+                            src="images/mirror.png" alt="unlucky"
+                        />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name unlucky-name">
@@ -166,8 +247,11 @@ export default function PowerUpsModal(){
                             <div>{`Current: ${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {`Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`}  
-                            <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} every ${unluckyRate}th level`}</div>
+                            {unluckyNA
+                                ? `Available on Level ${(unluckyLevel * 16) + 8}`
+                                : `Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "Yes" answer.`
+                            } 
+                            {!unluckyNA && <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} on every ${unluckyRate}th level`}</div>}
                         </div>
                     </div>
                 </div>
