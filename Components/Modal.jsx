@@ -3,6 +3,8 @@ import { LayoutContext } from "./Layout"
 
 export default function Modal(){
 
+    const [levelInput, setLevelInput] = React.useState("")
+
     const { 
         modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
         setGameOver, setGameResetting, setLevel, culprit, firstModalGone, setFirstModalGone,
@@ -66,7 +68,21 @@ export default function Modal(){
                 <button onClick={() => startGame(false)} className="modal-button-1">Ask Away!</button> :
                 <button onClick={() => nextRound()} className="modal-button-2">Next Round</button>
                 }
-            </div> 
+            </div>
+            <form
+                onSubmit={(e) => {
+                e.preventDefault()
+                setLevel(Number(levelInput)) // use your existing setLevel()
+                }}
+            >
+                <input
+                type="number"
+                value={levelInput}
+                onChange={(e) => setLevelInput(e.target.value)}
+                placeholder="Enter level"
+                />
+                <button type="submit">Jump to Level</button>
+            </form>
         </div>
     )
 }
