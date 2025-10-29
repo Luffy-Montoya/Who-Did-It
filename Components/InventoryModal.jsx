@@ -94,7 +94,6 @@ export default function InventoryModal(){
                 setTimeout(() => {
                     setSweepEnabled(false)
                 }, 1000)
-                setSweepTracker(0)
         }   
     }
 
