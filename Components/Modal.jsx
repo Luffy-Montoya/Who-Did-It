@@ -8,7 +8,7 @@ export default function Modal(){
     const { 
         modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
         setGameOver, setGameResetting, setLevel, culprit, firstModalGone, setFirstModalGone,
-        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount, setWallet, wallet
+        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount, setWallet, lastCulprit, setLastCulprit
     } = React.useContext(LayoutContext)
 
     function startGame() {
@@ -22,6 +22,7 @@ export default function Modal(){
     }
 
     function nextRound() {
+        setLastCulprit(culprit.name)
         if (heroBonus) {
             setWallet(prev => prev + heroAmount)
         } else if (lowWalletBonus) {
@@ -36,7 +37,10 @@ export default function Modal(){
 
     return (
         <div className={`modal ${modalVisible ? "" : "offscreen"}`}>
-            <div className="modal-top-text">{!firstModalGone ? "Someone spilled the beans..." : `It was ${culprit.name}!`}</div>
+            <div className="modal-top-text">
+                <div>{!firstModalGone ? "Someone spilled the beans..." : `It was ${culprit.name}!`}</div>
+                <div>{`Last Culprit: ${lastCulprit}`}</div>
+            </div>
             <div className="modal-bottom-text-container">
                 <div className="bottom-text-1">
                     {

@@ -241,7 +241,7 @@ export default function PowerUpsModal(){
                             ${confirmPower === `Add Lucky ${roman[luckyLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addLucky()}
-                        disabled={luckyNA || unluckyUPNA}
+                        disabled={luckyNA || luckyUPNA}
                     >
                         <img 
                             className={`
