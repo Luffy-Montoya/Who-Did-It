@@ -48,7 +48,7 @@ export default function Layout() {
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
-    const [wallet, setWallet] = React.useState(100)
+    const [wallet, setWallet] = React.useState(250)
     const [level, setLevel] = React.useState(1)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
@@ -97,6 +97,9 @@ export default function Layout() {
     const [sweepTracker, setSweepTracker] = React.useState(0)
     const [insightTracker, setInsightTracker] = React.useState(0)
     const [lastCulprit, setLastCulprit] = React.useState("N/A")
+    const [probeEarned, setProbeEarned] = React.useState(false)
+    const [sweepEarned, setSweepEarned] = React.useState(false)
+    const [insightEarned, setInsightEarned] = React.useState(false)
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 1.5) / 5) * 5
     const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 2.5) / 5) * 5
@@ -140,7 +143,8 @@ export default function Layout() {
             importedChars, setImportedChars, charityCount, setCharityCount,
             probeLevel, setProbeLevel, sweepLevel, setSweepLevel, insightLevel, setInsightLevel,
             probeTracker, setProbeTracker, sweepTracker, setSweepTracker, insightTracker, setInsightTracker,
-            lastCulprit, setLastCulprit     
+            lastCulprit, setLastCulprit, probeEarned, setProbeEarned, sweepEarned, setSweepEarned,
+            insightEarned, setInsightEarned     
         }}>
 
             <div className="layout">

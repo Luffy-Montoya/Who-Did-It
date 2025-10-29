@@ -54,24 +54,33 @@ export default function PowerUpsModal(){
         if (confirmPower != "Select Power") {
             setPowerSelectHidden(true)
             if (confirmPower === `Add Probe ${roman[probeLevel]}`) {
-                setProbeCount(prev => prev + probeQty)
-                setProbeLevel(prev => prev + 1)
-                setProbeTracker(0)
+                setTimeout(() => {
+                    setProbeCount(prev => prev + probeQty)
+                    setProbeLevel(prev => prev + 1)
+                }, 500)      
             } else if (confirmPower === `Add Sweep ${roman[sweepLevel]}`) {
-                setSweepCount(prev => prev + sweepQty)
-                setSweepLevel(prev => prev + 1)
-                setSweepTracker(0)
+                setTimeout(() => {
+                    setSweepCount(prev => prev + sweepQty)
+                    setSweepLevel(prev => prev + 1) 
+                }, 500)          
             } else if (confirmPower === `Add Insight ${roman[insightLevel]}`) {
-                setInsightCount(prev => prev + insightQty)
-                setInsightLevel(prev => prev + 1)
-                setInsightTracker(0)
+                setTimeout(() => {
+                    setInsightCount(prev => prev + insightQty)
+                    setInsightLevel(prev => prev + 1)
+                }, 500)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
-                setCharityLevel(prev => prev + 1)
-                setCharityEnabled(true)
+                setTimeout(() => {
+                    setCharityLevel(prev => prev + 1)
+                    setCharityEnabled(true)
+                }, 500)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
-                setLuckyLevel(prev => prev + 1)
+                setTimeout(() => {
+                    setLuckyLevel(prev => prev + 1)
+                }, 500)
             } else if (confirmPower === `Add Unlucky ${roman[unluckyLevel]}`) {
-                setUnluckyLevel(prev => prev + 1)
+                setTimeout(() => {
+                    setUnluckyLevel(prev => prev + 1)
+                }, 500)
             }
             setSelectDisabled(true)
             setTimeout(() => {

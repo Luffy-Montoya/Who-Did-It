@@ -66,6 +66,11 @@ h3 {
   gap: 1em;
 }
 
+.power-won {
+  font-size: 1rem;
+  margin: -.45em;
+}
+
 .bottom-text-1 {
   display: flex;
 }

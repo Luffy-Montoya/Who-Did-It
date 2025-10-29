@@ -20,8 +20,7 @@ export default function AskDisplay() {
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
         setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
-        setInsightCount, level, charityEnabled, setCharityCount, charityLevel,
-        setProbeTracker, setInsightTracker 
+        setInsightCount, level, charityEnabled, setCharityCount, charityLevel 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -172,13 +171,11 @@ export default function AskDisplay() {
         if (probeEnabled) {
             selectCharacter("name", askQuestion[2], 0);
             setProbeCount(prev => prev - 1);
-            setProbeTracker(0)
             setProbeEnabled(false);
             setInsightEnabled(false);
         } else if (insightEnabled) {
             selectCharacter(...parameters);
             setInsightCount(prev => prev - 1);
-            setInsightTracker(0)
             setProbeEnabled(false);
             setInsightEnabled(false);
         } else {

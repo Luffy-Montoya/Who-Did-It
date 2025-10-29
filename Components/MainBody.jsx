@@ -28,7 +28,8 @@ export default function MainBody() {
       setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars,
       charityCount, setCharityCount, probeLevel, sweepLevel, insightLevel,
       setProbeTracker, setSweepTracker, setInsightTracker, probeTracker,
-      sweepTracker, insightTracker, setSweepCount, setInsightCount
+      sweepTracker, insightTracker, setSweepCount, setInsightCount,
+      setProbeEarned, setSweepEarned, setInsightEarned
     } = React.useContext( LayoutContext )
 
     // Weighted random culprit picker
@@ -300,10 +301,12 @@ export default function MainBody() {
         if (probeTracker === probeMin[probeLevel]) {
           if (Math.random() < 1/2) {
             setProbeCount(prev => prev + 1)
+            setProbeEarned(true)
             setProbeTracker(0)
           }
         } else if (probeTracker === probeMin[probeLevel] + 1) {
             setProbeCount(prev => prev + 1)
+            setProbeEarned(true)
             setProbeTracker(0)
         }
       }
@@ -314,10 +317,12 @@ export default function MainBody() {
         if (sweepTracker === sweepMin[sweepLevel]) {
           if (Math.random() < 1/2) {
             setSweepCount(prev => prev + 1)
+            setSweepEarned(true)
             setSweepTracker(0)
           }
         } else if (sweepTracker === sweepMin[sweepLevel] + 1) {
             setSweepCount(prev => prev + 1)
+            setSweepEarned(true)
             setSweepTracker(0)
         }
       }
@@ -328,10 +333,12 @@ export default function MainBody() {
         if (insightTracker === insightMin[insightLevel]) {
           if (Math.random() < 1/2) {
             setInsightCount(prev => prev + 1)
+            setInsightEarned(true)
             setInsightTracker(0)
           }
         } else if (insightTracker === insightMin[insightLevel] + 1) {
             setInsightCount(prev => prev + 1)
+            setInsightEarned(true)
             setInsightTracker(0)
         }
       }

@@ -8,7 +8,8 @@ export default function Modal(){
     const { 
         modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
         setGameOver, setGameResetting, setLevel, culprit, firstModalGone, setFirstModalGone,
-        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount, setWallet, lastCulprit, setLastCulprit
+        coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount, setWallet, lastCulprit, setLastCulprit,
+        probeEarned, sweepEarned, insightEarned, setProbeEarned, setInsightEarned, setSweepEarned
     } = React.useContext(LayoutContext)
 
     function startGame() {
@@ -29,8 +30,11 @@ export default function Modal(){
             setWallet(prev => prev + lowWalletAmount)
         }
         setModalVisible(false)
-        setLevel(prev => prev + 1)
         setTimeout(() => {
+            setLevel(prev => prev + 1)
+            setProbeEarned(false)
+            setSweepEarned(false)
+            setInsightEarned(false)
             setGameResetting(true)
         }, 500)
         }
@@ -52,8 +56,10 @@ export default function Modal(){
                             ? `+ ${coinsWon} coins!` 
                                 : `+ ${coinsWon} coins!`
                     }
-
                 </div>
+                {probeEarned && <div className="power-won">+1 Probe!</div>}
+                {sweepEarned && <div className="power-won">+1 Sweep!</div>}
+                {insightEarned && <div className="power-won">+1 Insight!</div>}
                 <div className="bottom-text-2">
                     {
                     !firstModalGone 
