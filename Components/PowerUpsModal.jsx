@@ -118,7 +118,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
-                            <div>{`Probe ${roman[probeLevel]} - x${probeQty}`}</div>
+                            <div>{`Probe ${probeLevel === 4 ? roman[probeLevel - 1] : roman[probeLevel]} - x${probeQty}`}</div>
                             <div>{`Qty: ${probeCount} / ${probeMin[probeLevel]}-${probeLevel > 0 ? probeMin[probeLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -151,7 +151,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
-                            <div>{`Sweep ${sweepUPNA ? roman[sweepLevel - 1] : roman[sweepLevel]} - x${sweepQty}`}</div>
+                            <div>{`Sweep ${sweepLevel === 4 ? roman[sweepLevel - 1] : roman[sweepLevel]} - x${sweepQty}`}</div>
                             <div>{`Qty: ${sweepCount} / ${sweepMin[sweepLevel]}-${sweepLevel > 0 ? sweepMin[sweepLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -184,7 +184,7 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
-                            <div>{`Insight ${roman[insightLevel]} - x${insightQty}`}</div>
+                            <div>{`Insight ${insightLevel === 4 ? roman[insightLevel - 1] : roman[insightLevel]} - x${insightQty}`}</div>
                             <div>{`Qty: ${insightCount} / ${insightMin[insightLevel]}-${insightLevel > 0 ? insightMin[insightLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
