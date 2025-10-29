@@ -56,15 +56,15 @@ export default function PowerUpsModal(){
             if (confirmPower === `Add Probe ${roman[probeLevel]}`) {
                 setProbeCount(prev => prev + probeQty)
                 setProbeLevel(prev => prev + 1)
-                setProbeTracker(1)
+                setProbeTracker(0)
             } else if (confirmPower === `Add Sweep ${roman[sweepLevel]}`) {
                 setSweepCount(prev => prev + sweepQty)
                 setSweepLevel(prev => prev + 1)
-                setSweepTracker(1)
+                setSweepTracker(0)
             } else if (confirmPower === `Add Insight ${roman[insightLevel]}`) {
                 setInsightCount(prev => prev + insightQty)
                 setInsightLevel(prev => prev + 1)
-                setInsightTracker(1)
+                setInsightTracker(0)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setCharityLevel(prev => prev + 1)
                 setCharityEnabled(true)

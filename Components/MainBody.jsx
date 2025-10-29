@@ -64,31 +64,39 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (firstGameStarted && gameStarted && !gameStartRef.current) {
-        // Step 1: pick culprit using weights
-        const chosenCulprit = pickWeightedCulprit(importedChars);
-        setCulprit(chosenCulprit);
+        if (firstGameStarted && gameStarted && !gameStartRef.current) {
+          // 1️⃣ Start with updated weights
+          const updatedWeights = importedChars.map(c => ({ ...c }))
 
-        // Step 2: update the weights
-        const updatedWeights = updateChances(importedChars, chosenCulprit.id);
-        setImportedChars(updatedWeights);
+          // 2️⃣ Generate fresh names for this round
+          const freshChars = getCharacters();
 
-        // Step 3: rebuild characters fresh for display (names + shuffle)
-        const freshChars = getCharacters();
-        const combined = freshChars.map(fc => {
-          const prev = updatedWeights.find(p => p.id === fc.id);
-          return { ...fc, chance: prev ? prev.chance : 1 };
-        });
+          // 3️⃣ Merge chance values
+          const combined = freshChars.map(fc => {
+            const prev = updatedWeights.find(p => p.id === fc.id);
+            return { ...fc, chance: prev ? prev.chance : 1 };
+          });
 
-        const shuffledChars = shuffleCharacters(combined);
-        setShuffled(shuffledChars);
-        setRow1(shuffledChars.slice(0, 6));
-        setRow2(shuffledChars.slice(6, 12));
-        setRow3(shuffledChars.slice(12, 18));
-        setRow4(shuffledChars.slice(18));
-        setCharactersLeft(shuffledChars);
+          // 4️⃣ Pick culprit *from the same combined list*
+          const chosenCulprit = pickWeightedCulprit(combined);
+          setCulprit(chosenCulprit);
 
-        loadCharacters();
-        gameStartRef.current = true;
+          // 5️⃣ Update weights now that culprit is chosen
+          const newWeights = updateChances(combined, chosenCulprit.id);
+          setImportedChars(newWeights);
+
+          // 6️⃣ Shuffle and display
+          const shuffledChars = shuffleCharacters(combined);
+          setShuffled(shuffledChars);
+          setRow1(shuffledChars.slice(0, 6));
+          setRow2(shuffledChars.slice(6, 12));
+          setRow3(shuffledChars.slice(12, 18));
+          setRow4(shuffledChars.slice(18));
+          setCharactersLeft(shuffledChars);
+
+          loadCharacters();
+          gameStartRef.current = true;
+        }
       }
     }, [gameStarted])
 
