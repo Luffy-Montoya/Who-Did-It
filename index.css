@@ -261,10 +261,12 @@ h3 {
   box-shadow: 0 1px 5px rgb(25,100,25,.7);
   border: 1px solid rgb(50,125,50);
   display: flex;
+  transition: .3s;
 }
 
 .lucky-button.glow {
   box-shadow: 0 1px 9px rgb(50,200,50,.9);
+  transition: .3s;
 }
 
 .lucky-logo {
@@ -292,11 +294,13 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(50,50,100,.7);
-  border: 1px solid rgb(75,75,150); 
+  border: 1px solid rgb(75,75,150);
+  transition: .3s; 
 }
 
 .unlucky-button.glow {
   box-shadow: 0 1px 9px rgb(100,100,200,.9);
+  transition: .3s;
 }
 
 .unlucky-logo {
@@ -317,11 +321,13 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,75,15,.7);
-  border: 1px solid rgb(175,145,25); 
+  border: 1px solid rgb(175,145,25);
+  transition: .3s; 
 }
 
 .charity-button.glow {
-  box-shadow: 0 1px 9px rgb(200,150,30,1); 
+  box-shadow: 0 1px 9px rgb(200,150,30,1);
+  transition: .3s; 
 }
 
 .charity-logo {
@@ -343,11 +349,13 @@ h3 {
   box-shadow: 0 1px 5px rgb(0,25,100,.7);
   border: 1px solid rgb(0,50,125);
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  transition: .3s; 
 }
 
 .insight-button.glow {
   box-shadow: 0 1px 9px rgb(0,50,200,1);
+  transition: .3s;
 }
 
 .insight-logo {
@@ -367,11 +375,13 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,50,0,.7);
-  border: 1px solid rgb(125,75,0); 
+  border: 1px solid rgb(125,75,0);
+  transition: .3s; 
 }
 
 .sweep-button.glow {
   box-shadow: 0 1px 9px rgb(200,100,0,1);
+  transition: .3s;
 }
 
 .sweep-logo {
@@ -392,10 +402,12 @@ h3 {
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,15,15,.7);
   border: 1px solid rgb(100,20,20);
+  transition: .3s;
 }
 
 .probe-button.glow {
   box-shadow: 0 1px 9px rgb(200,30,30,1);
+  transition: .3s;
 }
 
 .probe-logo {

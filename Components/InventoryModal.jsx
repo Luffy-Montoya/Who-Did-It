@@ -112,7 +112,7 @@ export default function InventoryModal(){
                         <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
                     </button>
                     <div className="inv-power-name">
-                        {probeLevel === 4 ? "Probe IV" : `Probe ${roman[probeLevel]}`}
+                        {probeLevel === 4 ? "Probe IV" : `Probe ${roman[probeLevel - 1]}`}
                     </div>
                     <div className="inv-qty">{`Qty: ${probeCount} / ${probeMin[probeLevel]}-${probeLevel > 0 ? probeMin[probeLevel] + 1 : "0"}`}</div>
                 </div>
@@ -125,7 +125,7 @@ export default function InventoryModal(){
                         <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
                     </button>
                     <div className="inv-power-name">
-                        {sweepLevel === 4 ? "Sweep IV" : sweepLevel === 0 ? "Sweep" : `Sweep ${roman[sweepLevel]}`}
+                        {sweepLevel === 4 ? "Sweep IV" : sweepLevel === 0 ? "Sweep" : `Sweep ${roman[sweepLevel - 1]}`}
                         </div>
                     <div className="inv-qty">{`Qty: ${sweepCount} / ${sweepMin[sweepLevel]}-${sweepLevel > 0 ? sweepMin[sweepLevel] + 1 : "0"}`}</div>
                 </div>
@@ -138,7 +138,7 @@ export default function InventoryModal(){
                         <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
                     </button>
                     <div className="inv-power-name">
-                        {insightLevel === 4 ? "Insight IV" : insightLevel === 0 ? "Insight" : `Insight ${roman[insightLevel]}`}
+                        {insightLevel === 4 ? "Insight IV" : insightLevel === 0 ? "Insight" : `Insight ${roman[insightLevel - 1]}`}
                         </div>
                     <div className="inv-qty">{`Qty: ${insightCount} / ${insightMin[insightLevel]}-${insightLevel > 0 ? insightMin[insightLevel] + 1 : "0"}`}</div>
                 </div>
