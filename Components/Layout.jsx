@@ -76,6 +76,9 @@ export default function Layout() {
     const [probeCount, setProbeCount] = React.useState(0)
     const [sweepCount, setSweepCount] = React.useState(0)
     const [insightCount, setInsightCount] = React.useState(0)
+    const [probeLevel, setProbeLevel] = React.useState(0)
+    const [sweepLevel, setSweepLevel] = React.useState(0)
+    const [insightLevel, setInsightLevel] = React.useState(0)
     const [charityLevel, setCharityLevel] = React.useState(0)
     const [luckyLevel, setLuckyLevel] = React.useState(0)
     const [unluckyLevel, setUnluckyLevel] = React.useState(0)
@@ -90,13 +93,14 @@ export default function Layout() {
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
     const [charityCount, setCharityCount] = React.useState(0)
+    const [probeTracker, setProbeTracker] = React.useState(0)
+    const [sweepTracker, setSweepTracker] = React.useState(0)
+    const [insightTracker, setInsightTracker] = React.useState(0)
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 1.5) / 5) * 5
     const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 2.5) / 5) * 5
 
     const coinsWon = calcCoinsWon(level)
-    const charityMin = [0, 10, 8, 6, 4]
-
 
     function calcCoinsWon(level) {
         const base = 45                      // starting reward
@@ -132,7 +136,9 @@ export default function Layout() {
             probeActivated, setProbeActivated, heroModeActivated, setHeroModeActivated,
             inventoryHidden, setInventoryHidden, usePower, setUsePower, cantAffordDisplay, 
             setCantAffordDisplay, toCantAfford, setToCantAfford, charityEnabled, setCharityEnabled,
-            importedChars, setImportedChars, charityCount, setCharityCount, charityMin   
+            importedChars, setImportedChars, charityCount, setCharityCount,
+            probeLevel, setProbeLevel, sweepLevel, setSweepLevel, insightLevel, setInsightLevel,
+            probeTracker, setProbeTracker, sweepTracker, setSweepTracker, insightTracker, setInsightTracker     
         }}>
 
             <div className="layout">

@@ -242,6 +242,11 @@ h3 {
   transition: .5s;
 }
 
+.upgrade-NA {
+  opacity: 30%;
+  transition: .5s;
+}
+
 .lucky-button {
   background: linear-gradient(0deg, rgb(0, 75, 0, .5), rgb(50,200,50, .7), rgb(200,255,200, .6)), url(/images/white-button.png);
   background-size: cover;
@@ -264,6 +269,7 @@ h3 {
 
 .lucky-logo.glow {
   filter: drop-shadow(0 0 5px rgb(150,255,150,.9));
+  opacity: 100%;
 }
 
 .unlucky-button {
@@ -296,6 +302,7 @@ h3 {
 
 .unlucky-logo.glow {
   filter: drop-shadow(0 0 2px rgb(255,255,255,1));
+  opacity: 90%;
 }
 
 .charity-button {
@@ -318,7 +325,8 @@ h3 {
 }
 
 .charity-logo.glow {
-  filter: drop-shadow(0 0 5px rgb(255,235,200,1)); 
+  filter: drop-shadow(0 0 5px rgb(255,235,200,1));
+  opacity: 90%; 
 }
 
 .insight-button {
@@ -344,6 +352,7 @@ h3 {
 
 .insight-logo.glow {
   filter: drop-shadow(0 0 3px rgb(150,200,255,1));
+  opacity: 80%;
 }
 
 .sweep-button{
@@ -366,7 +375,8 @@ h3 {
 }
 
 .sweep-logo.glow {
-  filter: drop-shadow(0 0 3px rgb(255,230,200,.7));
+  filter: drop-shadow(0 0 3px rgb(150,75,0,.7));
+  opacity: 90%;
 }
 
 .probe-button {
@@ -391,6 +401,7 @@ h3 {
 
 .probe-logo.glow {
   filter: drop-shadow(0 0 3px rgb(255,150,150,1));
+  opacity: 85%;
 }
 
 .name-desc-container {

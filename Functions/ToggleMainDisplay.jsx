@@ -1,14 +1,20 @@
 import React from "react"
 import { LayoutContext } from "../Components/Layout"
+import { charityMin } from "./Balance"
 
 export default function ToggleMainDisplay(){
 
-const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charityLevel, charityCount, charityEnabled, charityMin} = React.useContext(LayoutContext)
+const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charityLevel, charityCount, charityEnabled,
+        probeTracker, sweepTracker, insightTracker
+    } = React.useContext(LayoutContext)
 
 function toggle(){
         setModalVisible(!modalVisible)
-        console.log("Charity Enabled: ", charityEnabled)
-        console.log("Charity Progress: ", charityCount, " / ", charityMin[charityLevel])
+        console.log("Probe: ", probeTracker)
+        console.log("Sweep: ", sweepTracker)
+        console.log("Insight: ", insightTracker)
+        console.log("Charity: ", charityCount)
+        
 }
 return (
     <>

@@ -3,8 +3,9 @@ import { LayoutContext } from "./Layout"
 import { toggleQuestion } from "../Functions/toggleQuestion"
 import { 
         probeQty, sweepQty, sweepValue, insightQty, 
-        insightValue, luckyValue, luckyInc, 
-        luckyRate, unluckyValue, unluckyInc, unluckyRate 
+        insightValue, luckyValue, luckyInc, charityMin, 
+        luckyRate, unluckyValue, unluckyInc, unluckyRate,
+        probeMin, sweepMin, insightMin, 
     } from "../Functions/Balance"
 
 export default function InventoryModal(){
@@ -16,7 +17,7 @@ export default function InventoryModal(){
             selectDisabled, setSelectDisabled, inventoryHidden, setInventoryHidden, usePower, setUsePower,
             setProbeEnabled, setSweepEnabled, setInsightEnabled, setFade, setToAsk, setToCategories,
             setAskDisplay, setCategoryDisplay, setOptionsBar, setYesOrNo, setPhiArray, setCharactersLeft,
-            level
+            level, setSweepTracker, probeLevel, insightLevel, sweepLevel
             
     } = React.useContext(LayoutContext)
 
@@ -86,6 +87,7 @@ export default function InventoryModal(){
                 setTimeout(() => {
                     setSweepEnabled(false)
                 }, 1000)
+                setSweepTracker(0)
         }   
     }
 
@@ -102,8 +104,8 @@ export default function InventoryModal(){
                     >
                         <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
                     </button>
-                    <div className="inv-power-name">Probe</div>
-                    <div className="inv-qty">{`Qty: ${probeCount}`}</div>
+                    <div className="inv-power-name">{`Probe ${roman[probeLevel]}`}</div>
+                    <div className="inv-qty">{`Qty: ${probeCount} / ${probeMin[probeLevel]}-${probeLevel > 0 ? probeMin[probeLevel] + 1 : "0"}`}</div>
                 </div>
                 <div className={`inv-power-container ${sweepNA ? "not-available" : ""}`}>    
                     <button 
@@ -113,8 +115,8 @@ export default function InventoryModal(){
                     >
                         <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
                     </button>
-                    <div className="inv-power-name">Sweep</div>
-                    <div className="inv-qty">{`Qty: ${sweepCount}`}</div>
+                    <div className="inv-power-name">{`Sweep ${roman[sweepLevel]}`}</div>
+                    <div className="inv-qty">{`Qty: ${sweepCount} / ${sweepMin[sweepLevel]}-${sweepLevel > 0 ? sweepMin[sweepLevel] + 1 : "0"}`}</div>
                 </div>
                 <div className={`inv-power-container ${insightNA ? "not-available" : ""}`}>    
                     <button 
@@ -124,8 +126,8 @@ export default function InventoryModal(){
                     >
                         <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
                     </button>
-                    <div className="inv-power-name">Insight</div>
-                    <div className="inv-qty">{`Qty: ${insightCount}`}</div>
+                    <div className="inv-power-name">{`Insight ${roman[insightLevel]}`}</div>
+                    <div className="inv-qty">{`Qty: ${insightCount} / ${insightMin[insightLevel]}-${insightLevel > 0 ? insightMin[insightLevel] + 1 : "0"}`}</div>
                 </div>
                 <div className={`inv-power-container ${charityNA ? "not-available" : ""}`}>    
                     <button className="power-button charity-button inv-button">

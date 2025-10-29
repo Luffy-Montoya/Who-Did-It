@@ -2,8 +2,9 @@ import React from "react"
 import { LayoutContext } from "./Layout"
 import { 
         probeQty, sweepQty, sweepValue, insightQty, 
-        insightValue, luckyValue, luckyInc, 
-        luckyRate, unluckyValue, unluckyInc, unluckyRate 
+        insightValue, luckyValue, luckyInc, charityMin, 
+        luckyRate, unluckyValue, unluckyInc, unluckyRate,
+        probeMin, sweepMin, insightMin 
     } from "../Functions/Balance"
 
 export default function PowerUpsModal(){
@@ -12,7 +13,9 @@ export default function PowerUpsModal(){
         powerSelectHidden, setPowerSelectHidden, probeCount, setProbeCount,
             sweepCount, setSweepCount, insightCount, setInsightCount, charityLevel, setCharityLevel,
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
-            selectDisabled, setSelectDisabled, level, charityMin, setCharityEnabled
+            selectDisabled, setSelectDisabled, level, setCharityEnabled, setProbeLevel, setSweepLevel,
+            setInsightLevel, setProbeTracker, setSweepTracker, setInsightTracker, probeLevel,
+            sweepLevel, insightLevel
     } = React.useContext(LayoutContext)
 
     const roman = [
@@ -24,15 +27,15 @@ export default function PowerUpsModal(){
     ]
 
     function addProbe() {
-        setConfirmPower(`Add Probe x${probeQty}`)
+        setConfirmPower(`Add Probe ${roman[probeLevel]}`)
     }
 
      function addSweep() {
-        setConfirmPower(`Add Sweep x${sweepQty}`)
+        setConfirmPower(`Add Sweep ${roman[sweepLevel]}`)
     }
 
      function addInsight() {
-        setConfirmPower(`Add Insight x${insightQty}`)
+        setConfirmPower(`Add Insight ${roman[insightLevel]}`)
     }
 
      function addCharity() {
@@ -50,12 +53,18 @@ export default function PowerUpsModal(){
     function addPower() {
         if (confirmPower != "Select Power") {
             setPowerSelectHidden(true)
-            if (confirmPower === `Add Probe x${probeQty}`) {
+            if (confirmPower === `Add Probe ${roman[probeLevel]}`) {
                 setProbeCount(prev => prev + probeQty)
-            } else if (confirmPower === `Add Sweep x${sweepQty}`) {
+                setProbeLevel(prev => prev + 1)
+                setProbeTracker(1)
+            } else if (confirmPower === `Add Sweep ${roman[sweepLevel]}`) {
                 setSweepCount(prev => prev + sweepQty)
-            } else if (confirmPower === `Add Insight x${insightQty}`) {
+                setSweepLevel(prev => prev + 1)
+                setSweepTracker(1)
+            } else if (confirmPower === `Add Insight ${roman[insightLevel]}`) {
                 setInsightCount(prev => prev + insightQty)
+                setInsightLevel(prev => prev + 1)
+                setInsightTracker(1)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setCharityLevel(prev => prev + 1)
                 setCharityEnabled(true)
@@ -74,108 +83,131 @@ export default function PowerUpsModal(){
 
     const sweepNA = level < 12
     const insightNA = level < 20
-    const charityNA = level < (charityLevel * 16) + 16 || charityLevel === 4
-    const luckyNA = level < (luckyLevel * 16) + 8
-    const unluckyNA = level < (unluckyLevel * 16) + 8
+    const charityNA = level < 16
+    const luckyNA = level < 8
+    const unluckyNA = level < 8
+
+    const probeUPNA = level < (probeLevel * 12) + 4 || probeLevel === 4
+    const sweepUPNA = level < (sweepLevel * 12) + 12 || sweepLevel === 4
+    const insightUPNA = level < (insightLevel * 12) + 20 || insightLevel === 4
+    const charityUPNA = level < (charityLevel * 16) + 16 || charityLevel === 4
+    const luckyUPNA = level < (luckyLevel * 16) + 8
+    const unluckyUPNA = level < (unluckyLevel * 16) + 8
+
 
     return (
         <div className={`power-ups-modal ${powerSelectHidden ? "power-select-hidden" : ""}`}>
             <div className="power-ups-title">Choose a Power</div>
             <div className="power-ups-container active-powers">
-                <div className={`user-power`}>
+                <div className={`user-power ${probeUPNA ? "upgrade-NA" : ""}`}>
                     <button 
                         className={`
                             power-button probe-button
-                            ${confirmPower === `Add Probe x${probeQty}` ? "glow" : ""}
+                            ${confirmPower === `Add Probe ${roman[probeLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addProbe()}
+                        disabled={probeUPNA}
                     >
                         <img 
                             className={`
                                 power-logo probe-logo
-                                ${confirmPower === `Add Probe x${probeQty}` ? "glow" : ""}
+                                ${confirmPower === `Add Probe ${roman[probeLevel]}` ? "glow" : ""}
                                 `} 
                             src="images/probe.png" alt="probe"
                         />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name probe-name">
-                            <div>{`Probe - x${probeQty}`}</div>
-                            <div>{`Qty: ${probeCount}`}</div>
+                            <div>{`Probe ${roman[probeLevel]} - x${probeQty}`}</div>
+                            <div>{`Qty: ${probeCount} / ${probeMin[probeLevel]}-${probeLevel > 0 ? probeMin[probeLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            Select a single suspect to reveal if they are the culprit.
-                            <div></div>                            
+                            {probeLevel === 4
+                                ? "Maxed."
+                                : probeUPNA
+                                ? `Available on Level ${(probeLevel * 12) + 4}`
+                                : "Select a single suspect to reveal if they are the culprit."
+                            }
+                            
+                            {!probeUPNA && <div>{`Regain 1 Probe per ${probeMin[probeLevel + 1]}-${probeMin[probeLevel + 1] + 1} levels`}.</div>}                            
                         </div>
                     </div>
                 </div>
-                <div className={`user-power ${sweepNA ? "not-available" : ""}`}>
+                <div className={`user-power ${sweepNA ? "not-available" : ""} ${sweepUPNA ? "upgrade-NA" : ""}`}>
                     <button className={`
                             power-button sweep-button
-                            ${confirmPower === `Add Sweep x${sweepQty}` ? "glow" : ""}
+                            ${confirmPower === `Add Sweep ${roman[sweepLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addSweep()}
-                        disabled={sweepNA}
+                        disabled={sweepNA || sweepUPNA}
                     >
                         <img 
                             className={`
                                 power-logo sweep-logo
-                                ${confirmPower === `Add Sweep x${sweepQty}` ? "glow" : ""}
+                                ${confirmPower === `Add Sweep ${roman[sweepLevel]}` ? "glow" : ""}
                                 `} 
                             src="images/broom.png" alt="sweep"
                         />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name sweep-name">
-                            <div>{`Sweep - x${sweepQty}`}</div>
-                            <div>{`Qty: ${sweepCount}`}</div>
+                            <div>{`Sweep ${sweepUPNA ? roman[sweepLevel - 1] : roman[sweepLevel]} - x${sweepQty}`}</div>
+                            <div>{`Qty: ${sweepCount} / ${sweepMin[sweepLevel]}-${sweepLevel > 0 ? sweepMin[sweepLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            {sweepNA
+                            {sweepLevel === 4
+                                ? "Maxed."
+                                : sweepNA
                                 ? "Available on Level 12."
+                                : sweepUPNA
+                                ? `Available on Level ${(sweepLevel * 12) + 12}`
                                 : `Instantly eliminate ~${sweepValue}% of the innocent suspects at random.`}
-                            <div></div>
+                            {(!sweepNA && !sweepUPNA) && <div>{`Regain 1 Sweep per ${sweepMin[sweepLevel + 1]}-${sweepMin[sweepLevel + 1] + 1} levels`}</div>}
                         </div>
                     </div>
                 </div>
-                <div className={`user-power ${insightNA ? "not-available" : ""}`}>
+                <div className={`user-power ${insightNA ? "not-available" : ""} ${insightUPNA ? "upgrade-NA" : ""}`}>
                     <button className={`
                             power-button insight-button
-                            ${confirmPower === `Add Insight x${insightQty}` ? "glow" : ""}
+                            ${confirmPower === `Add Insight ${roman[insightLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addInsight()}
-                        disabled={insightNA}
+                        disabled={insightNA || insightUPNA}
                     >
                         <img 
                             className={`
                                 power-logo insight-logo
-                                ${confirmPower === `Add Insight x${insightQty}` ? "glow" : ""}
+                                ${confirmPower === `Add Insight ${roman[insightLevel]}` ? "glow" : ""}
                                 `}  
                             src="images/insight.png" alt="insight"
                         />
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
-                            <div>{`Insight - x${insightQty}`}</div>
-                            <div>{`Qty: ${insightCount}`}</div>
+                            <div>{`Insight ${roman[insightLevel]} - x${insightQty}`}</div>
+                            <div>{`Qty: ${insightCount} / ${insightMin[insightLevel]}-${insightLevel > 0 ? insightMin[insightLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
-                            {insightNA
+                            {insightLevel === 4
+                                ? "Maxed."
+                                : insightNA
                                 ? "Available on Level 20."
+                                : insightUPNA
+                                ? `Available on Level ${(insightLevel * 12) + 20}`
                                 : "Select any number of suspects and reveal if the culprit is in that group."}
-                            <div></div>
+                            {(!insightNA && !insightUPNA) && <div>{`Regain 1 Insight per ${insightMin[insightLevel + 1]}-${insightMin[insightLevel + 1] + 1} levels`}</div>}
                         </div>
                     </div>
                 </div>
             </div>
             <div className="power-ups-container passive-powers">
-                <div className={`user-power ${charityNA && charityLevel < 4 ? "not-available" : ""}`}>
+                <div className={`user-power ${charityNA ? "not-available" : ""} ${charityUPNA ? "upgrade-NA" : ""}`}>
                     <button className={`
                             power-button charity-button
                             ${confirmPower === `Add Charity ${roman[charityLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addCharity()}
-                        disabled={charityNA}
+                        disabled={charityNA || charityUPNA}
                     >
                         <img 
                             className={`
@@ -191,22 +223,25 @@ export default function PowerUpsModal(){
                             <div>{`Current: ${charityMin[charityLevel]}-${charityLevel > 0 ? charityMin[charityLevel] + 2 : 0}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {charityNA && charityLevel < 4
+                            {charityLevel === 4
+                                ? "Maxed."
+                                : charityNA
+                                ? "Available on level 16."
+                                : charityUPNA
                                 ? `Available on Level ${(charityLevel + 1) * 16}`
-                                : charityLevel < 4 
-                                ? `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 2} questions` 
-                                : "Maxed."
+                                : `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 2} questions.` 
+                                
                             }  
                         </div>
                     </div>
                 </div>
-                <div className={`user-power ${luckyNA ? "not-available" : ""}`}>
+                <div className={`user-power ${luckyNA ? "not-available" : ""} ${luckyUPNA ? "upgrade-NA" : ""}`}>
                     <button className={`
                             power-button lucky-button
                             ${confirmPower === `Add Lucky ${roman[luckyLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addLucky()}
-                        disabled={luckyNA}
+                        disabled={luckyNA || unluckyUPNA}
                     >
                         <img 
                             className={`
@@ -223,20 +258,22 @@ export default function PowerUpsModal(){
                         </div>
                         <div className="power-select-desc">
                             {luckyNA
+                                ? "Available on Level 8."
+                                : luckyUPNA
                                 ? `Available on Level ${(luckyLevel * 16) + 8}`
                                 : `Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`
                             } 
-                            {!luckyNA && <div>{`Increases by ${(luckyLevel + 1) * luckyInc} on every ${luckyRate}th level`}</div>}
+                            {!luckyUPNA && <div>{`Increases by ${(luckyLevel + 1) * luckyInc} on every ${luckyRate}th level`}</div>}
                         </div>
                     </div>
                 </div>
-                <div className={`user-power ${unluckyNA ? "not-available" : ""}`}>
+                <div className={`user-power ${unluckyNA ? "not-available" : ""} ${unluckyUPNA ? "upgrade-NA" : ""}`}>
                     <button className={`
                             power-button unlucky-button
                             ${confirmPower === `Add Unlucky ${roman[unluckyLevel]}` ? "glow" : ""}
                             `} 
                         onClick={() => addUnlucky()}
-                        disabled={unluckyNA}
+                        disabled={unluckyNA || unluckyUPNA}
                     >
                         <img 
                             className={`
@@ -253,10 +290,12 @@ export default function PowerUpsModal(){
                         </div>
                         <div className="power-select-desc">
                             {unluckyNA
+                                ? "Available on Level 8"
+                                : unluckyUPNA
                                 ? `Available on Level ${(unluckyLevel * 16) + 8}`
                                 : `Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`
                             } 
-                            {!unluckyNA && <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} on every ${unluckyRate}th level`}</div>}
+                            {!unluckyUPNA && <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} on every ${unluckyRate}th level`}</div>}
                         </div>
                     </div>
                 </div>

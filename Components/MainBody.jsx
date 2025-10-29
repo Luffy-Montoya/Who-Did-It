@@ -7,9 +7,9 @@ import { calcPrice } from "../Functions/askPrice"
 import { LayoutContext } from "./Layout"
 import { rearrange } from "../Functions/rearrange"
 import { 
-        probeQty, sweepQty, sweepValue, insightQty, 
-        insightValue, luckyValue, luckyInc, 
-        luckyRate, unluckyValue, unluckyInc, unluckyRate 
+        probeQty, sweepQty, sweepValue, insightQty, charityMin, 
+        insightValue, luckyValue, luckyInc, luckyRate, unluckyValue, 
+        unluckyInc, unluckyRate, probeMin, sweepMin, insightMin 
     } from "../Functions/Balance"
 
 export default function MainBody() {
@@ -26,7 +26,9 @@ export default function MainBody() {
       setLowWalletBonus, setGameResetting, probeEnabled, setPhiArray, setAskQuestion,
       sweepCount, insightCount, insightEnabled, setSweepEnabled, sweepEnabled,
       setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars,
-      charityCount, setCharityCount, charityMin
+      charityCount, setCharityCount, probeLevel, sweepLevel, insightLevel,
+      setProbeTracker, setSweepTracker, setInsightTracker, probeTracker,
+      sweepTracker, insightTracker, setSweepCount, setInsightCount
     } = React.useContext( LayoutContext )
 
     // Weighted random culprit picker
@@ -94,6 +96,15 @@ export default function MainBody() {
       if (charactersLeft.length === 1 && !heroModeOn && youLose === false) {
         setGameOver(true)
         setYouWin(true)
+        if (probeLevel > 0 && !probeEnabled) {
+            setProbeTracker(prev => prev + 1)
+        }
+        if (sweepLevel > 0){
+            setSweepTracker(prev => prev + 1)
+        }
+        if (insightLevel > 0 && !insightEnabled) {
+            setInsightTracker(prev => prev + 1)
+        }
         gameStartRef.current = false
         if (wallet < (coinsWon / 2) + 10) {
           setLowWalletBonus(true)
@@ -277,6 +288,48 @@ export default function MainBody() {
     }, [charactersLeft])
 
     React.useEffect(() => {
+      if (probeLevel > 0) {
+        if (probeTracker === probeMin[probeLevel]) {
+          if (Math.random() < 1/2) {
+            setProbeCount(prev => prev + 1)
+            setProbeTracker(0)
+          }
+        } else if (probeTracker === probeMin[probeLevel] + 1) {
+            setProbeCount(prev => prev + 1)
+            setProbeTracker(0)
+        }
+      }
+    }, [probeTracker])
+
+    React.useEffect(() => {
+      if (sweepLevel > 0) {
+        if (sweepTracker === sweepMin[sweepLevel]) {
+          if (Math.random() < 1/2) {
+            setSweepCount(prev => prev + 1)
+            setSweepTracker(0)
+          }
+        } else if (sweepTracker === sweepMin[sweepLevel] + 1) {
+            setSweepCount(prev => prev + 1)
+            setSweepTracker(0)
+        }
+      }
+    }, [sweepTracker])
+
+    React.useEffect(() => {
+      if (insightLevel > 0) {
+        if (insightTracker === insightMin[insightLevel]) {
+          if (Math.random() < 1/2) {
+            setInsightCount(prev => prev + 1)
+            setInsightTracker(0)
+          }
+        } else if (insightTracker === insightMin[insightLevel] + 1) {
+            setInsightCount(prev => prev + 1)
+            setInsightTracker(0)
+        }
+      }
+    }, [insightTracker])
+
+    React.useEffect(() => {
       charityRoll()
     }, [charityCount])
 
@@ -285,16 +338,16 @@ export default function MainBody() {
         if (charityCount === charityMin[charityLevel]) {
           if (Math.random() < 1/3) {
             setCharityEnabled(true)
-            setCharityCount(0)
+            setCharityCount(1)
           } 
         } else if (charityCount === charityMin[charityLevel] + 1) {
-          if (Math.random() < 0.5) {
+          if (Math.random() < 1/2) {
             setCharityEnabled(true)
-            setCharityCount(0)
+            setCharityCount(1)
           }
         } else if (charityCount === charityMin[charityLevel] + 2) {
           setCharityEnabled(true)
-          setCharityCount(0)
+          setCharityCount(1)
         }
       }
     }
@@ -359,6 +412,15 @@ export default function MainBody() {
       if (isCorrect) {
         console.log("correct triggered")
         setHeroBonus(true);
+        if (probeLevel > 0 && !probeEnabled) {
+            setProbeTracker(prev => prev + 1)
+        }
+        if (sweepLevel > 0){
+            setSweepTracker(prev => prev + 1)
+        }
+        if (insightLevel > 0 && !insightEnabled) {
+            setInsightTracker(prev => prev + 1)
+        }
         setTimeout(() => {
           setYouWin(true);
           setGameOver(true)
