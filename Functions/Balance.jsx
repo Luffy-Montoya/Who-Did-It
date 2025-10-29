@@ -1,6 +1,6 @@
 
 
-const probeQty = 4
+const probeQty = 3
 const probeMin = [0, 4, 3, 2, 1]
 
 const sweepQty = 2
