@@ -40,6 +40,7 @@ export default function MainBody() {
         r -= c.chance;
         if (r <= 0) return c;
       }
+      console.log(importedChars.map(c => `${c.name}: ${c.chance}`));
       return chars[chars.length - 1];
     }
 
@@ -306,7 +307,7 @@ export default function MainBody() {
             setProbeEarned(true)
             setProbeTracker(0)
           }
-        } else if (probeTracker === probeMin[probeLevel] + 1) {
+        } else if (probeTracker >= probeMin[probeLevel] + 1) {
             setProbeCount(prev => prev + 1)
             setProbeEarned(true)
             setProbeTracker(0)
@@ -322,7 +323,7 @@ export default function MainBody() {
             setSweepEarned(true)
             setSweepTracker(0)
           }
-        } else if (sweepTracker === sweepMin[sweepLevel] + 1) {
+        } else if (sweepTracker >= sweepMin[sweepLevel] + 1) {
             setSweepCount(prev => prev + 1)
             setSweepEarned(true)
             setSweepTracker(0)
@@ -338,7 +339,7 @@ export default function MainBody() {
             setInsightEarned(true)
             setInsightTracker(0)
           }
-        } else if (insightTracker === insightMin[insightLevel] + 1) {
+        } else if (insightTracker >= insightMin[insightLevel] + 1) {
             setInsightCount(prev => prev + 1)
             setInsightEarned(true)
             setInsightTracker(0)
@@ -352,17 +353,28 @@ export default function MainBody() {
 
     function charityRoll() {
       if (charityLevel > 0) {
+
         if (charityCount === charityMin[charityLevel]) {
-          if (Math.random() < 1/3) {
+          if (Math.random() < 1/5) {
             setCharityEnabled(true)
             setCharityCount(1)
           } 
         } else if (charityCount === charityMin[charityLevel] + 1) {
-          if (Math.random() < 1/2) {
+          if (Math.random() < 1/4) {
             setCharityEnabled(true)
             setCharityCount(1)
           }
         } else if (charityCount === charityMin[charityLevel] + 2) {
+          if (Math.random() < 1/3) {
+            setCharityEnabled(true)
+            setCharityCount(1)
+          }
+        } else if (charityCount === charityMin[charityLevel] + 3) {
+          if (Math.random() < 1/2) {
+            setCharityEnabled(true)
+            setCharityCount(1)
+          }
+        } else if (charityCount >= charityMin[charityLevel] + 4) {
           setCharityEnabled(true)
           setCharityCount(1)
         }

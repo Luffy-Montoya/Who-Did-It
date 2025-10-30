@@ -15,7 +15,7 @@ export default function PowerUpsModal(){
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
             selectDisabled, setSelectDisabled, level, setCharityEnabled, setProbeLevel, setSweepLevel,
             setInsightLevel, setProbeTracker, setSweepTracker, setInsightTracker, probeLevel,
-            sweepLevel, insightLevel
+            sweepLevel, insightLevel, setCharityTemp
     } = React.useContext(LayoutContext)
 
     const roman = [
@@ -72,6 +72,7 @@ export default function PowerUpsModal(){
                 setTimeout(() => {
                     setCharityLevel(prev => prev + 1)
                     setCharityEnabled(true)
+                    setCharityTemp(true)
                 }, 500)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
                 setTimeout(() => {
@@ -98,7 +99,7 @@ export default function PowerUpsModal(){
 
     const probeUPNA = level < (probeLevel * 12) + 4 || probeLevel === 4
     const sweepUPNA = level < (sweepLevel * 12) + 12 || sweepLevel === 4
-    const insightUPNA = level < (insightLevel * 12) + 20 || insightLevel === 4
+    const insightUPNA = level < (insightLevel * 16) + 20 || insightLevel === 4
     const charityUPNA = level < (charityLevel * 16) + 16 || charityLevel === 4
     const luckyUPNA = level < (luckyLevel * 16) + 8
     const unluckyUPNA = level < (unluckyLevel * 16) + 8
@@ -202,7 +203,7 @@ export default function PowerUpsModal(){
                                 : insightNA
                                 ? "Available on Level 20."
                                 : insightUPNA
-                                ? `Available on Level ${(insightLevel * 12) + 20}`
+                                ? `Available on Level ${(insightLevel * 16) + 20}`
                                 : "Select any number of suspects and reveal if the culprit is in that group."}
                             {(!insightNA && !insightUPNA) && <div>{`Regain 1 Insight per ${insightMin[insightLevel + 1]}-${insightMin[insightLevel + 1] + 1} levels`}</div>}
                         </div>
@@ -229,7 +230,7 @@ export default function PowerUpsModal(){
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
                             <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[3]}`}</div>
-                            <div>{`Current: ${charityMin[charityLevel]}-${charityLevel > 0 ? charityMin[charityLevel] + 2 : 0}`}</div> 
+                            <div>{`Current: ${charityMin[charityLevel]}-${charityLevel > 0 ? charityMin[charityLevel] + 4 : 0}`}</div> 
                         </div>
                         <div className="power-select-desc">
                             {charityLevel === 4
@@ -238,7 +239,7 @@ export default function PowerUpsModal(){
                                 ? "Available on level 16."
                                 : charityUPNA
                                 ? `Available on Level ${(charityLevel + 1) * 16}`
-                                : `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 2} questions.` 
+                                : `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 4} questions.` 
                                 
                             }  
                         </div>

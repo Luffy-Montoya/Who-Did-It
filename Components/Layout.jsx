@@ -94,7 +94,8 @@ export default function Layout() {
     const [phiArray, setPhiArray] = React.useState([])
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
-    const [charityCount, setCharityCount] = React.useState(0)
+    const [charityCount, setCharityCount] = React.useState(1)
+    const [charityTemp, setCharityTemp] = React.useState(false)
     const [probeTracker, setProbeTracker] = React.useState(0)
     const [sweepTracker, setSweepTracker] = React.useState(0)
     const [insightTracker, setInsightTracker] = React.useState(0)
@@ -150,7 +151,8 @@ export default function Layout() {
             probeLevel, setProbeLevel, sweepLevel, setSweepLevel, insightLevel, setInsightLevel,
             probeTracker, setProbeTracker, sweepTracker, setSweepTracker, insightTracker, setInsightTracker,
             lastCulprit, setLastCulprit, probeEarned, setProbeEarned, sweepEarned, setSweepEarned,
-            insightEarned, setInsightEarned, luckExecuting, setLuckExecuting, sweepExecuting, setSweepExecuting     
+            insightEarned, setInsightEarned, luckExecuting, setLuckExecuting, sweepExecuting, setSweepExecuting,
+            charityTemp, setCharityTemp     
         }}>
 
             <div className="layout">
