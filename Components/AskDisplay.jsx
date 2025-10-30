@@ -20,7 +20,8 @@ export default function AskDisplay() {
         heroModeOn, probeCount, setProbeCount, setModalVisible, phiArray,
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
         setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
-        setInsightCount, level, charityEnabled, setCharityCount, charityLevel 
+        setInsightCount, level, charityEnabled, setCharityCount, charityLevel,
+        setLuckExecuting 
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -60,10 +61,15 @@ export default function AskDisplay() {
         if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
             
             setYesOrNo("No!")
-            setNoCount(prev => prev + 1)
+
+            if (!probeEnabled && !insightEnabled){
+                setNoCount(prev => prev + 1)
+            }
             if (unluckyLevel > 0  && !probeEnabled && !insightEnabled){
+                setLuckExecuting(true)
                 setTimeout(() => {
                     setWallet(prev => prev + (unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * unluckyLevel * unluckyInc))
+                    setLuckExecuting(false)
                 }, 1000)
             }
             const namesToActivate = filtered.map(character => character.name)
@@ -95,10 +101,15 @@ export default function AskDisplay() {
 
         } else {
             setYesOrNo("Yes!")
-            setYesCount(prev => prev + 1)
-            if (luckyLevel > 0 && !probeEnabled && !insightEnabled) {              
+            setLuckExecuting(true)
+            if (!probeEnabled && !insightEnabled){
+                setNoCount(prev => prev + 1)
+            }
+            if (luckyLevel > 0 && !probeEnabled && !insightEnabled) {  
+                setLuckExecuting(true)            
                 setTimeout(() => {
                     setWallet(prev => prev + (luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc)))
+                    setLuckExecuting(false)
                 }, 1000)
             }
             const namesToActivate = charactersLeft
@@ -153,7 +164,7 @@ export default function AskDisplay() {
             if (probeEnabled || insightEnabled) {
             setProbeEnabled(false)
             setInsightEnabled(false)
-        }
+            }
         },350)
     }
 

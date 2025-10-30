@@ -17,7 +17,8 @@ export default function InventoryModal(){
             selectDisabled, setSelectDisabled, inventoryHidden, setInventoryHidden, usePower, setUsePower,
             setProbeEnabled, setSweepEnabled, setInsightEnabled, setFade, setToAsk, setToCategories,
             setAskDisplay, setCategoryDisplay, setOptionsBar, setYesOrNo, setPhiArray, setCharactersLeft,
-            level, setSweepTracker, probeLevel, insightLevel, sweepLevel
+            level, setSweepTracker, probeLevel, insightLevel, sweepLevel, setAskQuestion, setAskOption,
+            setSweepExecuting
             
     } = React.useContext(LayoutContext)
 
@@ -56,10 +57,12 @@ export default function InventoryModal(){
 
     function activatePower() {
         setPhiArray([])
+        setAskQuestion([])
         if (usePower === "Use Probe" || usePower === "Use Insight"){
             setInventoryHidden(true)
             setOptionsBar("")
             setYesOrNo("")
+            setAskQuestion([])
             setTimeout(() => {
                 setAskDisplay(true)
                 setCategoryDisplay(false)
@@ -91,9 +94,25 @@ export default function InventoryModal(){
                 setProbeEnabled(false)
                 setInsightEnabled(false)
                 setSweepCount(prev => prev - 1)
+                setSweepExecuting(true)
+                setTimeout(() => {
+                    setSweepExecuting(false)
+                }, 5750)
                 setTimeout(() => {
                     setSweepEnabled(false)
                 }, 1000)
+                setFade(true)
+                setToAsk(false)
+                setTimeout(() => {
+                    setAskDisplay(false)
+                    setCategoryDisplay(true)
+                    setAskQuestion([])
+                }, 250)
+                setAskOption("")
+                setTimeout(() => {
+                    setToCategories(true)
+                }, 300)
+                setOptionsBar("")     
         }   
     }
 

@@ -5,7 +5,7 @@ export default function Select() {
 
 
 
-    const { youWin, culprit, cannotAfford, charactersLeft, heroModeOn, youLose, probeEnabled } = React.useContext(LayoutContext)
+    const { youWin, culprit, cannotAfford, charactersLeft, heroModeOn, youLose, probeEnabled, insightEnabled, sweepExecuting, charityEnabled } = React.useContext(LayoutContext)
 
     return(
         <div className="options-bar">
@@ -15,16 +15,22 @@ export default function Select() {
                     <div className="options-list select-category">
                         {
                             probeEnabled
-                                ? "Probe"
-                                : youWin 
-                                    ? `It was ${culprit.name}! You Win!` 
-                                    : heroModeOn 
-                                        ? "Hero Mode" 
-                                        : youLose 
-                                            ? "Game Over." 
-                                            : charactersLeft.length < 24 && charactersLeft.length > 1 
-                                                ? `Suspects remaining: ${charactersLeft.length}` 
-                                                : "Select a Category"
+                            ? "Probe"
+                            : insightEnabled
+                            ? "Insight"
+                            : sweepExecuting
+                            ? "Sweep"
+                            : charityEnabled
+                            ? "Charity"
+                            : youWin 
+                            ? `It was ${culprit.name}! You Win!` 
+                            : heroModeOn 
+                            ? "Hero Mode" 
+                            : youLose 
+                            ? "Game Over." 
+                            : charactersLeft.length < 24 && charactersLeft.length > 1 
+                            ? `Suspects remaining: ${charactersLeft.length}` 
+                            : "Select a Category"
                         }                               
                     </div>
                 </div>

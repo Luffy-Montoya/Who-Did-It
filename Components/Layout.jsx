@@ -35,7 +35,7 @@ export default function Layout() {
     const [optionsBar, setOptionsBar] = React.useState("")
     const [askOption, setAskOption] = React.useState("")
     const [charactersLeft, setCharactersLeft] = React.useState([])
-    const [importedChars, setImportedChars] = React.useState(getCharacters().map(c => ({ ...c, chance: 1 })))
+    const [importedChars, setImportedChars] = React.useState(charImport)
     const [row1, setRow1] = React.useState([])
     const [row2, setRow2] = React.useState([])
     const [row3, setRow3] = React.useState([])
@@ -48,7 +48,7 @@ export default function Layout() {
     const [set2, setSet2] = React.useState(false)
     const [leftVisible, setLeftVisible] = React.useState(false)
     const [rightVisible, setRightVisible] = React.useState(true)
-    const [wallet, setWallet] = React.useState(250)
+    const [wallet, setWallet] = React.useState(126)
     const [level, setLevel] = React.useState(1)
     const [culprit, setCulprit] = React.useState({})
     const [sizeChanging, setSizeChanging] = React.useState(false)
@@ -82,6 +82,7 @@ export default function Layout() {
     const [charityLevel, setCharityLevel] = React.useState(0)
     const [luckyLevel, setLuckyLevel] = React.useState(0)
     const [unluckyLevel, setUnluckyLevel] = React.useState(0)
+    const [luckExecuting, setLuckExecuting] = React.useState(false)
     const [confirmPower, setConfirmPower] = React.useState("Select Power")
     const [usePower, setUsePower] = React.useState("Select Power")
     const [selectDisabled, setSelectDisabled] = React.useState(false)
@@ -89,6 +90,7 @@ export default function Layout() {
     const [sweepEnabled, setSweepEnabled] = React.useState(false)
     const [insightEnabled, setInsightEnabled] = React.useState(false)
     const [charityEnabled, setCharityEnabled] = React.useState(false)
+    const [sweepExecuting, setSweepExecuting] = React.useState(false)
     const [phiArray, setPhiArray] = React.useState([])
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
@@ -100,6 +102,10 @@ export default function Layout() {
     const [probeEarned, setProbeEarned] = React.useState(false)
     const [sweepEarned, setSweepEarned] = React.useState(false)
     const [insightEarned, setInsightEarned] = React.useState(false)
+
+    function charImport() {
+        return getCharacters().map(c => ({ ...c, chance: Math.floor(Math.random() * 24) }))
+    }
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 1.5) / 5) * 5
     const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 2.5) / 5) * 5
@@ -144,7 +150,7 @@ export default function Layout() {
             probeLevel, setProbeLevel, sweepLevel, setSweepLevel, insightLevel, setInsightLevel,
             probeTracker, setProbeTracker, sweepTracker, setSweepTracker, insightTracker, setInsightTracker,
             lastCulprit, setLastCulprit, probeEarned, setProbeEarned, sweepEarned, setSweepEarned,
-            insightEarned, setInsightEarned     
+            insightEarned, setInsightEarned, luckExecuting, setLuckExecuting, sweepExecuting, setSweepExecuting     
         }}>
 
             <div className="layout">
