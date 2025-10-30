@@ -103,7 +103,7 @@ export default function AskDisplay() {
             setYesOrNo("Yes!")
             setLuckExecuting(true)
             if (!probeEnabled && !insightEnabled){
-                setNoCount(prev => prev + 1)
+                setYesCount(prev => prev + 1)
             }
             if (luckyLevel > 0 && !probeEnabled && !insightEnabled) {  
                 setLuckExecuting(true)            
