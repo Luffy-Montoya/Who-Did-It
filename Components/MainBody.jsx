@@ -29,7 +29,7 @@ export default function MainBody() {
       charityCount, setCharityCount, probeLevel, sweepLevel, insightLevel,
       setProbeTracker, setSweepTracker, setInsightTracker, probeTracker,
       sweepTracker, insightTracker, setSweepCount, setInsightCount,
-      setProbeEarned, setSweepEarned, setInsightEarned, luckExecuting
+      setProbeEarned, setSweepEarned, setInsightEarned, luckExecuting, charityEnabled
     } = React.useContext( LayoutContext )
 
     // Weighted random culprit picker
@@ -175,7 +175,7 @@ export default function MainBody() {
 
     React.useEffect(() => {
       setTimeout(() => {
-        if (!luckExecuting) {
+        if (!luckExecuting && !charityEnabled) {
           if (charactersLeft.length > 1 
           && cannotAffordAnyOption(allOptions, wallet, charactersLeft) 
           && !youWin
