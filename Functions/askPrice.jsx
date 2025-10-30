@@ -26,7 +26,7 @@ export const askMinResults = {
         apron: 3,
         jacket: 6,
         pants: 5,
-        skirt: 6,
+        skirt: 7,
         suit: 2,
         tie: 5
     },

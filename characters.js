@@ -233,7 +233,7 @@ const baseCharacters = [
     hair: "gray",
     skin: "light",
     gender: "female",
-    clothes: ["jacket", "pants", "suit"],
+    clothes: ["jacket", "pants", "suit", "skirt"],
     shirt: "red",
     pants: "gray",
     shoes: "black",
