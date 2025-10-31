@@ -68,7 +68,7 @@ export default function AskDisplay() {
             if (unluckyLevel > 0  && !probeEnabled && !insightEnabled){
                 setLuckExecuting(true)
                 setTimeout(() => {
-                    setWallet(prev => prev + (unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * unluckyLevel * unluckyInc))
+                    setWallet(prev => prev + (unluckyLevel * unluckyValue))
                     setLuckExecuting(false)
                 }, 1000)
             }
@@ -108,7 +108,7 @@ export default function AskDisplay() {
             if (luckyLevel > 0 && !probeEnabled && !insightEnabled) {  
                 setLuckExecuting(true)            
                 setTimeout(() => {
-                    setWallet(prev => prev + (luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc)))
+                    setWallet(prev => prev + (luckyLevel * luckyValue))
                     setLuckExecuting(false)
                 }, 1000)
             }

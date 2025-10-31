@@ -204,7 +204,7 @@ export default function PowerUpsModal(){
                                 ? "Available on Level 20."
                                 : insightUPNA
                                 ? `Available on Level ${(insightLevel * 16) + 20}`
-                                : "Select any number of suspects and reveal if the culprit is in that group."}
+                                : `Select up to ${insightValue} suspects and reveal if the culprit is in that group.`}
                             {(!insightNA && !insightUPNA) && <div>{`Regain 1 Insight per ${insightMin[insightLevel + 1]}-${insightMin[insightLevel + 1] + 1} levels`}</div>}
                         </div>
                     </div>

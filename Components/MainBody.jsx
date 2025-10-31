@@ -9,7 +9,7 @@ import { rearrange } from "../Functions/rearrange"
 import { 
         probeQty, sweepQty, sweepValue, insightQty, charityMin, 
         insightValue, luckyValue, luckyInc, luckyRate, unluckyValue, 
-        unluckyInc, unluckyRate, probeMin, sweepMin, insightMin 
+        unluckyInc, unluckyRate, probeMin, sweepMin, insightMin
     } from "../Functions/Balance"
 
 export default function MainBody() {
@@ -28,20 +28,20 @@ export default function MainBody() {
       setCharityEnabled, charityLevel, setPowerSelectHidden, importedChars, setImportedChars,
       charityCount, setCharityCount, probeLevel, sweepLevel, insightLevel,
       setProbeTracker, setSweepTracker, setInsightTracker, probeTracker,
-      sweepTracker, insightTracker, setSweepCount, setInsightCount,
+      sweepTracker, insightTracker, setSweepCount, setInsightCount, phiArray,
       setProbeEarned, setSweepEarned, setInsightEarned, luckExecuting, charityEnabled
     } = React.useContext( LayoutContext )
 
     // Weighted random culprit picker
     function pickWeightedCulprit(chars) {
-      const totalChance = chars.reduce((sum, c) => sum + c.chance, 0);
-      let r = Math.random() * totalChance;
+      const totalChance = chars.reduce((sum, c) => sum + c.chance, 0)
+      let r = Math.random() * totalChance
       for (const c of chars) {
-        r -= c.chance;
-        if (r <= 0) return c;
+        r -= c.chance
+        if (r <= 0) return c
       }
-      console.log(importedChars.map(c => `${c.name}: ${c.chance}`));
-      return chars[chars.length - 1];
+      console.log(importedChars.map(c => `${c.name}: ${c.chance}`))
+      return chars[chars.length - 1]
     }
 
     // Update all characters' chance values
@@ -49,7 +49,7 @@ export default function MainBody() {
       return chars.map(c => ({
         ...c,
         chance: c.id === chosenId ? 0 : c.chance + 1,
-      }));
+      }))
     }
 
     React.useEffect(() => {
@@ -71,33 +71,33 @@ export default function MainBody() {
           const updatedWeights = importedChars.map(c => ({ ...c }))
 
           // 2️⃣ Generate fresh names for this round
-          const freshChars = getCharacters();
+          const freshChars = getCharacters()
 
           // 3️⃣ Merge chance values
           const combined = freshChars.map(fc => {
-            const prev = updatedWeights.find(p => p.id === fc.id);
-            return { ...fc, chance: prev ? prev.chance : 1 };
-          });
+            const prev = updatedWeights.find(p => p.id === fc.id)
+            return { ...fc, chance: prev ? prev.chance : 1 }
+          })
 
           // 4️⃣ Pick culprit *from the same combined list*
-          const chosenCulprit = pickWeightedCulprit(combined);
-          setCulprit(chosenCulprit);
+          const chosenCulprit = pickWeightedCulprit(combined)
+          setCulprit(chosenCulprit)
 
           // 5️⃣ Update weights now that culprit is chosen
-          const newWeights = updateChances(combined, chosenCulprit.id);
-          setImportedChars(newWeights);
+          const newWeights = updateChances(combined, chosenCulprit.id)
+          setImportedChars(newWeights)
 
           // 6️⃣ Shuffle and display
-          const shuffledChars = shuffleCharacters(combined);
-          setShuffled(shuffledChars);
-          setRow1(shuffledChars.slice(0, 6));
-          setRow2(shuffledChars.slice(6, 12));
-          setRow3(shuffledChars.slice(12, 18));
-          setRow4(shuffledChars.slice(18));
-          setCharactersLeft(shuffledChars);
+          const shuffledChars = shuffleCharacters(combined)
+          setShuffled(shuffledChars)
+          setRow1(shuffledChars.slice(0, 6))
+          setRow2(shuffledChars.slice(6, 12))
+          setRow3(shuffledChars.slice(12, 18))
+          setRow4(shuffledChars.slice(18))
+          setCharactersLeft(shuffledChars)
 
-          loadCharacters();
-          gameStartRef.current = true;
+          loadCharacters()
+          gameStartRef.current = true
         }
       }
     }, [gameStarted])
@@ -124,23 +124,23 @@ export default function MainBody() {
 
     React.useEffect(() => {
       if (culprit && charactersLeft.length > 0) {
-        const updatedCulprit = charactersLeft.find(c => c.name === culprit.name);
+        const updatedCulprit = charactersLeft.find(c => c.name === culprit.name)
         if (updatedCulprit && updatedCulprit !== culprit) {
-          setCulprit(updatedCulprit);
+          setCulprit(updatedCulprit)
         }
       }
-    }, [charactersLeft]);
+    }, [charactersLeft])
 
     React.useEffect(() => {
       if (insightEnabled) {
-        console.log("Insight mode ON — resetting insight keys");
-        setCharactersLeft(prev => prev.map(c => ({ ...c, insight: false })));
-        setRow1(prev => prev.map(c => ({ ...c, insight: false })));
-        setRow2(prev => prev.map(c => ({ ...c, insight: false })));
-        setRow3(prev => prev.map(c => ({ ...c, insight: false })));
-        setRow4(prev => prev.map(c => ({ ...c, insight: false })));
+        console.log("Insight mode ON — resetting insight keys")
+        setCharactersLeft(prev => prev.map(c => ({ ...c, insight: false })))
+        setRow1(prev => prev.map(c => ({ ...c, insight: false })))
+        setRow2(prev => prev.map(c => ({ ...c, insight: false })))
+        setRow3(prev => prev.map(c => ({ ...c, insight: false })))
+        setRow4(prev => prev.map(c => ({ ...c, insight: false })))
       }
-    }, [insightEnabled]);
+    }, [insightEnabled])
 
     React.useEffect(() => {
       if (sweepEnabled) {
@@ -182,10 +182,10 @@ export default function MainBody() {
           && !youWin
           && probeCount === 0
           && sweepCount === 0
-          && insightCount ===0
-        ){
-          setHeroModeOn(true)
-          setCannotAfford(true)    
+          && insightCount === 0
+          ){
+            setHeroModeOn(true)
+            setCannotAfford(true)    
         }
         }
       }, 3500)
@@ -244,36 +244,36 @@ export default function MainBody() {
           fifthArranged.current = false
           sixthArranged.current = false
 
-          const chosenByWeight = pickWeightedCulprit(importedChars);
+          const chosenByWeight = pickWeightedCulprit(importedChars)
 
           // 2️⃣ Update weights for everyone
-          const updatedWeights = updateChances(importedChars, chosenByWeight.id);
-          setImportedChars(updatedWeights);
+          const updatedWeights = updateChances(importedChars, chosenByWeight.id)
+          setImportedChars(updatedWeights)
 
           // 3️⃣ Get new randomized characters (new names)
-          const freshChars = getCharacters();
+          const freshChars = getCharacters()
 
           // 4️⃣ Merge weight data into those fresh characters
           const combined = freshChars.map(fc => {
-            const prev = updatedWeights.find(p => p.id === fc.id);
-            return { ...fc, chance: prev ? prev.chance : 1 };
-          });
+            const prev = updatedWeights.find(p => p.id === fc.id)
+            return { ...fc, chance: prev ? prev.chance : 1 }
+          })
 
           // 5️⃣ Find the new version of the culprit (same id, new name)
-          const syncedCulprit = combined.find(c => c.id === chosenByWeight.id);
-          setCulprit(syncedCulprit);
+          const syncedCulprit = combined.find(c => c.id === chosenByWeight.id)
+          setCulprit(syncedCulprit)
 
           // 6️⃣ Shuffle and display
-          const shuffledChars = shuffleCharacters(combined);
-          setShuffled(shuffledChars);
-          setRow1(shuffledChars.slice(0, 6));
-          setRow2(shuffledChars.slice(6, 12));
-          setRow3(shuffledChars.slice(12, 18));
-          setRow4(shuffledChars.slice(18));
-          setCharactersLeft(shuffledChars);
-          setGameStarted(true);
-          console.log("Culprit:", syncedCulprit.name);
-          console.log("Chances:", combined.map(c => `${c.name}:${c.chance}`).join(", "));
+          const shuffledChars = shuffleCharacters(combined)
+          setShuffled(shuffledChars)
+          setRow1(shuffledChars.slice(0, 6))
+          setRow2(shuffledChars.slice(6, 12))
+          setRow3(shuffledChars.slice(12, 18))
+          setRow4(shuffledChars.slice(18))
+          setCharactersLeft(shuffledChars)
+          setGameStarted(true)
+          console.log("Culprit:", syncedCulprit.name)
+          console.log("Chances:", combined.map(c => `${c.name}:${c.chance}`).join(", "))
         }, 500)
 
         setTimeout(() => {
@@ -431,16 +431,16 @@ export default function MainBody() {
       return array
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value);
+        .map(({ value }) => value)
     }
 
     function heroGuess(charName) {
-      const isCorrect = charName === culprit.name;
+      const isCorrect = charName === culprit.name
       console.log("hero mode triggered")
 
       if (isCorrect) {
         console.log("correct triggered")
-        setHeroBonus(true);
+        setHeroBonus(true)
         if (probeLevel > 0 && !probeEnabled) {
             setProbeTracker(prev => prev + 1)
         }
@@ -451,17 +451,17 @@ export default function MainBody() {
             setInsightTracker(prev => prev + 1)
         }
         setTimeout(() => {
-          setYouWin(true);
+          setYouWin(true)
           setGameOver(true)
         }, 4700)
         setTimeout(() => {
-          setModalVisible(true);
-        }, 7000);
+          setModalVisible(true)
+        }, 7000)
       } else {
         console.log("incorrect triggered")
         setTimeout(() => {
-          setYouWin(false);
-          setYouLose(true);
+          setYouWin(false)
+          setYouLose(true)
         }, 4700)
       
       }
@@ -469,15 +469,15 @@ export default function MainBody() {
       // Build the disappearance order (exclude the culprit)
       let disappearOrder = charactersLeft
         .map(c => c.name)
-        .filter(name => name !== culprit.name);
+        .filter(name => name !== culprit.name)
 
       // If guess is wrong, make that guessed character the last to disappear
       if (!isCorrect) {
-        disappearOrder = disappearOrder.filter(name => name !== charName);
-        disappearOrder = shuffleArray(disappearOrder);
-        disappearOrder.push(charName);
+        disappearOrder = disappearOrder.filter(name => name !== charName)
+        disappearOrder = shuffleArray(disappearOrder)
+        disappearOrder.push(charName)
       } else {
-        disappearOrder = shuffleArray(disappearOrder);
+        disappearOrder = shuffleArray(disappearOrder)
       }
 
       // Animate disappearances one by one (culprit excluded)
@@ -486,88 +486,90 @@ export default function MainBody() {
           setActive(prev => ({
             ...prev,
             [name]: true, // mark as disappearing
-          }));
-        }, i * (3000 / charactersLeft.length));
-      });
+          }))
+        }, i * (3000 / charactersLeft.length))
+      })
 
       // After the animation finishes, remove everyone except the culprit
       setTimeout(() => {
-        const keepCulprit = obj => obj.name === culprit.name;
-        setRow1(prev => prev.filter(keepCulprit));
-        setRow2(prev => prev.filter(keepCulprit));
-        setRow3(prev => prev.filter(keepCulprit));
-        setRow4(prev => prev.filter(keepCulprit));
-      }, disappearOrder.length * (3000 / charactersLeft.length) + 2000);
+        const keepCulprit = obj => obj.name === culprit.name
+        setRow1(prev => prev.filter(keepCulprit))
+        setRow2(prev => prev.filter(keepCulprit))
+        setRow3(prev => prev.filter(keepCulprit))
+        setRow4(prev => prev.filter(keepCulprit))
+      }, disappearOrder.length * (3000 / charactersLeft.length) + 2000)
     }
 
     function probeInsightHero(charName) {
-      if(probeEnabled){
+      if (probeEnabled) {
         setPhiArray(charName)
         setAskQuestion([{}, "name", charName.name, 0])
-
       } else if (insightEnabled) {
-        setPhiArray(prev => {
-          if (prev.includes(charName.name)) {
-            return prev.filter(n => n !== charName.name);
-          } else {
-            return [...prev, charName.name];
-          }
-        });
+        const isAlreadySelected = phiArray.includes(charName.name)
+        const canAddMore = phiArray.length < insightValue
 
-        setCharactersLeft(prev =>
-          prev.map(c =>
-            c.name === charName.name ? { ...c, insight: !c.insight } : c
+        if (canAddMore || isAlreadySelected) {
+          // ✅ Only allow adding if below limit, or always allow removing
+          setPhiArray((prev) =>
+            isAlreadySelected
+              ? prev.filter((n) => n !== charName.name) // remove
+              : [...prev, charName.name] // add
           )
-        );
 
-        const updateInsight = (row) =>
-          row.map(c =>
-            c.name === charName.name ? { ...c, insight: !c.insight } : c
-          );
+          setCharactersLeft((prev) =>
+            prev.map((c) =>
+              c.name === charName.name ? { ...c, insight: !c.insight } : c
+            )
+          )
 
-        setRow1(prev => updateInsight(prev));
-        setRow2(prev => updateInsight(prev));
-        setRow3(prev => updateInsight(prev));
-        setRow4(prev => updateInsight(prev));
+          const updateInsight = (row) =>
+            row.map((c) =>
+              c.name === charName.name ? { ...c, insight: !c.insight } : c
+            )
 
-        setAskQuestion([{},"insight", true, 0]);
+          setRow1((prev) => updateInsight(prev))
+          setRow2((prev) => updateInsight(prev))
+          setRow3((prev) => updateInsight(prev))
+          setRow4((prev) => updateInsight(prev))
+        }
 
+        setAskQuestion([{}, "insight", true, 0])
       } else if (heroModeOn) {
-        heroGuess(charName.name);
-        console.log(charName);
+        heroGuess(charName.name)
+        console.log(charName)
       }
     }
 
     function sweep() {
       // Exclude the culprit from elimination
-      const safeCharacters = charactersLeft.filter(c => c.name !== culprit.name);
+      const safeCharacters = charactersLeft.filter(c => c.name !== culprit.name)
 
       // Calculate 45% of remaining (rounded)
-      const sweepCount = Math.floor((safeCharacters.length + 1) * (sweepValue / 100));
+      const sweepCount = Math.floor((safeCharacters.length + 1) * (sweepValue / 100))
 
       // Randomly shuffle and pick unlucky ones
-      const shuffled = safeCharacters.sort(() => Math.random() - 0.5);
-      const toRemove = shuffled.slice(0, sweepCount).map(c => c.name);
+      const shuffled = safeCharacters.sort(() => Math.random() - 0.5)
+      const toRemove = shuffled.slice(0, sweepCount).map(c => c.name)
 
       // Random stagger duration (based on heroGuess pacing)
-      const totalTime = Math.floor(charactersLeft.length / 2) * 250; // total animation window
-      const delayPerChar = totalTime / toRemove.length;
+      const totalTime = Math.floor(charactersLeft.length / 2) * 250 // total animation window
+      const delayPerChar = totalTime / toRemove.length
 
       // Animate removals one by one
       toRemove.forEach((name, i) => {
         setTimeout(() => {
-          setActive(prev => ({ ...prev, [name]: true })); // trigger "rise/fade" animation
-        }, i * 250);
-      });
+          setActive(prev => ({ ...prev, [name]: true })) // trigger "rise/fade" animation
+        }, i * 250)
+      })
 
       // Remove them after animations finish
       setTimeout(() => {
-        const keep = (obj) => !toRemove.includes(obj.name);
-        setRow1(prev => prev.filter(keep));
-        setRow2(prev => prev.filter(keep));
-        setRow3(prev => prev.filter(keep));
-        setRow4(prev => prev.filter(keep));
-      }, totalTime + 2000); // 2s buffer for fade-out to complete
+        const keep = (obj) => !toRemove.includes(obj.name)
+        setRow1(prev => prev.filter(keep))
+        setRow2(prev => prev.filter(keep))
+        setRow3(prev => prev.filter(keep))
+        setRow4(prev => prev.filter(keep))
+      }, totalTime + 2000) // 2s buffer for fade-out to complete
     }
 
     function rowMap(row) {
