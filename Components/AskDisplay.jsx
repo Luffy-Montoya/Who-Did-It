@@ -62,10 +62,10 @@ export default function AskDisplay() {
             
             setYesOrNo("No!")
 
-            if (!probeEnabled && !insightEnabled){
+            if (!insightEnabled){
                 setNoCount(prev => prev + 1)
             }
-            if (unluckyLevel > 0  && !probeEnabled && !insightEnabled){
+            if (unluckyLevel > 0  && !insightEnabled){
                 setLuckExecuting(true)
                 setTimeout(() => {
                     setWallet(prev => prev + (unluckyLevel * unluckyValue))
@@ -102,10 +102,10 @@ export default function AskDisplay() {
         } else {
             setYesOrNo("Yes!")
             setLuckExecuting(true)
-            if (!probeEnabled && !insightEnabled){
+            if (!insightEnabled){
                 setYesCount(prev => prev + 1)
             }
-            if (luckyLevel > 0 && !probeEnabled && !insightEnabled) {  
+            if (luckyLevel > 0 && !insightEnabled) {  
                 setLuckExecuting(true)            
                 setTimeout(() => {
                     setWallet(prev => prev + (luckyLevel * luckyValue))

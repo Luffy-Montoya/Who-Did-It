@@ -10,7 +10,7 @@ const sweepMin = [0, 5, 4, 3, 2]
 const charityMin = [0, 12, 10, 8, 6]
 
 const insightQty = 1
-const insightValue = 10
+const insightValue = 12
 const insightMin = [0, 6, 5, 4, 3] 
 
 const luckyValue = 6
