@@ -65,13 +65,17 @@ export default function PowerUpsModal(){
                 }, 500)          
             } else if (confirmPower === `Add Insight ${roman[insightLevel]}`) {
                 setTimeout(() => {
-                    setInsightCount(prev => prev + insightQty)
+                    if (insightLevel === 0) {
+                        setInsightCount(prev => prev + insightQty)
+                    }
                     setInsightLevel(prev => prev + 1)
                 }, 500)
             } else if (confirmPower === `Add Charity ${roman[charityLevel]}`) {
                 setTimeout(() => {
                     setCharityLevel(prev => prev + 1)
-                    setCharityEnabled(true)
+                    if (charityLevel === 0){
+                        setCharityEnabled(true)
+                    }
                     setCharityTemp(true)
                 }, 500)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
@@ -99,8 +103,8 @@ export default function PowerUpsModal(){
 
     const probeUPNA = level < (probeLevel * 12) + 4 || probeLevel === 4
     const sweepUPNA = level < (sweepLevel * 12) + 12 || sweepLevel === 4
-    const insightUPNA = level < (insightLevel * 16) + 20 || insightLevel === 4
-    const charityUPNA = level < (charityLevel * 16) + 16 || charityLevel === 4
+    const insightUPNA = level < (insightLevel * 20) + 20 || insightLevel === 4
+    const charityUPNA = level < (charityLevel * 16) + 16 || charityLevel === 3
     const luckyUPNA = level < (luckyLevel * 16) + 8
     const unluckyUPNA = level < (unluckyLevel * 16) + 8
 
@@ -194,7 +198,12 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name">
-                            <div>{`Insight ${insightLevel === 4 ? roman[insightLevel - 1] : roman[insightLevel]} - x${insightQty}`}</div>
+                            <div>
+                                {`
+                                Insight ${roman[insightLevel === 4 ? insightLevel - 1 : insightLevel]}
+                                ${insightLevel === 0 ? ` - x${insightQty}` : ''}
+                                `}
+                            </div>
                             <div>{`Qty: ${insightCount} / ${insightMin[insightLevel]}-${insightLevel > 0 ? insightMin[insightLevel] + 1 : "0"}`}</div>
                         </div>
                         <div className="power-select-desc">
@@ -203,7 +212,7 @@ export default function PowerUpsModal(){
                                 : insightNA
                                 ? "Available on Level 20."
                                 : insightUPNA
-                                ? `Available on Level ${(insightLevel * 16) + 20}`
+                                ? `Available on Level ${(insightLevel * 20) + 20}`
                                 : `Select up to ${insightValue} suspects and reveal if the culprit is in that group.`}
                             {(!insightNA && !insightUPNA) && <div>{`Regain 1 Insight per ${insightMin[insightLevel + 1]}-${insightMin[insightLevel + 1] + 1} levels`}</div>}
                         </div>
@@ -229,18 +238,19 @@ export default function PowerUpsModal(){
                     </button>
                     <div className="name-desc-container">
                         <div className="power-select-name charity-name">
-                            <div>{`Charity ${charityLevel < 4 ? roman[charityLevel] : roman[3]}`}</div>
+                            <div>{`Charity ${charityLevel < 3 ? roman[charityLevel] : roman[2]}`}</div>
                             <div>{`Current: ${charityMin[charityLevel]}-${charityLevel > 0 ? charityMin[charityLevel] + 4 : 0}`}</div> 
                         </div>
                         <div className="power-select-desc">
-                            {charityLevel === 4
+                            {charityLevel === 3
                                 ? "Maxed."
                                 : charityNA
                                 ? "Available on level 16."
                                 : charityUPNA
                                 ? `Available on Level ${(charityLevel + 1) * 16}`
-                                : `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 4} questions.` 
-                                
+                                : charityLevel === 0
+                                ? `Immediately get a free question and another every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 4} questions.` 
+                                : `Get a free question every ${charityMin[charityLevel + 1]}-${charityMin[charityLevel + 1] + 4} questions.`
                             }  
                         </div>
                     </div>
@@ -273,7 +283,7 @@ export default function PowerUpsModal(){
                                 ? `Available on Level ${(luckyLevel * 16) + 8}`
                                 : `Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`
                             } 
-                            {!luckyUPNA && <div>{`Increases by ${(luckyLevel + 1) * luckyInc} on every ${luckyRate}th level`}</div>}
+                            {!luckyUPNA && <div>{`Increases by ${luckyInc} on every ${luckyRate / (luckyLevel + 1)}th level`}</div>}
                         </div>
                     </div>
                 </div>
@@ -305,7 +315,7 @@ export default function PowerUpsModal(){
                                 ? `Available on Level ${(unluckyLevel * 16) + 8}`
                                 : `Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`
                             } 
-                            {!unluckyUPNA && <div>{`Increases by ${(unluckyLevel + 1) * unluckyInc} on every ${unluckyRate}th level`}</div>}
+                            {!unluckyUPNA && <div>{`Increases by ${unluckyInc} on every ${unluckyRate / (unluckyLevel + 1)}st level`}</div>}
                         </div>
                     </div>
                 </div>

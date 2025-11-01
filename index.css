@@ -181,7 +181,8 @@ h3 {
   justify-content: center;
   align-items: center;
   z-index: 30;
-  background: rgb(255,255,255);
+  background: rgb(55,55,55);
+  color: rgb(200,200,200) !important;
   border: 1px solid lightgray;
   color: rgb(0,0,0,.93);
   width: 27.25em;
@@ -240,7 +241,7 @@ h3 {
 }
 
 .power-select-name {
-  font-weight: bold
+  font-weight: bold;
 }
 
 .not-available {
@@ -259,14 +260,15 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(25,100,25,.7);
-  border: 1px solid rgb(50,125,50);
+  border: 1px solid rgb(25,75,25);
   display: flex;
-  transition: .3s;
+  transition: box-shadow .25s;
 }
 
 .lucky-button.glow {
-  box-shadow: 0 1px 9px rgb(50,200,50,.9);
-  transition: .3s;
+  box-shadow: 0 0px 9px rgb(50,200,50,.9);
+  border: 1px solid rgb(60,125,60); 
+  transition: box-shadow .5s;
 }
 
 .lucky-logo {
@@ -295,12 +297,13 @@ h3 {
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(50,50,100,.7);
   border: 1px solid rgb(75,75,150);
-  transition: .3s; 
+  transition: box-shadow .3s; 
 }
 
 .unlucky-button.glow {
-  box-shadow: 0 1px 9px rgb(100,100,200,.9);
-  transition: .3s;
+  box-shadow: 0 0px 9px rgb(125,125,250,1);
+  border: 1px solid rgb(100,100,200);
+  transition: box-shadow .5s;
 }
 
 .unlucky-logo {
@@ -308,11 +311,11 @@ h3 {
   height: 4.7em;
   width: 4.7em;
   border-radius: 3em;
-  opacity: 65%;
+  opacity: 55%;
 }
 
 .unlucky-logo.glow {
-  filter: drop-shadow(0 0 2px rgb(255,255,255,1));
+  filter: drop-shadow(0 0 3px rgb(255,255,255,1));
   opacity: 90%;
 }
 
@@ -322,12 +325,13 @@ h3 {
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,75,15,.7);
   border: 1px solid rgb(175,145,25);
-  transition: .3s; 
+  transition: box-shadow .3s; 
 }
 
 .charity-button.glow {
-  box-shadow: 0 1px 9px rgb(200,150,30,1);
-  transition: .3s; 
+  box-shadow: 0 0px 9px rgb(240,180,100,1);
+  border: 1px solid rgb(200, 165, 30);
+  transition: box-shadow .5s; 
 }
 
 .charity-logo {
@@ -343,19 +347,20 @@ h3 {
 }
 
 .insight-button {
-  background: linear-gradient(0deg, rgb(0, 25, 100, .6), rgb(25,50,220, .7), rgb(150,200,255, .6)), url(/images/white-button.png);
+  background: linear-gradient(0deg, rgb(0, 25, 100, .8), rgb(25,50,220, .7), rgb(150,200,255, .6)), url(/images/white-button.png);
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 0 1px 5px rgb(0,25,100,.7);
-  border: 1px solid rgb(0,50,125);
+  box-shadow: 0 1px 5px rgb(60,75,100,.7);
+  border: 1px solid rgb(60,75,100);
   display: flex;
   justify-content: center;
-  transition: .3s; 
+  transition: box-shadow .3s; 
 }
 
 .insight-button.glow {
-  box-shadow: 0 1px 9px rgb(0,50,200,1);
-  transition: .3s;
+  box-shadow: 0 0px 9px rgb(100,140,245,1);
+  border: 1px solid rgb(80,100,135);
+  transition: box-shadow .5s;
 }
 
 .insight-logo {
@@ -376,12 +381,13 @@ h3 {
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,50,0,.7);
   border: 1px solid rgb(125,75,0);
-  transition: .3s; 
+  transition: box-shadow .3s; 
 }
 
 .sweep-button.glow {
-  box-shadow: 0 1px 9px rgb(200,100,0,1);
-  transition: .3s;
+  box-shadow: 0 0px 9px rgb(240,120,80,1);
+  border: 1px solid rgb(155,95,0);
+  transition: box-shadow .5s;
 }
 
 .sweep-logo {
@@ -393,7 +399,7 @@ h3 {
 
 .sweep-logo.glow {
   filter: drop-shadow(0 0 3px rgb(150,75,0,.7));
-  opacity: 90%;
+  opacity: 95%;
 }
 
 .probe-button {
@@ -401,13 +407,14 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 1px 5px rgb(100,15,15,.7);
-  border: 1px solid rgb(100,20,20);
-  transition: .3s;
+  border: 1px solid rgb(60,20,20);
+  transition: box-shadow .3s;
 }
 
 .probe-button.glow {
-  box-shadow: 0 1px 9px rgb(200,30,30,1);
-  transition: .3s;
+  box-shadow: 0 0px 9px rgb(220,100,100,1);
+  border: 1px solid rgb(100,40,40);
+  transition: box-shadow .3s;
 }
 
 .probe-logo {
