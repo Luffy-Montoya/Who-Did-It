@@ -16,7 +16,7 @@ function toggle(){
 }
 return (
     <>
-    <button onClick={() => toggle()}>Tog</button>
+    {/* <button onClick={() => toggle()}>Tog</button> */}
     {level > 3 && <button 
         className={`
             vault-button
