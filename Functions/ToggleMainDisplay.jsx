@@ -5,17 +5,18 @@ import { charityMin } from "./Balance"
 export default function ToggleMainDisplay(){
 
 const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charityCount, charityTemp,
-        probeCount, sweepCount, insightCount, level
+        probeCount, sweepCount, insightCount, level, youWin, luckExecuting, charityEnabled, charactersLeft
     } = React.useContext(LayoutContext)
 
 function toggle(){
         setModalVisible(!modalVisible)
         console.log("Charity: ", charityCount)
         console.log("Charity Temp: ", charityTemp)
+        console.log(youWin, luckExecuting, charityEnabled, charactersLeft.length)
 }
 return (
     <>
-    {/* <button onClick={() => toggle()}>Tog</button> */}
+    <button onClick={() => toggle()}>Tog</button>
     {level > 3 && <button 
         className={`
             vault-button

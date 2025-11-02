@@ -465,7 +465,10 @@ export default function MainBody() {
         setTimeout(() => {
           setYouWin(false)
           setYouLose(true)
-        }, 4700)
+          setTimeout(() => {
+            setModalVisible(true)
+          }, 2200)
+        }, 5000)
       
       }
 

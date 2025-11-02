@@ -61,7 +61,6 @@ export default function AskDisplay() {
         if (Array.isArray(culprit[category]) ? !culprit[category].includes(key) : culprit[category] !== key){
             
             setYesOrNo("No!")
-
             if (!insightEnabled){
                 setNoCount(prev => prev + 1)
             }
@@ -101,7 +100,6 @@ export default function AskDisplay() {
 
         } else {
             setYesOrNo("Yes!")
-            setLuckExecuting(true)
             if (!insightEnabled){
                 setYesCount(prev => prev + 1)
             }

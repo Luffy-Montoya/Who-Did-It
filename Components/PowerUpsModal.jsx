@@ -335,7 +335,6 @@ export default function PowerUpsModal(){
                                 ? `Available on Level ${(luckyLevel * 16) + 8}`
                                 : `Earn ${((luckyLevel + 1) * luckyValue) + (Math.floor(level/luckyRate) * ((luckyLevel + 1) * luckyInc))} coins for every "Yes" answer.`
                             } 
-                            {!luckyUPNA && <div>{`Increases by ${luckyInc} on every ${luckyRate}th level`}</div>}
                         </div>
                     </div>
                 </div>
@@ -370,7 +369,6 @@ export default function PowerUpsModal(){
                                 ? `Available on Level ${(unluckyLevel * 16) + 8}`
                                 : `Earn ${((unluckyLevel + 1) * unluckyValue) + (Math.floor(level/unluckyRate) * ((unluckyLevel + 1) * unluckyInc))} coins for every "No" answer.`
                             } 
-                            {!unluckyUPNA && <div>{`Increases by ${unluckyInc} on every ${unluckyRate}th level`}</div>}
                         </div>
                     </div>
                 </div>

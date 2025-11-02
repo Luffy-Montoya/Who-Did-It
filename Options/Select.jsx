@@ -23,11 +23,11 @@ export default function Select() {
                             : charityEnabled
                             ? "Charity"
                             : youWin 
-                            ? `It was ${culprit.name}! You Win!` 
-                            : heroModeOn 
-                            ? "Hero Mode" 
+                            ? `It was ${culprit.name}! You Win!`
                             : youLose 
-                            ? "Game Over." 
+                            ? "Game Over."
+                            : heroModeOn 
+                            ? "Hero Mode"  
                             : charactersLeft.length < 24 && charactersLeft.length > 1 
                             ? `Suspects remaining: ${charactersLeft.length}` 
                             : "Select a Category"
