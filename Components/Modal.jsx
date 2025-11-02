@@ -6,7 +6,7 @@ export default function Modal(){
     const [levelInput, setLevelInput] = React.useState("")
 
     const { 
-        modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, 
+        modalVisible, setModalVisible, setGameStarted, setFirstGameStarted, level,
         setGameOver, setGameResetting, setLevel, culprit, firstModalGone, setFirstModalGone,
         coinsWon, lowWalletBonus, heroBonus, lowWalletAmount, heroAmount, setWallet, lastCulprit, setLastCulprit,
         probeEarned, sweepEarned, insightEarned, setProbeEarned, setInsightEarned, setSweepEarned
@@ -43,7 +43,7 @@ export default function Modal(){
         <div className={`modal ${modalVisible ? "" : "offscreen"}`}>
             <div className="modal-top-text">
                 <div>{!firstModalGone ? "Someone spilled the beans..." : `It was ${culprit.name}!`}</div>
-                <div>{`Last Culprit: ${lastCulprit}`}</div>
+                {level !== 1 && <div>{`Last Culprit: ${lastCulprit}`}</div>}
             </div>
             <div className="modal-bottom-text-container">
                 <div className="bottom-text-1">
@@ -79,7 +79,7 @@ export default function Modal(){
                 <button onClick={() => nextRound()} className="modal-button-2">Next Round</button>
                 }
             </div>
-            <form
+            {/* <form
                 onSubmit={(e) => {
                 e.preventDefault()
                 setLevel(Number(levelInput)) // use your existing setLevel()
@@ -92,7 +92,7 @@ export default function Modal(){
                 placeholder="Enter level"
                 />
                 <button type="submit">Jump to Level</button>
-            </form>
+            </form> */}
         </div>
     )
 }
