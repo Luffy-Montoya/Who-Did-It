@@ -109,7 +109,7 @@ export default function Layout() {
     }
 
     const heroAmount = Math.ceil((calcCoinsWon(level) / 1.5) / 5) * 5
-    const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 5) / 5) * 5
+    const lowWalletAmount = Math.ceil((calcCoinsWon(level) / 6) / 5) * 5
 
     const coinsWon = calcCoinsWon(level)
 
@@ -117,7 +117,7 @@ export default function Layout() {
         const base = 60                      // starting reward
         const growth = 3 + level * 0.27       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
-        const booster = coins * 1.1
+        const booster = coins * 1.05
         const rounded = Math.round(booster / 5) * 5              // multiple of 5
         return rounded
     }
