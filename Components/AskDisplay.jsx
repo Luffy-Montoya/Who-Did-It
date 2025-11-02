@@ -21,7 +21,7 @@ export default function AskDisplay() {
         setHeroBonus, probeActivated, setProbeActivated, heroModeActivated, 
         setHeroModeActivated, setInsightEnabled, luckyLevel, unluckyLevel, setCharityEnabled,
         setInsightCount, level, charityEnabled, setCharityCount, charityLevel,
-        setLuckExecuting, charityTemp, setCharityTemp 
+        setLuckExecuting
     } = React.useContext(LayoutContext)
 
     const parameters = [askQuestion[1], askQuestion[2], askQuestion[3]]
@@ -176,12 +176,7 @@ export default function AskDisplay() {
     
         if (charityEnabled) {
             setCharityEnabled(false)
-            if (charityTemp) {
-                setCharityCount(prev => Math.ceil(prev / 2))
-                setCharityTemp(false)
-            } else {
             setCharityCount(1)
-            }
         }
 
         if (probeEnabled) {

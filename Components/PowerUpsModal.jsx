@@ -15,7 +15,7 @@ export default function PowerUpsModal(){
             luckyLevel, setLuckyLevel, unluckyLevel, setUnluckyLevel, confirmPower, setConfirmPower,
             selectDisabled, setSelectDisabled, level, setCharityEnabled, setProbeLevel, setSweepLevel,
             setInsightLevel, setProbeTracker, setSweepTracker, setInsightTracker, probeLevel,
-            sweepLevel, insightLevel, setCharityTemp
+            sweepLevel, insightLevel
     } = React.useContext(LayoutContext)
 
     const roman = [
@@ -80,7 +80,6 @@ export default function PowerUpsModal(){
                     if (charityLevel === 0){
                         setCharityEnabled(true)
                     }
-                    setCharityTemp(true)
                 }, 500)
             } else if (confirmPower === `Add Lucky ${roman[luckyLevel]}`) {
                 setTimeout(() => {

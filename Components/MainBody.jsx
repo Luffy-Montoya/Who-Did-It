@@ -109,7 +109,7 @@ export default function MainBody() {
         if (probeLevel > 0 && !probeEnabled) {
             setProbeTracker(prev => prev + 1)
         }
-        if (sweepLevel > 0){
+        if (sweepLevel > 0) {
             setSweepTracker(prev => prev + 1)
         }
         if (insightLevel > 0 && !insightEnabled) {

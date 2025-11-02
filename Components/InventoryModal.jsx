@@ -123,11 +123,21 @@ export default function InventoryModal(){
             <div className="inventory-body">
                 <div className={`inv-power-container ${probeUPNA ? "upgrade-NA" : ""}`}>
                     <button 
-                        className="power-button probe-button inv-button" 
+                        className={`
+                            power-button probe-button inv-button
+                            ${usePower === "Use Probe" ? "glow" : ""}
+                            `} 
                         onClick={() => useProbe()} 
                         disabled={probeCount === 0}
                     >
-                        <img className="power-logo probe-logo" src="images/probe.png" alt="probe"/>
+                        <img 
+                            className={`
+                                power-logo probe-logo
+                                ${usePower === "Use Probe" ? "glow" : ""}
+                                `} 
+                            src="images/probe.png" 
+                            alt="probe"
+                        />
                     </button>
                     <div className="inv-power-name">
                         {probeLevel === 4 ? "Probe IV" : `Probe ${roman[probeLevel - 1]}`}
@@ -136,11 +146,21 @@ export default function InventoryModal(){
                 </div>
                 <div className={`inv-power-container ${sweepNA ? "not-available" : sweepUPNA ? "upgrade-NA" : ""}`}>    
                     <button 
-                        className="power-button sweep-button inv-button" 
+                        className={`
+                            power-button sweep-button inv-button
+                            ${usePower === "Use Sweep" ? "glow" : ""}
+                            `} 
                         onClick={() => useSweep()} 
                         disabled={sweepCount === 0}
                     >
-                        <img className="power-logo sweep-logo" src="images/broom.png" alt="sweep"/>
+                        <img 
+                            className={`
+                                power-logo sweep-logo
+                                ${usePower === "Use Sweep" ? "glow" : ""}
+                                `} 
+                            src="images/broom.png" 
+                            alt="sweep"
+                        />
                     </button>
                     <div className="inv-power-name">
                         {sweepLevel === 4 ? "Sweep IV" : sweepLevel === 0 ? "Sweep" : `Sweep ${roman[sweepLevel - 1]}`}
@@ -149,11 +169,21 @@ export default function InventoryModal(){
                 </div>
                 <div className={`inv-power-container ${insightNA ? "not-available" : insightUPNA ? "upgrade-NA" : ""}`}>    
                     <button 
-                        className="power-button insight-button inv-button" 
+                        className={`
+                            power-button insight-button inv-button
+                            ${usePower === "Use Insight" ? "glow" : ""}
+                            `} 
                         onClick={() => useInsight()} 
                         disabled={insightCount === 0}
                     >
-                        <img className="power-logo insight-logo" src="images/insight.png" alt="insight"/>
+                        <img 
+                            className={`
+                                power-logo insight-logo
+                                ${usePower === "Use Insight" ? "glow" : ""}
+                                `} 
+                            src="images/insight.png" 
+                            alt="insight"
+                        />
                     </button>
                     <div className="inv-power-name">
                         {insightLevel === 4 ? "Insight IV" : insightLevel === 0 ? "Insight" : `Insight ${roman[insightLevel - 1]}`}

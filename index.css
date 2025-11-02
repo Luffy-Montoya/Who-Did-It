@@ -22,6 +22,38 @@ h3 {
   padding-top:1em;
   }
 
+.vault-button {
+  color: black
+}
+
+.have-probe {
+  background: rgb(200,50,50, .5);
+}
+
+.have-sweep {
+  background: rgb(240,210,50, .5)
+}
+
+.have-insight {
+  background: rgb(50, 100, 200, .5)
+}
+
+.have-probe-sweep {
+  background: rgb(240, 130, 50, .5)
+}
+
+.have-probe-insight {
+  background: rgb(160,50,200, .5)
+}
+
+.have-sweep-insight {
+  background: rgb(50, 200, 140, .5)
+}
+
+.have-all-three {
+  background: rgb(240,240,255)
+}
+
 .modal {
   position: fixed;
   display: flex;
@@ -118,9 +150,9 @@ h3 {
   justify-content: center;
   align-items: center;
   z-index: 30;
-  background: rgb(240,240,240);
+  background: rgb(55,55,55);
+  color: rgb(200,200,200) !important;
   border: 1px solid lightgray;
-  color: rgb(0,0,0,.93);
   width: 25.25em;
   height: 33em;
   padding: 0 0.5em;

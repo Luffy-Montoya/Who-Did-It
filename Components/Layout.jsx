@@ -95,7 +95,6 @@ export default function Layout() {
     const [probeActivated, setProbeActivated] = React.useState(false)
     const [heroModeActivated, setHeroModeActivated] = React.useState(false)
     const [charityCount, setCharityCount] = React.useState(1)
-    const [charityTemp, setCharityTemp] = React.useState(false)
     const [probeTracker, setProbeTracker] = React.useState(0)
     const [sweepTracker, setSweepTracker] = React.useState(0)
     const [insightTracker, setInsightTracker] = React.useState(0)
@@ -117,7 +116,7 @@ export default function Layout() {
         const base = 60                      // starting reward
         const growth = 3 + level * 0.27       // scales with level
         const coins = base + growth * Math.log(level + 1) * 3  // mild curve
-        const booster = coins * 1.1
+        const booster = coins * 1.125
         const rounded = Math.round(booster / 5) * 5              // multiple of 5
         return rounded
     }
@@ -152,8 +151,7 @@ export default function Layout() {
             probeLevel, setProbeLevel, sweepLevel, setSweepLevel, insightLevel, setInsightLevel,
             probeTracker, setProbeTracker, sweepTracker, setSweepTracker, insightTracker, setInsightTracker,
             lastCulprit, setLastCulprit, probeEarned, setProbeEarned, sweepEarned, setSweepEarned,
-            insightEarned, setInsightEarned, luckExecuting, setLuckExecuting, sweepExecuting, setSweepExecuting,
-            charityTemp, setCharityTemp     
+            insightEarned, setInsightEarned, luckExecuting, setLuckExecuting, sweepExecuting, setSweepExecuting     
         }}>
 
             <div className="layout">
