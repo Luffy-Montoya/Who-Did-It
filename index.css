@@ -23,7 +23,14 @@ h3 {
   }
 
 .vault-button {
-  color: black
+  color: black;
+  border-radius: .25em;
+  border: 1px solid black;
+  height: 2em;
+  width: 4em;
+  display: flex;
+  justify-content: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .have-probe {
@@ -368,14 +375,14 @@ h3 {
 
 .charity-logo {
   padding-bottom:1.2em;
-  opacity: 70%;
+  opacity: 60%;
   height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.2)); 
 }
 
 .charity-logo.glow {
   filter: drop-shadow(0 0 5px rgb(255,235,200,1));
-  opacity: 90%; 
+  opacity: 85%; 
 }
 
 .insight-button {
@@ -417,21 +424,21 @@ h3 {
 }
 
 .sweep-button.glow {
-  box-shadow: 0 0px 9px rgb(240,120,80,1);
+  box-shadow: 0 0px 9px rgb(255,180,120,.9);
   border: 1px solid rgb(155,95,0);
   transition: box-shadow .5s;
 }
 
 .sweep-logo {
   padding-bottom:1.2em;
-  opacity: 70%;
+  opacity: 65%;
   height: 3.4em;
   filter: drop-shadow(0 0 1px rgb(0,0,0,.5));
 }
 
 .sweep-logo.glow {
   filter: drop-shadow(0 0 3px rgb(150,75,0,.7));
-  opacity: 95%;
+  opacity: 100%;
 }
 
 .probe-button {
@@ -1024,8 +1031,8 @@ h3 {
 h1 {
   text-align: center;
   display: flex;
-  font-size: 1rem;
-  width: 5em;
+  font-size: 1.25rem;
+  width: 6em;
   margin: 0;
 }
 

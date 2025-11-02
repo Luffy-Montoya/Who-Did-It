@@ -332,7 +332,7 @@ const baseCharacters = [
     insight: false
   },
   {
-    names: ["Kat", "Gareth", "Jesse"],
+    names: ["Kat", "Gareth", "Jesse", "Peter"],
     image: images64.Terry,
     head: "hat",
     hair: "brown",

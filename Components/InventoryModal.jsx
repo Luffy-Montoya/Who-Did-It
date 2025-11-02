@@ -202,14 +202,14 @@ export default function InventoryModal(){
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
                     </button>
                     <div className="inv-power-name">{luckyLevel > 0 ? `Lucky ${roman[luckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{`${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`} / {(luckyLevel) * luckyInc}</div>
+                    <div className="inv-qty">{`${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`}</div>
                 </div>
                 <div className={`inv-power-container ${unluckyNA ? "not-available" : unluckyUPNA ? "upgrade-NA" : ""}`}>    
                     <button className="power-button unlucky-button inv-button">
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
                     <div className="inv-power-name">{unluckyLevel > 0 ? `Unlucky ${roman[unluckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{`${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))} / ${(unluckyLevel) * unluckyInc}`}</div>
+                    <div className="inv-qty">{`${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))}`}</div>
                 </div>
             </div>
             <div className="inv-button-container">

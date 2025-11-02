@@ -5,7 +5,7 @@ import { charityMin } from "./Balance"
 export default function ToggleMainDisplay(){
 
 const { modalVisible, setModalVisible, setInventoryHidden, setPowerSelectHidden, charityCount, charityTemp,
-        probeCount, sweepCount, insightCount
+        probeCount, sweepCount, insightCount, level
     } = React.useContext(LayoutContext)
 
 function toggle(){
@@ -15,8 +15,8 @@ function toggle(){
 }
 return (
     <>
-    <button onClick={() => toggle()}>Tog</button>
-    <button 
+    {/* <button onClick={() => toggle()}>Tog</button> */}
+    {level > 3 && <button 
         className={`
             vault-button
             ${probeCount > 0 && sweepCount === 0 && insightCount === 0 ? "have-probe" : ""}
@@ -28,9 +28,9 @@ return (
             ${probeCount > 0 && sweepCount > 0 && insightCount > 0 ? "have-all-three" : ""}
             `}
         onClick={() => setInventoryHidden(prev => !prev)}>
-            Inv
-    </button>
-    <button onClick={() => setPowerSelectHidden(prev => !prev)}>Sel</button>
+            Vault
+    </button>}
+    {/* <button onClick={() => setPowerSelectHidden(prev => !prev)}>Sel</button> */}
     </>
 )
 }

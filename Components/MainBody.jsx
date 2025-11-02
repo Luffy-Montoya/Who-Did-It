@@ -175,22 +175,25 @@ export default function MainBody() {
     }
 
     React.useEffect(() => {
-      setTimeout(() => {
-        if (!luckExecuting && !charityEnabled) {
-          if (charactersLeft.length > 1 
-          && cannotAffordAnyOption(allOptions, wallet, charactersLeft) 
-          && !youWin
-          && probeCount === 0
-          && sweepCount === 0
-          && insightCount === 0
-          ){
-            setHeroModeOn(true)
-            setCannotAfford(true)    
+      const timer = setTimeout(() => {
+        const eligible =
+          charactersLeft.length > 1 &&
+          cannotAffordAnyOption(allOptions, wallet, charactersLeft) &&
+          !youWin &&
+          probeCount === 0 &&
+          sweepCount === 0 &&
+          insightCount === 0 &&
+          !luckExecuting &&
+          !charityEnabled
+
+        if (eligible) {
+          setHeroModeOn(true)
+          setCannotAfford(true)
         }
-        }
-      }, 3500)
-      
-    }, [wallet, charactersLeft, probeCount, sweepCount, insightCount])
+      }, 1500)
+
+      return () => clearTimeout(timer) // ensures clean timing
+    }, [wallet, charactersLeft, probeCount, sweepCount, insightCount, luckExecuting, charityEnabled])
 
     const firstArranged = React.useRef(false)
     const secondArranged = React.useRef(false)

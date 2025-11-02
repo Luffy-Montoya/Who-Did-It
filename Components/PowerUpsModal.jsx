@@ -27,27 +27,52 @@ export default function PowerUpsModal(){
     ]
 
     function addProbe() {
-        setConfirmPower(`Add Probe ${roman[probeLevel]}`)
+        if (confirmPower != `Add Probe ${roman[probeLevel]}`) {
+            setConfirmPower(`Add Probe ${roman[probeLevel]}`)
+        } else {
+            setConfirmPower("Select Power")
+        }
+        
     }
 
      function addSweep() {
-        setConfirmPower(`Add Sweep ${roman[sweepLevel]}`)
+        if (confirmPower != `Add Sweep ${roman[sweepLevel]}`) {
+            setConfirmPower(`Add Sweep ${roman[sweepLevel]}`)
+        } else {
+            setConfirmPower("Select Power")
+        }
     }
 
      function addInsight() {
-        setConfirmPower(`Add Insight ${roman[insightLevel]}`)
+        if (confirmPower != `Add Insight ${roman[insightLevel]}`) {
+            setConfirmPower(`Add Insight ${roman[insightLevel]}`)
+        } else {
+            setConfirmPower("Select Power")
+        }
     }
 
      function addCharity() {
-        setConfirmPower(`Add Charity ${roman[charityLevel]}`)
+        if (confirmPower != `Add Charity ${roman[charityLevel]}`) {
+            setConfirmPower(`Add Charity ${roman[charityLevel]}`)
+        } else {
+            setConfirmPower("Select Power")
+        }
     }
 
      function addLucky() {
-        setConfirmPower(`Add Lucky ${roman[luckyLevel]}`)
+        if (confirmPower != `Add Lucky ${roman[luckyLevel]}`) {
+            setConfirmPower(`Add Lucky ${roman[luckyLevel]}`)
+        } else {
+            setConfirmPower("Select Power")
+        }
     }
 
      function addUnlucky() {
-        setConfirmPower(`Add Unlucky ${roman[unluckyLevel]}`)
+        if (confirmPower != `Add Unlucky ${roman[unluckyLevel]}`) {
+            setConfirmPower(`Add Unlucky ${roman[unluckyLevel]}`)
+        } else {
+            setConfirmPower("Select Power")
+        }
     }
 
     function addPower() {
