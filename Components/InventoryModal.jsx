@@ -165,21 +165,21 @@ export default function InventoryModal(){
                         <img className="power-logo charity-logo" src="images/gift.png" alt="charity"/>
                     </button>
                     <div className="inv-power-name">{charityLevel > 0 ? `Charity ${roman[charityLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{charityLevel > 0 ? `%` : ""}</div>
+                    <div className="inv-qty">{`${charityMin[charityLevel]}-${charityLevel > 0 ? charityMin[charityLevel] + 4 : 0}`}</div>
                 </div>
                 <div className={`inv-power-container ${luckyNA ? "not-available" : luckyUPNA ? "upgrade-NA" : ""}`}>    
                     <button className="power-button lucky-button inv-button">
                         <img className="power-logo lucky-logo" src="images/clover.png" alt="lucky"/>
                     </button>
                     <div className="inv-power-name">{luckyLevel > 0 ? `Lucky ${roman[luckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{luckyLevel > 0 ? `${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))} c` : ""}</div>
+                    <div className="inv-qty">{`${(luckyLevel * luckyValue) + (Math.floor(level/luckyRate) * (luckyLevel * luckyInc))}`} / {(luckyLevel) * luckyInc}</div>
                 </div>
                 <div className={`inv-power-container ${unluckyNA ? "not-available" : unluckyUPNA ? "upgrade-NA" : ""}`}>    
                     <button className="power-button unlucky-button inv-button">
                         <img className="power-logo unlucky-logo" src="images/mirror.png" alt="unlucky"/>
                     </button>
                     <div className="inv-power-name">{unluckyLevel > 0 ? `Unlucky ${roman[unluckyLevel - 1]}` : ""}</div>
-                    <div className="inv-qty">{unluckyLevel > 0 ? `${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))} c` : ""}</div>
+                    <div className="inv-qty">{`${(unluckyLevel * unluckyValue) + (Math.floor(level/unluckyRate) * (unluckyLevel * unluckyInc))} / ${(unluckyLevel) * unluckyInc}`}</div>
                 </div>
             </div>
             <div className="inv-button-container">
