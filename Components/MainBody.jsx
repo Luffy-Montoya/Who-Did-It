@@ -116,7 +116,7 @@ export default function MainBody() {
             setInsightTracker(prev => prev + 1)
         }
         gameStartRef.current = false
-        if (wallet < (coinsWon / 2) + 10) {
+        if (wallet < (coinsWon / 4) + 10) {
           setLowWalletBonus(true)
         }
       }
