@@ -48,7 +48,7 @@ const pants = {
     black: <>"Are they wearing {option("Black Pants")}?"</>,
     brown: <>"Are they wearing {option("Brown Pants")}?"</>,
     green: <>"Are they wearing {option("Green Pants")}?"</>,
-    magenta: <>"Are they wearing {option("Pink Pants")}?"</>
+    pink: <>"Are they wearing {option("Pink Pants")}?"</>
 }
 
 const shoes = {
@@ -74,7 +74,7 @@ const acc = {
     mask: <>"Do they have a {option("Mask")}?"</>,
     basketball: <>"Do they have a {option("Basketball")}?"</>,
     computer: <>"Are they carrying a {option("Computer")}?"</>,
-    pad: <>"Do they have a {option("Notepad")}?"</>,
+    notepad: <>"Do they have a {option("Notepad")}?"</>,
     watch: <>"Are they wearing a {option("Watch")}?"</>,
     science: <>"Do they have a bunch of {option("Science Stuff")}?"</>
 }

@@ -66,7 +66,10 @@ export default function Hair() {
                     <div className="options-list">
                         <div className="ghost-div"></div> 
                         <button 
-                            className={askOption === "black" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "black" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.hair.black, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([hair.black, "hair", "black", calcPrice(askMinResults.hair.black, level, charityEnabled)])}
                             disabled={allOrNoneHave("hair", "black", charactersLeft)}
                         >
@@ -74,7 +77,10 @@ export default function Hair() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.hair.black, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "blonde" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "blonde" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.hair.blonde, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([hair.blonde, "hair", "blonde", calcPrice(askMinResults.hair.blonde, level, charityEnabled)])}
                             disabled={allOrNoneHave("hair", "blonde", charactersLeft)}
                         >
@@ -82,7 +88,10 @@ export default function Hair() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.hair.blonde, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "brown" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "brown" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.hair.brown, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([hair.brown, "hair", "brown", calcPrice(askMinResults.hair.brown, level, charityEnabled)])}
                             disabled={allOrNoneHave("hair", "brown", charactersLeft)}
                         >
@@ -90,7 +99,10 @@ export default function Hair() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.hair.brown, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "gray" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "gray" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.hair.gray, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([hair.gray, "hair", "gray", calcPrice(askMinResults.hair.gray, level, charityEnabled)])}
                             disabled={allOrNoneHave("hair", "gray", charactersLeft)}
                         >
@@ -98,7 +110,10 @@ export default function Hair() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.hair.gray, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "orange" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "orange" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.hair.orange, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([hair.orange, "hair", "orange", calcPrice(askMinResults.hair.orange, level, charityEnabled)])}
                             disabled={allOrNoneHave("hair", "orange", charactersLeft)}
                         >

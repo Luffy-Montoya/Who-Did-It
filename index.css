@@ -834,6 +834,10 @@ h3 {
   cursor: default;
 }
 
+button.cant-afford {
+  opacity: 35%
+}
+
 .price {
   display: flex;
   gap: 0.2em;

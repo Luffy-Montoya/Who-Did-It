@@ -67,7 +67,10 @@ export default function Accessories() {
                     <div className="options-list">
                         <div className="ghost-div"></div>  
                         <button 
-                            className={askOption === "none" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "none" ? "category-selected" : ""} 
+                                ${wallet < calcPrice(askMinResults.acc.none, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([acc.none, "accessories", "none", calcPrice(askMinResults.acc.none, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "none", charactersLeft)}
                         >
@@ -75,7 +78,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.none, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "animals" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "animals" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.animals, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.animals, "accessories", "animals", calcPrice(askMinResults.acc.animals, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "animals", charactersLeft)}
                         >
@@ -83,7 +89,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.animals, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "badge" ? "category-selected" : ""} 
+                            className={` 
+                                ${askOption === "badge" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.badge, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.badge, "accessories", "badge", calcPrice(askMinResults.acc.badge, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "badge", charactersLeft)}
                         >
@@ -91,7 +100,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.badge, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "basketball" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "basketball" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.basketball, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.basketball, "accessories", "basketball", calcPrice(askMinResults.acc.basketball, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "basketball", charactersLeft)}
                         >
@@ -99,7 +111,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.basketball, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "books" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "books" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.books, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.books, "accessories", "books", calcPrice(askMinResults.acc.books, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "books", charactersLeft)}
                             >
@@ -107,7 +122,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.books, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "broom" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "broom" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.broom, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.broom, "accessories", "broom", calcPrice(askMinResults.acc.broom, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "broom", charactersLeft)}
                         >
@@ -115,7 +133,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.broom, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "clipboard" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "clipboard" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.clipboard, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.clipboard, "accessories", "clipboard", calcPrice(askMinResults.acc.clipboard, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "clipboard", charactersLeft)}
                         >
@@ -123,7 +144,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.clipboard, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "computer" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "computer" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.computer, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.computer, "accessories", "computer", calcPrice(askMinResults.acc.computer, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "computer", charactersLeft)}
                         >
@@ -131,7 +155,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.computer, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "mask" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "mask" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.mask, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.mask, "accessories", "mask", calcPrice(askMinResults.acc.mask, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "mask", charactersLeft)}
                         >
@@ -139,7 +166,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.mask, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "math" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "math" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.math, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.math, "accessories", "math", calcPrice(askMinResults.acc.math, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "math", charactersLeft)}
                         >
@@ -147,15 +177,21 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.math, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "notepad" ? "category-selected" : ""} 
-                            onClick={() => setQuestion([acc.pad, "accessories", "notepad", calcPrice(askMinResults.acc.notepad, level, charityEnabled)])}
+                            className={`
+                                ${askOption === "notepad" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.notepad, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
+                            onClick={() => setQuestion([acc.notepad, "accessories", "notepad", calcPrice(askMinResults.acc.notepad, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "notepad", charactersLeft)}
                         >
                             <div>Notepad</div>
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.notepad, level))}</div>
                         </button>  
                         <button 
-                            className={askOption === "purse" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "purse" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.purse, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.purse, "accessories", "purse", calcPrice(askMinResults.acc.purse, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "purse", charactersLeft)}
                         >
@@ -163,7 +199,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.purse, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "science" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "science" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.science, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.science, "accessories", "science", calcPrice(askMinResults.acc.science, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "science", charactersLeft)}
                         >
@@ -171,7 +210,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.science, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "watch" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "watch" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.watch, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.watch, "accessories", "watch", calcPrice(askMinResults.acc.watch, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "watch", charactersLeft)}
                         >
@@ -179,7 +221,10 @@ export default function Accessories() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.acc.watch, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "whistle" ? "category-selected" : ""} 
+                            className={`
+                                ${askOption === "whistle" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.acc.whistle, level, charityEnabled) ? "cant-afford" : ""}
+                                `} 
                             onClick={() => setQuestion([acc.whistle, "accessories", "whistle", calcPrice(askMinResults.acc.whistle, level, charityEnabled)])}
                             disabled={allOrNoneHave("accessories", "whistle", charactersLeft)}
                         >

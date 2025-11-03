@@ -66,7 +66,10 @@ export default function Head() {
                     <div className="options-list">
                         <div className="ghost-div"></div>  
                         <button 
-                            className={askOption === "none" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "none" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.head.none, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([head.none, "head", "none", calcPrice(askMinResults.head.none, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "none", charactersLeft)}
                         >
@@ -74,7 +77,10 @@ export default function Head() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.none, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "bow" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "bow" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.head.bow, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([head.bowBand, "head", "bow", calcPrice(askMinResults.head.bow, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "bow", charactersLeft)}
                         >
@@ -82,7 +88,10 @@ export default function Head() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.bow, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "glasses" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "glasses" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.head.glasses, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([head.glasses, "head", "glasses", calcPrice(askMinResults.head.glasses, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "glasses", charactersLeft)}
                         >
@@ -90,7 +99,10 @@ export default function Head() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.head.glasses, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "hat" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "hat" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.head.hat, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([head.hat, "head", "hat", calcPrice(askMinResults.head.hat, level, charityEnabled)])}
                             disabled={allOrNoneHave("head", "hat", charactersLeft)}
                         >

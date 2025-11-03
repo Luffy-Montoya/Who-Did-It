@@ -66,7 +66,10 @@ export default function Pants() {
                     <div className="options-list">
                         <div className="ghost-div"></div>  
                         <button 
-                            className={askOption === "none" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "none" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.none, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([pants.none, "pants", "none", calcPrice(askMinResults.pants.none, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "none", charactersLeft)}
                         >
@@ -74,7 +77,10 @@ export default function Pants() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.none, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "black" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "black" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.black, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([pants.black, "pants", "black", calcPrice(askMinResults.pants.black, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "black", charactersLeft)}
                         >
@@ -82,7 +88,10 @@ export default function Pants() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.black, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "blue" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "blue" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.blue, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([pants.blue, "pants", "blue", calcPrice(askMinResults.pants.blue, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "blue", charactersLeft)}
                         >
@@ -90,7 +99,10 @@ export default function Pants() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.blue, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "brown" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "brown" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.brown, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([pants.brown, "pants", "brown", calcPrice(askMinResults.pants.brown, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "brown", charactersLeft)}
                         >
@@ -98,7 +110,10 @@ export default function Pants() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.brown, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "gray" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "gray" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.gray, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([pants.gray, "pants", "gray", calcPrice(askMinResults.pants.gray, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "gray", charactersLeft)}
                         >
@@ -106,7 +121,10 @@ export default function Pants() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.gray, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "green" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "green" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.green, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([pants.green, "pants", "green", calcPrice(askMinResults.pants.green, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "green", charactersLeft)}
                         >
@@ -114,12 +132,15 @@ export default function Pants() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.green, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "magenta" ? "category-selected" : ""}
-                            onClick={() => setQuestion([pants.magenta, "pants", "magenta", calcPrice(askMinResults.pants.magenta, level, charityEnabled)])}
+                            className={`
+                                ${askOption === "magenta" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.pants.pink, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
+                            onClick={() => setQuestion([pants.pink, "pants", "magenta", calcPrice(askMinResults.pants.pink, level, charityEnabled)])}
                             disabled={allOrNoneHave("pants", "magenta", charactersLeft)}
                         >
                             <div>Pink</div>
-                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.magenta, level))}</div>
+                            <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.pants.pink, level))}</div>
                         </button>
                         <div className="ghost-div"></div>                                    
                     </div>

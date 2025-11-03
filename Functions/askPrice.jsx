@@ -47,7 +47,7 @@ export const askMinResults = {
         brown: 2,
         gray: 6,
         green: 1,
-        magenta: 1
+        pink: 1
     },
 
     shoes: {

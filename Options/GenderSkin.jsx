@@ -66,7 +66,10 @@ export default function GenderSkin() {
                     <div className="options-list">
                         <div className="ghost-div"></div>  
                         <button 
-                            className={askOption === "male" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "male" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.genderSkin.male, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([genderSkin.man, "gender", "male", calcPrice(askMinResults.genderSkin.male, level, charityEnabled)])}
                             disabled={allOrNoneHave("gender", "male", charactersLeft)}
                         >
@@ -74,7 +77,10 @@ export default function GenderSkin() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.genderSkin.male, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "female" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "female" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.genderSkin.female, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([genderSkin.woman, "gender", "female", calcPrice(askMinResults.genderSkin.female, level, charityEnabled)])}
                             disabled={allOrNoneHave("gender", "female", charactersLeft)}
                         >
@@ -82,7 +88,10 @@ export default function GenderSkin() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.genderSkin.female, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "light" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "light" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.genderSkin.light, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([genderSkin.light, "skin", "light", calcPrice(askMinResults.genderSkin.light, level, charityEnabled)])}
                             disabled={allOrNoneHave("skin", "light", charactersLeft)}
                         >
@@ -90,7 +99,10 @@ export default function GenderSkin() {
                             <div className="price">{charityEnabled ? <span className="free">Free</span> : cost(calcPrice(askMinResults.genderSkin.light, level))}</div>
                         </button>
                         <button 
-                            className={askOption === "dark" ? "category-selected" : ""}
+                            className={`
+                                ${askOption === "dark" ? "category-selected" : ""}
+                                ${wallet < calcPrice(askMinResults.genderSkin.dark, level, charityEnabled) ? "cant-afford" : ""}
+                                `}
                             onClick={() => setQuestion([genderSkin.dark, "skin", "dark", calcPrice(askMinResults.genderSkin.dark, level, charityEnabled)])}
                             disabled={allOrNoneHave("skin", "dark", charactersLeft)}
                         >
